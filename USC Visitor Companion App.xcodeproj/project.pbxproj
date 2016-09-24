@@ -1,545 +1,1465 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		AAD38B851D971648004DD648 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD38B841D971648004DD648 /* AppDelegate.swift */; };
-		AAD38B871D971648004DD648 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD38B861D971648004DD648 /* ViewController.swift */; };
-		AAD38B8A1D971648004DD648 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAD38B881D971648004DD648 /* Main.storyboard */; };
-		AAD38B8D1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AAD38B8B1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld */; };
-		AAD38B8F1D971648004DD648 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAD38B8E1D971648004DD648 /* Assets.xcassets */; };
-		AAD38B921D971648004DD648 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAD38B901D971648004DD648 /* LaunchScreen.storyboard */; };
-		AAD38B9D1D971648004DD648 /* USC_Visitor_Companion_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD38B9C1D971648004DD648 /* USC_Visitor_Companion_AppTests.swift */; };
-		AAD38BA81D971648004DD648 /* USC_Visitor_Companion_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD38BA71D971648004DD648 /* USC_Visitor_Companion_AppUITests.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		AAD38B991D971648004DD648 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AAD38B791D971648004DD648 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AAD38B801D971648004DD648;
-			remoteInfo = "USC Visitor Companion App";
-		};
-		AAD38BA41D971648004DD648 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AAD38B791D971648004DD648 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AAD38B801D971648004DD648;
-			remoteInfo = "USC Visitor Companion App";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		AAD38B811D971648004DD648 /* USC Visitor Companion App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USC Visitor Companion App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAD38B841D971648004DD648 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AAD38B861D971648004DD648 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AAD38B891D971648004DD648 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AAD38B8C1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = USC_Visitor_Companion_App.xcdatamodel; sourceTree = "<group>"; };
-		AAD38B8E1D971648004DD648 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AAD38B911D971648004DD648 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AAD38B931D971648004DD648 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAD38B981D971648004DD648 /* USC Visitor Companion AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "USC Visitor Companion AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAD38B9C1D971648004DD648 /* USC_Visitor_Companion_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USC_Visitor_Companion_AppTests.swift; sourceTree = "<group>"; };
-		AAD38B9E1D971648004DD648 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAD38BA31D971648004DD648 /* USC Visitor Companion AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "USC Visitor Companion AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAD38BA71D971648004DD648 /* USC_Visitor_Companion_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USC_Visitor_Companion_AppUITests.swift; sourceTree = "<group>"; };
-		AAD38BA91D971648004DD648 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		AAD38B7E1D971648004DD648 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AAD38B951D971648004DD648 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AAD38BA01D971648004DD648 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		AAD38B781D971648004DD648 = {
-			isa = PBXGroup;
-			children = (
-				AAD38B831D971648004DD648 /* USC Visitor Companion App */,
-				AAD38B9B1D971648004DD648 /* USC Visitor Companion AppTests */,
-				AAD38BA61D971648004DD648 /* USC Visitor Companion AppUITests */,
-				AAD38B821D971648004DD648 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		AAD38B821D971648004DD648 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AAD38B811D971648004DD648 /* USC Visitor Companion App.app */,
-				AAD38B981D971648004DD648 /* USC Visitor Companion AppTests.xctest */,
-				AAD38BA31D971648004DD648 /* USC Visitor Companion AppUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		AAD38B831D971648004DD648 /* USC Visitor Companion App */ = {
-			isa = PBXGroup;
-			children = (
-				AAD38B841D971648004DD648 /* AppDelegate.swift */,
-				AAD38B861D971648004DD648 /* ViewController.swift */,
-				AAD38B881D971648004DD648 /* Main.storyboard */,
-				AAD38B8E1D971648004DD648 /* Assets.xcassets */,
-				AAD38B901D971648004DD648 /* LaunchScreen.storyboard */,
-				AAD38B931D971648004DD648 /* Info.plist */,
-				AAD38B8B1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld */,
-			);
-			path = "USC Visitor Companion App";
-			sourceTree = "<group>";
-		};
-		AAD38B9B1D971648004DD648 /* USC Visitor Companion AppTests */ = {
-			isa = PBXGroup;
-			children = (
-				AAD38B9C1D971648004DD648 /* USC_Visitor_Companion_AppTests.swift */,
-				AAD38B9E1D971648004DD648 /* Info.plist */,
-			);
-			path = "USC Visitor Companion AppTests";
-			sourceTree = "<group>";
-		};
-		AAD38BA61D971648004DD648 /* USC Visitor Companion AppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				AAD38BA71D971648004DD648 /* USC_Visitor_Companion_AppUITests.swift */,
-				AAD38BA91D971648004DD648 /* Info.plist */,
-			);
-			path = "USC Visitor Companion AppUITests";
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		AAD38B801D971648004DD648 /* USC Visitor Companion App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AAD38BAC1D971648004DD648 /* Build configuration list for PBXNativeTarget "USC Visitor Companion App" */;
-			buildPhases = (
-				AAD38B7D1D971648004DD648 /* Sources */,
-				AAD38B7E1D971648004DD648 /* Frameworks */,
-				AAD38B7F1D971648004DD648 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "USC Visitor Companion App";
-			productName = "USC Visitor Companion App";
-			productReference = AAD38B811D971648004DD648 /* USC Visitor Companion App.app */;
-			productType = "com.apple.product-type.application";
-		};
-		AAD38B971D971648004DD648 /* USC Visitor Companion AppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AAD38BAF1D971648004DD648 /* Build configuration list for PBXNativeTarget "USC Visitor Companion AppTests" */;
-			buildPhases = (
-				AAD38B941D971648004DD648 /* Sources */,
-				AAD38B951D971648004DD648 /* Frameworks */,
-				AAD38B961D971648004DD648 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AAD38B9A1D971648004DD648 /* PBXTargetDependency */,
-			);
-			name = "USC Visitor Companion AppTests";
-			productName = "USC Visitor Companion AppTests";
-			productReference = AAD38B981D971648004DD648 /* USC Visitor Companion AppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		AAD38BA21D971648004DD648 /* USC Visitor Companion AppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AAD38BB21D971648004DD648 /* Build configuration list for PBXNativeTarget "USC Visitor Companion AppUITests" */;
-			buildPhases = (
-				AAD38B9F1D971648004DD648 /* Sources */,
-				AAD38BA01D971648004DD648 /* Frameworks */,
-				AAD38BA11D971648004DD648 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AAD38BA51D971648004DD648 /* PBXTargetDependency */,
-			);
-			name = "USC Visitor Companion AppUITests";
-			productName = "USC Visitor Companion AppUITests";
-			productReference = AAD38BA31D971648004DD648 /* USC Visitor Companion AppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		AAD38B791D971648004DD648 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = "University of Southern California";
-				TargetAttributes = {
-					AAD38B801D971648004DD648 = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-					};
-					AAD38B971D971648004DD648 = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-						TestTargetID = AAD38B801D971648004DD648;
-					};
-					AAD38BA21D971648004DD648 = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-						TestTargetID = AAD38B801D971648004DD648;
-					};
-				};
-			};
-			buildConfigurationList = AAD38B7C1D971648004DD648 /* Build configuration list for PBXProject "USC Visitor Companion App" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = AAD38B781D971648004DD648;
-			productRefGroup = AAD38B821D971648004DD648 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				AAD38B801D971648004DD648 /* USC Visitor Companion App */,
-				AAD38B971D971648004DD648 /* USC Visitor Companion AppTests */,
-				AAD38BA21D971648004DD648 /* USC Visitor Companion AppUITests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		AAD38B7F1D971648004DD648 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AAD38B921D971648004DD648 /* LaunchScreen.storyboard in Resources */,
-				AAD38B8F1D971648004DD648 /* Assets.xcassets in Resources */,
-				AAD38B8A1D971648004DD648 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AAD38B961D971648004DD648 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AAD38BA11D971648004DD648 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		AAD38B7D1D971648004DD648 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AAD38B871D971648004DD648 /* ViewController.swift in Sources */,
-				AAD38B851D971648004DD648 /* AppDelegate.swift in Sources */,
-				AAD38B8D1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AAD38B941D971648004DD648 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AAD38B9D1D971648004DD648 /* USC_Visitor_Companion_AppTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AAD38B9F1D971648004DD648 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AAD38BA81D971648004DD648 /* USC_Visitor_Companion_AppUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		AAD38B9A1D971648004DD648 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AAD38B801D971648004DD648 /* USC Visitor Companion App */;
-			targetProxy = AAD38B991D971648004DD648 /* PBXContainerItemProxy */;
-		};
-		AAD38BA51D971648004DD648 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AAD38B801D971648004DD648 /* USC Visitor Companion App */;
-			targetProxy = AAD38BA41D971648004DD648 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		AAD38B881D971648004DD648 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AAD38B891D971648004DD648 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		AAD38B901D971648004DD648 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AAD38B911D971648004DD648 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		AAD38BAA1D971648004DD648 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		AAD38BAB1D971648004DD648 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		AAD38BAD1D971648004DD648 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		AAD38BAE1D971648004DD648 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		AAD38BB01D971648004DD648 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "USC Visitor Companion AppTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/USC Visitor Companion App.app/USC Visitor Companion App";
-			};
-			name = Debug;
-		};
-		AAD38BB11D971648004DD648 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "USC Visitor Companion AppTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/USC Visitor Companion App.app/USC Visitor Companion App";
-			};
-			name = Release;
-		};
-		AAD38BB31D971648004DD648 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = "USC Visitor Companion AppUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-AppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = "USC Visitor Companion App";
-			};
-			name = Debug;
-		};
-		AAD38BB41D971648004DD648 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = "USC Visitor Companion AppUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-AppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = "USC Visitor Companion App";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		AAD38B7C1D971648004DD648 /* Build configuration list for PBXProject "USC Visitor Companion App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AAD38BAA1D971648004DD648 /* Debug */,
-				AAD38BAB1D971648004DD648 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AAD38BAC1D971648004DD648 /* Build configuration list for PBXNativeTarget "USC Visitor Companion App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AAD38BAD1D971648004DD648 /* Debug */,
-				AAD38BAE1D971648004DD648 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		AAD38BAF1D971648004DD648 /* Build configuration list for PBXNativeTarget "USC Visitor Companion AppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AAD38BB01D971648004DD648 /* Debug */,
-				AAD38BB11D971648004DD648 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		AAD38BB21D971648004DD648 /* Build configuration list for PBXNativeTarget "USC Visitor Companion AppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AAD38BB31D971648004DD648 /* Debug */,
-				AAD38BB41D971648004DD648 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-/* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		AAD38B8B1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				AAD38B8C1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodel */,
-			);
-			currentVersion = AAD38B8C1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodel */;
-			path = USC_Visitor_Companion_App.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
-	};
-	rootObject = AAD38B791D971648004DD648 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>004973256B7351236653CCF5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-USC Visitor Companion App.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-USC Visitor Companion App/Pods-USC Visitor Companion App.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0BA8091B279229490850DE4E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-USC Visitor Companion AppTests/Pods-USC Visitor Companion AppTests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>15DB3DC7F7064736DF04206E</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_USC_Visitor_Companion_App.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>19CDA2698EBF75BEA9EEC20F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-USC Visitor Companion AppUITests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-USC Visitor Companion AppUITests/Pods-USC Visitor Companion AppUITests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3093C19AF44C06BB5EC5838C</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>15DB3DC7F7064736DF04206E</string>
+				<string>44B248B9DF83E66AD7432890</string>
+				<string>F76203F56CA56F4183C9D94C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>44B248B9DF83E66AD7432890</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_USC_Visitor_Companion_AppTests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>4B1C25F0B5A8148675F75AA0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>44B248B9DF83E66AD7432890</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8C0EB47229C0DCFBFD89EFDC</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-USC Visitor Companion AppUITests/Pods-USC Visitor Companion AppUITests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>92B7C30A43816779F9D3E702</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-USC Visitor Companion AppTests/Pods-USC Visitor Companion AppTests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>A1E1375FD19E64048101C8B3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>15DB3DC7F7064736DF04206E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A28E4963873E6009D4290A09</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-USC Visitor Companion App/Pods-USC Visitor Companion App-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>AAD38B781D971648004DD648</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AAD38B831D971648004DD648</string>
+				<string>AAD38B9B1D971648004DD648</string>
+				<string>AAD38BA61D971648004DD648</string>
+				<string>AAD38B821D971648004DD648</string>
+				<string>F6E619F81199722ECBC1996F</string>
+				<string>3093C19AF44C06BB5EC5838C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38B791D971648004DD648</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0800</string>
+				<key>LastUpgradeCheck</key>
+				<string>0800</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>University of Southern California</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>AAD38B801D971648004DD648</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>8.0</string>
+						<key>ProvisioningStyle</key>
+						<string>Automatic</string>
+					</dict>
+					<key>AAD38B971D971648004DD648</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>8.0</string>
+						<key>ProvisioningStyle</key>
+						<string>Automatic</string>
+						<key>TestTargetID</key>
+						<string>AAD38B801D971648004DD648</string>
+					</dict>
+					<key>AAD38BA21D971648004DD648</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>8.0</string>
+						<key>ProvisioningStyle</key>
+						<string>Automatic</string>
+						<key>TestTargetID</key>
+						<string>AAD38B801D971648004DD648</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>AAD38B7C1D971648004DD648</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>AAD38B781D971648004DD648</string>
+			<key>productRefGroup</key>
+			<string>AAD38B821D971648004DD648</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>AAD38B801D971648004DD648</string>
+				<string>AAD38B971D971648004DD648</string>
+				<string>AAD38BA21D971648004DD648</string>
+			</array>
+		</dict>
+		<key>AAD38B7C1D971648004DD648</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>AAD38BAA1D971648004DD648</string>
+				<string>AAD38BAB1D971648004DD648</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>AAD38B7D1D971648004DD648</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>AAD38B871D971648004DD648</string>
+				<string>AAD38B851D971648004DD648</string>
+				<string>AAD38B8D1D971648004DD648</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AAD38B7E1D971648004DD648</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>A1E1375FD19E64048101C8B3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AAD38B7F1D971648004DD648</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>AAD38B921D971648004DD648</string>
+				<string>AAD38B8F1D971648004DD648</string>
+				<string>AAD38B8A1D971648004DD648</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AAD38B801D971648004DD648</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>AAD38BAC1D971648004DD648</string>
+			<key>buildPhases</key>
+			<array>
+				<string>D3EB49AB43F03F663EA09AAF</string>
+				<string>AAD38B7D1D971648004DD648</string>
+				<string>AAD38B7E1D971648004DD648</string>
+				<string>AAD38B7F1D971648004DD648</string>
+				<string>AECC032B03CE25C2A11EBD9C</string>
+				<string>A28E4963873E6009D4290A09</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>USC Visitor Companion App</string>
+			<key>productName</key>
+			<string>USC Visitor Companion App</string>
+			<key>productReference</key>
+			<string>AAD38B811D971648004DD648</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>AAD38B811D971648004DD648</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>USC Visitor Companion App.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>AAD38B821D971648004DD648</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AAD38B811D971648004DD648</string>
+				<string>AAD38B981D971648004DD648</string>
+				<string>AAD38BA31D971648004DD648</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38B831D971648004DD648</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AAD38B841D971648004DD648</string>
+				<string>AAD38B861D971648004DD648</string>
+				<string>AAD38B881D971648004DD648</string>
+				<string>AAD38B8E1D971648004DD648</string>
+				<string>AAD38B901D971648004DD648</string>
+				<string>AAD38B931D971648004DD648</string>
+				<string>AAD38B8B1D971648004DD648</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>USC Visitor Companion App</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38B841D971648004DD648</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38B851D971648004DD648</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AAD38B841D971648004DD648</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AAD38B861D971648004DD648</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38B871D971648004DD648</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AAD38B861D971648004DD648</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AAD38B881D971648004DD648</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AAD38B891D971648004DD648</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38B891D971648004DD648</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38B8A1D971648004DD648</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AAD38B881D971648004DD648</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AAD38B8B1D971648004DD648</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AAD38B8C1D971648004DD648</string>
+			</array>
+			<key>currentVersion</key>
+			<string>AAD38B8C1D971648004DD648</string>
+			<key>isa</key>
+			<string>XCVersionGroup</string>
+			<key>path</key>
+			<string>USC_Visitor_Companion_App.xcdatamodeld</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+			<key>versionGroupType</key>
+			<string>wrapper.xcdatamodel</string>
+		</dict>
+		<key>AAD38B8C1D971648004DD648</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.xcdatamodel</string>
+			<key>path</key>
+			<string>USC_Visitor_Companion_App.xcdatamodel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38B8D1D971648004DD648</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AAD38B8B1D971648004DD648</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AAD38B8E1D971648004DD648</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Assets.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38B8F1D971648004DD648</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AAD38B8E1D971648004DD648</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AAD38B901D971648004DD648</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AAD38B911D971648004DD648</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38B911D971648004DD648</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38B921D971648004DD648</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AAD38B901D971648004DD648</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AAD38B931D971648004DD648</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38B941D971648004DD648</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>AAD38B9D1D971648004DD648</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AAD38B951D971648004DD648</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>4B1C25F0B5A8148675F75AA0</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AAD38B961D971648004DD648</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AAD38B971D971648004DD648</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>AAD38BAF1D971648004DD648</string>
+			<key>buildPhases</key>
+			<array>
+				<string>F4A6E726B80CF68BED5D662C</string>
+				<string>AAD38B941D971648004DD648</string>
+				<string>AAD38B951D971648004DD648</string>
+				<string>AAD38B961D971648004DD648</string>
+				<string>0BA8091B279229490850DE4E</string>
+				<string>92B7C30A43816779F9D3E702</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>AAD38B9A1D971648004DD648</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>USC Visitor Companion AppTests</string>
+			<key>productName</key>
+			<string>USC Visitor Companion AppTests</string>
+			<key>productReference</key>
+			<string>AAD38B981D971648004DD648</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>AAD38B981D971648004DD648</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>USC Visitor Companion AppTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>AAD38B991D971648004DD648</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>AAD38B791D971648004DD648</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>AAD38B801D971648004DD648</string>
+			<key>remoteInfo</key>
+			<string>USC Visitor Companion App</string>
+		</dict>
+		<key>AAD38B9A1D971648004DD648</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>AAD38B801D971648004DD648</string>
+			<key>targetProxy</key>
+			<string>AAD38B991D971648004DD648</string>
+		</dict>
+		<key>AAD38B9B1D971648004DD648</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AAD38B9C1D971648004DD648</string>
+				<string>AAD38B9E1D971648004DD648</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>USC Visitor Companion AppTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38B9C1D971648004DD648</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>USC_Visitor_Companion_AppTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38B9D1D971648004DD648</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AAD38B9C1D971648004DD648</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AAD38B9E1D971648004DD648</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38B9F1D971648004DD648</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>AAD38BA81D971648004DD648</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AAD38BA01D971648004DD648</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>E3AA91D066B8477A0CF0041D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AAD38BA11D971648004DD648</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AAD38BA21D971648004DD648</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>AAD38BB21D971648004DD648</string>
+			<key>buildPhases</key>
+			<array>
+				<string>BE939F1E12031F75D6FE64A9</string>
+				<string>AAD38B9F1D971648004DD648</string>
+				<string>AAD38BA01D971648004DD648</string>
+				<string>AAD38BA11D971648004DD648</string>
+				<string>8C0EB47229C0DCFBFD89EFDC</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>AAD38BA51D971648004DD648</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>USC Visitor Companion AppUITests</string>
+			<key>productName</key>
+			<string>USC Visitor Companion AppUITests</string>
+			<key>productReference</key>
+			<string>AAD38BA31D971648004DD648</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.ui-testing</string>
+		</dict>
+		<key>AAD38BA31D971648004DD648</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>USC Visitor Companion AppUITests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>AAD38BA41D971648004DD648</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>AAD38B791D971648004DD648</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>AAD38B801D971648004DD648</string>
+			<key>remoteInfo</key>
+			<string>USC Visitor Companion App</string>
+		</dict>
+		<key>AAD38BA51D971648004DD648</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>AAD38B801D971648004DD648</string>
+			<key>targetProxy</key>
+			<string>AAD38BA41D971648004DD648</string>
+		</dict>
+		<key>AAD38BA61D971648004DD648</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AAD38BA71D971648004DD648</string>
+				<string>AAD38BA91D971648004DD648</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>USC Visitor Companion AppUITests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38BA71D971648004DD648</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>USC_Visitor_Companion_AppUITests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38BA81D971648004DD648</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AAD38BA71D971648004DD648</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AAD38BA91D971648004DD648</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD38BAA1D971648004DD648</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_DOCUMENTATION_COMMENTS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INFINITE_RECURSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_SUSPICIOUS_MOVE</key>
+				<string>YES</string>
+				<key>CLANG_WARN_SUSPICIOUS_MOVES</key>
+				<string>YES</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>10.0</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_ACTIVE_COMPILATION_CONDITIONS</key>
+				<string>DEBUG</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>AAD38BAB1D971648004DD648</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_DOCUMENTATION_COMMENTS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INFINITE_RECURSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_SUSPICIOUS_MOVE</key>
+				<string>YES</string>
+				<key>CLANG_WARN_SUSPICIOUS_MOVES</key>
+				<string>YES</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>10.0</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Owholemodule</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>AAD38BAC1D971648004DD648</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>AAD38BAD1D971648004DD648</string>
+				<string>AAD38BAE1D971648004DD648</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>AAD38BAD1D971648004DD648</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>BEA06F35E18ACCBABF2C162A</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>USC Visitor Companion App/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>edu.usc.USC-Visitor-Companion-App</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>AAD38BAE1D971648004DD648</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>004973256B7351236653CCF5</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>USC Visitor Companion App/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>edu.usc.USC-Visitor-Companion-App</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>AAD38BAF1D971648004DD648</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>AAD38BB01D971648004DD648</string>
+				<string>AAD38BB11D971648004DD648</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>AAD38BB01D971648004DD648</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>EB79401528EC042FECA76130</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES</key>
+				<string>YES</string>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>USC Visitor Companion AppTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>edu.usc.USC-Visitor-Companion-AppTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/USC Visitor Companion App.app/USC Visitor Companion App</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>AAD38BB11D971648004DD648</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>D52836DEAE47E698A6361404</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES</key>
+				<string>YES</string>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>USC Visitor Companion AppTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>edu.usc.USC-Visitor-Companion-AppTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/USC Visitor Companion App.app/USC Visitor Companion App</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>AAD38BB21D971648004DD648</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>AAD38BB31D971648004DD648</string>
+				<string>AAD38BB41D971648004DD648</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>AAD38BB31D971648004DD648</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>FD1E8D85302688CCE5186C7F</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>USC Visitor Companion AppUITests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>edu.usc.USC-Visitor-Companion-AppUITests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_TARGET_NAME</key>
+				<string>USC Visitor Companion App</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>AAD38BB41D971648004DD648</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>19CDA2698EBF75BEA9EEC20F</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>USC Visitor Companion AppUITests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>edu.usc.USC-Visitor-Companion-AppUITests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_TARGET_NAME</key>
+				<string>USC Visitor Companion App</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>AECC032B03CE25C2A11EBD9C</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-USC Visitor Companion App/Pods-USC Visitor Companion App-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>BE939F1E12031F75D6FE64A9</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>BEA06F35E18ACCBABF2C162A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-USC Visitor Companion App.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-USC Visitor Companion App/Pods-USC Visitor Companion App.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D3EB49AB43F03F663EA09AAF</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>D52836DEAE47E698A6361404</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-USC Visitor Companion AppTests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-USC Visitor Companion AppTests/Pods-USC Visitor Companion AppTests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E3AA91D066B8477A0CF0041D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F76203F56CA56F4183C9D94C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>EB79401528EC042FECA76130</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-USC Visitor Companion AppTests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-USC Visitor Companion AppTests/Pods-USC Visitor Companion AppTests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F4A6E726B80CF68BED5D662C</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>F6E619F81199722ECBC1996F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BEA06F35E18ACCBABF2C162A</string>
+				<string>004973256B7351236653CCF5</string>
+				<string>EB79401528EC042FECA76130</string>
+				<string>D52836DEAE47E698A6361404</string>
+				<string>FD1E8D85302688CCE5186C7F</string>
+				<string>19CDA2698EBF75BEA9EEC20F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F76203F56CA56F4183C9D94C</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_USC_Visitor_Companion_AppUITests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>FD1E8D85302688CCE5186C7F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-USC Visitor Companion AppUITests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-USC Visitor Companion AppUITests/Pods-USC Visitor Companion AppUITests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>AAD38B791D971648004DD648</string>
+</dict>
+</plist>
