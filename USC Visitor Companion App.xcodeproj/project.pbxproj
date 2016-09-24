@@ -1,0 +1,545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAD38B851D971648004DD648 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD38B841D971648004DD648 /* AppDelegate.swift */; };
+		AAD38B871D971648004DD648 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD38B861D971648004DD648 /* ViewController.swift */; };
+		AAD38B8A1D971648004DD648 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAD38B881D971648004DD648 /* Main.storyboard */; };
+		AAD38B8D1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AAD38B8B1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld */; };
+		AAD38B8F1D971648004DD648 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAD38B8E1D971648004DD648 /* Assets.xcassets */; };
+		AAD38B921D971648004DD648 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAD38B901D971648004DD648 /* LaunchScreen.storyboard */; };
+		AAD38B9D1D971648004DD648 /* USC_Visitor_Companion_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD38B9C1D971648004DD648 /* USC_Visitor_Companion_AppTests.swift */; };
+		AAD38BA81D971648004DD648 /* USC_Visitor_Companion_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD38BA71D971648004DD648 /* USC_Visitor_Companion_AppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AAD38B991D971648004DD648 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAD38B791D971648004DD648 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAD38B801D971648004DD648;
+			remoteInfo = "USC Visitor Companion App";
+		};
+		AAD38BA41D971648004DD648 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAD38B791D971648004DD648 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AAD38B801D971648004DD648;
+			remoteInfo = "USC Visitor Companion App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AAD38B811D971648004DD648 /* USC Visitor Companion App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USC Visitor Companion App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAD38B841D971648004DD648 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AAD38B861D971648004DD648 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AAD38B891D971648004DD648 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AAD38B8C1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = USC_Visitor_Companion_App.xcdatamodel; sourceTree = "<group>"; };
+		AAD38B8E1D971648004DD648 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAD38B911D971648004DD648 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AAD38B931D971648004DD648 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAD38B981D971648004DD648 /* USC Visitor Companion AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "USC Visitor Companion AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAD38B9C1D971648004DD648 /* USC_Visitor_Companion_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USC_Visitor_Companion_AppTests.swift; sourceTree = "<group>"; };
+		AAD38B9E1D971648004DD648 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAD38BA31D971648004DD648 /* USC Visitor Companion AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "USC Visitor Companion AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAD38BA71D971648004DD648 /* USC_Visitor_Companion_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USC_Visitor_Companion_AppUITests.swift; sourceTree = "<group>"; };
+		AAD38BA91D971648004DD648 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAD38B7E1D971648004DD648 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAD38B951D971648004DD648 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAD38BA01D971648004DD648 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAD38B781D971648004DD648 = {
+			isa = PBXGroup;
+			children = (
+				AAD38B831D971648004DD648 /* USC Visitor Companion App */,
+				AAD38B9B1D971648004DD648 /* USC Visitor Companion AppTests */,
+				AAD38BA61D971648004DD648 /* USC Visitor Companion AppUITests */,
+				AAD38B821D971648004DD648 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAD38B821D971648004DD648 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAD38B811D971648004DD648 /* USC Visitor Companion App.app */,
+				AAD38B981D971648004DD648 /* USC Visitor Companion AppTests.xctest */,
+				AAD38BA31D971648004DD648 /* USC Visitor Companion AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAD38B831D971648004DD648 /* USC Visitor Companion App */ = {
+			isa = PBXGroup;
+			children = (
+				AAD38B841D971648004DD648 /* AppDelegate.swift */,
+				AAD38B861D971648004DD648 /* ViewController.swift */,
+				AAD38B881D971648004DD648 /* Main.storyboard */,
+				AAD38B8E1D971648004DD648 /* Assets.xcassets */,
+				AAD38B901D971648004DD648 /* LaunchScreen.storyboard */,
+				AAD38B931D971648004DD648 /* Info.plist */,
+				AAD38B8B1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld */,
+			);
+			path = "USC Visitor Companion App";
+			sourceTree = "<group>";
+		};
+		AAD38B9B1D971648004DD648 /* USC Visitor Companion AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				AAD38B9C1D971648004DD648 /* USC_Visitor_Companion_AppTests.swift */,
+				AAD38B9E1D971648004DD648 /* Info.plist */,
+			);
+			path = "USC Visitor Companion AppTests";
+			sourceTree = "<group>";
+		};
+		AAD38BA61D971648004DD648 /* USC Visitor Companion AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AAD38BA71D971648004DD648 /* USC_Visitor_Companion_AppUITests.swift */,
+				AAD38BA91D971648004DD648 /* Info.plist */,
+			);
+			path = "USC Visitor Companion AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAD38B801D971648004DD648 /* USC Visitor Companion App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAD38BAC1D971648004DD648 /* Build configuration list for PBXNativeTarget "USC Visitor Companion App" */;
+			buildPhases = (
+				AAD38B7D1D971648004DD648 /* Sources */,
+				AAD38B7E1D971648004DD648 /* Frameworks */,
+				AAD38B7F1D971648004DD648 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "USC Visitor Companion App";
+			productName = "USC Visitor Companion App";
+			productReference = AAD38B811D971648004DD648 /* USC Visitor Companion App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AAD38B971D971648004DD648 /* USC Visitor Companion AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAD38BAF1D971648004DD648 /* Build configuration list for PBXNativeTarget "USC Visitor Companion AppTests" */;
+			buildPhases = (
+				AAD38B941D971648004DD648 /* Sources */,
+				AAD38B951D971648004DD648 /* Frameworks */,
+				AAD38B961D971648004DD648 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAD38B9A1D971648004DD648 /* PBXTargetDependency */,
+			);
+			name = "USC Visitor Companion AppTests";
+			productName = "USC Visitor Companion AppTests";
+			productReference = AAD38B981D971648004DD648 /* USC Visitor Companion AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AAD38BA21D971648004DD648 /* USC Visitor Companion AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAD38BB21D971648004DD648 /* Build configuration list for PBXNativeTarget "USC Visitor Companion AppUITests" */;
+			buildPhases = (
+				AAD38B9F1D971648004DD648 /* Sources */,
+				AAD38BA01D971648004DD648 /* Frameworks */,
+				AAD38BA11D971648004DD648 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AAD38BA51D971648004DD648 /* PBXTargetDependency */,
+			);
+			name = "USC Visitor Companion AppUITests";
+			productName = "USC Visitor Companion AppUITests";
+			productReference = AAD38BA31D971648004DD648 /* USC Visitor Companion AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAD38B791D971648004DD648 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "University of Southern California";
+				TargetAttributes = {
+					AAD38B801D971648004DD648 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					AAD38B971D971648004DD648 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AAD38B801D971648004DD648;
+					};
+					AAD38BA21D971648004DD648 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AAD38B801D971648004DD648;
+					};
+				};
+			};
+			buildConfigurationList = AAD38B7C1D971648004DD648 /* Build configuration list for PBXProject "USC Visitor Companion App" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAD38B781D971648004DD648;
+			productRefGroup = AAD38B821D971648004DD648 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAD38B801D971648004DD648 /* USC Visitor Companion App */,
+				AAD38B971D971648004DD648 /* USC Visitor Companion AppTests */,
+				AAD38BA21D971648004DD648 /* USC Visitor Companion AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAD38B7F1D971648004DD648 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAD38B921D971648004DD648 /* LaunchScreen.storyboard in Resources */,
+				AAD38B8F1D971648004DD648 /* Assets.xcassets in Resources */,
+				AAD38B8A1D971648004DD648 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAD38B961D971648004DD648 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAD38BA11D971648004DD648 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAD38B7D1D971648004DD648 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAD38B871D971648004DD648 /* ViewController.swift in Sources */,
+				AAD38B851D971648004DD648 /* AppDelegate.swift in Sources */,
+				AAD38B8D1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAD38B941D971648004DD648 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAD38B9D1D971648004DD648 /* USC_Visitor_Companion_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAD38B9F1D971648004DD648 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAD38BA81D971648004DD648 /* USC_Visitor_Companion_AppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AAD38B9A1D971648004DD648 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAD38B801D971648004DD648 /* USC Visitor Companion App */;
+			targetProxy = AAD38B991D971648004DD648 /* PBXContainerItemProxy */;
+		};
+		AAD38BA51D971648004DD648 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AAD38B801D971648004DD648 /* USC Visitor Companion App */;
+			targetProxy = AAD38BA41D971648004DD648 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AAD38B881D971648004DD648 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAD38B891D971648004DD648 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AAD38B901D971648004DD648 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAD38B911D971648004DD648 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AAD38BAA1D971648004DD648 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AAD38BAB1D971648004DD648 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AAD38BAD1D971648004DD648 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		AAD38BAE1D971648004DD648 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		AAD38BB01D971648004DD648 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "USC Visitor Companion AppTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/USC Visitor Companion App.app/USC Visitor Companion App";
+			};
+			name = Debug;
+		};
+		AAD38BB11D971648004DD648 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "USC Visitor Companion AppTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/USC Visitor Companion App.app/USC Visitor Companion App";
+			};
+			name = Release;
+		};
+		AAD38BB31D971648004DD648 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "USC Visitor Companion AppUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "USC Visitor Companion App";
+			};
+			name = Debug;
+		};
+		AAD38BB41D971648004DD648 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "USC Visitor Companion AppUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "USC Visitor Companion App";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAD38B7C1D971648004DD648 /* Build configuration list for PBXProject "USC Visitor Companion App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAD38BAA1D971648004DD648 /* Debug */,
+				AAD38BAB1D971648004DD648 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAD38BAC1D971648004DD648 /* Build configuration list for PBXNativeTarget "USC Visitor Companion App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAD38BAD1D971648004DD648 /* Debug */,
+				AAD38BAE1D971648004DD648 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AAD38BAF1D971648004DD648 /* Build configuration list for PBXNativeTarget "USC Visitor Companion AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAD38BB01D971648004DD648 /* Debug */,
+				AAD38BB11D971648004DD648 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AAD38BB21D971648004DD648 /* Build configuration list for PBXNativeTarget "USC Visitor Companion AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAD38BB31D971648004DD648 /* Debug */,
+				AAD38BB41D971648004DD648 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AAD38B8B1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AAD38B8C1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodel */,
+			);
+			currentVersion = AAD38B8C1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodel */;
+			path = USC_Visitor_Companion_App.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AAD38B791D971648004DD648 /* Project object */;
+}
