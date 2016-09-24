@@ -1,0 +1,29 @@
+PODS:
+  - Bolts/Tasks (1.8.4)
+  - GoogleMaps (2.0.1):
+    - GoogleMaps/Maps (= 2.0.1)
+  - GoogleMaps/Base (2.0.1)
+  - GoogleMaps/Maps (2.0.1):
+    - GoogleMaps/Base (= 2.0.1)
+  - GooglePlaces (2.0.1):
+    - GoogleMaps/Base (= 2.0.1)
+  - Parse (1.14.2):
+    - Bolts/Tasks (~> 1.8)
+  - Timepiece (0.4.3)
+
+DEPENDENCIES:
+  - GoogleMaps
+  - GooglePlaces
+  - Parse
+  - Timepiece
+
+SPEC CHECKSUMS:
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
+  GooglePlaces: 72fab1d1651c6df0322f2aad245ffb15b80d3c56
+  Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
+  Timepiece: b5038887b91d6eb70653173f4270e06b3abeac41
+
+PODFILE CHECKSUM: ec65c367acb9c90302fa30ea4234562494299e58
+
+COCOAPODS: 1.0.0
