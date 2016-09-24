@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Parse
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Prepare Parse
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = "USCVisitorCompanionApp"
+            $0.server = "http://parseserver-gqzud-env.us-east-1.elasticbeanstalk.com/parse"
+        }
+        Parse.initialize(with: configuration)
+        
+        // Prepare Google Maps and Google Places
+        GMSServices.provideAPIKey("AIzaSyAXwbpYjoUZ_xMaui1uNuoFFQPZj24bMYc")
+        // GMSPlacesClient.provideAPIKey("2")
+        
         return true
     }
 
