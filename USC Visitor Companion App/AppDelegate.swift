@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Parse
 import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.initialize(with: configuration)
         
         // Prepare Google Maps and Google Places
-        GMSServices.provideAPIKey("AIzaSyAXwbpYjoUZ_xMaui1uNuoFFQPZj24bMYc")
-        // GMSPlacesClient.provideAPIKey("2")
+        GMSServices.provideAPIKey("AIzaSyB1iOGx8a5ppieIX_gVXHqPTvhjSTxH6Lk")
+        GMSPlacesClient.provideAPIKey("AIzaSyBlDnXlMBbnJsiHw-dg1VYcA00SYkS08Rs")
         
         return true
     }
