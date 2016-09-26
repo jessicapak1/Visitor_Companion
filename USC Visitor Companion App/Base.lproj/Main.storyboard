@@ -302,7 +302,7 @@
         <scene sceneID="d30-bs-j3B">
             <objects>
                 <navigationController storyboardIdentifier="app " id="spO-Kp-MC8" userLabel="App Preference Navigation Controller" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="k7k-N9-LH9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="k7k-N9-LH9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -607,7 +607,7 @@ Christian Villa – Computer Science Major    </string>
         <scene sceneID="seM-1t-oHs">
             <objects>
                 <navigationController id="EQN-An-L1s" userLabel="Interests Navigation Controller" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jbP-BK-rHc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jbP-BK-rHc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
