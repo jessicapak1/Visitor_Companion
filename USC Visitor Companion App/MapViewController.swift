@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class MapViewController: UIViewController {
 
@@ -21,10 +22,33 @@ class MapViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func logoutButtonPressed(_ sender: AnyObject) {
+        logOutAction();
+    }
 
-    @IBAction func optionsButtonPressed(_ sender: AnyObject) {
-        let view = OptionsView.instanceFromNib()
-        self.view.addSubview(view)
+//    @IBAction func optionsButtonPressed(_ sender: AnyObject) {
+//        let view = OptionsView.instanceFromNib()
+//        self.view.addSubview(view)
+//    }
+    
+    func logOutAction(){
+        let currentUser = PFUser.current()
+        if currentUser != nil {
+            // Do stuff with the user
+            PFUser.logOut()
+            let alert = UIAlertView(title: "Success", message: "Logged Out", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login")
+            self.present(viewController, animated: true, completion: nil)
+        } else {
+            // Show the signup or login screen
+            let alert = UIAlertView(title: "Error", message: "No user to logout", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+        }
+        // Send a request to log out a user
+        
+        
+        
     }
     /*
     // MARK: - Navigation
