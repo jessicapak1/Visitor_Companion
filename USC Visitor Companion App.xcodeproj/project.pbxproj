@@ -20,6 +20,7 @@
 		75EABC4D1D98BA1E0075E75E /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC441D98BA1E0075E75E /* OptionsView.swift */; };
 		75EABC4E1D98BA1E0075E75E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */; };
 		A1E1375FD19E64048101C8B3 /* Pods_USC_Visitor_Companion_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DB3DC7F7064736DF04206E /* Pods_USC_Visitor_Companion_App.framework */; };
+		AA7E0F321D98D298005C9786 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7E0F311D98D298005C9786 /* User.swift */; };
 		AAD38B851D971648004DD648 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD38B841D971648004DD648 /* AppDelegate.swift */; };
 		AAD38B8A1D971648004DD648 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAD38B881D971648004DD648 /* Main.storyboard */; };
 		AAD38B8D1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AAD38B8B1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld */; };
@@ -63,6 +64,7 @@
 		75EABC431D98BA1E0075E75E /* InterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
 		75EABC441D98BA1E0075E75E /* OptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		AA7E0F311D98D298005C9786 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AAD38B811D971648004DD648 /* USC Visitor Companion App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USC Visitor Companion App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD38B841D971648004DD648 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAD38B891D971648004DD648 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		AAD38BBA1D972E19004DD648 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AA7E0F311D98D298005C9786 /* User.swift */,
 				AAD38B8B1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld */,
 			);
 			name = Models;
@@ -506,6 +509,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				75EABC481D98BA1E0075E75E /* LoginViewController.swift in Sources */,
+				AA7E0F321D98D298005C9786 /* User.swift in Sources */,
+				AAD38B871D971648004DD648 /* ViewController.swift in Sources */,
 				AAD38B851D971648004DD648 /* AppDelegate.swift in Sources */,
 				75EABC4A1D98BA1E0075E75E /* LocationsViewController.swift in Sources */,
 				75EABC4C1D98BA1E0075E75E /* InterestsViewController.swift in Sources */,
