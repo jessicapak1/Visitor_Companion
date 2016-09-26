@@ -24,10 +24,10 @@ class OptionsView: UIView {
     }
 
     @IBAction func locationButtonPressed(_ sender: AnyObject) {
-        let rootViewController = self.window!.rootViewController
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-     
-        let vc : AnyObject! = mainStoryboard.instantiateViewController(withIdentifier: "location")
+//        let rootViewController = self.window!.rootViewController
+//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//     
+//        let vc : AnyObject! = mainStoryboard.instantiateViewController(withIdentifier: "location")
 //        mainStoryboard.presentViewController(vc, animated: true, completion: nil)
      
     }
