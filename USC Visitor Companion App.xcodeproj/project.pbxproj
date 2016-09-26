@@ -8,9 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		4B1C25F0B5A8148675F75AA0 /* Pods_USC_Visitor_Companion_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */; };
+		75EABC3C1D98BA0D0075E75E /* Options.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75EABC3B1D98BA0D0075E75E /* Options.xib */; };
+		75EABC461D98BA1E0075E75E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC3D1D98BA1E0075E75E /* MapViewController.swift */; };
+		75EABC471D98BA1E0075E75E /* AppPreferenceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC3E1D98BA1E0075E75E /* AppPreferenceTableViewController.swift */; };
+		75EABC481D98BA1E0075E75E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC3F1D98BA1E0075E75E /* LoginViewController.swift */; };
+		75EABC491D98BA1E0075E75E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC401D98BA1E0075E75E /* AboutViewController.swift */; };
+		75EABC4A1D98BA1E0075E75E /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC411D98BA1E0075E75E /* LocationsViewController.swift */; };
+		75EABC4B1D98BA1E0075E75E /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC421D98BA1E0075E75E /* CheckInViewController.swift */; };
+		75EABC4C1D98BA1E0075E75E /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC431D98BA1E0075E75E /* InterestsViewController.swift */; };
+		75EABC4D1D98BA1E0075E75E /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC441D98BA1E0075E75E /* OptionsView.swift */; };
+		75EABC4E1D98BA1E0075E75E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */; };
 		A1E1375FD19E64048101C8B3 /* Pods_USC_Visitor_Companion_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DB3DC7F7064736DF04206E /* Pods_USC_Visitor_Companion_App.framework */; };
 		AAD38B851D971648004DD648 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD38B841D971648004DD648 /* AppDelegate.swift */; };
-		AAD38B871D971648004DD648 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD38B861D971648004DD648 /* ViewController.swift */; };
 		AAD38B8A1D971648004DD648 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAD38B881D971648004DD648 /* Main.storyboard */; };
 		AAD38B8D1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AAD38B8B1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld */; };
 		AAD38B8F1D971648004DD648 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAD38B8E1D971648004DD648 /* Assets.xcassets */; };
@@ -42,9 +51,18 @@
 		15DB3DC7F7064736DF04206E /* Pods_USC_Visitor_Companion_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USC_Visitor_Companion_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19CDA2698EBF75BEA9EEC20F /* Pods-USC Visitor Companion AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USC Visitor Companion AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-USC Visitor Companion AppUITests/Pods-USC Visitor Companion AppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USC_Visitor_Companion_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75EABC3B1D98BA0D0075E75E /* Options.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Options.xib; sourceTree = "<group>"; };
+		75EABC3D1D98BA1E0075E75E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		75EABC3E1D98BA1E0075E75E /* AppPreferenceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPreferenceTableViewController.swift; sourceTree = "<group>"; };
+		75EABC3F1D98BA1E0075E75E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		75EABC401D98BA1E0075E75E /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		75EABC411D98BA1E0075E75E /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		75EABC421D98BA1E0075E75E /* CheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
+		75EABC431D98BA1E0075E75E /* InterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
+		75EABC441D98BA1E0075E75E /* OptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
+		75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		AAD38B811D971648004DD648 /* USC Visitor Companion App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USC Visitor Companion App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD38B841D971648004DD648 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AAD38B861D971648004DD648 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AAD38B891D971648004DD648 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AAD38B8C1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = USC_Visitor_Companion_App.xcdatamodel; sourceTree = "<group>"; };
 		AAD38B8E1D971648004DD648 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -165,6 +183,7 @@
 			children = (
 				AAD38B881D971648004DD648 /* Main.storyboard */,
 				AAD38B901D971648004DD648 /* LaunchScreen.storyboard */,
+				75EABC3B1D98BA0D0075E75E /* Options.xib */,
 				AAD38BBE1D972E44004DD648 /* Resources */,
 			);
 			name = Views;
@@ -173,7 +192,15 @@
 		AAD38BBC1D972E23004DD648 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AAD38B861D971648004DD648 /* ViewController.swift */,
+				75EABC3D1D98BA1E0075E75E /* MapViewController.swift */,
+				75EABC3E1D98BA1E0075E75E /* AppPreferenceTableViewController.swift */,
+				75EABC3F1D98BA1E0075E75E /* LoginViewController.swift */,
+				75EABC401D98BA1E0075E75E /* AboutViewController.swift */,
+				75EABC411D98BA1E0075E75E /* LocationsViewController.swift */,
+				75EABC421D98BA1E0075E75E /* CheckInViewController.swift */,
+				75EABC431D98BA1E0075E75E /* InterestsViewController.swift */,
+				75EABC441D98BA1E0075E75E /* OptionsView.swift */,
+				75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -323,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75EABC3C1D98BA0D0075E75E /* Options.xib in Resources */,
 				AAD38B921D971648004DD648 /* LaunchScreen.storyboard in Resources */,
 				AAD38B8F1D971648004DD648 /* Assets.xcassets in Resources */,
 				AAD38B8A1D971648004DD648 /* Main.storyboard in Resources */,
@@ -473,9 +501,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAD38B871D971648004DD648 /* ViewController.swift in Sources */,
+				75EABC481D98BA1E0075E75E /* LoginViewController.swift in Sources */,
 				AAD38B851D971648004DD648 /* AppDelegate.swift in Sources */,
+				75EABC4A1D98BA1E0075E75E /* LocationsViewController.swift in Sources */,
+				75EABC4C1D98BA1E0075E75E /* InterestsViewController.swift in Sources */,
+				75EABC4B1D98BA1E0075E75E /* CheckInViewController.swift in Sources */,
+				75EABC4E1D98BA1E0075E75E /* RegistrationViewController.swift in Sources */,
+				75EABC491D98BA1E0075E75E /* AboutViewController.swift in Sources */,
 				AAD38B8D1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld in Sources */,
+				75EABC4D1D98BA1E0075E75E /* OptionsView.swift in Sources */,
+				75EABC471D98BA1E0075E75E /* AppPreferenceTableViewController.swift in Sources */,
+				75EABC461D98BA1E0075E75E /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
