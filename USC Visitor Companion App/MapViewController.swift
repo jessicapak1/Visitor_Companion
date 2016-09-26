@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 import Parse
 
 class MapViewController: UIViewController {
@@ -15,6 +16,40 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        // Create a GMSCameraPosition that tells the map to display the
+        // coordinates 34.020496, 118.285317 at zoom level 17 (shows building outlines)
+        let camera = GMSCameraPosition.camera(withLatitude: 34.020496, longitude: -118.285317, zoom: 20.0)
+        let mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
+        self.view.insertSubview(mapView, at: 0)
+        
+        // query from parse for locations and create markers for each location on map
+        let query = PFQuery(className:"Location")
+        query.limit = 1000
+        query.findObjectsInBackground {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) locations.")
+                // Do something with the found objects
+                if let objects = objects {
+                    for object in objects {
+                        let marker = GMSMarker()
+                        let geopoint = object["coordinate"] as! PFGeoPoint
+                        marker.position = CLLocationCoordinate2DMake(geopoint.latitude, geopoint.longitude)
+                        marker.title = object["name"] as! String?
+                        marker.snippet = object["description"] as! String?
+                        marker.map = mapView
+                    }
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!)")
+            }
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
