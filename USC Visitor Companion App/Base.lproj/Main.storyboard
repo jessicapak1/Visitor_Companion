@@ -10,7 +10,7 @@
         <!--Map View Controller-->
         <scene sceneID="Kec-FN-p7W">
             <objects>
-                <viewController id="poS-Zl-lNF" userLabel="Map View Controller" customClass="MapViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="map" id="poS-Zl-lNF" userLabel="Map View Controller" customClass="MapViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mmr-tW-Pmv"/>
                         <viewControllerLayoutGuide type="bottom" id="kPn-bi-yhC"/>
@@ -27,8 +27,16 @@
                                 <state key="normal" title="Options">
                                     <color key="titleColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOW-bC-GqA">
+                                <frame key="frameInset" minX="281" minY="621" width="78" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="20"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="optionsButtonPressed:" destination="poS-Zl-lNF" eventType="touchUpInside" id="ita-Q6-Wbg"/>
+                                    <action selector="logoutButtonPressed:" destination="poS-Zl-lNF" eventType="touchUpInside" id="RYy-B8-otH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -479,6 +487,9 @@ Christian Villa – Computer Science Major    </string>
                                 <state key="normal" title="      Login      ">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="4Ul-0g-Te1" eventType="touchUpInside" id="Z67-hF-2Uo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -500,6 +511,7 @@ Christian Villa – Computer Science Major    </string>
                             <constraint firstItem="Qvr-gW-qgA" firstAttribute="top" secondItem="bY7-ls-2wI" secondAttribute="bottom" constant="26" id="NXV-AC-2Ea"/>
                             <constraint firstItem="Jug-cA-2Tl" firstAttribute="top" secondItem="ECg-ZQ-BpA" secondAttribute="bottom" constant="19" id="RCv-qY-w1v"/>
                             <constraint firstItem="Qvr-gW-qgA" firstAttribute="leading" secondItem="ECg-ZQ-BpA" secondAttribute="trailing" constant="20" id="SYx-z4-dQm"/>
+                            <constraint firstItem="TKX-7S-VHW" firstAttribute="top" secondItem="C40-Bi-Atg" secondAttribute="top" constant="12" id="VNZ-tW-bcb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bY7-ls-2wI" secondAttribute="trailing" constant="62" id="VNt-Ey-uqE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Jug-cA-2Tl" secondAttribute="trailing" constant="62" id="XUV-cV-4m0"/>
                             <constraint firstItem="ECg-ZQ-BpA" firstAttribute="leading" secondItem="C40-Bi-Atg" secondAttribute="leadingMargin" constant="61" id="Zwn-nb-cfg"/>
@@ -517,14 +529,16 @@ Christian Villa – Computer Science Major    </string>
                             <constraint firstItem="da7-mb-ZTF" firstAttribute="top" secondItem="ECg-ZQ-BpA" secondAttribute="bottom" constant="203" id="qJJ-3c-b1s"/>
                             <constraint firstItem="oGJ-qz-T12" firstAttribute="leading" secondItem="C40-Bi-Atg" secondAttribute="leadingMargin" constant="61" id="qaW-hU-zSi"/>
                             <constraint firstItem="Qvr-gW-qgA" firstAttribute="top" secondItem="bY7-ls-2wI" secondAttribute="bottom" constant="26" id="qjC-n5-AwN"/>
-                            <constraint firstItem="oGJ-qz-T12" firstAttribute="top" secondItem="TKX-7S-VHW" secondAttribute="bottom" constant="103" id="rZx-UM-NdJ"/>
                             <constraint firstItem="Qvr-gW-qgA" firstAttribute="leading" secondItem="ECg-ZQ-BpA" secondAttribute="trailing" constant="20" id="s3C-RN-ZDL"/>
                             <constraint firstItem="da7-mb-ZTF" firstAttribute="top" secondItem="Qvr-gW-qgA" secondAttribute="bottom" constant="201" id="s9b-e3-VZb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qvr-gW-qgA" secondAttribute="trailing" constant="62" id="spN-Ub-mlg"/>
-                            <constraint firstItem="TKX-7S-VHW" firstAttribute="top" secondItem="C40-Bi-Atg" secondAttribute="top" id="u81-Gt-XQu"/>
                             <constraint firstItem="Jug-cA-2Tl" firstAttribute="leading" secondItem="C40-Bi-Atg" secondAttribute="leadingMargin" constant="61" id="z4c-lz-CrO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="bY7-ls-2wI" id="mt7-YN-DYa"/>
+                        <outlet property="usernameTextField" destination="QNz-Pe-t8w" id="3jU-GF-RMO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9m-UM-YYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -680,6 +694,9 @@ Christian Villa – Computer Science Major    </string>
                                 <state key="normal" title="Register">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="registerButtonPressed:" destination="v03-aH-0gM" eventType="touchUpInside" id="TUs-zW-FRC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -713,6 +730,10 @@ Christian Villa – Computer Science Major    </string>
                             <constraint firstAttribute="trailingMargin" secondItem="eOa-BP-5j4" secondAttribute="trailing" constant="62" id="yNG-Yx-rKj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="CPU-rW-zbf" id="5A7-Uw-FZR"/>
+                        <outlet property="passwordTextField" destination="G7b-u7-3nh" id="5Qs-XZ-UQh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41D-qY-gmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -721,7 +742,7 @@ Christian Villa – Computer Science Major    </string>
         <!--Forgot Password View Controller-->
         <scene sceneID="OPJ-ui-8lh">
             <objects>
-                <viewController id="GSc-vF-suX" userLabel="Forgot Password View Controller" customClass="RegistrationViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GSc-vF-suX" userLabel="Forgot Password View Controller" customClass="ForgotPasswordViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8si-TN-5CD"/>
                         <viewControllerLayoutGuide type="bottom" id="iYj-bI-PUx"/>
@@ -764,6 +785,9 @@ Christian Villa – Computer Science Major    </string>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="forgotPasswordButtonPressed:" destination="GSc-vF-suX" eventType="touchUpInside" id="O1X-eY-Llf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -792,6 +816,9 @@ Christian Villa – Computer Science Major    </string>
                             <constraint firstItem="iYj-bI-PUx" firstAttribute="top" secondItem="NXj-K3-XAP" secondAttribute="bottom" constant="245" id="ulP-7I-Tva"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="cDv-wZ-AzC" id="i4t-sw-CH3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npc-bk-Bvx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -804,6 +831,6 @@ Christian Villa – Computer Science Major    </string>
         <image name="shieldmono-white" width="300" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ChE-M2-qza"/>
+        <segue reference="a44-iO-DyH"/>
     </inferredMetricsTieBreakers>
 </document>
