@@ -19,9 +19,9 @@ class OptionsView: UIView {
     }
     */
     
-    class func instanceFromNib() -> UIView {
-        return UINib(nibName: "OptionsView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
-    }
+//    class func instanceFromNib() -> UIView {
+//        return UINib(nibName: "OptionsView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+//    }
 
     @IBAction func locationButtonPressed(_ sender: AnyObject) {
 //        let rootViewController = self.window!.rootViewController
