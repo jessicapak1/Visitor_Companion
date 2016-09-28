@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Prepare Parse
+        Parse.enableLocalDatastore()
         let configuration = ParseClientConfiguration {
             $0.applicationId = "USCVisitorCompanionApp"
             $0.server = "http://parseserver-gqzud-env.us-east-1.elasticbeanstalk.com/parse"
