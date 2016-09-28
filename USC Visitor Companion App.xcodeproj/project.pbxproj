@@ -28,6 +28,7 @@
 		AAD38B921D971648004DD648 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAD38B901D971648004DD648 /* LaunchScreen.storyboard */; };
 		AAD38B9D1D971648004DD648 /* USC_Visitor_Companion_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD38B9C1D971648004DD648 /* USC_Visitor_Companion_AppTests.swift */; };
 		AAD38BA81D971648004DD648 /* USC_Visitor_Companion_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD38BA71D971648004DD648 /* USC_Visitor_Companion_AppUITests.swift */; };
+		AAF9A9EF1D9B457F00CB57AF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF9A9EE1D9B457F00CB57AF /* Location.swift */; };
 		E3AA91D066B8477A0CF0041D /* Pods_USC_Visitor_Companion_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76203F56CA56F4183C9D94C /* Pods_USC_Visitor_Companion_AppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		AAD38BA31D971648004DD648 /* USC Visitor Companion AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "USC Visitor Companion AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD38BA71D971648004DD648 /* USC_Visitor_Companion_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USC_Visitor_Companion_AppUITests.swift; sourceTree = "<group>"; };
 		AAD38BA91D971648004DD648 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAF9A9EE1D9B457F00CB57AF /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BEA06F35E18ACCBABF2C162A /* Pods-USC Visitor Companion App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USC Visitor Companion App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-USC Visitor Companion App/Pods-USC Visitor Companion App.debug.xcconfig"; sourceTree = "<group>"; };
 		D52836DEAE47E698A6361404 /* Pods-USC Visitor Companion AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USC Visitor Companion AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-USC Visitor Companion AppTests/Pods-USC Visitor Companion AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		EB79401528EC042FECA76130 /* Pods-USC Visitor Companion AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USC Visitor Companion AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-USC Visitor Companion AppTests/Pods-USC Visitor Companion AppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				AA7E0F311D98D298005C9786 /* User.swift */,
+				AAF9A9EE1D9B457F00CB57AF /* Location.swift */,
 				AAD38B8B1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld */,
 			);
 			name = Models;
@@ -510,11 +513,11 @@
 			files = (
 				75EABC481D98BA1E0075E75E /* LoginViewController.swift in Sources */,
 				AA7E0F321D98D298005C9786 /* User.swift in Sources */,
-				AAD38B871D971648004DD648 /* ViewController.swift in Sources */,
 				AAD38B851D971648004DD648 /* AppDelegate.swift in Sources */,
 				75EABC4A1D98BA1E0075E75E /* LocationsViewController.swift in Sources */,
 				75EABC4C1D98BA1E0075E75E /* InterestsViewController.swift in Sources */,
 				75EABC4B1D98BA1E0075E75E /* CheckInViewController.swift in Sources */,
+				AAF9A9EF1D9B457F00CB57AF /* Location.swift in Sources */,
 				75EABC4E1D98BA1E0075E75E /* RegistrationViewController.swift in Sources */,
 				75EABC491D98BA1E0075E75E /* AboutViewController.swift in Sources */,
 				AAD38B8D1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld in Sources */,
