@@ -9,19 +9,16 @@
 import UIKit
 import Parse
 
-
 class LoginViewController: UIViewController {
-
-    @IBOutlet weak var usernameTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var usernameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
@@ -36,9 +33,10 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func loginButtonPressed(_ sender: AnyObject) {
-        login();
+    @IBAction func loginAction(_ sender: AnyObject) {
+        login()
     }
+
     
     func login() {
         let username = usernameTextField.text
