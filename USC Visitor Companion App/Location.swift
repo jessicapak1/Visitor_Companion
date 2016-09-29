@@ -11,73 +11,37 @@ import Parse
 
 class Location: NSObject {
     
+    // MARK: Location Object
+    var object: PFObject! {
+        didSet {
+            self.objectId = self.object.value(forKey: "objectId") as? String
+            self.name = self.object.value(forKey: "name") as? String
+            self.code = self.object.value(forKey: "code") as? String
+            self.details = self.object.value(forKey: "details") as? String
+            self.coordinate = self.object.value(forKey: "coordinate") as? CLLocation
+            self.interests = self.object.value(forKey: "interests") as? [String]
+        }
+    }
+    
+    
     // MARK: Location Properties
-    var name: String? {
-        get { return self.value(forKey: "name") }
-        set { self.setValue(newValue, forKey: "name") }
-    }
+    var objectId: String?
+
+    var name: String?
     
-    var code: String? {
-        get { return self.value(forKey: "code") }
-        set { self.setValue(newValue, forKey: "code") }
-    }
+    var code: String?
     
-    var details: String? {
-        get { return self.value(forKey: "details") }
-        set { self.setValue(newValue, forKey: "details") }
-    }
+    var details: String?
     
-    var coordinate: CLLocation? {
-        get { return self.value(forKey: "coordinate") }
-        set { self.setValue(newValue, forKey: "coordinate") }
-    }
+    var coordinate: CLLocation?
     
-    var interests: [String]? {
-        get { return self.value(forKey: "interests") }
-        set { self.setValue(newValue, forKey: "interests") }
-    }
+    var interests: [String]?
     
     
     // MARK: Constructor
     init(object: PFObject) {
         super.init()
-        self.name = object.value(forKey: "name") as? String
-        self.code = object.value(forKey: "code") as? String
-        self.details = object.value(forKey: "details") as? String
-        self.coordinate = object.value(forKey: "coordinate") as? CLLocation
-        self.interests = object.value(forKey: "interests") as? [String]
-    }
-    
-    
-    // MARK: Location Methods
-    
-
-    // MARK: Private Methods
-    private func value(forKey key: String) -> String? {
-        if let currentUser = PFUser.current() {
-            return currentUser.value(forKey: key) as? String
-        }
-        return nil
-    }
-    
-    private func value(forKey key: String) -> CLLocation? {
-        if let currentUser = PFUser.current() {
-            return currentUser.value(forKey: key) as? CLLocation
-        }
-        return nil
-    }
-    
-    private func value(forKey key: String) -> [String]? {
-        if let currentUser = PFUser.current() {
-            return currentUser.value(forKey: key) as? [String]
-        }
-        return nil
-    }
-    
-    private func setValue(value: Any?, forKey key: String) {
-        if let currentUser = PFUser.current() {
-            currentUser.setValue(value, forKey: key)
-        }
+        self.object = object
     }
     
 }
