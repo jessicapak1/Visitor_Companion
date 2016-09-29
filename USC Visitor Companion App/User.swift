@@ -16,17 +16,34 @@ class User: NSObject {
     
     
     // MARK: User Properties
-    var exists: Bool { get { return PFUser.current() != nil } }
+    var exists: Bool {
+        get { return PFUser.current() != nil }
+    }
     
-    var name: String? { get { return self.value(forKey: "name") } }
+    var name: String? {
+        get { return self.value(forKey: "name") }
+        set { self.setValue(newValue, forKey: "name") }
+    }
     
-    var username: String? { get { return self.value(forKey: "username") } }
+    var username: String? {
+        get { return self.value(forKey: "username") }
+        set { self.setValue(newValue, forKey: "username") }
+    }
     
-    var email: String? { get { return self.value(forKey: "email") } }
+    var email: String? {
+        get { return self.value(forKey: "email") }
+        set { self.setValue(newValue, forKey: "email") }
+    }
     
-    var interest: String? { get { return self.value(forKey: "interest") } }
+    var interest: String? {
+        get { return self.value(forKey: "interest") }
+        set { self.setValue(newValue, forKey: "interest") }
+    }
     
-    var type: String? { get { return self.value(forKey: "type") } }
+    var type: String? {
+        get { return self.value(forKey: "type") }
+        set { self.setValue(newValue, forKey: "type") }
+    }
 
     
     // MARK: User Methods
@@ -92,6 +109,12 @@ class User: NSObject {
             return currentUser.value(forKey: key) as? String
         }
         return nil
+    }
+    
+    private func setValue(value: Any?, forKey key: String) {
+        if let currentUser = PFUser.current() {
+            currentUser.setValue(value, forKey: key)
+        }
     }
     
 }
