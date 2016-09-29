@@ -11,11 +11,12 @@ import Parse
 
 class ForgotPasswordViewController: UIViewController {
 
+
     @IBOutlet weak var emailTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ForgotPasswordViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
@@ -30,14 +31,17 @@ class ForgotPasswordViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    @IBAction func forgotPasswordButtonPressed(_ sender: AnyObject) {
+    @IBAction func resetPasswordAction(_ sender: AnyObject) {
         passwordReset()
     }
     
     func passwordReset() {
         let email = emailTextField.text
+//        let finalEmail = email?.trimmingCharacters(in: NSCharacterSet.whitespaces)
 //        let finalEmail = email.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+//        
+//        print(email)
+//        print(finalEmail)
         
         // Send a request to reset a password
         PFUser.requestPasswordResetForEmail(inBackground: email!)

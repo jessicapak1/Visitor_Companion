@@ -12,10 +12,10 @@ import Parse
 class RegistrationViewController: UIViewController {
 
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegistrationViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
@@ -30,16 +30,15 @@ class RegistrationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func registerButtonPressed(_ sender: AnyObject) {
-        signup();
+    @IBAction func registerAction(_ sender: AnyObject) {
+        signup()
     }
     
     func signup() {
         let user = PFUser()
-        user.username = emailTextField.text;
+        user.username = usernameTextField.text;
         user.password = passwordTextField.text
-        user.email = emailTextField.text
+        user.email = usernameTextField.text
         // other fields can be set just like with PFObject
  
         

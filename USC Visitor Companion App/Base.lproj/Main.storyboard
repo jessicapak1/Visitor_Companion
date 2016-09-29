@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="poS-Zl-lNF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Ul-0g-Te1">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -10,7 +10,7 @@
         <!--Map View Controller-->
         <scene sceneID="Kec-FN-p7W">
             <objects>
-                <viewController id="poS-Zl-lNF" userLabel="Map View Controller" customClass="MapViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="map" id="poS-Zl-lNF" userLabel="Map View Controller" customClass="MapViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mmr-tW-Pmv"/>
                         <viewControllerLayoutGuide type="bottom" id="kPn-bi-yhC"/>
@@ -307,7 +307,7 @@
         <scene sceneID="d30-bs-j3B">
             <objects>
                 <navigationController storyboardIdentifier="app " id="spO-Kp-MC8" userLabel="App Preference Navigation Controller" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="k7k-N9-LH9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="k7k-N9-LH9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -474,6 +474,9 @@ Christian Villa – Computer Science Major    </string>
                                 <state key="normal" title="      Login      ">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginAction:" destination="4Ul-0g-Te1" eventType="touchUpInside" id="hdR-UA-bZg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -520,6 +523,10 @@ Christian Villa – Computer Science Major    </string>
                             <constraint firstItem="Jug-cA-2Tl" firstAttribute="leading" secondItem="C40-Bi-Atg" secondAttribute="leadingMargin" constant="61" id="z4c-lz-CrO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="bY7-ls-2wI" id="ycP-gj-lOk"/>
+                        <outlet property="usernameTextField" destination="QNz-Pe-t8w" id="03n-oc-Ave"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9m-UM-YYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -612,7 +619,7 @@ Christian Villa – Computer Science Major    </string>
         <scene sceneID="seM-1t-oHs">
             <objects>
                 <navigationController id="EQN-An-L1s" userLabel="Interests Navigation Controller" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jbP-BK-rHc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jbP-BK-rHc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -675,6 +682,9 @@ Christian Villa – Computer Science Major    </string>
                                 <state key="normal" title="Register">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="registerAction:" destination="v03-aH-0gM" eventType="touchUpInside" id="aTN-OK-Sko"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -708,6 +718,10 @@ Christian Villa – Computer Science Major    </string>
                             <constraint firstAttribute="trailingMargin" secondItem="eOa-BP-5j4" secondAttribute="trailing" constant="62" id="yNG-Yx-rKj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="G7b-u7-3nh" id="hff-nD-Et7"/>
+                        <outlet property="usernameTextField" destination="CPU-rW-zbf" id="xvI-sg-bcr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41D-qY-gmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -716,7 +730,7 @@ Christian Villa – Computer Science Major    </string>
         <!--Forgot Password View Controller-->
         <scene sceneID="OPJ-ui-8lh">
             <objects>
-                <viewController id="GSc-vF-suX" userLabel="Forgot Password View Controller" customClass="RegistrationViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GSc-vF-suX" userLabel="Forgot Password View Controller" customClass="ForgotPasswordViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8si-TN-5CD"/>
                         <viewControllerLayoutGuide type="bottom" id="iYj-bI-PUx"/>
@@ -759,6 +773,9 @@ Christian Villa – Computer Science Major    </string>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetPasswordAction:" destination="GSc-vF-suX" eventType="touchUpInside" id="gMJ-Dk-C3m"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -787,6 +804,9 @@ Christian Villa – Computer Science Major    </string>
                             <constraint firstItem="iYj-bI-PUx" firstAttribute="top" secondItem="NXj-K3-XAP" secondAttribute="bottom" constant="245" id="ulP-7I-Tva"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="cDv-wZ-AzC" id="Mgv-tt-TAM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npc-bk-Bvx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
