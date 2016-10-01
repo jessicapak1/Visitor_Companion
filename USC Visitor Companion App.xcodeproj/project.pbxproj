@@ -323,7 +323,6 @@
 				TargetAttributes = {
 					AAD38B801D971648004DD648 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 76Z2F3DWYS;
 						ProvisioningStyle = Automatic;
 					};
 					AAD38B971D971648004DD648 = {
@@ -683,7 +682,7 @@
 			baseConfigurationReference = BEA06F35E18ACCBABF2C162A /* Pods-USC Visitor Companion App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 76Z2F3DWYS;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App";
@@ -697,7 +696,7 @@
 			baseConfigurationReference = 004973256B7351236653CCF5 /* Pods-USC Visitor Companion App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 76Z2F3DWYS;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App";
