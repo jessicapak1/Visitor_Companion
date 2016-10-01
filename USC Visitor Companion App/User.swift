@@ -16,33 +16,43 @@ class User: NSObject {
     
     
     // MARK: User Properties
-    var exists: Bool {
+    var active: Bool {
         get { return PFUser.current() != nil }
     }
     
     var name: String? {
-        get { return self.value(forKey: "name") }
-        set { self.setValue(newValue, forKey: "name") }
+        willSet {
+            PFUser.current()?["name"] = newValue!
+            PFUser.current()?.saveInBackground()
+        }
     }
     
     var username: String? {
-        get { return self.value(forKey: "username") }
-        set { self.setValue(newValue, forKey: "username") }
+        willSet {
+            PFUser.current()?["username"] = newValue!
+            PFUser.current()?.saveInBackground()
+        }
     }
     
     var email: String? {
-        get { return self.value(forKey: "email") }
-        set { self.setValue(newValue, forKey: "email") }
+        willSet {
+            PFUser.current()?["email"] = newValue!
+            PFUser.current()?.saveInBackground()
+        }
     }
     
     var interest: String? {
-        get { return self.value(forKey: "interest") }
-        set { self.setValue(newValue, forKey: "interest") }
+        willSet {
+            PFUser.current()?["interest"] = newValue!
+            PFUser.current()?.saveInBackground()
+        }
     }
     
     var type: String? {
-        get { return self.value(forKey: "type") }
-        set { self.setValue(newValue, forKey: "type") }
+        willSet {
+            PFUser.current()?["type"] = newValue!
+            PFUser.current()?.saveInBackground()
+        }
     }
 
     
@@ -52,19 +62,19 @@ class User: NSObject {
         user.setValue(username, forKey: "username")
         user.setValue(password, forKey: "password")
         user.setValue(email, forKey: "email")
-        user.signUpInBackground(block: {
-            (succeeded, error) in
-            if succeeded {
-                print("signup success")
-            } else {
-                print("signup error")
-            }
-        })
+        do {
+            try user.signUp()
+            User.current.setProperties()
+            print("signup success")
+        } catch {
+            print("signup error")
+        }
     }
     
     class func login(username: String, password: String) {
         do {
             try PFUser.logIn(withUsername: username, password: password)
+            User.current.setProperties()
             print("login success")
         } catch {
             print("login error")
@@ -73,6 +83,7 @@ class User: NSObject {
     
     class func logout() {
         PFUser.logOut()
+        User.current.setProperties()
         print("logout success")
     }
     
@@ -104,17 +115,12 @@ class User: NSObject {
     
     
     // MARK: Private Methods
-    private func value(forKey key: String) -> String? {
-        if let currentUser = PFUser.current() {
-            return currentUser.value(forKey: key) as? String
-        }
-        return nil
-    }
-    
-    private func setValue(value: Any?, forKey key: String) {
-        if let currentUser = PFUser.current() {
-            currentUser.setValue(value, forKey: key)
-        }
+    private func setProperties() {
+        self.name = PFUser.current()?["name"] as! String?
+        self.username = PFUser.current()?["username"] as! String?
+        self.email = PFUser.current()?["email"] as! String?
+        self.interest = PFUser.current()?["interest"] as! String?
+        self.type = PFUser.current()?["type"] as! String?
     }
     
 }
