@@ -11,11 +11,11 @@ import Parse
 
 class User: NSObject {
     
-    // MARK: Current User
+    // MARK: Current
     static let current: User = User()
     
     
-    // MARK: User Properties
+    // MARK: Properties
     var active: Bool {
         get { return PFUser.current() != nil }
     }
@@ -56,7 +56,7 @@ class User: NSObject {
     }
 
     
-    // MARK: User Methods
+    // MARK: Class Methods
     class func signup(username: String, password: String, email: String) {
         let user = PFUser()
         user.setValue(username, forKey: "username")

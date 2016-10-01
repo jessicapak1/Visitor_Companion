@@ -11,11 +11,11 @@ import Parse
 
 class Location: NSObject {
     
-    // MARK: Location Object
+    // MARK: Object
     private var object: PFObject?
     
     
-    // MARK: Location Properties
+    // MARK: Properties
     var objectId: String?
 
     var name: String?
