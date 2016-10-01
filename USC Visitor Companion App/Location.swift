@@ -12,16 +12,7 @@ import Parse
 class Location: NSObject {
     
     // MARK: Location Object
-    var object: PFObject! {
-        didSet {
-            self.objectId = self.object.value(forKey: "objectId") as? String
-            self.name = self.object.value(forKey: "name") as? String
-            self.code = self.object.value(forKey: "code") as? String
-            self.details = self.object.value(forKey: "details") as? String
-            self.coordinate = self.object.value(forKey: "coordinate") as? CLLocation
-            self.interests = self.object.value(forKey: "interests") as? [String]
-        }
-    }
+    private var object: PFObject?
     
     
     // MARK: Location Properties
@@ -33,15 +24,22 @@ class Location: NSObject {
     
     var details: String?
     
-    var coordinate: CLLocation?
+    var location: CLLocation?
     
-    var interests: [String]?
+    var interests: [Interest]?
     
     
     // MARK: Constructor
     init(object: PFObject) {
         super.init()
         self.object = object
+        self.objectId = object.objectId
+        self.name = object["name"] as! String?
+        self.code = object["code"] as! String?
+        self.details = object["details"] as! String?
+        let coordinate = object["location"] as! PFGeoPoint?
+        self.location = CLLocation(latitude: (coordinate?.latitude)!, longitude: (coordinate?.longitude)!)
+        self.interests = object["interests"] as! [Interest]?
     }
     
 }
