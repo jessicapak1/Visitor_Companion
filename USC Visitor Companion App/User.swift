@@ -41,7 +41,7 @@ class User: NSObject {
         return nil
     }
     
-    class func signup(name: String, username: String, password: String, email: String, type: String) {
+    class func signup(name: String, username: String, password: String, email: String, type: String, callback: @escaping (Bool) -> Void) {
         let user = PFUser()
         user["name"] = name
         user["username"] = username // might need to use user.username
@@ -49,26 +49,21 @@ class User: NSObject {
         user["email"] = email
         user["interest"] = "General" // change to default interest
         user["type"] = type
-        do {
-            try user.signUp()
-            print("signup success")
-        } catch {
-            print("signup error")
-        }
+        user.signUpInBackground(block: {
+            (succeeded, error) -> Void in
+            callback(succeeded)
+        })
     }
     
-    class func login(username: String, password: String) {
-        do {
-            try PFUser.logIn(withUsername: username, password: password)
-            print("login success")
-        } catch {
-            print("login error")
-        }
+    class func login(username: String, password: String, callback: @escaping (Bool) -> Void) {
+        PFUser.logInWithUsername(inBackground: username, password: password, block: {
+            (user, error) -> Void in
+            callback(error == nil)
+        })
     }
     
     class func logout() {
         PFUser.logOut()
-        print("logout success")
     }
     
     class func locationsNearby(completionHandler: @escaping ([Location]) -> Void) {
