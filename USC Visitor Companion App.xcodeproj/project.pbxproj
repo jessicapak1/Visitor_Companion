@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B1C25F0B5A8148675F75AA0 /* Pods_USC_Visitor_Companion_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */; };
 		755993EE1D98D5EC0090717C /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755993ED1D98D5EC0090717C /* ForgotPasswordViewController.swift */; };
+		75CDBD0A1DA1B9B300AC0E1C /* AdminTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CDBD091DA1B9B300AC0E1C /* AdminTableViewController.swift */; };
 		75EABC3C1D98BA0D0075E75E /* Options.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75EABC3B1D98BA0D0075E75E /* Options.xib */; };
 		75EABC461D98BA1E0075E75E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC3D1D98BA1E0075E75E /* MapViewController.swift */; };
 		75EABC471D98BA1E0075E75E /* AppPreferenceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC3E1D98BA1E0075E75E /* AppPreferenceTableViewController.swift */; };
@@ -57,6 +58,7 @@
 		19CDA2698EBF75BEA9EEC20F /* Pods-USC Visitor Companion AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USC Visitor Companion AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-USC Visitor Companion AppUITests/Pods-USC Visitor Companion AppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USC_Visitor_Companion_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		755993ED1D98D5EC0090717C /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		75CDBD091DA1B9B300AC0E1C /* AdminTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminTableViewController.swift; sourceTree = "<group>"; };
 		75EABC3B1D98BA0D0075E75E /* Options.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Options.xib; sourceTree = "<group>"; };
 		75EABC3D1D98BA1E0075E75E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		75EABC3E1D98BA1E0075E75E /* AppPreferenceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPreferenceTableViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				75EABC441D98BA1E0075E75E /* OptionsView.swift */,
 				75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */,
 				755993ED1D98D5EC0090717C /* ForgotPasswordViewController.swift */,
+				75CDBD091DA1B9B300AC0E1C /* AdminTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				TargetAttributes = {
 					AAD38B801D971648004DD648 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 76Z2F3DWYS;
 						ProvisioningStyle = Automatic;
 					};
 					AAD38B971D971648004DD648 = {
@@ -524,6 +528,7 @@
 				75EABC4B1D98BA1E0075E75E /* CheckInViewController.swift in Sources */,
 				AAF9A9EF1D9B457F00CB57AF /* Location.swift in Sources */,
 				AA06C9071DA18CCD00B753CF /* MenuViewController.swift in Sources */,
+				75CDBD0A1DA1B9B300AC0E1C /* AdminTableViewController.swift in Sources */,
 				75EABC4E1D98BA1E0075E75E /* RegistrationViewController.swift in Sources */,
 				75EABC491D98BA1E0075E75E /* AboutViewController.swift in Sources */,
 				AA38AD3F1D9C9F150067E1C9 /* Interest.swift in Sources */,
@@ -686,7 +691,7 @@
 			baseConfigurationReference = BEA06F35E18ACCBABF2C162A /* Pods-USC Visitor Companion App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 76Z2F3DWYS;
 				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App";
@@ -700,7 +705,7 @@
 			baseConfigurationReference = 004973256B7351236653CCF5 /* Pods-USC Visitor Companion App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 76Z2F3DWYS;
 				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App";
