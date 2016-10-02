@@ -11,7 +11,7 @@ import GoogleMaps
 import Parse
 import BubbleTransition
 
-class MapViewController: UIViewController, UIViewControllerTransitioningDelegate {
+class MapViewController: UIViewController, UIViewControllerTransitioningDelegate, GMSMapViewDelegate {
     
     // MARK:
     let bubbleTransition = BubbleTransition()
@@ -27,6 +27,7 @@ class MapViewController: UIViewController, UIViewControllerTransitioningDelegate
         let mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
+        mapView.delegate = self
         self.view.insertSubview(mapView, at: 0)
         
         // query from parse for locations and create markers for each location on map
@@ -56,6 +57,10 @@ class MapViewController: UIViewController, UIViewControllerTransitioningDelegate
             }
         }
 
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+            self.performSegue(withIdentifier: "CheckInScreenSegue", sender:self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
