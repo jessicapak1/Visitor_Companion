@@ -43,12 +43,12 @@ class Location: NSObject {
         object["name"] = name
         object["code"] = code
         object["details"] = details
-        object["location"] = location
+        object["location"] = location // might need to use PFGeoPoint(location: location)
         object["interests"] = interests
         object.saveInBackground(block: {
             (succeeded, error) -> Void in
             if succeeded {
-                let location = Location(object: object)
+                //let location = Location(object: object)
                 // add location to locations array
                 // check if objectId is set
                 print("create location success")
