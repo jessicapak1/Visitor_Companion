@@ -9,12 +9,17 @@
 import UIKit
 import GoogleMaps
 import Parse
+import BubbleTransition
 
-class MapViewController: UIViewController {
-
+class MapViewController: UIViewController, UIViewControllerTransitioningDelegate {
+    
+    // MARK:
+    let bubbleTransition = BubbleTransition()
+    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         // Create a GMSCameraPosition that tells the map to display the
         // coordinates 34.020496, 118.285317 at zoom level 17 (shows building outlines)
@@ -37,11 +42,12 @@ class MapViewController: UIViewController {
                 if let objects = objects {
                     for object in objects {
                         let marker = GMSMarker()
-                        let geopoint = object["coordinate"] as! PFGeoPoint
-                        marker.position = CLLocationCoordinate2DMake(geopoint.latitude, geopoint.longitude)
-                        marker.title = object["name"] as! String?
-                        marker.snippet = object["description"] as! String?
-                        marker.map = mapView
+                        if let geopoint = object["coordinate"] as? PFGeoPoint {
+                            marker.position = CLLocationCoordinate2DMake(geopoint.latitude, geopoint.longitude)
+                            marker.title = object["name"] as! String?
+                            marker.snippet = object["description"] as! String?
+                            marker.map = mapView
+                        }
                     }
                 }
             } else {
@@ -51,21 +57,29 @@ class MapViewController: UIViewController {
         }
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Show Menu" {
+            let MVC = segue.destination as! MenuViewController
+            MVC.transitioningDelegate = self
+            MVC.modalPresentationStyle = .custom
+        }
     }
     
-    @IBAction func logoutButtonPressed(_ sender: AnyObject) {
-        logOutAction();
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        self.bubbleTransition.transitionMode = .present
+        self.bubbleTransition.startingPoint = self.menuButton.center
+        self.bubbleTransition.bubbleColor = UIColor.white
+        return self.bubbleTransition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        self.bubbleTransition.transitionMode = .dismiss
+        self.bubbleTransition.startingPoint = self.menuButton.center
+        self.bubbleTransition.bubbleColor = UIColor.blue
+        return self.bubbleTransition
     }
 
-//    @IBAction func optionsButtonPressed(_ sender: AnyObject) {
-//        let view = OptionsView.instanceFromNib()
-//        self.view.addSubview(view)
-//    }
-    
     func logOutAction(){
         let currentUser = PFUser.current()
         if currentUser != nil {
@@ -85,14 +99,5 @@ class MapViewController: UIViewController {
         
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

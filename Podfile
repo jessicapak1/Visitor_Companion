@@ -7,6 +7,7 @@ target 'USC Visitor Companion App' do
   pod 'Parse'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'BubbleTransition'
 
   target 'USC Visitor Companion AppTests' do
     inherit! :search_paths
