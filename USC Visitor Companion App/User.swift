@@ -26,7 +26,7 @@ class User: NSObject {
     // MARK: Constructor
     init(user: PFUser) {
         self.name = user["name"] as! String
-        self.username = user["username"] as! String // might need to use object.username
+        self.username = user["username"] as! String
         self.email = user["email"] as! String
         self.interest = user["interest"] as! String
         self.type = user["type"] as! String
@@ -44,10 +44,10 @@ class User: NSObject {
     class func signup(name: String, username: String, password: String, email: String, type: String, callback: @escaping (Bool) -> Void) {
         let user = PFUser()
         user["name"] = name
-        user["username"] = username // might need to use user.username
+        user["username"] = username
         user["password"] = password
         user["email"] = email
-        user["interest"] = "General" // change to default interest
+        user["interest"] = "General" 
         user["type"] = type
         user.signUpInBackground(block: {
             (succeeded, error) -> Void in
