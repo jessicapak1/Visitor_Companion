@@ -62,14 +62,32 @@ class RegistrationViewController: UIViewController {
             (succeeded, error) in
             if let error = error {
                 _ = error;
-                let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
-                alert.show()
                 
-                // Show the errorString somewhere and let the user try again.
+                let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+         
+                }
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true) {
+ 
+                }
+                
+//                let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
+//                alert.show()
+                
             } else {
                 // Hooray! Let them use the app now.
-                let alert = UIAlertView(title: "Success", message: "Registration Complete!", delegate: self, cancelButtonTitle: "OK")
-                alert.show()
+                let alertController = UIAlertController(title: "Sucess", message: "Registration Complete!", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    
+                }
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true) {
+                    
+                }
+                
+//                let alert = UIAlertView(title: "Success", message: "Registration Complete!", delegate: self, cancelButtonTitle: "OK")
+//                alert.show()
                 
                 let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "map")
                 self.present(viewController, animated: true, completion: nil)

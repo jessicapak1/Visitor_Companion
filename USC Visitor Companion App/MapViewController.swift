@@ -85,14 +85,26 @@ class MapViewController: UIViewController, UIViewControllerTransitioningDelegate
         if currentUser != nil {
             // Do stuff with the user
             PFUser.logOut()
-            let alert = UIAlertView(title: "Success", message: "Logged Out", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
+            let alertController = UIAlertController(title: "Sucess", message: "Logged Out!", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                
+            }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true) {
+                
+            }
+            
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login")
             self.present(viewController, animated: true, completion: nil)
         } else {
             // Show the signup or login screen
-            let alert = UIAlertView(title: "Error", message: "No user to logout", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
+            let alertController = UIAlertController(title: "Error", message: "No User To Logout", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                
+            }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true) {
+            }
         }
         // Send a request to log out a user
         
