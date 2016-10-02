@@ -42,7 +42,7 @@ class MapViewController: UIViewController, UIViewControllerTransitioningDelegate
                 if let objects = objects {
                     for object in objects {
                         let marker = GMSMarker()
-                        if let geopoint = object["coordinate"] as? PFGeoPoint {
+                        if let geopoint = object["location"] as? PFGeoPoint {
                             marker.position = CLLocationCoordinate2DMake(geopoint.latitude, geopoint.longitude)
                             marker.title = object["name"] as! String?
                             marker.snippet = object["description"] as! String?
