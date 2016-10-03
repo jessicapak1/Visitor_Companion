@@ -11,83 +11,62 @@ import Parse
 
 class User: NSObject {
     
-    // MARK: Current
-    static let current: User = User()
-    
-    
     // MARK: Properties
-    var active: Bool {
-        get { return PFUser.current() != nil }
+    var name: String { willSet { self.update(value: newValue, forKey: "name") } }
+    
+    var username: String { willSet { self.update(value: newValue, forKey: "username") } }
+    
+    var email: String { willSet { self.update(value: newValue, forKey: "email") } }
+    
+    var interest: String { willSet { self.update(value: newValue, forKey: "interest") } }
+    
+    var type: String { willSet { self.update(value: newValue, forKey: "type") } }
+    
+    
+    // MARK: Constructor
+    init(user: PFUser) {
+        self.name = user["name"] as! String
+        self.username = user["username"] as! String
+        self.email = user["email"] as! String
+        self.interest = user["interest"] as! String
+        self.type = user["type"] as! String
     }
     
-    var name: String? {
-        willSet {
-            PFUser.current()?["name"] = newValue!
-            PFUser.current()?.saveInBackground()
-        }
-    }
-    
-    var username: String? {
-        willSet {
-            PFUser.current()?["username"] = newValue!
-            PFUser.current()?.saveInBackground()
-        }
-    }
-    
-    var email: String? {
-        willSet {
-            PFUser.current()?["email"] = newValue!
-            PFUser.current()?.saveInBackground()
-        }
-    }
-    
-    var interest: String? {
-        willSet {
-            PFUser.current()?["interest"] = newValue!
-            PFUser.current()?.saveInBackground()
-        }
-    }
-    
-    var type: String? {
-        willSet {
-            PFUser.current()?["type"] = newValue!
-            PFUser.current()?.saveInBackground()
-        }
-    }
-
     
     // MARK: Class Methods
-    class func signup(username: String, password: String, email: String) {
-        let user = PFUser()
-        user.setValue(username, forKey: "username")
-        user.setValue(password, forKey: "password")
-        user.setValue(email, forKey: "email")
-        do {
-            try user.signUp()
-            User.current.setProperties()
-            print("signup success")
-        } catch {
-            print("signup error")
+    class func current() -> User? {
+        if let user = PFUser.current() {
+            return User(user: user)
         }
+        return nil
     }
     
-    class func login(username: String, password: String) {
-        do {
-            try PFUser.logIn(withUsername: username, password: password)
-            User.current.setProperties()
-            print("login success")
-        } catch {
-            print("login error")
-        }
+    class func signup(name: String, username: String, password: String, email: String, type: String, callback: @escaping (Bool) -> Void) {
+        let user = PFUser()
+        user["name"] = name
+        user["username"] = username
+        user["password"] = password
+        user["email"] = email
+        user["interest"] = "General" 
+        user["type"] = type
+        user.signUpInBackground(block: {
+            (succeeded, error) -> Void in
+            callback(succeeded)
+        })
+    }
+    
+    class func login(username: String, password: String, callback: @escaping (Bool) -> Void) {
+        PFUser.logInWithUsername(inBackground: username, password: password, block: {
+            (user, error) -> Void in
+            callback(error == nil)
+        })
     }
     
     class func logout() {
         PFUser.logOut()
-        User.current.setProperties()
-        print("logout success")
     }
     
-    class func locationsNearby(completionHandler: @escaping ([Location]) -> Void) {
+    class func locationsNearby(callback: @escaping ([Location]) -> Void) {
         PFGeoPoint.geoPointForCurrentLocation(inBackground: {
             (userGeoPoint, error) in
             if let userGeoPoint = userGeoPoint {
@@ -103,7 +82,7 @@ class User: NSObject {
                         let location = Location(object: object)
                         locations.append(location)
                     }
-                    completionHandler(locations)
+                    callback(locations)
                 } catch {
                     print("locations nearby error")
                 }
@@ -115,12 +94,11 @@ class User: NSObject {
     
     
     // MARK: Private Methods
-    private func setProperties() {
-        self.name = PFUser.current()?["name"] as! String?
-        self.username = PFUser.current()?["username"] as! String?
-        self.email = PFUser.current()?["email"] as! String?
-        self.interest = PFUser.current()?["interest"] as! String?
-        self.type = PFUser.current()?["type"] as! String?
+    private func update(value: String, forKey key: String) {
+        if let object = PFUser.current() {
+            object[key] = value
+            object.saveInBackground()
+        }
     }
     
 }
