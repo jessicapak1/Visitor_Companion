@@ -35,24 +35,4 @@ class Location: NSObject {
         self.interests = object["interests"] as! [String]?
     }
     
-    
-    // MARK: Class Methods
-    class func create(name: String, code: String, details: String, location: CLLocation, interests: [String], callback: @escaping (Bool) -> Void) {
-        let object = PFObject(className: "Location")
-        object["name"] = name
-        object["code"] = code
-        object["details"] = details
-        object["location"] = location // might need to use PFGeoPoint(location: location)
-        object["interests"] = interests
-        object.saveInBackground(block: {
-            (succeeded, error) -> Void in
-            if succeeded {
-                // let location = Location(object: object)
-                // add location to locations array
-                // check if objectId is set
-            }
-            callback(succeeded)
-        })
-    }
-    
 }
