@@ -10,6 +10,10 @@ import Parse
 
 class User: NSObject {
     
+    // MARK: Current User
+    static let current: User = User()
+    
+    
     // MARK: Properties
     var name: String? { willSet { self.update(value: newValue, forKey: "name") } }
     
@@ -22,24 +26,7 @@ class User: NSObject {
     var type: String? { willSet { self.update(value: newValue, forKey: "type") } }
     
     
-    // MARK: Constructor
-    init(user: PFUser) {
-        self.name = user["name"] as! String?
-        self.username = user["username"] as! String?
-        self.email = user["email"] as! String?
-        self.interest = user["interest"] as! String?
-        self.type = user["type"] as! String?
-    }
-    
-    
     // MARK: Class Methods
-    class func current() -> User? {
-        if let user = PFUser.current() {
-            return User(user: user)
-        }
-        return nil
-    }
-    
     class func signup(name: String, username: String, password: String, email: String, type: String, callback: @escaping (Bool) -> Void) {
         let user = PFUser()
         user["name"] = name
@@ -50,6 +37,7 @@ class User: NSObject {
         user["type"] = type
         user.signUpInBackground(block: {
             (succeeded, error) -> Void in
+            User.current.update()
             callback(succeeded)
         })
     }
@@ -57,21 +45,29 @@ class User: NSObject {
     class func login(username: String, password: String, callback: @escaping (Bool) -> Void) {
         PFUser.logInWithUsername(inBackground: username, password: password, block: {
             (user, error) -> Void in
+            User.current.update()
             callback(error == nil)
         })
     }
     
     class func logout() {
         PFUser.logOut()
+        User.current.update()
     }
     
     
     // MARK: Private Methods
+    private func update() {
+        self.name = PFUser.current()?["name"] as! String?
+        self.username = PFUser.current()?["username"] as! String?
+        self.email = PFUser.current()?["email"] as! String?
+        self.interest = PFUser.current()?["interest"] as! String?
+        self.type = PFUser.current()?["type"] as! String?
+    }
+    
     private func update(value: String?, forKey key: String) {
-        if let object = PFUser.current() {
-            object[key] = value
-            object.saveInBackground()
-        }
+        PFUser.current()?[key] = value
+        PFUser.current()?.saveInBackground()
     }
     
 }
