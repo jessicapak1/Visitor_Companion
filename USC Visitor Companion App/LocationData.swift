@@ -10,23 +10,63 @@ import Parse
 
 class LocationData: NSObject {
     
-    // MARK: Locations
-    static var locations: [Location] {
+    // MARK: Shared Location Data
+    static let shared: LocationData = LocationData()
+    
+    
+    // MARK: Properties
+    var locations: [Location] = [Location]()
+    
+    
+    // MARK: Constructor
+    override init() {
         let query = PFQuery(className: "Location")
         query.order(byAscending: "name")
-        var locations = [Location]()
         do {
             let objects = try query.findObjects()
             for object in objects {
                 let location = Location(object: object)
-                locations.append(location)
+                self.locations.append(location)
             }
         } catch {
             
         }
-        return locations
+    }
+
+    
+    // MARK: Instance Methods
+    func create(name: String, code: String, details: String, location: CLLocation, interests: [String], callback: @escaping (Bool) -> Void) {
+        let object = PFObject(className: "Location")
+        object["name"] = name
+        object["code"] = code
+        object["details"] = details
+        object["location"] = location
+        object["interests"] = interests
+        object.saveInBackground(block: {
+            (succeeded, error) -> Void in
+            if succeeded {
+                // let location = Location(object: object)
+                // add location to locations array
+                // check if objectId is set
+            }
+            callback(succeeded)
+        })
     }
     
-    
-    
+    func locations(withPrefix prefix: String) -> [Location] {
+        var nameMatches = [Location]()
+        var codeMatches = [Location]()
+        for location in self.locations {
+            let lowercaseNameMatches = (location.name?.uppercased().hasPrefix(prefix.uppercased()))!
+            let uppercaseNameMatches = (location.name?.lowercased().hasPrefix(prefix.lowercased()))!
+            let lowercaseCodeMatches = (location.code?.uppercased().hasPrefix(prefix.uppercased()))!
+            let uppercaseCodeMatches = (location.code?.lowercased().hasPrefix(prefix.lowercased()))!
+            if lowercaseNameMatches || uppercaseNameMatches {
+                nameMatches.append(location)
+            } else if lowercaseCodeMatches || uppercaseCodeMatches {
+                codeMatches.append(location)
+            }
+        }
+        return nameMatches + codeMatches
+    }
 }
