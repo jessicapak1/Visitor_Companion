@@ -17,6 +17,10 @@ class LocationData: NSObject {
     // MARK: Properties
     var locations: [Location] = [Location]()
     
+    var idsToNames: [String: String] = [String: String]()
+    
+    var namesToLocations: [String: Location] = [String: Location]()
+    
     
     // MARK: Constructor
     override init() {
@@ -27,6 +31,14 @@ class LocationData: NSObject {
             for object in objects {
                 let location = Location(object: object)
                 self.locations.append(location)
+            }
+            for location in self.locations {
+                if let name = location.name {
+                    self.namesToLocations[name] = location
+                    if let id = location.objectId {
+                        self.idsToNames[id] = name
+                    }
+                }
             }
         } catch {
             
@@ -45,9 +57,14 @@ class LocationData: NSObject {
         object.saveInBackground(block: {
             (succeeded, error) -> Void in
             if succeeded {
-                // let location = Location(object: object)
-                // add location to locations array
-                // check if objectId is set
+                let location = Location(object: object)
+                self.locations.append(location)
+                if let name = location.name {
+                    self.namesToLocations[name] = location
+                    if let id = location.objectId {
+                        self.idsToNames[id] = name
+                    }
+                }
             }
             callback(succeeded)
         })
