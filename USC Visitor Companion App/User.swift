@@ -6,30 +6,29 @@
 //  Copyright © 2016 University of Southern California. All rights reserved.
 //
 
-import UIKit
 import Parse
 
 class User: NSObject {
     
     // MARK: Properties
-    var name: String { willSet { self.update(value: newValue, forKey: "name") } }
+    var name: String? { willSet { self.update(value: newValue, forKey: "name") } }
     
-    var username: String { willSet { self.update(value: newValue, forKey: "username") } }
+    var username: String? { willSet { self.update(value: newValue, forKey: "username") } }
     
-    var email: String { willSet { self.update(value: newValue, forKey: "email") } }
+    var email: String? { willSet { self.update(value: newValue, forKey: "email") } }
     
-    var interest: String { willSet { self.update(value: newValue, forKey: "interest") } }
+    var interest: String? { willSet { self.update(value: newValue, forKey: "interest") } }
     
-    var type: String { willSet { self.update(value: newValue, forKey: "type") } }
+    var type: String? { willSet { self.update(value: newValue, forKey: "type") } }
     
     
     // MARK: Constructor
     init(user: PFUser) {
-        self.name = user["name"] as! String
-        self.username = user["username"] as! String
-        self.email = user["email"] as! String
-        self.interest = user["interest"] as! String
-        self.type = user["type"] as! String
+        self.name = user["name"] as! String?
+        self.username = user["username"] as! String?
+        self.email = user["email"] as! String?
+        self.interest = user["interest"] as! String?
+        self.type = user["type"] as! String?
     }
     
     
@@ -66,35 +65,9 @@ class User: NSObject {
         PFUser.logOut()
     }
     
-    class func locationsNearby(callback: @escaping ([Location]) -> Void) {
-        PFGeoPoint.geoPointForCurrentLocation(inBackground: {
-            (userGeoPoint, error) in
-            if let userGeoPoint = userGeoPoint {
-                print("user location success")
-                let locationQuery = PFQuery(className: "Location")
-                locationQuery.whereKey("coordinate", nearGeoPoint: userGeoPoint)
-                locationQuery.limit = 10
-                do {
-                    let objects = try locationQuery.findObjects()
-                    print("locations nearby success")
-                    var locations = [Location]()
-                    for object in objects {
-                        let location = Location(object: object)
-                        locations.append(location)
-                    }
-                    callback(locations)
-                } catch {
-                    print("locations nearby error")
-                }
-            } else {
-                print("user location error")
-            }
-        })
-    }
-    
     
     // MARK: Private Methods
-    private func update(value: String, forKey key: String) {
+    private func update(value: String?, forKey key: String) {
         if let object = PFUser.current() {
             object[key] = value
             object.saveInBackground()

@@ -6,34 +6,33 @@
 //  Copyright © 2016 University of Southern California. All rights reserved.
 //
 
-import UIKit
 import Parse
 
 class Location: NSObject {
     
     // MARK: Properties
-    var objectId: String
+    var objectId: String?
 
-    var name: String
+    var name: String?
     
-    var code: String
+    var code: String?
     
-    var details: String
+    var details: String?
     
-    var location: CLLocation
+    var location: CLLocation?
     
-    var interests: [Interest]
+    var interests: [String]?
     
     
     // MARK: Constructor
     init(object: PFObject) {
-        self.objectId = object.objectId!
-        self.name = object["name"] as! String
-        self.code = object["code"] as! String
-        self.details = object["details"] as! String
-        let coordinate = object["location"] as! PFGeoPoint
-        self.location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        self.interests = object["interests"] as! [Interest]
+        self.objectId = object.objectId
+        self.name = object["name"] as! String?
+        self.code = object["code"] as! String?
+        self.details = object["details"] as! String?
+        let coordinate = object["location"] as! PFGeoPoint?
+        self.location = CLLocation(latitude: (coordinate?.latitude)!, longitude: (coordinate?.longitude)!)
+        self.interests = object["interests"] as! [String]?
     }
     
     
@@ -48,7 +47,7 @@ class Location: NSObject {
         object.saveInBackground(block: {
             (succeeded, error) -> Void in
             if succeeded {
-                //let location = Location(object: object)
+                // let location = Location(object: object)
                 // add location to locations array
                 // check if objectId is set
             }

@@ -22,6 +22,7 @@
 		75EABC4E1D98BA1E0075E75E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */; };
 		A1E1375FD19E64048101C8B3 /* Pods_USC_Visitor_Companion_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DB3DC7F7064736DF04206E /* Pods_USC_Visitor_Companion_App.framework */; };
 		AA06C9071DA18CCD00B753CF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA06C9061DA18CCD00B753CF /* MenuViewController.swift */; };
+		AA2277A21DA2039100F5C1B0 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2277A11DA2039100F5C1B0 /* LocationData.swift */; };
 		AA38AD3F1D9C9F150067E1C9 /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA38AD3E1D9C9F150067E1C9 /* Interest.swift */; };
 		AA7E0F321D98D298005C9786 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7E0F311D98D298005C9786 /* User.swift */; };
 		AAD38B851D971648004DD648 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD38B841D971648004DD648 /* AppDelegate.swift */; };
@@ -70,6 +71,7 @@
 		75EABC441D98BA1E0075E75E /* OptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		AA06C9061DA18CCD00B753CF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		AA2277A11DA2039100F5C1B0 /* LocationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		AA38AD3E1D9C9F150067E1C9 /* Interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
 		AA7E0F311D98D298005C9786 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AAD38B811D971648004DD648 /* USC Visitor Companion App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "USC Visitor Companion App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +189,7 @@
 			children = (
 				AA7E0F311D98D298005C9786 /* User.swift */,
 				AAF9A9EE1D9B457F00CB57AF /* Location.swift */,
+				AA2277A11DA2039100F5C1B0 /* LocationData.swift */,
 				AA38AD3E1D9C9F150067E1C9 /* Interest.swift */,
 				AAD38B8B1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld */,
 			);
@@ -520,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA2277A21DA2039100F5C1B0 /* LocationData.swift in Sources */,
 				75EABC481D98BA1E0075E75E /* LoginViewController.swift in Sources */,
 				AA7E0F321D98D298005C9786 /* User.swift in Sources */,
 				AAD38B851D971648004DD648 /* AppDelegate.swift in Sources */,
