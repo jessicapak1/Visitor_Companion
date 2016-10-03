@@ -29,7 +29,7 @@ class Interest: NSObject {
         for obj in objects! {
             
             // if we find a name for this object ID
-            if let name = LocationData.shared.idsToNames[obj.objectId] {
+            if let name = LocationData.shared.idsToNames[obj.objectId!] {
                 if let location = LocationData.shared.namesToLocations[name] {
                     self.locations?.append(location)
                 }

@@ -37,15 +37,6 @@ class InterestsData : NSObject {
         }
     }
     
-    // returns an array of all names of interets in database
-    func getInterestNames(name: String) -> [String] {
-        var names = [String]()
-        for name in namesToInterests.keys {
-            names.append(name)
-        }
-        return names
-    }
-    
     func create(name: String) {
         
         let object = PFObject(className:"Interest")
@@ -61,6 +52,41 @@ class InterestsData : NSObject {
         object.saveInBackground()
         
     }
+    
+    // returns an array of all names of interets in database
+    func getInterestNames(name: String) -> [String] {
+        var names = [String]()
+        for name in namesToInterests.keys {
+            names.append(name)
+        }
+        return names
+    }
+    
+    func getInterestNames(withPrefix prefix: String) -> [String] {
+        var matches = [String]()
+        
+        for interestName in self.namesToInterests.keys {
+            
+            let lowercaseMatches = interestName.uppercased().hasPrefix(prefix.uppercased())
+            
+            if lowercaseMatches {
+                matches.append(interestName)
+            }
+        }
+        return matches
+    }
+//    func interests(withPrefix prefix: String) -> [String] {
+//        var nameMatches = [String]()
+//        for interestName in self.namesToInterests.keys {
+//            let lowercaseNameMatches = interestName.uppercased().hasPrefix(prefix.uppercased())
+//            let uppercaseNameMatches = interestName.lowercased().hasPrefix(prefix.lowercased())
+//            if lowercaseNameMatches || uppercaseNameMatches {
+//                nameMatches.append(interestName)
+//            }
+//        }
+//        return nameMatches
+//    }
+
     
     
 }
