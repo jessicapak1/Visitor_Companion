@@ -11,25 +11,25 @@ import Parse
 
 class InterestsData : NSObject {
     
-    private var namesToInterests = [String: Interest]()
     
-    private static var interestsData = InterestsData()
+    
+    static let shared: InterestsData = InterestsData()
     
     // declare map => string(names) to Interest --> Interest holds [Interest]
-    
+    var namesToInterests: [String: Interest] = [String: Interest]()
     
     override init() {
         // call super?
-        super.init()
+        //super.init()
         
-        var query = PFQuery(className: "Interest")
+        let query = PFQuery(className: "Interest")
         query.order(byAscending: "name")
         
         do {
             let interestObjects = try query.findObjects()
             for iObject in interestObjects {
                 let interestObject = Interest(object: iObject);
-                namesToInterests[interestObject.name!] = interestObject
+                self.namesToInterests[interestObject.name!] = interestObject
             }
             
         } catch {
@@ -46,6 +46,21 @@ class InterestsData : NSObject {
         return names
     }
     
+    func create(name: String) {
+        
+        let object = PFObject(className:"Interest")
+        object["name"] = name
+        
+        //var locations = [Location]()
+        
+        //        var loc1 = Location.create(name: "fakeName", code: "fakeCode", details: "fakeDetails", location: nil, interests: nil, callback: nil)
+        //
+        //        locations.append(loc1)
+        //        object["locations"] = locations
+        
+        object.saveInBackground()
+        
+    }
     
     
 }

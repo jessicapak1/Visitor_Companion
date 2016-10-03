@@ -17,33 +17,34 @@ class Interest: NSObject {
     
     var locations: [Location]?
     
+    // construct single localized Interest object
     init(object: PFObject) {
         
-        self.name = object["name"] as? String
-        self.objectId = object.objectId!
+        self.name = object["name"] as! String?
+        self.objectId = object.objectId
+        let objects = object["locations"] as! [PFObject]?
+        print(objects)
         
-        for loc in object["locations"] as? PFObject {
-            let location = Location(object: loc)
+        // if the database grows, we may want to parse a few coordinated maps in LocationData to make these lookups constant time instead of n^2
+        for obj in objects! {
             
-            locations?.append(location)
+            // if we find a name for this object ID
+            if let name = LocationData.shared.idsToNames[obj.objectId] {
+                if let location = LocationData.shared.namesToLocations[name] {
+                    self.locations?.append(location)
+                }
+            }
         }
+//        for loc in objects {
+//            //let location = Location(object: loc)
+//            print(loc)
+//            // Hey LocationData, give me the associated Location object
+//            
+//            //locations?.append(location)
+//        }
         
     }
     
-    class func create(name: String) {
-        
-        let object = PFObject(className:"Interest")
-        object["name"] = name
-        
-        //var locations = [Location]()
-        
-//        var loc1 = Location.create(name: "fakeName", code: "fakeCode", details: "fakeDetails", location: nil, interests: nil, callback: nil)
-//        
-//        locations.append(loc1)
-//        object["locations"] = locations
-        
-        object.saveInBackground()
-        
-    }
+    
     
 }
