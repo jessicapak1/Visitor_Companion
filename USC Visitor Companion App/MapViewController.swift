@@ -11,12 +11,16 @@ import GoogleMaps
 import Parse
 import BubbleTransition
 
-class MapViewController: UIViewController, UIViewControllerTransitioningDelegate, GMSMapViewDelegate {
+class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate {
     
     // MARK:
     let bubbleTransition = BubbleTransition()
     @IBOutlet weak var menuButton: UIButton!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.delegate = self
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +63,26 @@ class MapViewController: UIViewController, UIViewControllerTransitioningDelegate
 
     }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        let locations = LocationData.shared.locations(withPrefix: self.searchBar.text!)
+        for location in locations {
+            print(location.name!, location.code!)
+        }
+        print("-----------------------------------------------")
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let locations = LocationData.shared.locations(withPrefix: searchText)
+        for location in locations {
+            print(location.name!, location.code!)
+        }
+        print("-----------------------------------------------")
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
+    }
+
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
             self.performSegue(withIdentifier: "CheckInScreenSegue", sender:self)
     }

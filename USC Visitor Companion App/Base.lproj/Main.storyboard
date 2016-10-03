@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RYa-VT-6M0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="poS-Zl-lNF">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -25,28 +25,28 @@
                                     <segue destination="R6u-rc-Dc3" kind="presentation" identifier="Show Menu" id="IPB-Lv-d0b"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="9iL-jz-HZ2">
+                            <searchBar contentMode="redraw" placeholder="Search" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jBf-mx-NA5">
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="9iL-jz-HZ2" secondAttribute="trailing" id="H4H-9m-dpB"/>
-                            <constraint firstItem="9iL-jz-HZ2" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="JGl-SC-nJ9"/>
+                            <constraint firstItem="jBf-mx-NA5" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="D2f-7g-RK7"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="oLt-Hd-n1v" secondAttribute="bottom" constant="20" id="O1J-2i-gJS"/>
                             <constraint firstItem="oLt-Hd-n1v" firstAttribute="centerX" secondItem="5EB-oA-TVt" secondAttribute="centerX" id="ULg-ej-uyF"/>
-                            <constraint firstItem="9iL-jz-HZ2" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" constant="8" id="hMY-xy-0H4"/>
+                            <constraint firstItem="jBf-mx-NA5" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" constant="16" id="e2x-Ml-lSd"/>
+                            <constraint firstAttribute="trailing" secondItem="jBf-mx-NA5" secondAttribute="trailing" id="gfQ-nc-vEt"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="menuButton" destination="oLt-Hd-n1v" id="l7L-GF-Gwh"/>
-                        <outlet property="searchBar" destination="9iL-jz-HZ2" id="MFK-6t-Lc9"/>
+                        <outlet property="searchBar" destination="jBf-mx-NA5" id="tsb-jE-dLI"/>
                         <segue destination="fkg-NP-WSZ" kind="modal" identifier="CheckInScreenSegue" id="Xxf-xt-ps3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVm-tf-BUo" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1719" y="-207"/>
+            <point key="canvasLocation" x="-1719.2" y="-207.34632683658174"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="owr-IN-TUK">
