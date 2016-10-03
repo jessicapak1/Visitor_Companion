@@ -66,7 +66,7 @@ class User: NSObject {
         PFUser.logOut()
     }
     
-    class func locationsNearby(completionHandler: @escaping ([Location]) -> Void) {
+    class func locationsNearby(callback: @escaping ([Location]) -> Void) {
         PFGeoPoint.geoPointForCurrentLocation(inBackground: {
             (userGeoPoint, error) in
             if let userGeoPoint = userGeoPoint {
@@ -82,7 +82,7 @@ class User: NSObject {
                         let location = Location(object: object)
                         locations.append(location)
                     }
-                    completionHandler(locations)
+                    callback(locations)
                 } catch {
                     print("locations nearby error")
                 }

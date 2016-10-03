@@ -12,7 +12,7 @@ import Parse
 class Location: NSObject {
     
     // MARK: Properties
-    var objectId: String?
+    var objectId: String
 
     var name: String
     
@@ -27,7 +27,7 @@ class Location: NSObject {
     
     // MARK: Constructor
     init(object: PFObject) {
-        self.objectId = object.objectId
+        self.objectId = object.objectId!
         self.name = object["name"] as! String
         self.code = object["code"] as! String
         self.details = object["details"] as! String
@@ -38,7 +38,7 @@ class Location: NSObject {
     
     
     // MARK: Class Methods
-    class func create(name: String, code: String, details: String, location: CLLocation, interests: [String]) {
+    class func create(name: String, code: String, details: String, location: CLLocation, interests: [String], callback: @escaping (Bool) -> Void) {
         let object = PFObject(className: "Location")
         object["name"] = name
         object["code"] = code
@@ -51,10 +51,8 @@ class Location: NSObject {
                 //let location = Location(object: object)
                 // add location to locations array
                 // check if objectId is set
-                print("create location success")
-            } else {
-                print("create location error")
             }
+            callback(succeeded)
         })
     }
     
