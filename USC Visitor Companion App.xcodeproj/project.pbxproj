@@ -11,7 +11,6 @@
 		4B1C25F0B5A8148675F75AA0 /* Pods_USC_Visitor_Companion_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */; };
 		755993EE1D98D5EC0090717C /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755993ED1D98D5EC0090717C /* ForgotPasswordViewController.swift */; };
 		75CDBD0A1DA1B9B300AC0E1C /* AdminTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CDBD091DA1B9B300AC0E1C /* AdminTableViewController.swift */; };
-		75EABC3C1D98BA0D0075E75E /* Options.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75EABC3B1D98BA0D0075E75E /* Options.xib */; };
 		75EABC461D98BA1E0075E75E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC3D1D98BA1E0075E75E /* MapViewController.swift */; };
 		75EABC471D98BA1E0075E75E /* AppPreferenceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC3E1D98BA1E0075E75E /* AppPreferenceTableViewController.swift */; };
 		75EABC481D98BA1E0075E75E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC3F1D98BA1E0075E75E /* LoginViewController.swift */; };
@@ -19,7 +18,6 @@
 		75EABC4A1D98BA1E0075E75E /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC411D98BA1E0075E75E /* LocationsViewController.swift */; };
 		75EABC4B1D98BA1E0075E75E /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC421D98BA1E0075E75E /* CheckInViewController.swift */; };
 		75EABC4C1D98BA1E0075E75E /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC431D98BA1E0075E75E /* InterestsViewController.swift */; };
-		75EABC4D1D98BA1E0075E75E /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC441D98BA1E0075E75E /* OptionsView.swift */; };
 		75EABC4E1D98BA1E0075E75E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */; };
 		A1E1375FD19E64048101C8B3 /* Pods_USC_Visitor_Companion_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DB3DC7F7064736DF04206E /* Pods_USC_Visitor_Companion_App.framework */; };
 		AA06C9071DA18CCD00B753CF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA06C9061DA18CCD00B753CF /* MenuViewController.swift */; };
@@ -62,7 +60,6 @@
 		44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USC_Visitor_Companion_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		755993ED1D98D5EC0090717C /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		75CDBD091DA1B9B300AC0E1C /* AdminTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminTableViewController.swift; sourceTree = "<group>"; };
-		75EABC3B1D98BA0D0075E75E /* Options.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Options.xib; sourceTree = "<group>"; };
 		75EABC3D1D98BA1E0075E75E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		75EABC3E1D98BA1E0075E75E /* AppPreferenceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPreferenceTableViewController.swift; sourceTree = "<group>"; };
 		75EABC3F1D98BA1E0075E75E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +67,6 @@
 		75EABC411D98BA1E0075E75E /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		75EABC421D98BA1E0075E75E /* CheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		75EABC431D98BA1E0075E75E /* InterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
-		75EABC441D98BA1E0075E75E /* OptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		AA06C9061DA18CCD00B753CF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		AA2277A11DA2039100F5C1B0 /* LocationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
@@ -204,7 +200,6 @@
 			children = (
 				AAD38B881D971648004DD648 /* Main.storyboard */,
 				AAD38B901D971648004DD648 /* LaunchScreen.storyboard */,
-				75EABC3B1D98BA0D0075E75E /* Options.xib */,
 				AAD38BBE1D972E44004DD648 /* Resources */,
 			);
 			name = Views;
@@ -221,7 +216,6 @@
 				75EABC411D98BA1E0075E75E /* LocationsViewController.swift */,
 				75EABC421D98BA1E0075E75E /* CheckInViewController.swift */,
 				75EABC431D98BA1E0075E75E /* InterestsViewController.swift */,
-				75EABC441D98BA1E0075E75E /* OptionsView.swift */,
 				75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */,
 				755993ED1D98D5EC0090717C /* ForgotPasswordViewController.swift */,
 				75CDBD091DA1B9B300AC0E1C /* AdminTableViewController.swift */,
@@ -375,7 +369,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75EABC3C1D98BA0D0075E75E /* Options.xib in Resources */,
 				AAD38B921D971648004DD648 /* LaunchScreen.storyboard in Resources */,
 				AAD38B8F1D971648004DD648 /* Assets.xcassets in Resources */,
 				AAD38B8A1D971648004DD648 /* Main.storyboard in Resources */,
@@ -542,7 +535,6 @@
 				AA38AD3F1D9C9F150067E1C9 /* Interest.swift in Sources */,
 				AAD38B8D1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld in Sources */,
 				755993EE1D98D5EC0090717C /* ForgotPasswordViewController.swift in Sources */,
-				75EABC4D1D98BA1E0075E75E /* OptionsView.swift in Sources */,
 				75EABC471D98BA1E0075E75E /* AppPreferenceTableViewController.swift in Sources */,
 				75EABC461D98BA1E0075E75E /* MapViewController.swift in Sources */,
 			);

@@ -29,28 +29,37 @@
                                     <segue destination="R6u-rc-Dc3" kind="presentation" identifier="Show Menu" id="IPB-Lv-d0b"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" placeholder="Search" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jBf-mx-NA5">
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="dGk-MM-YB2">
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MY9-Id-f3I">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jBf-mx-NA5" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="D2f-7g-RK7"/>
+                            <constraint firstItem="dGk-MM-YB2" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" constant="8" id="4Zk-TL-19t"/>
+                            <constraint firstItem="MY9-Id-f3I" firstAttribute="top" secondItem="dGk-MM-YB2" secondAttribute="bottom" id="HyC-Ev-o58"/>
+                            <constraint firstItem="MY9-Id-f3I" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" constant="8" id="KCw-MF-aKB"/>
+                            <constraint firstAttribute="trailing" secondItem="dGk-MM-YB2" secondAttribute="trailing" constant="8" id="NOY-lk-wyS"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="oLt-Hd-n1v" secondAttribute="bottom" constant="20" id="O1J-2i-gJS"/>
                             <constraint firstItem="oLt-Hd-n1v" firstAttribute="centerX" secondItem="5EB-oA-TVt" secondAttribute="centerX" id="ULg-ej-uyF"/>
-                            <constraint firstItem="jBf-mx-NA5" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" constant="16" id="e2x-Ml-lSd"/>
-                            <constraint firstAttribute="trailing" secondItem="jBf-mx-NA5" secondAttribute="trailing" id="gfQ-nc-vEt"/>
+                            <constraint firstItem="dGk-MM-YB2" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" constant="8" id="aJ2-vG-OIk"/>
+                            <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="MY9-Id-f3I" secondAttribute="bottom" id="dOI-sI-dlV"/>
+                            <constraint firstAttribute="trailing" secondItem="MY9-Id-f3I" secondAttribute="trailing" constant="8" id="seG-oE-cSm"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="menuButton" destination="oLt-Hd-n1v" id="l7L-GF-Gwh"/>
-                        <outlet property="searchBar" destination="jBf-mx-NA5" id="tsb-jE-dLI"/>
-                        <segue destination="fkg-NP-WSZ" kind="modal" identifier="CheckInScreenSegue" id="Xxf-xt-ps3"/>
+                        <outlet property="searchBar" destination="dGk-MM-YB2" id="P7P-vV-Waa"/>
+                        <outlet property="searchTableView" destination="MY9-Id-f3I" id="0Vm-ht-vK1"/>
+                        <segue destination="fqA-ET-cOT" kind="modal" identifier="CheckInScreenSegue" id="Xxf-xt-ps3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVm-tf-BUo" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1719.2" y="-207.34632683658174"/>
+            <point key="canvasLocation" x="-1930.4000000000001" y="-485.30734632683664"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="owr-IN-TUK">
@@ -119,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Sc-hO-onZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1020" y="-468.21589205397305"/>
+            <point key="canvasLocation" x="-1014" y="-485"/>
         </scene>
         <!--App Preferences-->
         <scene sceneID="c1C-hY-bww">
@@ -136,7 +145,7 @@
                                         <rect key="frame" x="0.0" y="99" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lsU-b2-rzr" id="2u2-8k-b2V">
-                                            <frame key="frameInset" width="375" height="75"/>
+                                            <frame key="frameInset" width="375" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shieldmono" translatesAutoresizingMaskIntoConstraints="NO" id="AQ3-Wn-wdo">
@@ -157,7 +166,7 @@
                                         <rect key="frame" x="0.0" y="174" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vkM-yx-CPw" id="7hn-yd-fGO">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1y-G4-WbO">
@@ -195,7 +204,7 @@
                                         <rect key="frame" x="0.0" y="218" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dfd-eA-xLe" id="3oB-kU-M5W">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vibration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAg-90-T7V">
@@ -233,7 +242,7 @@
                                         <rect key="frame" x="0.0" y="262" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qeo-ID-BXP" id="KAI-mi-iKP">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKc-eT-Ouj">
@@ -275,7 +284,7 @@
                                         <rect key="frame" x="0.0" y="341" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Yq-0v-z8W" id="rJU-wb-wx4">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Choose An Interest    " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWl-fI-2cE">
@@ -307,7 +316,7 @@
                                         <rect key="frame" x="0.0" y="385" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yjr-FJ-Up8" id="2nd-bH-bEM">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Begin A Scavenger Hunt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O11-1z-gx3">
@@ -337,7 +346,7 @@
                                         <rect key="frame" x="0.0" y="429" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VEa-jY-Lld" id="KOZ-eZ-M9b">
-                                            <frame key="frameInset" width="375" height="44"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="About This App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgk-1X-f1W">
@@ -383,7 +392,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MtE-za-bxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="-1157.2713643178411"/>
+            <point key="canvasLocation" x="1220" y="-1236"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="O99-2G-kTd">
@@ -440,12 +449,12 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndo-79-sQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="-1827.4362818590705"/>
+            <point key="canvasLocation" x="1220" y="-1986"/>
         </scene>
-        <!--View Controller-->
+        <!--Check In-->
         <scene sceneID="E8w-Ph-5CI">
             <objects>
-                <viewController id="fkg-NP-WSZ" sceneMemberID="viewController">
+                <viewController id="fkg-NP-WSZ" customClass="CheckInViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xXi-Kb-nyz"/>
                         <viewControllerLayoutGuide type="bottom" id="RZK-fi-ZMa"/>
@@ -454,14 +463,6 @@ Christian Villa – Computer Science Major    </string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJV-4y-evg">
-                                <frame key="frameInset" minX="16" minY="20" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="poS-Zl-lNF" kind="modal" id="1Ds-XU-dkg"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Check-in Screen to Come" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lge-1h-lJj">
                                 <frame key="frameInset" minX="96" minY="269" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -472,10 +473,17 @@ Christian Villa – Computer Science Major    </string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Check In" id="FRU-vO-w9b">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="iYb-1q-pwE">
+                            <connections>
+                                <action selector="closeButtonPressed" destination="fkg-NP-WSZ" id="hcO-Du-8GZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPF-VT-Kn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1615" y="655"/>
+            <point key="canvasLocation" x="-1015" y="268"/>
         </scene>
         <!--Check In View Controller-->
         <scene sceneID="uMn-VD-wep">
@@ -510,7 +518,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aNb-BP-RKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-569" y="727"/>
+            <point key="canvasLocation" x="3863" y="2136"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="lb4-ly-v7a">
@@ -626,7 +634,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9m-UM-YYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="473" y="1022"/>
+            <point key="canvasLocation" x="2822" y="1364"/>
         </scene>
         <!--Locations-->
         <scene sceneID="pKx-ju-pqn">
@@ -657,7 +665,7 @@ Christian Villa – Computer Science Major    </string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5rJ-uk-b7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="199"/>
+            <point key="canvasLocation" x="1220" y="268"/>
         </scene>
         <!--Interests-->
         <scene sceneID="cC8-5i-4Sw">
@@ -672,7 +680,7 @@ Christian Villa – Computer Science Major    </string>
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5XM-sg-Ovs" id="F8g-0o-qeG">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -805,7 +813,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41D-qY-gmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1482" y="1119"/>
+            <point key="canvasLocation" x="3726" y="1364"/>
         </scene>
         <!--Admin View Controller-->
         <scene sceneID="EOR-wf-Xpc">
@@ -822,7 +830,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="64" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jn6-lc-2bt" id="0MX-Qy-aex">
-                                            <frame key="frameInset" width="375" height="70"/>
+                                            <frame key="frameInset" width="375" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="czd-0b-yX0">
@@ -842,7 +850,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="134" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Si-Vy-JoI" id="TU2-uc-RbH">
-                                            <frame key="frameInset" width="375" height="70"/>
+                                            <frame key="frameInset" width="375" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAT-ac-Bf4">
@@ -862,7 +870,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="204" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DR5-E5-cd8" id="Bu3-Qf-eml">
-                                            <frame key="frameInset" width="375" height="70"/>
+                                            <frame key="frameInset" width="375" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location (latitude, longitude)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IuN-W5-kvq">
@@ -882,7 +890,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="274" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bsV-dh-ddc" id="hwU-Rl-hOH">
-                                            <frame key="frameInset" width="375" height="200"/>
+                                            <frame key="frameInset" width="375" height="199"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description about the location" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dfy-B0-obq">
@@ -910,7 +918,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="474" width="375" height="195"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HKq-Kx-ff8" id="mIe-mE-9yb">
-                                            <frame key="frameInset" width="375" height="195"/>
+                                            <frame key="frameInset" width="375" height="194"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interests:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pR9-Ff-CFL">
@@ -948,7 +956,7 @@ Christian Villa – Computer Science Major    </string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nK-x6-eMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3165.5999999999999" y="657.12143928035982"/>
+            <point key="canvasLocation" x="5274" y="738"/>
         </scene>
         <!--Admin Navigation Controller-->
         <scene sceneID="iUw-MA-aq8">
@@ -964,7 +972,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1PT-7j-I5v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2215" y="658"/>
+            <point key="canvasLocation" x="4426" y="737"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="OPJ-ui-8lh">
@@ -1049,7 +1057,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npc-bk-Bvx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="473" y="1779"/>
+            <point key="canvasLocation" x="2822" y="2069"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bjm-Zs-adQ">
@@ -1067,7 +1075,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Q6-og-JYs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="280.80000000000001" y="-1157.2713643178411"/>
+            <point key="canvasLocation" x="281" y="-1236"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nWM-uM-Srg">
@@ -1085,7 +1093,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DBJ-uP-8DL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="280.80000000000001" y="-1827.4362818590705"/>
+            <point key="canvasLocation" x="281" y="-1985"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="exX-zS-ydv">
@@ -1103,7 +1111,25 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pe2-Qz-fTu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="200"/>
+            <point key="canvasLocation" x="281" y="268"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wau-RF-f5R">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fqA-ET-cOT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPk-Va-0EN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fkg-NP-WSZ" kind="relationship" relationship="rootViewController" id="DuW-w2-voi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nFA-lm-5f7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1930" y="268"/>
         </scene>
     </scenes>
     <resources>
@@ -1117,6 +1143,6 @@ Christian Villa – Computer Science Major    </string>
         <image name="yellow circle" width="1077" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ChE-M2-qza"/>
+        <segue reference="3XF-nH-Oo0"/>
     </inferredMetricsTieBreakers>
 </document>

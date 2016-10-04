@@ -11,7 +11,7 @@ import GoogleMaps
 import Parse
 import BubbleTransition
 
-class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate {
+class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Properties
     let bubbleTransition: BubbleTransition = BubbleTransition()
@@ -22,12 +22,19 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             self.mapView.settings.myLocationButton = true
         }
     }
+    var searchResults: [Location] = [Location]()
     
     
     // MARK: IBOutlets
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
-            searchBar.delegate = self
+            self.searchBar.delegate = self
+        }
+    }
+    @IBOutlet weak var searchTableView: UITableView! {
+        didSet {
+            self.searchTableView.delegate = self
+            self.searchTableView.dataSource = self
         }
     }
     @IBOutlet weak var menuButton: UIButton!
@@ -38,6 +45,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         super.viewDidLoad()
         self.showMap()
         self.showLocationsOnMap()
+        self.addSearchTableView()
     }
     
     
@@ -45,7 +53,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     func showMap() {
         let camera = GMSCameraPosition.camera(withLatitude: 34.020496, longitude: -118.285317, zoom: 20.0)
         self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
-        self.view.insertSubview(mapView, at: 0)
+        self.view.insertSubview(self.mapView, at: 0)
     }
     
     func showLocationsOnMap() {
@@ -59,25 +67,48 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     
+    // MARK: Search Table View Methods
+    func addSearchTableView() {
+        self.searchTableView.isHidden = true
+        self.view.insertSubview(self.searchTableView, aboveSubview: self.mapView)
+        self.view.insertSubview(self.searchTableView, aboveSubview: self.menuButton)
+    }
+    
+    
     // MARK: UISearchBarDelegate Methods
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        let locations = LocationData.shared.locations(withPrefix: self.searchBar.text!)
-        for location in locations {
-            print(location.name!, location.code!)
-        }
-        print("-----------------------------------------------")
+        self.searchResults = LocationData.shared.locations(withPrefix: self.searchBar.text!)
+        self.searchTableView.reloadData()
+        self.searchTableView.isHidden = false
+        self.searchBar.showsCancelButton = true
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let locations = LocationData.shared.locations(withPrefix: searchText)
-        for location in locations {
-            print(location.name!, location.code!)
-        }
-        print("-----------------------------------------------")
+        self.searchResults = LocationData.shared.locations(withPrefix: self.searchBar.text!)
+        self.searchTableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = false
         self.searchBar.resignFirstResponder()
+        self.searchTableView.isHidden = true
+    }
+    
+    
+    // MARK: UITableViewDelegate Methods
+    
+    
+    // MARK: UITableViewDataSourceMethods
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.searchResults.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 
     
