@@ -67,7 +67,7 @@ class InterestsData : NSObject {
         
         for interestName in self.namesToInterests.keys {
             
-            let lowercaseMatches = interestName.uppercased().hasPrefix(prefix.uppercased())
+            let lowercaseMatches = interestName.lowercased().hasPrefix(prefix.lowercased())
             
             if lowercaseMatches {
                 matches.append(interestName)
