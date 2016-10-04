@@ -24,6 +24,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.init(white: 0.9, alpha: 1)
         // Do any additional setup after loading the view.
         // Create a GMSCameraPosition that tells the map to display the
         // coordinates 34.020496, 118.285317 at zoom level 17 (shows building outlines)
@@ -98,7 +99,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         self.bubbleTransition.transitionMode = .present
         self.bubbleTransition.startingPoint = self.menuButton.center
-        self.bubbleTransition.bubbleColor = UIColor.white
+        self.bubbleTransition.bubbleColor = UIColor.init(white: 0.9, alpha: 0.8)
         return self.bubbleTransition
     }
     
