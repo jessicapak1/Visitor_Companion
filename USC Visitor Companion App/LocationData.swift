@@ -74,16 +74,17 @@ class LocationData: NSObject {
         var nameMatches = [Location]()
         var codeMatches = [Location]()
         for location in self.locations {
-            let lowercaseNameMatches = (location.name?.uppercased().hasPrefix(prefix.uppercased()))!
-            let uppercaseNameMatches = (location.name?.lowercased().hasPrefix(prefix.lowercased()))!
-            let lowercaseCodeMatches = (location.code?.uppercased().hasPrefix(prefix.uppercased()))!
-            let uppercaseCodeMatches = (location.code?.lowercased().hasPrefix(prefix.lowercased()))!
-            if lowercaseNameMatches || uppercaseNameMatches {
+            if (location.name?.uppercased().hasPrefix(prefix.uppercased()))! {
                 nameMatches.append(location)
-            } else if lowercaseCodeMatches || uppercaseCodeMatches {
+            } else if (location.code?.uppercased().hasPrefix(prefix.uppercased()))! {
                 codeMatches.append(location)
             }
         }
         return nameMatches + codeMatches
     }
+    
+    func locations(withSubstring substring: String) -> [Location] {
+        return [Location]()
+    }
+    
 }
