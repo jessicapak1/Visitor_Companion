@@ -9,6 +9,16 @@
 import UIKit
 
 class SearchTableViewCell: UITableViewCell {
+    
+    // MARK: Properties
+    static let defaultHeight: CGFloat = 65.0
+    
+    
+    // MARK: IBOutlets
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var interestsLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
