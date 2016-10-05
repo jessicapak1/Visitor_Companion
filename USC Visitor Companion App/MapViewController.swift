@@ -15,6 +15,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: Properties
     let bubbleTransition: BubbleTransition = BubbleTransition()
+    
     var mapView: GMSMapView! {
         didSet {
             self.mapView.delegate = self
@@ -22,6 +23,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             self.mapView.settings.myLocationButton = true
         }
     }
+    
     var searchResults: [Location] = [Location]()
     
     
@@ -31,6 +33,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             self.searchBar.delegate = self
         }
     }
+    
     @IBOutlet weak var searchTableView: UITableView! {
         didSet {
             self.searchTableView.delegate = self
@@ -38,6 +41,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             self.searchTableView.register(UINib(nibName: "SearchTableViewCell", bundle: nil), forCellReuseIdentifier: "Search Cell")
         }
     }
+    
     @IBOutlet weak var menuButton: UIButton!
     
     
@@ -50,7 +54,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     
-    // MARK: Map View Methods
+    // MARK: Map Methods
     func showMap() {
         let camera = GMSCameraPosition.camera(withLatitude: 34.020496, longitude: -118.285317, zoom: 20.0)
         self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
@@ -89,6 +93,16 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     
+    // MARK: Storyboard Methods
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Show Menu" {
+            let MVC = segue.destination as! MenuViewController
+            MVC.transitioningDelegate = self
+            MVC.modalPresentationStyle = .custom
+        }
+    }
+    
+    
     // MARK: UISearchBarDelegate Methods
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.showSearch()
@@ -119,6 +133,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.searchTableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.searchBar.resignFirstResponder()
+    }
+    
     
     // MARK: UITableViewDataSourceMethods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -142,16 +160,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     // MARK: GMSMapViewDelegate Methods
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         self.performSegue(withIdentifier: "CheckInScreenSegue", sender: self)
-    }
-    
-    
-    // MARK: Storyboard Methods
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Show Menu" {
-            let MVC = segue.destination as! MenuViewController
-            MVC.transitioningDelegate = self
-            MVC.modalPresentationStyle = .custom
-        }
     }
     
     

@@ -204,7 +204,6 @@
 			children = (
 				AAD38B881D971648004DD648 /* Main.storyboard */,
 				AAD38B901D971648004DD648 /* LaunchScreen.storyboard */,
-				AA7249DC1DA488B8009AED20 /* SearchTableViewCell.swift */,
 				AA7249DD1DA488B8009AED20 /* SearchTableViewCell.xib */,
 				AAD38BBE1D972E44004DD648 /* Resources */,
 			);
@@ -241,6 +240,7 @@
 		AAD38BBE1D972E44004DD648 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AA7249DC1DA488B8009AED20 /* SearchTableViewCell.swift */,
 				AAD38B8E1D971648004DD648 /* Assets.xcassets */,
 			);
 			name = Resources;
