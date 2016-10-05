@@ -16,12 +16,12 @@
                 <frame key="frameInset" width="401" height="64"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ude-LB-cQh">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Name" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ude-LB-cQh">
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDo-nN-0Y6">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Code" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDo-nN-0Y6">
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -31,14 +31,23 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fast-food-icon-45970" translatesAutoresizingMaskIntoConstraints="NO" id="iOc-Na-Pun">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="TFS-QE-70P"/>
+                            <constraint firstAttribute="width" constant="25" id="VYO-cK-51F"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="JDo-nN-0Y6" firstAttribute="leading" secondItem="ude-LB-cQh" secondAttribute="trailing" constant="8" id="32D-HV-YHV"/>
-                    <constraint firstItem="JRB-7P-gf7" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="AQO-xt-jKZ"/>
-                    <constraint firstItem="ude-LB-cQh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="tB6-nB-2yo"/>
-                    <constraint firstItem="JRB-7P-gf7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="uOe-Rb-8f6"/>
-                    <constraint firstItem="ude-LB-cQh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="whE-hR-QET"/>
-                    <constraint firstItem="JDo-nN-0Y6" firstAttribute="baseline" secondItem="ude-LB-cQh" secondAttribute="baseline" id="yH9-Cb-SeC"/>
+                    <constraint firstItem="JRB-7P-gf7" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="E01-xv-Nnb"/>
+                    <constraint firstItem="iOc-Na-Pun" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="GVb-we-aBF"/>
+                    <constraint firstItem="JRB-7P-gf7" firstAttribute="leading" secondItem="iOc-Na-Pun" secondAttribute="trailing" constant="16" id="GvI-OX-2yf"/>
+                    <constraint firstItem="ude-LB-cQh" firstAttribute="leading" secondItem="iOc-Na-Pun" secondAttribute="trailing" constant="16" id="RfD-cQ-mZG"/>
+                    <constraint firstItem="ude-LB-cQh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="UeM-9G-PPg"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="JDo-nN-0Y6" secondAttribute="trailing" id="XE6-3N-TAs"/>
+                    <constraint firstItem="JDo-nN-0Y6" firstAttribute="baseline" secondItem="ude-LB-cQh" secondAttribute="baseline" id="Z7u-dr-g91"/>
+                    <constraint firstItem="JDo-nN-0Y6" firstAttribute="leading" secondItem="ude-LB-cQh" secondAttribute="trailing" constant="8" id="pXD-fH-MnZ"/>
+                    <constraint firstItem="iOc-Na-Pun" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="zri-0E-7VY"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -49,4 +58,7 @@
             <point key="canvasLocation" x="75.5" y="64.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="fast-food-icon-45970" width="256" height="256"/>
+    </resources>
 </document>

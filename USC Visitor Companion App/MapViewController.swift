@@ -80,7 +80,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     func showSearch() {
-        self.searchResults = LocationData.shared.locations(withPrefix: self.searchBar.text!)
+        self.searchResults = LocationData.shared.locations(withKeyword: self.searchBar.text!)
         self.searchTableView.reloadData()
         self.searchTableView.isHidden = false
         self.searchBar.showsCancelButton = true

@@ -70,21 +70,20 @@ class LocationData: NSObject {
         })
     }
     
-    func locations(withPrefix prefix: String) -> [Location] {
+    func locations(withKeyword keyword: String) -> [Location] {
         var nameMatches = [Location]()
         var codeMatches = [Location]()
+        var wordMatches = [Location]()
         for location in self.locations {
-            if (location.name?.uppercased().hasPrefix(prefix.uppercased()))! {
+            if (location.name?.uppercased().hasPrefix(keyword.uppercased()))! {
                 nameMatches.append(location)
-            } else if (location.code?.uppercased().hasPrefix(prefix.uppercased()))! {
+            } else if (location.code?.uppercased().hasPrefix(keyword.uppercased()))! {
                 codeMatches.append(location)
+            } else if (location.name?.uppercased().contains(keyword.uppercased()))! && keyword.characters.count >= 3 {
+                wordMatches.append(location)
             }
         }
-        return nameMatches + codeMatches
-    }
-    
-    func locations(withSubstring substring: String) -> [Location] {
-        return [Location]()
+        return nameMatches + wordMatches + codeMatches
     }
     
 }
