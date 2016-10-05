@@ -35,6 +35,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         didSet {
             self.searchTableView.delegate = self
             self.searchTableView.dataSource = self
+            self.searchTableView.register(UINib(nibName: "SearchTableViewCell", bundle: nil), forCellReuseIdentifier: "Search Cell")
         }
     }
     @IBOutlet weak var menuButton: UIButton!
@@ -67,25 +68,34 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     
-    // MARK: Search Table View Methods
+    // MARK: Search Methods
     func addSearchTableView() {
         self.searchTableView.isHidden = true
         self.view.insertSubview(self.searchTableView, aboveSubview: self.mapView)
         self.view.insertSubview(self.searchTableView, aboveSubview: self.menuButton)
     }
     
-    
-    // MARK: UISearchBarDelegate Methods
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    func showSearch() {
         self.searchResults = LocationData.shared.locations(withPrefix: self.searchBar.text!)
         self.searchTableView.reloadData()
         self.searchTableView.isHidden = false
         self.searchBar.showsCancelButton = true
     }
     
+    func hideSearch() {
+        self.searchBar.showsCancelButton = false
+        self.searchBar.resignFirstResponder()
+        self.searchTableView.isHidden = true
+    }
+    
+    
+    // MARK: UISearchBarDelegate Methods
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.showSearch()
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.searchResults = LocationData.shared.locations(withPrefix: self.searchBar.text!)
-        self.searchTableView.reloadData()
+        self.showSearch()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -93,13 +103,21 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.searchBar.showsCancelButton = false
-        self.searchBar.resignFirstResponder()
-        self.searchTableView.isHidden = true
+        self.hideSearch()
     }
     
     
     // MARK: UITableViewDelegate Methods
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.hideSearch()
+        let location = self.searchResults[indexPath.row]
+        let coordinate = location.location?.coordinate
+        if let coordinate = coordinate {
+            self.mapView.animate(toZoom: 20.0)
+            self.mapView.animate(toLocation: coordinate)
+        }
+        self.searchTableView.deselectRow(at: indexPath, animated: true)
+    }
     
     
     // MARK: UITableViewDataSourceMethods
@@ -108,7 +126,16 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = self.searchTableView.dequeueReusableCell(withIdentifier: "Search Cell") as! SearchTableViewCell
+        let location = self.searchResults[indexPath.row]
+        cell.nameLabel.text = location.name
+        cell.codeLabel.text = location.code
+        cell.interestsLabel.text = location.interests?.joined(separator: ", ")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return SearchTableViewCell.defaultHeight
     }
 
     
