@@ -15,15 +15,15 @@ class User: NSObject {
     
     
     // MARK: Properties
-    var name: String? { willSet { self.update(value: newValue, forKey: "name") } }
+    var name: String? { willSet { User.current.update(value: newValue, forKey: "name") } }
     
-    var username: String? { willSet { self.update(value: newValue, forKey: "username") } }
+    var username: String? { willSet { User.current.update(value: newValue, forKey: "username") } }
     
-    var email: String? { willSet { self.update(value: newValue, forKey: "email") } }
+    var email: String? { willSet { User.current.update(value: newValue, forKey: "email") } }
     
-    var interest: String? { willSet { self.update(value: newValue, forKey: "interest") } }
+    var interest: String? { willSet { User.current.update(value: newValue, forKey: "interest") } }
     
-    var type: String? { willSet { self.update(value: newValue, forKey: "type") } }
+    var type: String? { willSet { User.current.update(value: newValue, forKey: "type") } }
     
     
     // MARK: Class Methods
@@ -65,7 +65,7 @@ class User: NSObject {
         self.type = PFUser.current()?["type"] as! String?
     }
     
-    private func update(value: String?, forKey key: String) {
+    private func update(value: Any?, forKey key: String) {
         PFUser.current()?[key] = value
         PFUser.current()?.saveInBackground()
     }
