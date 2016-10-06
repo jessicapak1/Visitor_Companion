@@ -20,9 +20,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         didSet {
             self.mapView.delegate = self
             self.mapView.isMyLocationEnabled = true
-            self.mapView.settings.myLocationButton = true
         }
     }
+    
+    var markers: [String: GMSMarker] = [String: GMSMarker]()
     
     var searchResults: [Location] = [Location]()
     
@@ -38,7 +39,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         didSet {
             self.searchTableView.delegate = self
             self.searchTableView.dataSource = self
-            self.searchTableView.register(UINib(nibName: "SearchTableViewCell", bundle: nil), forCellReuseIdentifier: "Search Cell")
+            self.searchTableView.register(UINib(nibName: "SearchResultTableViewCell", bundle: nil), forCellReuseIdentifier: "Search Result Cell")
+            self.searchTableView.register(UINib(nibName: "NoResultsFoundTableViewCell", bundle: nil), forCellReuseIdentifier: "No Results Found Cell")
+            self.searchTableView.tableFooterView = UIView(frame: .zero)
         }
     }
     
@@ -49,8 +52,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     override func viewDidLoad() {
         super.viewDidLoad()
         self.showMap()
-        self.showLocationsOnMap()
-        self.addSearchTableView()
+        self.showMarkers()
+        self.addSearch()
     }
     
     
@@ -61,19 +64,33 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.view.insertSubview(self.mapView, at: 0)
     }
     
-    func showLocationsOnMap() {
+    func showMarkers() {
         for location in LocationData.shared.locations {
             let marker = GMSMarker()
             marker.map = self.mapView
             marker.title = location.name
             marker.snippet = location.details
             marker.position = (location.location?.coordinate)!
+            marker.icon = GMSMarker.markerImage(with: UIColor(red: 153.0, green: 0.0, blue: 0.0, alpha: 1.0))
+            self.markers[location.name!] = marker
         }
+    }
+    
+    func animate(toLocation location: Location) {
+        let coordinate = location.location?.coordinate
+        if let coordinate = coordinate {
+            self.mapView.animate(toZoom: 20.0)
+            self.mapView.animate(toLocation: coordinate)
+        }
+    }
+    
+    func showInformation(forLocation location: Location) {
+        self.mapView.selectedMarker = self.markers[location.name!]
     }
     
     
     // MARK: Search Methods
-    func addSearchTableView() {
+    func addSearch() {
         self.searchTableView.isHidden = true
         self.view.insertSubview(self.searchTableView, aboveSubview: self.mapView)
         self.view.insertSubview(self.searchTableView, aboveSubview: self.menuButton)
@@ -125,11 +142,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.hideSearch()
         let location = self.searchResults[indexPath.row]
-        let coordinate = location.location?.coordinate
-        if let coordinate = coordinate {
-            self.mapView.animate(toZoom: 20.0)
-            self.mapView.animate(toLocation: coordinate)
-        }
+        self.animate(toLocation: location)
+        self.showInformation(forLocation: location)
         self.searchTableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -140,20 +154,35 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: UITableViewDataSourceMethods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.searchResults.count == 0 {
+            return 1 // no results found table view cell
+        }
         return self.searchResults.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.searchTableView.dequeueReusableCell(withIdentifier: "Search Cell") as! SearchTableViewCell
+        if self.searchResults.count == 0 {
+            return self.configureNoResultsFoundCell()
+        }
         let location = self.searchResults[indexPath.row]
-        cell.nameLabel.text = location.name
-        cell.codeLabel.text = location.code
-        cell.interestsLabel.text = location.interests?.joined(separator: ", ")
-        return cell
+        return self.configureSearchResultCell(withLocation: location)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return SearchTableViewCell.defaultHeight
+        return SearchResultTableViewCell.defaultHeight
+    }
+    
+    func configureNoResultsFoundCell() -> UITableViewCell {
+        let noResultsFoundCell = self.searchTableView.dequeueReusableCell(withIdentifier: "No Results Found Cell") as! NoResultsFoundTableViewCell
+        return noResultsFoundCell
+    }
+    
+    func configureSearchResultCell(withLocation location: Location) -> UITableViewCell {
+        let searchResultCell = self.searchTableView.dequeueReusableCell(withIdentifier: "Search Result Cell") as! SearchResultTableViewCell
+        searchResultCell.nameLabel.text = location.name
+        searchResultCell.codeLabel.text = location.code
+        searchResultCell.interestsLabel.text = location.interests?.joined(separator: ", ")
+        return searchResultCell
     }
 
     
@@ -165,16 +194,15 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: UIViewControllerTransitioningDelegate Methods
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        self.bubbleTransition.duration = 0.25
         self.bubbleTransition.transitionMode = .present
         self.bubbleTransition.startingPoint = self.menuButton.center
-        self.bubbleTransition.bubbleColor = UIColor.init(white: 0.9, alpha: 0.8)
+        self.bubbleTransition.bubbleColor = UIColor.init(white: 0.9, alpha: 0.9)
         return self.bubbleTransition
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         self.bubbleTransition.transitionMode = .dismiss
-        self.bubbleTransition.startingPoint = self.menuButton.center
-        self.bubbleTransition.bubbleColor = UIColor.blue
         return self.bubbleTransition
     }
 
