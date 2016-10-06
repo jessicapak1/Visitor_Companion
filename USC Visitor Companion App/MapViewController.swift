@@ -104,6 +104,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     func hideSearch() {
+        self.searchBar.text = ""
         self.searchBar.showsCancelButton = false
         self.searchBar.resignFirstResponder()
         self.searchTableView.isHidden = true
