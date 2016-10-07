@@ -521,7 +521,7 @@ Christian Villa – Computer Science Major    </string>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bY7-ls-2wI">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECg-ZQ-BpA">
                                 <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -716,12 +716,7 @@ Christian Villa – Computer Science Major    </string>
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="shieldmono-white" translatesAutoresizingMaskIntoConstraints="NO" id="eOa-BP-5j4"/>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CPU-rW-zbf">
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G7b-u7-3nh">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G7b-u7-3nh">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -736,6 +731,16 @@ Christian Villa – Computer Science Major    </string>
                                     <segue destination="4Ul-0g-Te1" kind="presentation" id="a44-iO-DyH"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OZA-61-ddd">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xvB-g4-jHY">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBP-vf-ZPs">
                                 <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="19"/>
@@ -751,41 +756,46 @@ Christian Villa – Computer Science Major    </string>
                         <constraints>
                             <constraint firstItem="G7b-u7-3nh" firstAttribute="leading" secondItem="x1F-bw-5d8" secondAttribute="leadingMargin" constant="61" id="0GB-h5-liY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rBP-vf-ZPs" secondAttribute="trailing" constant="62" id="1DL-Uw-K8S"/>
-                            <constraint firstItem="rBP-vf-ZPs" firstAttribute="top" secondItem="G7b-u7-3nh" secondAttribute="bottom" constant="26" id="2GU-iS-tgc"/>
-                            <constraint firstItem="CPU-rW-zbf" firstAttribute="top" secondItem="eOa-BP-5j4" secondAttribute="bottom" constant="83" id="2dI-Pf-DFQ"/>
+                            <constraint firstItem="rBP-vf-ZPs" firstAttribute="leading" secondItem="3nF-dr-sBd" secondAttribute="trailing" constant="20" id="44t-GH-IxZ"/>
                             <constraint firstItem="LBy-7M-tJh" firstAttribute="top" secondItem="eOa-BP-5j4" secondAttribute="bottom" constant="432" id="4ZX-Ok-v1W"/>
-                            <constraint firstItem="CPU-rW-zbf" firstAttribute="top" secondItem="eOa-BP-5j4" secondAttribute="bottom" constant="83" id="4e3-UV-MPF"/>
+                            <constraint firstItem="G7b-u7-3nh" firstAttribute="top" secondItem="OZA-61-ddd" secondAttribute="bottom" constant="27" id="642-2d-XQp"/>
                             <constraint firstItem="eOa-BP-5j4" firstAttribute="top" secondItem="0ca-Rv-FKN" secondAttribute="bottom" constant="103" id="6lh-0z-p1O"/>
                             <constraint firstAttribute="trailingMargin" secondItem="G7b-u7-3nh" secondAttribute="trailing" constant="62" id="7Ij-QJ-4tr"/>
                             <constraint firstItem="eOa-BP-5j4" firstAttribute="top" secondItem="0ca-Rv-FKN" secondAttribute="bottom" constant="103" id="8oE-z8-y1i"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xvB-g4-jHY" secondAttribute="trailing" constant="62" id="8tB-4a-kbC"/>
                             <constraint firstItem="0ca-Rv-FKN" firstAttribute="leading" secondItem="x1F-bw-5d8" secondAttribute="leading" id="9Mf-uE-vLa"/>
+                            <constraint firstItem="G7b-u7-3nh" firstAttribute="leading" secondItem="x1F-bw-5d8" secondAttribute="leadingMargin" constant="61" id="Amb-6k-VT6"/>
                             <constraint firstItem="rBP-vf-ZPs" firstAttribute="leading" secondItem="3nF-dr-sBd" secondAttribute="trailing" constant="20" id="NQs-qD-A6b"/>
                             <constraint firstItem="eOa-BP-5j4" firstAttribute="top" secondItem="0ca-Rv-FKN" secondAttribute="bottom" constant="103" id="OXq-OS-glO"/>
-                            <constraint firstItem="rBP-vf-ZPs" firstAttribute="top" secondItem="G7b-u7-3nh" secondAttribute="bottom" constant="26" id="Rxf-CM-PcL"/>
+                            <constraint firstItem="3nF-dr-sBd" firstAttribute="baseline" secondItem="rBP-vf-ZPs" secondAttribute="baseline" id="Qmx-ij-KXO"/>
                             <constraint firstItem="rBP-vf-ZPs" firstAttribute="leading" secondItem="3nF-dr-sBd" secondAttribute="trailing" constant="20" id="TOM-5M-7x0"/>
+                            <constraint firstItem="OZA-61-ddd" firstAttribute="top" secondItem="eOa-BP-5j4" secondAttribute="bottom" constant="71" id="V5T-cr-O3n"/>
+                            <constraint firstItem="xvB-g4-jHY" firstAttribute="leading" secondItem="x1F-bw-5d8" secondAttribute="leadingMargin" constant="61" id="VFl-Is-PQN"/>
                             <constraint firstItem="LBy-7M-tJh" firstAttribute="top" secondItem="eOa-BP-5j4" secondAttribute="bottom" constant="432" id="Z57-hP-2xr"/>
-                            <constraint firstItem="CPU-rW-zbf" firstAttribute="trailing" secondItem="G7b-u7-3nh" secondAttribute="trailing" id="ajt-Y8-XoF"/>
+                            <constraint firstItem="OZA-61-ddd" firstAttribute="leading" secondItem="x1F-bw-5d8" secondAttribute="leadingMargin" constant="61" id="b0l-KE-qkU"/>
                             <constraint firstItem="3nF-dr-sBd" firstAttribute="leading" secondItem="x1F-bw-5d8" secondAttribute="leadingMargin" constant="61" id="cAB-FA-HnD"/>
+                            <constraint firstItem="rBP-vf-ZPs" firstAttribute="leading" secondItem="3nF-dr-sBd" secondAttribute="trailing" constant="20" id="dO2-oE-KLD"/>
                             <constraint firstItem="0ca-Rv-FKN" firstAttribute="top" secondItem="x1F-bw-5d8" secondAttribute="top" id="fIL-k3-4P1"/>
-                            <constraint firstItem="CPU-rW-zbf" firstAttribute="leading" secondItem="G7b-u7-3nh" secondAttribute="leading" id="fN0-iP-6Di"/>
-                            <constraint firstItem="G7b-u7-3nh" firstAttribute="top" secondItem="CPU-rW-zbf" secondAttribute="bottom" constant="26" id="fSE-3h-oWR"/>
-                            <constraint firstItem="G7b-u7-3nh" firstAttribute="top" secondItem="CPU-rW-zbf" secondAttribute="bottom" constant="26" id="ii8-aS-GPE"/>
-                            <constraint firstItem="3nF-dr-sBd" firstAttribute="top" secondItem="G7b-u7-3nh" secondAttribute="bottom" constant="26" id="l3W-Iq-t3B"/>
-                            <constraint firstItem="LBy-7M-tJh" firstAttribute="top" secondItem="rBP-vf-ZPs" secondAttribute="bottom" constant="193" id="ozc-Dm-4cw"/>
+                            <constraint firstItem="3nF-dr-sBd" firstAttribute="leading" secondItem="x1F-bw-5d8" secondAttribute="leadingMargin" constant="61" id="hSQ-IV-B7I"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OZA-61-ddd" secondAttribute="trailing" constant="62" id="iAU-4Y-nXp"/>
+                            <constraint firstItem="LBy-7M-tJh" firstAttribute="top" secondItem="3nF-dr-sBd" secondAttribute="bottom" constant="133" id="jp0-Sw-nRu"/>
+                            <constraint firstItem="rBP-vf-ZPs" firstAttribute="top" secondItem="xvB-g4-jHY" secondAttribute="bottom" constant="50" id="rSo-8k-cmZ"/>
                             <constraint firstAttribute="trailing" secondItem="0ca-Rv-FKN" secondAttribute="trailing" id="sJ2-rS-pKC"/>
-                            <constraint firstItem="LBy-7M-tJh" firstAttribute="top" secondItem="3nF-dr-sBd" secondAttribute="bottom" constant="193" id="sjb-k7-IaY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="G7b-u7-3nh" secondAttribute="trailing" constant="62" id="uic-nV-v3U"/>
                             <constraint firstItem="eOa-BP-5j4" firstAttribute="leading" secondItem="x1F-bw-5d8" secondAttribute="leadingMargin" constant="61" id="xZR-Jt-XL6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rBP-vf-ZPs" secondAttribute="trailing" constant="62" id="yKd-QM-ctY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eOa-BP-5j4" secondAttribute="trailing" constant="62" id="yNG-Yx-rKj"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="passwordTextField" destination="G7b-u7-3nh" id="hff-nD-Et7"/>
-                        <outlet property="usernameTextField" destination="CPU-rW-zbf" id="xvI-sg-bcr"/>
+                        <outlet property="emailTextField" destination="OZA-61-ddd" id="lp4-ck-Ujd"/>
+                        <outlet property="passwordTextField" destination="xvB-g4-jHY" id="zMS-3W-mkl"/>
+                        <outlet property="usernameTextField" destination="G7b-u7-3nh" id="a4b-r7-Uyj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41D-qY-gmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1550" y="829"/>
+            <point key="canvasLocation" x="1549.5999999999999" y="828.93553223388312"/>
         </scene>
         <!--Admin View Controller-->
         <scene sceneID="EOR-wf-Xpc">
@@ -858,11 +868,11 @@ Christian Villa – Computer Science Major    </string>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="bsV-dh-ddc">
-                                        <rect key="frame" x="0.0" y="274" width="375" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="270" id="bsV-dh-ddc">
+                                        <rect key="frame" x="0.0" y="274" width="375" height="270"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bsV-dh-ddc" id="hwU-Rl-hOH">
-                                            <frame key="frameInset" width="375" height="199"/>
+                                            <frame key="frameInset" width="375" height="269"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description about the location" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dfy-B0-obq">
@@ -886,30 +896,19 @@ Christian Villa – Computer Science Major    </string>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="195" id="HKq-Kx-ff8">
-                                        <rect key="frame" x="0.0" y="474" width="375" height="195"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="125" id="HKq-Kx-ff8">
+                                        <rect key="frame" x="0.0" y="544" width="375" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HKq-Kx-ff8" id="mIe-mE-9yb">
-                                            <frame key="frameInset" width="375" height="194"/>
+                                            <frame key="frameInset" width="375" height="124"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interests:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pR9-Ff-CFL">
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="mBV-am-nRr"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IC5-Fm-MRP"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8f-Lo-YEB">
+                                                    <frame key="frameInset" minX="23" minY="41.684007706969169" width="159" height="42.000000000000114"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Interests"/>
+                                                </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="IC5-Fm-MRP" firstAttribute="top" secondItem="pR9-Ff-CFL" secondAttribute="bottom" constant="22" id="36i-pg-eQU"/>
-                                                <constraint firstItem="pR9-Ff-CFL" firstAttribute="leading" secondItem="IC5-Fm-MRP" secondAttribute="leading" id="5Xf-qN-A2V"/>
-                                                <constraint firstItem="IC5-Fm-MRP" firstAttribute="centerX" secondItem="mIe-mE-9yb" secondAttribute="centerX" id="8VR-ZJ-LDg"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="IC5-Fm-MRP" secondAttribute="bottom" constant="18" id="kZH-I9-hBu"/>
-                                                <constraint firstItem="pR9-Ff-CFL" firstAttribute="top" secondItem="mIe-mE-9yb" secondAttribute="topMargin" id="lhk-JA-yrS"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -924,7 +923,19 @@ Christian Villa – Computer Science Major    </string>
                         <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="Gy7-rk-6Ly">
                             <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KU7-hT-6Eh">
+                            <connections>
+                                <action selector="addButtonAction:" destination="U5h-Tb-fNv" id="EaB-kL-IK0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButtonAction" destination="KU7-hT-6Eh" id="Pko-zr-2IK"/>
+                        <outlet property="codeTextField" destination="ZAT-ac-Bf4" id="F47-CM-euJ"/>
+                        <outlet property="descriptionTextView" destination="dfy-B0-obq" id="nwG-8Z-uT7"/>
+                        <outlet property="locationsTextField" destination="IuN-W5-kvq" id="pj7-n4-J2R"/>
+                        <outlet property="nameTextField" destination="czd-0b-yX0" id="aGR-mI-GG2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nK-x6-eMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -42,37 +42,31 @@ class LoginViewController: UIViewController {
         let username = usernameTextField.text
         let password = passwordTextField.text
         
-
-        // Send a request to login
-        PFUser.logInWithUsername(inBackground: username!, password: password!, block: { (user, error) -> Void in
-            if ((user) != nil) {
-                let alertController = UIAlertController(title: "Sucess", message: "Logged In!", preferredStyle: .alert)
-                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+        if((usernameTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)!)
+        {
+            let alertController = UIAlertController(title: "Error", message: "Please fill in all fields!", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true) { }
+        } else {
+            // Send a request to login
+            PFUser.logInWithUsername(inBackground: username!, password: password!, block: { (user, error) -> Void in
+                if ((user) != nil) {
+                    let alertController = UIAlertController(title: "Sucess", message: "Logged In!", preferredStyle: .alert)
+                    let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in }
+                    alertController.addAction(OKAction)
+                    self.present(alertController, animated: true) { }
                     
+                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "map")
+                    self.present(viewController, animated: true, completion: nil)
+                } else {
+                    let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
+                    let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in }
+                    alertController.addAction(OKAction)
+                    self.present(alertController, animated: true) { }
                 }
-                alertController.addAction(OKAction)
-                self.present(alertController, animated: true) {
-                    
-                }
-//                let alert = UIAlertView(title: "Success", message: "Logged In", delegate: self, cancelButtonTitle: "OK")
-//                    alert.show()
-                
-                let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "map")
-                self.present(viewController, animated: true, completion: nil)
-              
-            } else {
-                let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
-                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                    
-                }
-                alertController.addAction(OKAction)
-                self.present(alertController, animated: true) {
-                    
-                }
-//                let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
-//                alert.show()
-            }
-        })
+            })
+        }
     }
 }
 

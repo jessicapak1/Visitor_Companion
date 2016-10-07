@@ -11,8 +11,10 @@ import Parse
 
 class RegistrationViewController: UIViewController {
 
+  
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegistrationViewController.dismissKeyboard))
@@ -38,59 +40,40 @@ class RegistrationViewController: UIViewController {
         let user = PFUser()
         user.username = usernameTextField.text;
         user.password = passwordTextField.text
-        user.email = usernameTextField.text
+        user.email = emailTextField.text
         // other fields can be set just like with PFObject
  
-        
-//        user.signUpInBackground(block: { (succeed, error) -> Void in
-//            
-//            if ((error) != nil) {
-//                let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
-//                alert.show()
-//                
-//            } else {
-//                let alert = UIAlertView(title: "Success", message: "Signed Up", delegate: self, cancelButtonTitle: "OK")
-//                alert.show()
-//                dispatch_main_queue().asynchronously(execute: { () -> Void in
-//                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("map") as! UIViewController
-//                    self.presentViewController(viewController, animated: true, completion: nil)
-//                })
-//            }
-//        })
-        
-        user.signUpInBackground {
-            (succeeded, error) in
-            if let error = error {
-                _ = error;
+        if((emailTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! || (usernameTextField.text?.isEmpty)!)
+        {
+            let alertController = UIAlertController(title: "Error", message: "Please fill in all fields!", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
                 
-                let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
-                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-         
-                }
-                alertController.addAction(OKAction)
-                self.present(alertController, animated: true) {
- 
-                }
+            }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true) {
                 
-//                let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
-//                alert.show()
-                
-            } else {
-                // Hooray! Let them use the app now.
-                let alertController = UIAlertController(title: "Sucess", message: "Registration Complete!", preferredStyle: .alert)
-                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            }
+        } else
+        {
+            user.signUpInBackground {
+                (succeeded, error) in
+                if let error = error {
+                    _ = error;
                     
-                }
-                alertController.addAction(OKAction)
-                self.present(alertController, animated: true) {
+                    let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
+                    let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in }
+                    alertController.addAction(OKAction)
+                    self.present(alertController, animated: true) { }
+                } else {
+                    // Hooray! Let them use the app now.
+                    let alertController = UIAlertController(title: "Sucess", message: "Registration Complete!", preferredStyle: .alert)
+                    let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in }
+                    alertController.addAction(OKAction)
+                    self.present(alertController, animated: true) { }
                     
+                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "map")
+                    self.present(viewController, animated: true, completion: nil)
                 }
-                
-//                let alert = UIAlertView(title: "Success", message: "Registration Complete!", delegate: self, cancelButtonTitle: "OK")
-//                alert.show()
-                
-                let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "map")
-                self.present(viewController, animated: true, completion: nil)
             }
         }
     }
