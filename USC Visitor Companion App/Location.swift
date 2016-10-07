@@ -6,7 +6,6 @@
 //  Copyright © 2016 University of Southern California. All rights reserved.
 //
 
-import UIKit
 import Parse
 
 class Location: NSObject {
@@ -16,22 +15,21 @@ class Location: NSObject {
     
     
     // MARK: Properties
-    var objectId: String?
+    var objectId: String? // should never be set
 
-    var name: String?
+    var name: String? { willSet { self.update(value: newValue, forKey: "name") } }
     
-    var code: String?
+    var code: String? { willSet { self.update(value: newValue, forKey: "code") } }
     
-    var details: String?
+    var details: String? { willSet { self.update(value: newValue, forKey: "details") } }
     
-    var location: CLLocation?
+    var location: CLLocation? { willSet { self.update(value: newValue, forKey: "location") } }
     
-    var interests: [Interest]?
+    var interests: [String]? { willSet { self.update(value: newValue, forKey: "interests") } }
     
     
     // MARK: Constructor
     init(object: PFObject) {
-        super.init()
         self.object = object
         self.objectId = object.objectId
         self.name = object["name"] as! String?
@@ -39,7 +37,14 @@ class Location: NSObject {
         self.details = object["details"] as! String?
         let coordinate = object["location"] as! PFGeoPoint?
         self.location = CLLocation(latitude: (coordinate?.latitude)!, longitude: (coordinate?.longitude)!)
-        self.interests = object["interests"] as! [Interest]?
+        self.interests = object["interests"] as! [String]?
+    }
+    
+    
+    // MARK: Private Methods
+    private func update(value: Any?, forKey key: String) {
+        object?[key] = value
+        object?.saveInBackground()
     }
     
 }

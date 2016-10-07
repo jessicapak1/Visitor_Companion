@@ -37,6 +37,10 @@ class LocationsViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func closeButtonPressed(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var addButtonAction: UIBarButtonItem!
 
     /*

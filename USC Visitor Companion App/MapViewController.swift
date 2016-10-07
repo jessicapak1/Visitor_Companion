@@ -11,58 +11,89 @@ import GoogleMaps
 import Parse
 import BubbleTransition
 
-class MapViewController: UIViewController, UIViewControllerTransitioningDelegate, GMSMapViewDelegate {
+class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    // MARK:
-    let bubbleTransition = BubbleTransition()
+    // MARK: Properties
+    let bubbleTransition: BubbleTransition = BubbleTransition()
+    
+    var mapView: GMSMapView! {
+        didSet {
+            self.mapView.delegate = self
+            self.mapView.isMyLocationEnabled = true
+            self.mapView.settings.myLocationButton = true
+        }
+    }
+    
+    var searchResults: [Location] = [Location]()
+    
+    
+    // MARK: IBOutlets
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            self.searchBar.delegate = self
+        }
+    }
+    
+    @IBOutlet weak var searchTableView: UITableView! {
+        didSet {
+            self.searchTableView.delegate = self
+            self.searchTableView.dataSource = self
+            self.searchTableView.register(UINib(nibName: "SearchTableViewCell", bundle: nil), forCellReuseIdentifier: "Search Cell")
+        }
+    }
+    
     @IBOutlet weak var menuButton: UIButton!
-    @IBOutlet weak var searchBar: UISearchBar!
     
+    
+    // MARK: View Controller Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        // Create a GMSCameraPosition that tells the map to display the
-        // coordinates 34.020496, 118.285317 at zoom level 17 (shows building outlines)
+        self.showMap()
+        self.showLocationsOnMap()
+        self.addSearchTableView()
+    }
+    
+    
+    // MARK: Map Methods
+    func showMap() {
         let camera = GMSCameraPosition.camera(withLatitude: 34.020496, longitude: -118.285317, zoom: 20.0)
-        let mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
-        mapView.isMyLocationEnabled = true
-        mapView.settings.myLocationButton = true
-        mapView.delegate = self
-        self.view.insertSubview(mapView, at: 0)
-        
-        // query from parse for locations and create markers for each location on map
-        let query = PFQuery(className:"Location")
-        query.limit = 1000
-        query.findObjectsInBackground {
-            (objects: [PFObject]?, error: Error?) -> Void in
-            
-            if error == nil {
-                // The find succeeded.
-                print("Successfully retrieved \(objects!.count) locations.")
-                // Do something with the found objects
-                if let objects = objects {
-                    for object in objects {
-                        let marker = GMSMarker()
-                        if let geopoint = object["location"] as? PFGeoPoint {
-                            marker.position = CLLocationCoordinate2DMake(geopoint.latitude, geopoint.longitude)
-                            marker.title = object["name"] as! String?
-                            marker.snippet = object["details"] as! String?
-                            marker.map = mapView
-                        }
-                    }
-                }
-            } else {
-                // Log details of the failure
-                print("Error: \(error!)")
-            }
+        self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
+        self.view.insertSubview(self.mapView, at: 0)
+    }
+    
+    func showLocationsOnMap() {
+        for location in LocationData.shared.locations {
+            let marker = GMSMarker()
+            marker.map = self.mapView
+            marker.title = location.name
+            marker.snippet = location.details
+            marker.position = (location.location?.coordinate)!
         }
-
     }
     
-    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-            self.performSegue(withIdentifier: "CheckInScreenSegue", sender:self)
+    
+    // MARK: Search Methods
+    func addSearchTableView() {
+        self.searchTableView.isHidden = true
+        self.view.insertSubview(self.searchTableView, aboveSubview: self.mapView)
+        self.view.insertSubview(self.searchTableView, aboveSubview: self.menuButton)
     }
     
+    func showSearch() {
+        self.searchResults = LocationData.shared.locations(withKeyword: self.searchBar.text!)
+        self.searchTableView.reloadData()
+        self.searchTableView.isHidden = false
+        self.searchBar.showsCancelButton = true
+    }
+    
+    func hideSearch() {
+        self.searchBar.showsCancelButton = false
+        self.searchBar.resignFirstResponder()
+        self.searchTableView.isHidden = true
+    }
+    
+    
+    // MARK: Storyboard Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Show Menu" {
             let MVC = segue.destination as! MenuViewController
@@ -71,10 +102,72 @@ class MapViewController: UIViewController, UIViewControllerTransitioningDelegate
         }
     }
     
+    
+    // MARK: UISearchBarDelegate Methods
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.showSearch()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.showSearch()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.hideSearch()
+    }
+    
+    
+    // MARK: UITableViewDelegate Methods
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.hideSearch()
+        let location = self.searchResults[indexPath.row]
+        let coordinate = location.location?.coordinate
+        if let coordinate = coordinate {
+            self.mapView.animate(toZoom: 20.0)
+            self.mapView.animate(toLocation: coordinate)
+        }
+        self.searchTableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.searchBar.resignFirstResponder()
+    }
+    
+    
+    // MARK: UITableViewDataSourceMethods
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.searchResults.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.searchTableView.dequeueReusableCell(withIdentifier: "Search Cell") as! SearchTableViewCell
+        let location = self.searchResults[indexPath.row]
+        cell.nameLabel.text = location.name
+        cell.codeLabel.text = location.code
+        cell.interestsLabel.text = location.interests?.joined(separator: ", ")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return SearchTableViewCell.defaultHeight
+    }
+
+    
+    // MARK: GMSMapViewDelegate Methods
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        self.performSegue(withIdentifier: "CheckInScreenSegue", sender: self)
+    }
+    
+    
+    // MARK: UIViewControllerTransitioningDelegate Methods
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         self.bubbleTransition.transitionMode = .present
         self.bubbleTransition.startingPoint = self.menuButton.center
-        self.bubbleTransition.bubbleColor = UIColor.white
+        self.bubbleTransition.bubbleColor = UIColor.init(white: 0.9, alpha: 0.8)
         return self.bubbleTransition
     }
     
@@ -83,38 +176,6 @@ class MapViewController: UIViewController, UIViewControllerTransitioningDelegate
         self.bubbleTransition.startingPoint = self.menuButton.center
         self.bubbleTransition.bubbleColor = UIColor.blue
         return self.bubbleTransition
-    }
-
-    func logOutAction(){
-        let currentUser = PFUser.current()
-        if currentUser != nil {
-            // Do stuff with the user
-            PFUser.logOut()
-            let alertController = UIAlertController(title: "Sucess", message: "Logged Out!", preferredStyle: .alert)
-            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                
-            }
-            alertController.addAction(OKAction)
-            self.present(alertController, animated: true) {
-                
-            }
-            
-            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login")
-            self.present(viewController, animated: true, completion: nil)
-        } else {
-            // Show the signup or login screen
-            let alertController = UIAlertController(title: "Error", message: "No User To Logout", preferredStyle: .alert)
-            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                
-            }
-            alertController.addAction(OKAction)
-            self.present(alertController, animated: true) {
-            }
-        }
-        // Send a request to log out a user
-        
-        
-        
     }
 
 }
