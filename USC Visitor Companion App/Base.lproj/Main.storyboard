@@ -454,7 +454,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndo-79-sQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3582" y="-1236"/>
+            <point key="canvasLocation" x="2978" y="-1236"/>
         </scene>
         <!--Check In-->
         <scene sceneID="E8w-Ph-5CI">
@@ -1122,7 +1122,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DBJ-uP-8DL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2698" y="-1236"/>
+            <point key="canvasLocation" x="2081" y="-1236"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="exX-zS-ydv">
