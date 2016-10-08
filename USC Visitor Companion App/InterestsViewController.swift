@@ -10,10 +10,13 @@ import UIKit
 
 class InterestsViewController: UITableViewController {
 
+    var interests: [String] = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //get all locations from wrapper class
+        interests = InterestsData.shared.getInterestNames(name: "General")
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,5 +37,17 @@ class InterestsViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return interests.count
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = interests[indexPath.item]
+        return cell
+    }
 
 }

@@ -39,28 +39,25 @@ class ForgotPasswordViewController: UIViewController {
         let email = emailTextField.text
 //        let finalEmail = email?.trimmingCharacters(in: NSCharacterSet.whitespaces)
 //        let finalEmail = email.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-//        
-//        print(email)
-//        print(finalEmail)
         
         // Send a request to reset a password
-        PFUser.requestPasswordResetForEmail(inBackground: email!)
-        let alertController = UIAlertController(title: "Password Reset", message: "An email containing information on how to reset your password has been sent to " + email! + ".", preferredStyle: .alert)
-        let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+        if((emailTextField.text?.isEmpty)!)
+        {
+            let alertController = UIAlertController(title: "Error", message: "Please fill in all fields!", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true) { }
             
-        }
-        alertController.addAction(OKAction)
-        self.present(alertController, animated: true) {
+        } else {
+            PFUser.requestPasswordResetForEmail(inBackground: email!)
+            let alertController = UIAlertController(title: "Password Reset", message: "An email containing information on how to reset your password has been sent to " + email! + ".", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true) { }
             
+            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login")
+            self.present(viewController, animated: true, completion: nil)
         }
-
-        
-//        let alert = UIAlertController (title: "Password Reset", message: "An email containing information on how to reset your password has been sent to " + email! + ".", preferredStyle: UIAlertControllerStyle.alert)
-//        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-//        self.present(alert, animated: true, completion: nil)
-        
-        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login")
-        self.present(viewController, animated: true, completion: nil)
     }
     
     

@@ -12,6 +12,8 @@ import Parse
 class LocationsViewController: UITableViewController {
 
     @IBOutlet weak var addButtonOutlet: UIBarButtonItem!
+    var locations: [Location] = [Location]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +32,11 @@ class LocationsViewController: UITableViewController {
         {
             // Show the signup or login screen
         }
+        
+        
+        //get all locations from wrapper class
+        locations = LocationData.shared.locations
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,18 +59,18 @@ class LocationsViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-//    
-//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        return 1
-//    }
-//    
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return locations.count
+    }
     
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = locations[indexPath.item].name
+        cell.detailTextLabel?.text = locations[indexPath.item].details
+        return cell
+    }
     
-
 }

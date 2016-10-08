@@ -10,6 +10,12 @@ import UIKit
 
 class AdminTableViewController: UITableViewController {
 
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var codeTextField: UITextField!
+    @IBOutlet weak var interestsPicker: UIPickerView!
+    @IBOutlet weak var interestsLabel: UILabel!
+    @IBOutlet weak var locationsTextField: UITextField!
+    @IBOutlet weak var descriptionTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +30,38 @@ class AdminTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
+    @IBAction func addButtonAction(_ sender: AnyObject) {
+        if((nameTextField.text?.isEmpty)! || (descriptionTextView.text?.isEmpty)!)
+        {
+            let alertController = UIAlertController(title: "Error", message: "Please fill in all fields!", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true) { }
+
+        } else if(codeTextField.text?.characters.count != 3)
+        {
+            let alertController = UIAlertController(title: "Error", message: "The code needs to be 3 characters!", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true) { }
+
+        }
+//        else if() locations input verification
+//        {
+//            
+//        }
+        else
+        {
+            let name = nameTextField.text
+            let code = codeTextField.text
+            let interests = interestsLabel.text
+            let location = locationsTextField.text
+            let description = descriptionTextView.text
+        }
+    }
+    
 
     // MARK: - Table view data source
 
