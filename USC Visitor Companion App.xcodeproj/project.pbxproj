@@ -194,10 +194,10 @@
 			isa = PBXGroup;
 			children = (
 				AA7E0F311D98D298005C9786 /* User.swift */,
-				304290C41DA2074A00354AF9 /* InterestsData.swift */,
 				AAF9A9EE1D9B457F00CB57AF /* Location.swift */,
 				AA2277A11DA2039100F5C1B0 /* LocationData.swift */,
 				AA38AD3E1D9C9F150067E1C9 /* Interest.swift */,
+				304290C41DA2074A00354AF9 /* InterestsData.swift */,
 				AAD38B8B1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld */,
 			);
 			name = Models;

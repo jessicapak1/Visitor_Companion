@@ -21,6 +21,9 @@ class LocationData: NSObject {
     
     var namesToLocations: [String: Location] = [String: Location]()
     
+    // create caching method for storing previously searched keywords and results
+    // and using same results for same keyword shortened
+    
     
     // MARK: Constructor
     override init() {
