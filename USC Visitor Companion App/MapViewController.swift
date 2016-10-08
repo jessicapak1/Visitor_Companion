@@ -59,7 +59,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: Map Methods
     func showMap() {
-        let camera = GMSCameraPosition.camera(withLatitude: 34.020496, longitude: -118.285317, zoom: 20.0)
+        let camera = GMSCameraPosition.camera(withLatitude: 34.020496, longitude: -118.285317, zoom: 20.0, bearing: 30, viewingAngle: 90.0)
         self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         self.view.insertSubview(self.mapView, at: 0)
     }
