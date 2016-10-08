@@ -81,6 +81,8 @@ class User: NSObject {
             } else if type == UserType.admin.rawValue {
                 User.current.type = .admin
             }
+        } else {
+            User.current.type = .none  // user did not signup properly
         }
     }
     
