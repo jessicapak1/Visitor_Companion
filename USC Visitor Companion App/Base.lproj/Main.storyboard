@@ -42,7 +42,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="viterbi" translatesAutoresizingMaskIntoConstraints="NO" id="fpC-8R-fXt">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fpC-8R-fXt" secondAttribute="height" multiplier="269:46" id="2iL-VI-L96"/>
-                                    <constraint firstAttribute="height" constant="13" id="YXL-pb-Edh"/>
+                                    <constraint firstAttribute="height" constant="14" id="YXL-pb-Edh"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -57,7 +57,7 @@
                             <constraint firstAttribute="trailing" secondItem="fpC-8R-fXt" secondAttribute="trailing" constant="9" id="Xua-gv-W0H"/>
                             <constraint firstItem="dGk-MM-YB2" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" constant="8" id="aJ2-vG-OIk"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="MY9-Id-f3I" secondAttribute="bottom" id="dOI-sI-dlV"/>
-                            <constraint firstAttribute="bottom" secondItem="fpC-8R-fXt" secondAttribute="bottom" constant="9" id="s8X-b5-wgS"/>
+                            <constraint firstAttribute="bottom" secondItem="fpC-8R-fXt" secondAttribute="bottom" constant="10" id="s8X-b5-wgS"/>
                             <constraint firstAttribute="trailing" secondItem="MY9-Id-f3I" secondAttribute="trailing" constant="8" id="seG-oE-cSm"/>
                         </constraints>
                     </view>
