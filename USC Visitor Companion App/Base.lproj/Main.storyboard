@@ -680,12 +680,7 @@ Christian Villa – Computer Science Major    </string>
                                 <action selector="closeButtonPressed:" destination="916-vo-hp2" id="0fo-b9-MLP"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cOj-r3-aid"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="addButtonAction" destination="cOj-r3-aid" id="AF0-2J-W7u"/>
-                        <outlet property="addButtonOutlet" destination="cOj-r3-aid" id="8p8-Ch-PMz"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5rJ-uk-b7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

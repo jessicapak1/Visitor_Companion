@@ -10,31 +10,18 @@ import UIKit
 import Parse
 
 class LocationsViewController: UITableViewController {
-
-    @IBOutlet weak var addButtonOutlet: UIBarButtonItem! {
-        didSet {
-            addButtonOutlet.isEnabled = false
-        }
-    }
-    
     
     var locations: [Location] = LocationData.shared.locations
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if User.current.type == .admin {
-            addButtonOutlet.isEnabled = true
-        } else {
-            // Show the signup or login screen
-        }
+        
     }
     
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    @IBOutlet weak var addButtonAction: UIBarButtonItem!
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
