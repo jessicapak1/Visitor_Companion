@@ -34,6 +34,7 @@ class RegistrationViewController: UIViewController {
     
     @IBAction func registerAction(_ sender: AnyObject) {
         signup()
+//        signup(name: usernameTextField.text, username: usernameTextField.text, password: passwordTextField.text, email: emailTextField.text , type: , callback: )
     }
     
     func signup() {

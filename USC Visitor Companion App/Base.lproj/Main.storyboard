@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="poS-Zl-lNF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RYa-VT-6M0">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -672,7 +672,7 @@ Christian Villa – Computer Science Major    </string>
         <!--Interests-->
         <scene sceneID="cC8-5i-4Sw">
             <objects>
-                <tableViewController id="6p7-GU-rdF" userLabel="Interests" customClass="InterestsViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="interests" id="6p7-GU-rdF" userLabel="Interests" customClass="InterestsViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BIY-kA-rCg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -885,17 +885,20 @@ Christian Villa – Computer Science Major    </string>
                                             <frame key="frameInset" width="375" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location (latitude, longitude)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IuN-W5-kvq">
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flf-iW-kac">
+                                                    <frame key="frameInset" minX="23" minY="13" width="160" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Select Location"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="coY-dW-H6g">
+                                                    <frame key="frameInset" minX="23" minY="13" width="160" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Select Location"/>
+                                                    <connections>
+                                                        <action selector="locationsButtonAction:" destination="U5h-Tb-fNv" eventType="touchUpInside" id="Gpi-t3-7cf"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="IuN-W5-kvq" firstAttribute="centerX" secondItem="Bu3-Qf-eml" secondAttribute="centerX" id="8Q5-dI-2qs"/>
-                                                <constraint firstItem="IuN-W5-kvq" firstAttribute="centerY" secondItem="Bu3-Qf-eml" secondAttribute="centerY" id="Pe2-me-jRi"/>
-                                                <constraint firstItem="IuN-W5-kvq" firstAttribute="leading" secondItem="Bu3-Qf-eml" secondAttribute="leadingMargin" constant="19" id="c2d-rL-9TD"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="270" id="bsV-dh-ddc">
@@ -937,6 +940,9 @@ Christian Villa – Computer Science Major    </string>
                                                     <frame key="frameInset" minX="23" minY="41.684007706969169" width="159" height="42.000000000000114"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Interests"/>
+                                                    <connections>
+                                                        <action selector="interestsButtonAction:" destination="U5h-Tb-fNv" eventType="touchUpInside" id="Jsw-NE-zOM"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -953,23 +959,21 @@ Christian Villa – Computer Science Major    </string>
                         <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="Gy7-rk-6Ly">
                             <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KU7-hT-6Eh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Sps-c2-c6x">
                             <connections>
-                                <action selector="addButtonAction:" destination="U5h-Tb-fNv" id="EaB-kL-IK0"/>
+                                <action selector="addButtonAction:" destination="U5h-Tb-fNv" id="f9l-0G-MeX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addButtonAction" destination="KU7-hT-6Eh" id="Pko-zr-2IK"/>
                         <outlet property="codeTextField" destination="ZAT-ac-Bf4" id="F47-CM-euJ"/>
                         <outlet property="descriptionTextView" destination="dfy-B0-obq" id="nwG-8Z-uT7"/>
-                        <outlet property="locationsTextField" destination="IuN-W5-kvq" id="pj7-n4-J2R"/>
                         <outlet property="nameTextField" destination="czd-0b-yX0" id="aGR-mI-GG2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nK-x6-eMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5274" y="738"/>
+            <point key="canvasLocation" x="5272.8000000000002" y="737.18140929535241"/>
         </scene>
         <!--Admin Navigation Controller-->
         <scene sceneID="iUw-MA-aq8">
@@ -1077,7 +1081,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dDA-Be-9Lo" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lvw-hL-Jzu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Lvw-hL-Jzu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1131,7 +1135,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fqA-ET-cOT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPk-Va-0EN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gPk-Va-0EN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
