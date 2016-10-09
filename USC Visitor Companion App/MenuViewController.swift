@@ -22,4 +22,11 @@ class MenuViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
+    
+    /* 
+ Add code to get the user data
+ Add IBOutlets to put the data on the screen
+ ...
+ */
+ 
 }

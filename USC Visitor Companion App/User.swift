@@ -8,6 +8,14 @@
 
 import Parse
 
+enum UserType: String {
+    case parent = "Parent"
+    case prospective = "Prospective Student"
+    case current = "Current Student"
+    case admin = "Administrator"
+    case none = "None"  // should never be stored on database
+}
+
 class User: NSObject {
     
     // MARK: Current User
@@ -23,11 +31,11 @@ class User: NSObject {
     
     var interest: String? { willSet { User.current.update(value: newValue, forKey: "interest") } }
     
-    var type: String? { willSet { User.current.update(value: newValue, forKey: "type") } }
+    var type: UserType = .none  // should never be set after signup
     
     
     // MARK: Class Methods
-    class func signup(name: String, username: String, password: String, email: String, type: String, callback: @escaping (Bool) -> Void) {
+    class func signup(name: String, username: String, password: String, email: String, type: UserType, callback: @escaping (Bool) -> Void) {
         let user = PFUser()
         user["name"] = name
         user["username"] = username
@@ -58,11 +66,24 @@ class User: NSObject {
     
     // MARK: Private Methods
     private func update() {
-        self.name = PFUser.current()?["name"] as! String?
-        self.username = PFUser.current()?["username"] as! String?
-        self.email = PFUser.current()?["email"] as! String?
-        self.interest = PFUser.current()?["interest"] as! String?
-        self.type = PFUser.current()?["type"] as! String?
+        User.current.name = PFUser.current()?["name"] as! String?
+        User.current.username = PFUser.current()?["username"] as! String?
+        User.current.email = PFUser.current()?["email"] as! String?
+        User.current.interest = PFUser.current()?["interest"] as! String?
+        let type = PFUser.current()?["type"] as! String?
+        if let type = type {
+            if type == UserType.parent.rawValue {
+                User.current.type = .parent
+            } else if type == UserType.prospective.rawValue {
+                User.current.type = .prospective
+            } else if type == UserType.current.rawValue {
+                User.current.type = .current
+            } else if type == UserType.admin.rawValue {
+                User.current.type = .admin
+            }
+        } else {
+            User.current.type = .none  // user did not signup properly
+        }
     }
     
     private func update(value: Any?, forKey key: String) {

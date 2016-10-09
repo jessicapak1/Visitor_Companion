@@ -67,9 +67,8 @@ class AdminTableViewController: UITableViewController {
 //            let description = descriptionTextView.text
             //            create(name: name, code: code, details: description, location: location, interests:interests);
         }
-
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
