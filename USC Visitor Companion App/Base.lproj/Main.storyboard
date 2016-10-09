@@ -106,7 +106,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Admin"/>
                                 <connections>
-                                    <segue destination="RYa-VT-6M0" kind="presentation" id="dS2-0V-dpM"/>
+                                    <segue destination="Ked-3e-tgT" kind="presentation" id="bd6-ec-PPi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvN-wF-20P">
@@ -985,7 +985,74 @@ Christian Villa – Computer Science Major    </string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nK-x6-eMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="-2053"/>
+            <point key="canvasLocation" x="2977" y="-1917"/>
+        </scene>
+        <!--Admin-->
+        <scene sceneID="wSR-WG-udf">
+            <objects>
+                <viewController id="d5W-Ky-d2f" customClass="AdminSegmentedViewControoler" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xhb-Kl-Quo"/>
+                        <viewControllerLayoutGuide type="bottom" id="ceF-FM-RtW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AiH-61-mhg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wI9-FZ-RwS">
+                                <segments>
+                                    <segment title="Interests"/>
+                                    <segment title="Locations"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlChanged:" destination="d5W-Ky-d2f" eventType="valueChanged" id="4Rl-Tp-e8z"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fbb-re-zjL">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="44c-jO-FxW">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="44c-jO-FxW" id="65v-CS-xSA">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="d5W-Ky-d2f" id="Jjv-oG-zMo"/>
+                                    <outlet property="delegate" destination="d5W-Ky-d2f" id="B2V-xj-mhF"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fbb-re-zjL" secondAttribute="trailing" id="2tR-Nu-nhF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wI9-FZ-RwS" secondAttribute="trailing" constant="76" id="WN7-is-xUl"/>
+                            <constraint firstItem="wI9-FZ-RwS" firstAttribute="top" secondItem="xhb-Kl-Quo" secondAttribute="bottom" id="fI0-t5-agN"/>
+                            <constraint firstItem="fbb-re-zjL" firstAttribute="leading" secondItem="AiH-61-mhg" secondAttribute="leading" id="hkZ-8w-Cgt"/>
+                            <constraint firstItem="fbb-re-zjL" firstAttribute="bottom" secondItem="ceF-FM-RtW" secondAttribute="top" id="vSU-RB-GVw"/>
+                            <constraint firstItem="wI9-FZ-RwS" firstAttribute="leading" secondItem="AiH-61-mhg" secondAttribute="leadingMargin" constant="74" id="wFp-1X-yHI"/>
+                            <constraint firstItem="fbb-re-zjL" firstAttribute="top" secondItem="wI9-FZ-RwS" secondAttribute="bottom" constant="8" symbolic="YES" id="ziC-ZR-V8r"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Admin" id="AVt-Bo-TRb">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="Qfr-n4-36q">
+                            <connections>
+                                <action selector="closeButtonPressed:" destination="d5W-Ky-d2f" id="TLK-fu-fTn"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="+" id="RXQ-R6-3RG"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="interestsLocationsTableView" destination="fbb-re-zjL" id="s0V-VK-0Fm"/>
+                        <outlet property="interetsLocationsSegementedControl" destination="wI9-FZ-RwS" id="dap-1Y-Cb5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f4P-Pu-k7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1220" y="-1917"/>
         </scene>
         <!--Admin Navigation Controller-->
         <scene sceneID="iUw-MA-aq8">
@@ -1001,7 +1068,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1PT-7j-I5v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="-2053"/>
+            <point key="canvasLocation" x="2081" y="-1917"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="OPJ-ui-8lh">
@@ -1159,6 +1226,24 @@ Christian Villa – Computer Science Major    </string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFA-lm-5f7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1930" y="268"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3BU-zV-UAo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ked-3e-tgT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="E9I-I5-QiM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="d5W-Ky-d2f" kind="relationship" relationship="rootViewController" id="Xzo-U7-aaR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Kw-zE-DjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="281" y="-1917"/>
         </scene>
     </scenes>
     <resources>
