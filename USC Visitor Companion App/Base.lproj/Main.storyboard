@@ -1062,7 +1062,7 @@ Christian Villa – Computer Science Major    </string>
         <scene sceneID="iUw-MA-aq8">
             <objects>
                 <navigationController id="RYa-VT-6M0" userLabel="Admin Navigation Controller" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dq1-DT-6Qm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Dq1-DT-6Qm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
