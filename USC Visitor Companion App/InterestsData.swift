@@ -77,6 +77,15 @@ class InterestsData : NSObject {
         return matches
     }
     
+    // call deleteLocation on each appropriate Interest object
+    func delete(locationOb: Location) {
+    
+    }
+    
+    func delete(locationOb: Location, forInterest: Interest) {
+        
+    }
+    
     func deleteInterest(withName interestName: String) -> () {
         
         // if we find this interest name in our backend (which we should)
@@ -84,15 +93,19 @@ class InterestsData : NSObject {
             do {
                 var locationIDs = [String]()
                 
-                // loop through
-                for location in localInterest.locations! {
-                    
-                    // save object IDs in order to change database
-                    locationIDs.append(location.objectId!)
-                    
-                    // delete interest from Locations locally
-                    location.interests = location.interests?.filter{$0 != interestName}
+                
+                if let localInterestLocations = localInterest.locations {
+                    // loop through
+                    for location in localInterestLocations {
+                        
+                        // save object IDs in order to change database
+                        locationIDs.append(location.objectId!)
+                        
+                        // delete interest from Locations locally
+                        location.interests = location.interests?.filter{$0 != interestName}
+                    }
                 }
+                
                 
                 // interest from locations within database
                 let locQuery = PFQuery(className: "Location")

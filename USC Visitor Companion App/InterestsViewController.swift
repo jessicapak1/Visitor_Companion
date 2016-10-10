@@ -16,7 +16,7 @@ class InterestsViewController: UITableViewController {
         super.viewDidLoad()
         
         //get all locations from wrapper class
-        interests = InterestsData.shared.interestNames(withKeyword: "General")
+        interests = InterestsData.shared.interestNames()
     }
 
     override func didReceiveMemoryWarning() {
