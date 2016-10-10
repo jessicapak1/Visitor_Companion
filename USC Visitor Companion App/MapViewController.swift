@@ -10,8 +10,9 @@ import UIKit
 import GoogleMaps
 import Parse
 import BubbleTransition
+import CoreLocation
 
-class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     // MARK: Properties
     let bubbleTransition: BubbleTransition = BubbleTransition()
@@ -62,6 +63,23 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         let camera = GMSCameraPosition.camera(withLatitude: 34.020496, longitude: -118.285317, zoom: 20.0, bearing: 30, viewingAngle: 90.0)
         self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         self.view.insertSubview(self.mapView, at: 0)
+        
+        let locationManager = CLLocationManager()
+        // request authorization from the user
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+        
+    }
+    
+    func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation:CLLocation = locations[0]
+        print("locations = \(userLocation.coordinate.latitude) \(userLocation.coordinate.longitude)")
     }
     
     func showMarkers() {

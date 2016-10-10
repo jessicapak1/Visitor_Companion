@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300729771DAC08D600D39C80 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300729761DAC08D600D39C80 /* CoreLocation.framework */; };
 		304290C51DA2074A00354AF9 /* InterestsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304290C41DA2074A00354AF9 /* InterestsData.swift */; };
 		4B1C25F0B5A8148675F75AA0 /* Pods_USC_Visitor_Companion_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */; };
 		4ED64E711DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED64E701DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift */; };
@@ -61,6 +62,7 @@
 		004973256B7351236653CCF5 /* Pods-USC Visitor Companion App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USC Visitor Companion App.release.xcconfig"; path = "Pods/Target Support Files/Pods-USC Visitor Companion App/Pods-USC Visitor Companion App.release.xcconfig"; sourceTree = "<group>"; };
 		15DB3DC7F7064736DF04206E /* Pods_USC_Visitor_Companion_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USC_Visitor_Companion_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19CDA2698EBF75BEA9EEC20F /* Pods-USC Visitor Companion AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USC Visitor Companion AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-USC Visitor Companion AppUITests/Pods-USC Visitor Companion AppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		300729761DAC08D600D39C80 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		304290C41DA2074A00354AF9 /* InterestsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsData.swift; sourceTree = "<group>"; };
 		44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USC_Visitor_Companion_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED64E701DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminSegmentedViewControoler.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				300729771DAC08D600D39C80 /* CoreLocation.framework in Frameworks */,
 				A1E1375FD19E64048101C8B3 /* Pods_USC_Visitor_Companion_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +137,7 @@
 		3093C19AF44C06BB5EC5838C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				300729761DAC08D600D39C80 /* CoreLocation.framework */,
 				15DB3DC7F7064736DF04206E /* Pods_USC_Visitor_Companion_App.framework */,
 				44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */,
 				F76203F56CA56F4183C9D94C /* Pods_USC_Visitor_Companion_AppUITests.framework */,
@@ -344,6 +348,7 @@
 				TargetAttributes = {
 					AAD38B801D971648004DD648 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = KTLYT4GLBW;
 						ProvisioningStyle = Automatic;
 					};
 					AAD38B971D971648004DD648 = {
@@ -711,10 +716,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = KTLYT4GLBW;
 				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -726,10 +731,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = KTLYT4GLBW;
 				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
