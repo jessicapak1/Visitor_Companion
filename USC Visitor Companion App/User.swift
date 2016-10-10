@@ -35,7 +35,7 @@ class User: NSObject {
     
     
     // MARK: Class Methods
-    class func signup(name: String, username: String, password: String, email: String, type: UserType, callback: @escaping (Bool) -> Void) {
+    class func signup(name: String, username: String, password: String, email: String, type: UserType) {
         let user = PFUser()
         user["name"] = name
         user["username"] = username
@@ -43,19 +43,13 @@ class User: NSObject {
         user["email"] = email
         user["interest"] = "General" 
         user["type"] = type
-        user.signUpInBackground(block: {
-            (succeeded, error) -> Void in
-            User.current.update()
-            callback(succeeded)
-        })
+        do { try user.signUp() } catch { }
+        User.current.update()
     }
     
-    class func login(username: String, password: String, callback: @escaping (Bool) -> Void) {
-        PFUser.logInWithUsername(inBackground: username, password: password, block: {
-            (user, error) -> Void in
-            User.current.update()
-            callback(error == nil)
-        })
+    class func login(username: String, password: String) {
+        do { try PFUser.logIn(withUsername: username, password: password) } catch { }
+        User.current.update()
     }
     
     class func logout() {
@@ -88,7 +82,7 @@ class User: NSObject {
     
     private func update(value: Any?, forKey key: String) {
         PFUser.current()?[key] = value
-        PFUser.current()?.saveInBackground()
+        do { try PFUser.current()?.save() } catch { }
     }
     
 }

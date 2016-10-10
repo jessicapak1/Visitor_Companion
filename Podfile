@@ -12,6 +12,9 @@ target 'USC Visitor Companion App' do
   target 'USC Visitor Companion AppTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Parse'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
   end
 
   target 'USC Visitor Companion AppUITests' do

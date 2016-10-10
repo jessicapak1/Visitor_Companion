@@ -42,7 +42,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="viterbi" translatesAutoresizingMaskIntoConstraints="NO" id="fpC-8R-fXt">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fpC-8R-fXt" secondAttribute="height" multiplier="269:46" id="2iL-VI-L96"/>
-                                    <constraint firstAttribute="height" constant="14" id="YXL-pb-Edh"/>
+                                    <constraint firstAttribute="height" constant="13" id="YXL-pb-Edh"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -1020,10 +1020,10 @@ Christian Villa – Computer Science Major    </string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="44c-jO-FxW">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="44c-jO-FxW" id="65v-CS-xSA">
-                                            <frame key="frameInset" width="1000" height="43"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1168,7 +1168,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dDA-Be-9Lo" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lvw-hL-Jzu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Lvw-hL-Jzu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1186,7 +1186,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uvb-ut-8ah" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="R5d-Kr-4GK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="R5d-Kr-4GK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1222,7 +1222,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fqA-ET-cOT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPk-Va-0EN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gPk-Va-0EN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
