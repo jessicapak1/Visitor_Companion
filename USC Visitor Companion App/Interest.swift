@@ -10,6 +10,9 @@ import Parse
 
 class Interest: NSObject {
 
+    // MARK: Parse object
+    private var object: PFObject?
+    
     // MARK: Interest Properties
     var objectId: String?
     
@@ -20,6 +23,7 @@ class Interest: NSObject {
     // construct single localized Interest object
     init(object: PFObject) {
         
+        self.object = object
         self.name = object["name"] as! String?
         self.objectId = object.objectId
         if let objects = object["locations"] as! [PFObject]? {
@@ -45,6 +49,10 @@ class Interest: NSObject {
 //            
 //            //locations?.append(location)
 //        }
+    }
+    
+    // remove Location from "this" Interest
+    func deleteLocation(locationOb: Location) {
         
     }
 }
