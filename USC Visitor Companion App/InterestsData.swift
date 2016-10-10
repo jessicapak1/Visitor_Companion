@@ -96,7 +96,7 @@ class InterestsData : NSObject {
                 
                 if let localInterestLocations = localInterest.locations {
                     // loop through
-                    for location in localInterest.locations {
+                    for location in localInterestLocations {
                         
                         // save object IDs in order to change database
                         locationIDs.append(location.objectId!)
