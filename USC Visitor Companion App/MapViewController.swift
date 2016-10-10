@@ -92,8 +92,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     // MARK: Search Methods
     func addSearch() {
         self.searchTableView.isHidden = true
-        self.view.insertSubview(self.searchTableView, aboveSubview: self.mapView)
-        self.view.insertSubview(self.searchTableView, aboveSubview: self.menuButton)
+        self.view.bringSubview(toFront: self.searchTableView)
+//        self.view.insertSubview(self.searchTableView, aboveSubview: self.mapView)
+//        self.view.insertSubview(self.searchTableView, aboveSubview: self.menuButton)
     }
     
     func showSearch() {
@@ -205,6 +206,15 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         self.bubbleTransition.transitionMode = .dismiss
         return self.bubbleTransition
+    }
+    
+    
+    // MARK: IBAction Methods
+    @IBAction func viterbiButtonPressed() {
+        let viterbiURL = URL(string: "http://viterbi.usc.edu/")
+        if let viterbiURL = viterbiURL {
+            UIApplication.shared.openURL(viterbiURL)
+        }
     }
 
 }
