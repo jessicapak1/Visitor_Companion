@@ -8,6 +8,7 @@
 
 import Parse
 
+// MARK: User Type Enum
 enum UserType: String {
     case parent = "Parent"
     case prospective = "Prospective Student"
@@ -16,6 +17,18 @@ enum UserType: String {
     case none = "None"  // should never be stored on database
 }
 
+
+// MARK: User Key Enum
+enum UserKey: String {
+    case name = "name"
+    case username = "username"
+    case password = "password"
+    case email = "email"
+    case interest = "interest"
+    case type = "type"
+}
+
+
 class User: NSObject {
     
     // MARK: Current User
@@ -23,13 +36,13 @@ class User: NSObject {
     
     
     // MARK: Properties
-    var name: String? { willSet { User.current.update(value: newValue, forKey: "name") } }
+    var name: String? { willSet { User.current.update(value: newValue, forKey: UserKey.name.rawValue) } }
     
-    var username: String? { willSet { User.current.update(value: newValue, forKey: "username") } }
+    var username: String? { willSet { User.current.update(value: newValue, forKey: UserKey.username.rawValue) } }
     
-    var email: String? { willSet { User.current.update(value: newValue, forKey: "email") } }
+    var email: String? { willSet { User.current.update(value: newValue, forKey: UserKey.email.rawValue) } }
     
-    var interest: String? { willSet { User.current.update(value: newValue, forKey: "interest") } }
+    var interest: String? { willSet { User.current.update(value: newValue, forKey: UserKey.interest.rawValue) } }
     
     var type: UserType = .none  // should never be set after signup
     
@@ -37,12 +50,12 @@ class User: NSObject {
     // MARK: Class Methods
     class func signup(name: String, username: String, password: String, email: String, type: UserType) {
         let user = PFUser()
-        user["name"] = name
-        user["username"] = username
-        user["password"] = password
-        user["email"] = email
-        user["interest"] = "General" 
-        user["type"] = type
+        user[UserKey.name.rawValue] = name
+        user[UserKey.username.rawValue] = username
+        user[UserKey.password.rawValue] = password
+        user[UserKey.email.rawValue] = email
+        user[UserKey.interest.rawValue] = "General"
+        user[UserKey.type.rawValue] = type
         do { try user.signUp() } catch { }
         User.current.update()
     }
@@ -60,11 +73,11 @@ class User: NSObject {
     
     // MARK: Private Methods
     private func update() {
-        User.current.name = PFUser.current()?["name"] as! String?
-        User.current.username = PFUser.current()?["username"] as! String?
-        User.current.email = PFUser.current()?["email"] as! String?
-        User.current.interest = PFUser.current()?["interest"] as! String?
-        let type = PFUser.current()?["type"] as! String?
+        User.current.name = PFUser.current()?[UserKey.name.rawValue] as! String?
+        User.current.username = PFUser.current()?[UserKey.username.rawValue] as! String?
+        User.current.email = PFUser.current()?[UserKey.email.rawValue] as! String?
+        User.current.interest = PFUser.current()?[UserKey.interest.rawValue] as! String?
+        let type = PFUser.current()?[UserKey.type.rawValue] as! String?
         if let type = type {
             if type == UserType.parent.rawValue {
                 User.current.type = .parent
