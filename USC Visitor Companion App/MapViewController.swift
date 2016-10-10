@@ -207,5 +207,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.bubbleTransition.transitionMode = .dismiss
         return self.bubbleTransition
     }
+    
+    
+    // MARK: IBAction Methods
+    @IBAction func viterbiButtonPressed() {
+        let viterbiURL = URL(string: "http://viterbi.usc.edu/")
+        if let viterbiURL = viterbiURL {
+            UIApplication.shared.openURL(viterbiURL)
+        }
+    }
 
 }
