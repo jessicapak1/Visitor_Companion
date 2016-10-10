@@ -14,8 +14,17 @@ class MenuViewController: UIViewController {
     let bubbleTransition = BubbleTransition()
     @IBOutlet weak var menuButton: UIButton!
 
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var emailLabel: UILabel!
+    
+    @IBOutlet weak var interestsLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameLabel.text = User.current.name
+        emailLabel.text = User.current.email
+        interestsLabel.text = User.current.interest
     }
     
     @IBAction func menuButtonPressed() {
