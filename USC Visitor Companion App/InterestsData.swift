@@ -42,15 +42,7 @@ class InterestsData : NSObject {
         let object = PFObject(className:"Interest")
         object["name"] = name
         
-        //var locations = [Location]()
-        
-        //        var loc1 = Location.create(name: "fakeName", code: "fakeCode", details: "fakeDetails", location: nil, interests: nil, callback: nil)
-        //
-        //        locations.append(loc1)
-        //        object["locations"] = locations
-        
         object.saveInBackground()
-        
     }
     
     // returns an array of strings as names of all interests in database
@@ -95,29 +87,37 @@ class InterestsData : NSObject {
                 // loop through
                 for location in localInterest.locations! {
                     
-                    // save object IDs
+                    // save object IDs in order to change database
                     locationIDs.append(location.objectId!)
-                    // delete interest from locations locally
-                    /* requires new method in LocationData */
                     
+                    // delete interest from Locations locally
+                    location.interests = location.interests?.filter{$0 != interestName}
                 }
                 
                 // interest from locations within database
                 let locQuery = PFQuery(className: "Location")
                 locQuery.whereKey("objectId", containedIn: locationIDs)
-                var locationsPFObject = try locQuery.findObjects()
+                let locationsPFObject = try locQuery.findObjects()
                 
                 for locationOB in locationsPFObject {
-                    // NOTE: this line is suspect, lets see if we can find a way from fetch all of these or doing this all in the background
-                    let interestsWithoutCurrent = locationOB.fetchInBackground()
+                    
+                    // get the updated locations list from our local data in LocationData
+                    let locName = LocationData.shared.idsToNames[locationOB.objectId!]
+                    let interestsWithoutDeleted = LocationData.shared.namesToLocations[locName!]?.interests
+                    
+                    // set the value of the interests array in the parse object to be the new array without the deleted intest
+                    locationOB.setObject(interestsWithoutDeleted, forKey: "interests")//.set("interests", interestsWithoutCurrent)
+                    
+                    // save the parse object to the database
+                    locationOB.saveInBackground()
                 }
-                
                 
                 
                 // create a query for the Interest object from the database
                 let intQuery = PFQuery(className: "Interest")
                 intQuery.whereKey("name", equalTo: interestName)
                 let interestPFObject = try intQuery.getFirstObject()
+                
                 // delete interest from database
                 interestPFObject.deleteInBackground()
                 
@@ -126,10 +126,7 @@ class InterestsData : NSObject {
             } catch {
                 print("An error occurred trying to delete Interest from database")
             }
-            
         }
-        
-        
     }
     
     
