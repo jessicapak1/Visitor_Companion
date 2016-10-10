@@ -23,7 +23,8 @@ class AdminSegmentedViewControoler: UIViewController, UITableViewDataSource, UIT
 
         //get all locations from wrapper class
         locations = LocationData.shared.locations
-        interests = InterestsData.shared.interestNames(withKeyword: "General")
+//        interests = InterestsData.shared.interestNames(withKeyword: "General")
+        interests = InterestsData.shared.interestNames()
     }
 
     override func didReceiveMemoryWarning() {

@@ -22,19 +22,22 @@ class Interest: NSObject {
         
         self.name = object["name"] as! String?
         self.objectId = object.objectId
-        let objects = object["locations"] as! [PFObject]?
-        print(objects)
-        
-        // if the database grows, we may want to parse a few coordinated maps in LocationData to make these lookups constant time instead of n^2
-        for obj in objects! {
-            
-            // if we find a name for this object ID
-            if let name = LocationData.shared.idsToNames[obj.objectId!] {
-                if let location = LocationData.shared.namesToLocations[name] {
-                    self.locations?.append(location)
+        if let objects = object["locations"] as! [PFObject]? {
+            // if the database grows, we may want to parse a few coordinated maps in LocationData to make these lookups constant time instead of n^2
+            for obj in objects {
+                
+                // if we find a name for this object ID
+                if let name = LocationData.shared.idsToNames[obj.objectId!] {
+                    if let location = LocationData.shared.namesToLocations[name] {
+                        self.locations?.append(location)
+                    }
                 }
             }
+            print(objects)
         }
+        
+        
+       
 //        for loc in objects {
 //            //let location = Location(object: loc)
 //            print(loc)
@@ -44,7 +47,4 @@ class Interest: NSObject {
 //        }
         
     }
-    
-    
-    
 }
