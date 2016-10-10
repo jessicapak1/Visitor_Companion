@@ -8,7 +8,6 @@
 
 import Parse
 
-// MARK: User Type Enum
 enum UserType: String {
     case parent = "Parent"
     case prospective = "Prospective Student"
@@ -18,7 +17,6 @@ enum UserType: String {
 }
 
 
-// MARK: User Key Enum
 enum UserKey: String {
     case name = "name"
     case username = "username"
@@ -36,6 +34,8 @@ class User: NSObject {
     
     
     // MARK: Properties
+    var exists: Bool { get { return PFUser.current() != nil } }
+    
     var name: String? { willSet { User.current.update(value: newValue, forKey: UserKey.name.rawValue) } }
     
     var username: String? { willSet { User.current.update(value: newValue, forKey: UserKey.username.rawValue) } }
