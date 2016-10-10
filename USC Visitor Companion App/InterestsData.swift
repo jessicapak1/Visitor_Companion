@@ -53,8 +53,8 @@ class InterestsData : NSObject {
         
     }
     
-    // returns an array of all names of interets in database
-    func getInterestNames(name: String) -> [String] {
+    // returns an array of strings as names of all interests in database
+    func interestNames() -> [String] {
         var names = [String]()
         for name in namesToInterests.keys {
             names.append(name)
@@ -62,19 +62,78 @@ class InterestsData : NSObject {
         return names
     }
     
-    func getInterestNames(withPrefix prefix: String) -> [String] {
+    // returns true if name is an existing Interest, false otherwise
+    func interest(withName name: String) -> Interest {
+        return self.namesToInterests[name]!
+    }
+    
+    // returns array strings as names of all interests with names that either begin with or contain the 'keyword'
+    func interestNames(withKeyword keyword: String) -> [String] {
         var matches = [String]()
         
+        // for all interest names held in this singletons map
         for interestName in self.namesToInterests.keys {
             
-            let lowercaseMatches = interestName.lowercased().hasPrefix(prefix.lowercased())
-            
-            if lowercaseMatches {
+            // if the keyword is a prefix of an interest name
+            if interestName.lowercased().hasPrefix(keyword.lowercased()) {
+                matches.append(interestName)
+            // if the keyword is contained
+            } else if interestName.lowercased().contains(keyword.lowercased()) && keyword.characters.count >= 3 {
                 matches.append(interestName)
             }
         }
         return matches
     }
+    
+    func deleteInterest(withName interestName: String) -> () {
+        
+        // if we find this interest name in our backend (which we should)
+        if let localInterest = self.namesToInterests[interestName] {
+            do {
+                var locationIDs = [String]()
+                
+                // loop through
+                for location in localInterest.locations! {
+                    
+                    // save object IDs
+                    locationIDs.append(location.objectId!)
+                    // delete interest from locations locally
+                    /* requires new method in LocationData */
+                    
+                }
+                
+                // interest from locations within database
+                let locQuery = PFQuery(className: "Location")
+                locQuery.whereKey("objectId", containedIn: locationIDs)
+                var locationsPFObject = try locQuery.findObjects()
+                
+                for locationOB in locationsPFObject {
+                    // NOTE: this line is suspect, lets see if we can find a way from fetch all of these or doing this all in the background
+                    let interestsWithoutCurrent = locationOB.fetchInBackground()
+                }
+                
+                
+                
+                // create a query for the Interest object from the database
+                let intQuery = PFQuery(className: "Interest")
+                intQuery.whereKey("name", equalTo: interestName)
+                let interestPFObject = try intQuery.getFirstObject()
+                // delete interest from database
+                interestPFObject.deleteInBackground()
+                
+                // delete interest from namesToInterests
+                self.namesToInterests.removeValue(forKey: interestName)
+            } catch {
+                print("An error occurred trying to delete Interest from database")
+            }
+            
+        }
+        
+        
+    }
+    
+    
+    
 //    func interests(withPrefix prefix: String) -> [String] {
 //        var nameMatches = [String]()
 //        for interestName in self.namesToInterests.keys {
