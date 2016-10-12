@@ -25,14 +25,15 @@
                                     <constraint firstAttribute="width" constant="50" id="Kbg-I6-VdB"/>
                                     <constraint firstAttribute="height" constant="50" id="oga-CJ-iSw"/>
                                 </constraints>
-                                <state key="normal" title="X" image="red circle"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" image="menu-icon-1"/>
                                 <connections>
                                     <segue destination="R6u-rc-Dc3" kind="presentation" identifier="Show Menu" id="IPB-Lv-d0b"/>
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" placeholder="Search USC" translatesAutoresizingMaskIntoConstraints="NO" id="dGk-MM-YB2">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -57,7 +58,7 @@
                             <constraint firstItem="MY9-Id-f3I" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" constant="8" id="KCw-MF-aKB"/>
                             <constraint firstAttribute="bottom" secondItem="VR3-xP-PUh" secondAttribute="bottom" constant="10" id="Mdb-9l-5Qk"/>
                             <constraint firstAttribute="trailing" secondItem="dGk-MM-YB2" secondAttribute="trailing" constant="8" id="NOY-lk-wyS"/>
-                            <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="oLt-Hd-n1v" secondAttribute="bottom" constant="20" id="O1J-2i-gJS"/>
+                            <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="oLt-Hd-n1v" secondAttribute="bottom" constant="25" id="O1J-2i-gJS"/>
                             <constraint firstAttribute="trailing" secondItem="VR3-xP-PUh" secondAttribute="trailing" constant="9" id="SZV-lS-EAD"/>
                             <constraint firstItem="oLt-Hd-n1v" firstAttribute="centerX" secondItem="5EB-oA-TVt" secondAttribute="centerX" id="ULg-ej-uyF"/>
                             <constraint firstItem="dGk-MM-YB2" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" constant="8" id="aJ2-vG-OIk"/>
@@ -88,12 +89,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLR-Aq-xo7">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLR-Aq-xo7">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="Duk-5S-ODI"/>
-                                    <constraint firstAttribute="width" constant="56" id="yza-qI-5wi"/>
+                                    <constraint firstAttribute="height" constant="50" id="Duk-5S-ODI"/>
+                                    <constraint firstAttribute="width" constant="50" id="yza-qI-5wi"/>
                                 </constraints>
-                                <state key="normal" image="yellow circle"/>
+                                <state key="normal" image="menu-icon-2"/>
                                 <connections>
                                     <action selector="menuButtonPressed" destination="R6u-rc-Dc3" eventType="touchUpInside" id="B0h-DO-Fe0"/>
                                 </connections>
@@ -134,7 +135,7 @@
                         <color key="tintColor" red="1" green="0.77681993130000004" blue="0.001346542883" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="gLR-Aq-xo7" firstAttribute="centerX" secondItem="1mt-75-6xR" secondAttribute="centerX" id="JsW-EU-Cg9"/>
-                            <constraint firstItem="FYk-j6-8UT" firstAttribute="top" secondItem="gLR-Aq-xo7" secondAttribute="bottom" constant="20" id="nSf-eZ-W48"/>
+                            <constraint firstItem="FYk-j6-8UT" firstAttribute="top" secondItem="gLR-Aq-xo7" secondAttribute="bottom" constant="25" id="nSf-eZ-W48"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1260,13 +1261,13 @@ Christian Villa – Computer Science Major    </string>
     </scenes>
     <resources>
         <image name="map-1" width="1024" height="1024"/>
-        <image name="red circle" width="256" height="256"/>
+        <image name="menu-icon-1" width="50" height="50"/>
+        <image name="menu-icon-2" width="50" height="50"/>
         <image name="settings-icon-2" width="512" height="512"/>
         <image name="shieldmono" width="300" height="100"/>
         <image name="shieldmono-white" width="300" height="100"/>
         <image name="tag" width="1024" height="1024"/>
         <image name="viterbi" width="1076" height="184"/>
-        <image name="yellow circle" width="1077" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3XF-nH-Oo0"/>
