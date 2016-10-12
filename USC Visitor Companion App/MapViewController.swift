@@ -63,9 +63,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         let camera = GMSCameraPosition.camera(withLatitude: 34.020496, longitude: -118.285317, zoom: 20.0, bearing: 30, viewingAngle: 90.0)
         self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         self.view.insertSubview(self.mapView, at: 0)
-        
-        mapView.settings.myLocationButton = true
-        
+      
         let locationManager = CLLocationManager()
         // request authorization from the user
         locationManager.requestAlwaysAuthorization()
@@ -234,5 +232,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             UIApplication.shared.openURL(viterbiURL)
         }
     }
+    
+    @IBAction func locationButtonPressed(_ sender: UIButton) {
+        let location = mapView.myLocation
+        if (location != nil) {
+            mapView.animate(toLocation: (location?.coordinate)!)
+        }
+    }
+    
 
 }

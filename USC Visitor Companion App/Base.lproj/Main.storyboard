@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="poS-Zl-lNF">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="poS-Zl-lNF">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -48,6 +48,14 @@
                                 <state key="normal" image="viterbi"/>
                                 <connections>
                                     <action selector="viterbiButtonPressed" destination="poS-Zl-lNF" eventType="touchUpInside" id="oei-Js-piT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goZ-18-kmO">
+                                <frame key="frameInset" minX="314" minY="592" width="45" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ic_my_location"/>
+                                <connections>
+                                    <action selector="locationButtonPressed:" destination="poS-Zl-lNF" eventType="touchUpInside" id="mmH-Gr-qxi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1260,6 +1268,7 @@ Christian Villa – Computer Science Major    </string>
         </scene>
     </scenes>
     <resources>
+        <image name="ic_my_location" width="24" height="24"/>
         <image name="map-1" width="1024" height="1024"/>
         <image name="menu-icon-1" width="50" height="50"/>
         <image name="menu-icon-2" width="50" height="50"/>
