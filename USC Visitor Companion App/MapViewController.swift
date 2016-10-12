@@ -64,6 +64,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         self.view.insertSubview(self.mapView, at: 0)
         
+        mapView.settings.myLocationButton = true
+        
         let locationManager = CLLocationManager()
         // request authorization from the user
         locationManager.requestAlwaysAuthorization()
