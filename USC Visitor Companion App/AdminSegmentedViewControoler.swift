@@ -95,14 +95,10 @@ class AdminSegmentedViewControoler: UIViewController, UITableViewDataSource, UIT
                 //MAYBE I SHOULD JUST DELETE FROM THE SHARED OBJECT??
                 //OR JUST FROM MY ARRAY
                 //TALK ABOUT IT WITH JEFF AND CHRISTIAN
-                /*
+
                 InterestsData.shared.deleteInterest(withName: interests[indexPath.row])
-                DispatchQueue.main.async(execute: {
-                    () -> Void in
-                    self.interestsLocationsTableView.reloadData()
-                    
-                })
-                 */
+                interestsLocationsTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
+
             } else if editingStyle ==  UITableViewCellEditingStyle.insert {
                 //update database here, or not really? will only do it with the new admin view
             }

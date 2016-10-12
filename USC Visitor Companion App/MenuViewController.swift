@@ -22,9 +22,9 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameLabel.text = User.current.name
-        emailLabel.text = User.current.email
-        interestsLabel.text = User.current.interest
+        //nameLabel.text = User.current.name
+        //emailLabel.text = User.current.email
+        //interestsLabel.text = User.current.interest
     }
     
     @IBAction func menuButtonPressed() {
