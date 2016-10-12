@@ -50,9 +50,10 @@
                                     <action selector="viterbiButtonPressed" destination="poS-Zl-lNF" eventType="touchUpInside" id="oei-Js-piT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goZ-18-kmO">
-                                <frame key="frameInset" minX="314" minY="592" width="45" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goZ-18-kmO">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="GHJ-Eb-9S6"/>
+                                </constraints>
                                 <state key="normal" image="ic_my_location"/>
                                 <connections>
                                     <action selector="locationButtonPressed:" destination="poS-Zl-lNF" eventType="touchUpInside" id="mmH-Gr-qxi"/>
@@ -70,8 +71,11 @@
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="oLt-Hd-n1v" secondAttribute="bottom" constant="25" id="O1J-2i-gJS"/>
                             <constraint firstItem="oLt-Hd-n1v" firstAttribute="centerX" secondItem="5EB-oA-TVt" secondAttribute="centerX" id="ULg-ej-uyF"/>
                             <constraint firstItem="dGk-MM-YB2" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" constant="8" id="aJ2-vG-OIk"/>
+                            <constraint firstItem="I1u-NV-L1F" firstAttribute="top" secondItem="goZ-18-kmO" secondAttribute="bottom" constant="4" id="aYM-8S-hww"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="MY9-Id-f3I" secondAttribute="bottom" id="dOI-sI-dlV"/>
                             <constraint firstAttribute="trailing" secondItem="MY9-Id-f3I" secondAttribute="trailing" constant="8" id="seG-oE-cSm"/>
+                            <constraint firstItem="goZ-18-kmO" firstAttribute="top" secondItem="oLt-Hd-n1v" secondAttribute="top" id="xVU-gz-Mld"/>
+                            <constraint firstItem="goZ-18-kmO" firstAttribute="trailing" secondItem="5EB-oA-TVt" secondAttribute="trailingMargin" id="yY9-rd-Jzn"/>
                         </constraints>
                     </view>
                     <connections>
