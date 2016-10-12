@@ -111,8 +111,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     func addSearch() {
         self.searchTableView.isHidden = true
         self.view.bringSubview(toFront: self.searchTableView)
-//        self.view.insertSubview(self.searchTableView, aboveSubview: self.mapView)
-//        self.view.insertSubview(self.searchTableView, aboveSubview: self.menuButton)
     }
     
     func showSearch() {
