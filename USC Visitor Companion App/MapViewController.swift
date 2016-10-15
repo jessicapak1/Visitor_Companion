@@ -13,6 +13,7 @@ import BubbleTransition
 import CoreLocation
 import BetterSegmentedControl
 
+
 class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     // MARK: Properties
@@ -71,13 +72,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: Segmented Control Methods
     func segmentedControlValueChanged() {
-        if self.segmentedControl.index == 0 {
-            
-        } else if self.segmentedControl.index == 1 {
-        
-        } else if self.segmentedControl.index == 2 {
-            
-        } else if self.segmentedControl.index == 3 {
+        // clear all old locations
+        if self.segmentedControl.index == 0 { // Locations
+            // show locations with General interest from InterestData
+        } else if self.segmentedControl.index == 1 { // Interests
+            // show locations with User.current.interest from InterestData
+        } else if self.segmentedControl.index == 2 { // Food
+            // show locations with Food interets from InterestData
+        } else if self.segmentedControl.index == 3 { // Search
             self.showSearch()
             do { try self.segmentedControl.set(0, animated: true) } catch { } // should be set to the segment of the location
         }
@@ -258,13 +260,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     
     // MARK: IBAction Methods
-    @IBAction func viterbiButtonPressed() {
-        let viterbiURL = URL(string: "http://viterbi.usc.edu/")
-        if let viterbiURL = viterbiURL {
-            UIApplication.shared.openURL(viterbiURL)
-        }
-    }
-    
     @IBAction func locationButtonPressed(_ sender: UIButton) {
         let location = mapView.myLocation
         if (location != nil) {
