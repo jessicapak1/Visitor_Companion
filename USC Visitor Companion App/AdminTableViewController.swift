@@ -60,7 +60,7 @@ class AdminTableViewController: UITableViewController {
             //        }
         else
         {
-<<<<<<< HEAD
+
 //            let name = nameTextField.text
 //            let code = codeTextField.text            
 //            let location = CLLocation(latitude: 34.0224, longitude: 118.2851)
@@ -68,18 +68,7 @@ class AdminTableViewController: UITableViewController {
 //            var interests = [String]()
 //            let description = descriptionTextView.text
 //            LocationData.shared.create(name: name!, code: code!, details: description!, location: location, interests:interests, callback: {() -> Void in });
-=======
-            let name = nameTextField.text
-            let code = codeTextField.text            
-            let location = CLLocation(latitude: 34.0224, longitude: 118.2851)
 
-            var interests = [String]()
-            let description = descriptionTextView.text
-            LocationData.shared.create(name: name!, code: code!, details: description!, location: location, interests:interests, callback: {
-                (succeeded) -> Void in
-                // callback code goes here
-            });
->>>>>>> develop
         }
     }
     
