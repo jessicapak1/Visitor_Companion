@@ -143,6 +143,16 @@
                                     <segue destination="r2b-Bq-GWe" kind="presentation" id="Bjj-7c-vOg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPw-6p-FbT">
+                                <frame key="frameInset" minX="297" minY="139" width="44" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FP-eC-zQD">
+                                <frame key="frameInset" minX="284" minY="184" width="67" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Register"/>
+                            </button>
                         </subviews>
                         <color key="tintColor" red="1" green="0.77681993130000004" blue="0.001346542883" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -295,6 +305,58 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="About" id="kf2-vY-9CH">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="e0J-XG-LV9">
+                                        <rect key="frame" x="0.0" y="454" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e0J-XG-LV9" id="2je-gK-Gq4">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lm0-If-Oy6">
+                                                    <frame key="frameInset" minX="24" width="289" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJM-QL-ktT">
+                                                    <frame key="frameInset" minX="321" width="46" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="&gt;">
+                                                        <color key="titleColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jrH-DQ-gn6">
+                                        <rect key="frame" x="0.0" y="498" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jrH-DQ-gn6" id="GqO-b8-nmn">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubD-sg-OxK">
+                                                    <frame key="frameInset" minX="24" width="289" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTi-of-a8j">
+                                                    <frame key="frameInset" minX="321" width="46" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="&gt;">
+                                                        <color key="titleColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                     </tableView>
                     <toolbarItems/>
@@ -370,7 +432,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndo-79-sQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2977" y="-1236"/>
+            <point key="canvasLocation" x="2702" y="-1575"/>
         </scene>
         <!--Check In-->
         <scene sceneID="E8w-Ph-5CI">
@@ -405,41 +467,6 @@ Christian Villa – Computer Science Major    </string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPF-VT-Kn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1015" y="268"/>
-        </scene>
-        <!--Check In View Controller-->
-        <scene sceneID="uMn-VD-wep">
-            <objects>
-                <viewController id="Lyf-Dv-XHU" userLabel="Check In View Controller" customClass="CheckInViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fgW-dZ-sSa"/>
-                        <viewControllerLayoutGuide type="bottom" id="HCY-Wc-n7d"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mjo-M8-0fk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAB-yH-Oll">
-                                <items>
-                                    <navigationItem title="Check In" id="QRG-Xd-qpT">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="idw-9K-1kz">
-                                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="cAB-yH-Oll" firstAttribute="leading" secondItem="mjo-M8-0fk" secondAttribute="leading" id="2Gc-fO-FWx"/>
-                            <constraint firstItem="cAB-yH-Oll" firstAttribute="top" secondItem="mjo-M8-0fk" secondAttribute="top" id="BT0-Sj-tO0"/>
-                            <constraint firstAttribute="trailing" secondItem="cAB-yH-Oll" secondAttribute="trailing" id="Ky8-46-Zmi"/>
-                            <constraint firstItem="HCY-Wc-n7d" firstAttribute="top" secondItem="cAB-yH-Oll" secondAttribute="bottom" constant="623" id="RIL-qJ-p1g"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aNb-BP-RKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4800.8000000000002" y="2135.9820089955024"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="lb4-ly-v7a">
@@ -546,12 +573,12 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9m-UM-YYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2905" y="1334"/>
+            <point key="canvasLocation" x="3713" y="1204"/>
         </scene>
-        <!--Locations-->
+        <!--Locations View Controller-->
         <scene sceneID="pKx-ju-pqn">
             <objects>
-                <tableViewController storyboardIdentifier="locations" id="916-vo-hp2" customClass="LocationsViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="locations" id="916-vo-hp2" userLabel="Locations View Controller" customClass="LocationsViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MAT-Zq-Abm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -584,10 +611,10 @@ Christian Villa – Computer Science Major    </string>
             </objects>
             <point key="canvasLocation" x="1220" y="268"/>
         </scene>
-        <!--Interests-->
+        <!--Interests View Controller-->
         <scene sceneID="cC8-5i-4Sw">
             <objects>
-                <tableViewController storyboardIdentifier="interests" id="6p7-GU-rdF" userLabel="Interests" customClass="InterestsViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="interests" id="6p7-GU-rdF" userLabel="Interests View Controller" customClass="InterestsViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BIY-kA-rCg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -729,10 +756,10 @@ Christian Villa – Computer Science Major    </string>
             </objects>
             <point key="canvasLocation" x="3714" y="464"/>
         </scene>
-        <!--Admin View Controller-->
+        <!--Admin Add Loc View Controller-->
         <scene sceneID="EOR-wf-Xpc">
             <objects>
-                <tableViewController id="U5h-Tb-fNv" userLabel="Admin View Controller" customClass="AdminTableViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="U5h-Tb-fNv" userLabel="Admin Add Loc View Controller" customClass="AdminTableViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="yni-mw-BIk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -878,12 +905,12 @@ Christian Villa – Computer Science Major    </string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nK-x6-eMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2977" y="-1917"/>
+            <point key="canvasLocation" x="2810" y="-2359"/>
         </scene>
-        <!--Admin-->
+        <!--Admin View Controller-->
         <scene sceneID="wSR-WG-udf">
             <objects>
-                <viewController id="d5W-Ky-d2f" customClass="AdminSegmentedViewControoler" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="d5W-Ky-d2f" userLabel="Admin View Controller" customClass="AdminSegmentedViewControoler" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xhb-Kl-Quo"/>
                         <viewControllerLayoutGuide type="bottom" id="ceF-FM-RtW"/>
@@ -947,10 +974,10 @@ Christian Villa – Computer Science Major    </string>
             </objects>
             <point key="canvasLocation" x="1220" y="-1917"/>
         </scene>
-        <!--Admin Navigation Controller-->
+        <!--Admin Add Loc Navigation Controller-->
         <scene sceneID="iUw-MA-aq8">
             <objects>
-                <navigationController id="RYa-VT-6M0" userLabel="Admin Navigation Controller" sceneMemberID="viewController">
+                <navigationController id="RYa-VT-6M0" userLabel="Admin Add Loc Navigation Controller" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Dq1-DT-6Qm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -961,7 +988,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1PT-7j-I5v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2081" y="-1917"/>
+            <point key="canvasLocation" x="1914" y="-2359"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="OPJ-ui-8lh">
@@ -1035,10 +1062,10 @@ Christian Villa – Computer Science Major    </string>
             </objects>
             <point key="canvasLocation" x="3713" y="2136"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--App Preferences Navigation Controller-->
         <scene sceneID="Bjm-Zs-adQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dDA-Be-9Lo" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dDA-Be-9Lo" userLabel="App Preferences Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Lvw-hL-Jzu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1053,10 +1080,10 @@ Christian Villa – Computer Science Major    </string>
             </objects>
             <point key="canvasLocation" x="281" y="-1236"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--About Navigation Controller-->
         <scene sceneID="nWM-uM-Srg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uvb-ut-8ah" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="about" automaticallyAdjustsScrollViewInsets="NO" id="Uvb-ut-8ah" userLabel="About Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="R5d-Kr-4GK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1069,12 +1096,12 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DBJ-uP-8DL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2081" y="-1236"/>
+            <point key="canvasLocation" x="1964" y="-1574"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Locations Navigation Controller-->
         <scene sceneID="exX-zS-ydv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r2b-Bq-GWe" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r2b-Bq-GWe" userLabel="Locations Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8R1-Rv-VQv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1089,10 +1116,10 @@ Christian Villa – Computer Science Major    </string>
             </objects>
             <point key="canvasLocation" x="281" y="268"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Checkin Navigation Controller-->
         <scene sceneID="Wau-RF-f5R">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fqA-ET-cOT" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fqA-ET-cOT" userLabel="Checkin Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gPk-Va-0EN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1107,10 +1134,10 @@ Christian Villa – Computer Science Major    </string>
             </objects>
             <point key="canvasLocation" x="-1930" y="268"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Admin Navigation Controller-->
         <scene sceneID="3BU-zV-UAo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ked-3e-tgT" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ked-3e-tgT" userLabel="Admin Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="E9I-I5-QiM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1125,10 +1152,10 @@ Christian Villa – Computer Science Major    </string>
             </objects>
             <point key="canvasLocation" x="281" y="-1917"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Login Navigation Controller-->
         <scene sceneID="p6p-15-Zex">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aXu-4r-S0f" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aXu-4r-S0f" userLabel="Login Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="YFq-ps-1Qt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1141,14 +1168,14 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ila-nU-TkP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3713" y="1334"/>
+            <point key="canvasLocation" x="4498" y="871"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Forgot Password Navigation Controller-->
         <scene sceneID="4Qp-hJ-W89">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d2N-QX-Ezz" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d2N-QX-Ezz" userLabel="Forgot Password Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="r4l-LB-tV1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="r4l-LB-tV1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1161,12 +1188,12 @@ Christian Villa – Computer Science Major    </string>
             </objects>
             <point key="canvasLocation" x="2905" y="2136"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Registration Navigation Controller-->
         <scene sceneID="R6P-N3-08U">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="POe-HH-Pg5" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="POe-HH-Pg5" userLabel="Registration Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4v2-Sw-ijv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4v2-Sw-ijv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1178,6 +1205,274 @@ Christian Villa – Computer Science Major    </string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKY-xf-uKv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2906" y="464"/>
+        </scene>
+        <!--Edit Profile Table View Controller-->
+        <scene sceneID="p3P-Un-F3i">
+            <objects>
+                <tableViewController id="7Hb-xH-SMQ" userLabel="Edit Profile Table View Controller" customClass="EditProfileViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="IgS-CI-30I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Basic Information" id="Cbq-7p-soO">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fkW-jO-cxy">
+                                        <rect key="frame" x="0.0" y="120" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fkW-jO-cxy" id="Vbe-vy-anp">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DdY-7g-TdN">
+                                                    <frame key="frameInset" minX="16" minY="6" width="343" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="B3R-CM-V8m">
+                                        <rect key="frame" x="0.0" y="164" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B3R-CM-V8m" id="IrA-Wt-sLt">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QDo-Bs-kIv">
+                                                    <frame key="frameInset" minX="16" minY="6" width="343" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="Lm8-qC-KwQ">
+                                        <rect key="frame" x="0.0" y="208" width="375" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lm8-qC-KwQ" id="BFQ-uU-DLh">
+                                            <frame key="frameInset" width="375" height="74"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UmN-A0-reF">
+                                                    <frame key="frameInset" minY="-87" height="216"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                </pickerView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Private Information" id="QLf-6i-akq">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="YCN-d5-XVn">
+                                        <rect key="frame" x="0.0" y="340" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YCN-d5-XVn" id="zMB-ER-XsF">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4kJ-We-9lv">
+                                                    <frame key="frameInset" minX="16" minY="6" width="343" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ksc-vn-ZPz">
+                                        <rect key="frame" x="0.0" y="384" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ksc-vn-ZPz" id="gpd-OU-oFC">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRz-QL-x5Y">
+                                                    <frame key="frameInset" minX="16" minY="6" width="343" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="7Hb-xH-SMQ" id="nqF-I6-PnG"/>
+                            <outlet property="delegate" destination="7Hb-xH-SMQ" id="MM0-Hw-5c4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="nEU-6D-tBA">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="XVc-oV-c2n">
+                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="dDA-Be-9Lo" kind="presentation" id="uYf-lR-EbP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="CAJ-OU-PEW">
+                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="editProfileAction:" destination="7Hb-xH-SMQ" id="Ar8-qP-6gP"/>
+                                <segue destination="dDA-Be-9Lo" kind="presentation" id="tq2-Ll-Eq6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="4kJ-We-9lv" id="fPV-If-rki"/>
+                        <outlet property="nameTextField" destination="DdY-7g-TdN" id="tws-YH-djz"/>
+                        <outlet property="phoneTextField" destination="kRz-QL-x5Y" id="jJ3-Ho-8IB"/>
+                        <outlet property="usernameTextField" destination="QDo-Bs-kIv" id="0c6-Zn-1a6"/>
+                        <outlet property="usertypePicker" destination="UmN-A0-reF" id="62Y-cS-fdX"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="meQ-b5-54a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2660" y="-849"/>
+        </scene>
+        <!--Change Password Table View Controller-->
+        <scene sceneID="kAT-f0-Bkm">
+            <objects>
+                <tableViewController id="Ndl-v9-lxg" userLabel="Change Password Table View Controller" customClass="ChangePasswordTableViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="M3w-c5-y7E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="AK3-Zm-Voc">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0cs-Ai-wxP">
+                                        <rect key="frame" x="0.0" y="99" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0cs-Ai-wxP" id="F5J-ei-l1b">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Current Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="87d-4R-Uqg">
+                                                    <frame key="frameInset" minX="17" minY="6" width="343" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="i2l-qD-63P">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="uvl-0w-pwe">
+                                        <rect key="frame" x="0.0" y="179" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uvl-0w-pwe" id="lIA-tk-kL0">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DLz-PS-ip5">
+                                                    <frame key="frameInset" minX="16" minY="6" width="343" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="PDj-ee-mTS">
+                                        <rect key="frame" x="0.0" y="223" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PDj-ee-mTS" id="yUc-LN-Yht">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rk4-qP-nhN">
+                                                    <frame key="frameInset" minX="16" minY="6" width="343" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Ndl-v9-lxg" id="raC-JH-msq"/>
+                            <outlet property="delegate" destination="Ndl-v9-lxg" id="gmW-Ce-Bvt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Change Password" id="fKa-O1-xCk">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xIo-Ep-qc2">
+                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="dDA-Be-9Lo" kind="presentation" id="Iae-w4-alf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="wHf-nT-JPu">
+                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="changePasswordAction:" destination="Ndl-v9-lxg" id="2xZ-x4-soW"/>
+                                <segue destination="dDA-Be-9Lo" kind="presentation" id="fuf-Kv-GJl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="rk4-qP-nhN" id="dqR-yy-Fh8"/>
+                        <outlet property="currentPasswordTextField" destination="87d-4R-Uqg" id="HNm-Wc-oDa"/>
+                        <outlet property="doneButton" destination="wHf-nT-JPu" id="870-4i-Cct"/>
+                        <outlet property="newPasswordTextField" destination="DLz-PS-ip5" id="igW-Hn-F3Q"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aE5-uR-dBh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2628" y="-178.56071964017991"/>
+        </scene>
+        <!--Edit Profile Navigation Controller-->
+        <scene sceneID="fuf-2l-qHi">
+            <objects>
+                <navigationController storyboardIdentifier="edit_profile" automaticallyAdjustsScrollViewInsets="NO" id="ry9-LU-p0Z" userLabel="Edit Profile Navigation Controller" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="CSq-RB-AQB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7Hb-xH-SMQ" kind="relationship" relationship="rootViewController" id="WH0-dr-PoM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JxB-Sk-r3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1964" y="-848"/>
+        </scene>
+        <!--Change Password Navigation Controller-->
+        <scene sceneID="G2V-Kd-OPT">
+            <objects>
+                <navigationController storyboardIdentifier="change_password" automaticallyAdjustsScrollViewInsets="NO" id="sC4-2P-HVn" userLabel="Change Password Navigation Controller" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Zpt-YH-UY3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ndl-v9-lxg" kind="relationship" relationship="rootViewController" id="QnZ-fA-glq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CHt-M0-Kso" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1964" y="-178"/>
         </scene>
     </scenes>
     <resources>
@@ -1192,5 +1487,6 @@ Christian Villa – Computer Science Major    </string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3XF-nH-Oo0"/>
+        <segue reference="iTj-Hh-4OM"/>
     </inferredMetricsTieBreakers>
 </document>

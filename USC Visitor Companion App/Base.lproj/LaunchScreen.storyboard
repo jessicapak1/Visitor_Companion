@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shieldmono" translatesAutoresizingMaskIntoConstraints="NO" id="nIj-8M-RSC"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sad_cloud_dark.png" translatesAutoresizingMaskIntoConstraints="NO" id="nIj-8M-RSC"/>
                         </subviews>
                         <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -33,6 +33,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="shieldmono" width="300" height="100"/>
+        <image name="sad_cloud_dark.png" width="144" height="96"/>
     </resources>
 </document>
