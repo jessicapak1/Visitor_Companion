@@ -34,11 +34,6 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginAction(_ sender: AnyObject) {
-        login()
-    }
-
-    
-    func login() {
         let username = usernameTextField.text
         let password = passwordTextField.text
         
@@ -49,24 +44,10 @@ class LoginViewController: UIViewController {
             alertController.addAction(OKAction)
             self.present(alertController, animated: true) { }
         } else {
-            // Send a request to login
-            PFUser.logInWithUsername(inBackground: username!, password: password!, block: { (user, error) -> Void in
-                if ((user) != nil) {
-                    let alertController = UIAlertController(title: "Sucess", message: "Logged In!", preferredStyle: .alert)
-                    let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in }
-                    alertController.addAction(OKAction)
-                    self.present(alertController, animated: true) { }
-                    
-                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "map")
-                    self.present(viewController, animated: true, completion: nil)
-                } else {
-                    let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
-                    let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in }
-                    alertController.addAction(OKAction)
-                    self.present(alertController, animated: true) { }
-                }
-            })
+            User.login(username: username!, password:password!);
         }
     }
+
+ 
 }
 

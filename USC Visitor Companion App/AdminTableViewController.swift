@@ -60,12 +60,12 @@ class AdminTableViewController: UITableViewController {
         {
 //            let name = nameTextField.text
 //            let code = codeTextField.text
-//            //            let interests = interestsLabel.text
+//            // let interests = interestsLabel.text
 //            
 //            var interests = [String]()
 //            let location = locationsTextField.text
 //            let description = descriptionTextView.text
-            //            create(name: name, code: code, details: description, location: location, interests:interests);
+//            LocationData.shared.create(name: name!, code: code!, details: description!, location: location, interests:interests, callback: {() -> Void in });
         }
     }
     

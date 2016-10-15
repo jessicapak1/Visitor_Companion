@@ -33,17 +33,12 @@ class RegistrationViewController: UIViewController {
     }
     
     @IBAction func registerAction(_ sender: AnyObject) {
-        signup()
-//        signup(name: usernameTextField.text, username: usernameTextField.text, password: passwordTextField.text, email: emailTextField.text , type: , callback: )
-    }
-    
-    func signup() {
-        let user = PFUser()
-        user.username = usernameTextField.text;
-        user.password = passwordTextField.text
-        user.email = emailTextField.text
+        let username = usernameTextField.text;
+        let password = passwordTextField.text
+        let email = emailTextField.text
+        let userType = "parent";
         // other fields can be set just like with PFObject
- 
+        
         if((emailTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! || (usernameTextField.text?.isEmpty)!)
         {
             let alertController = UIAlertController(title: "Error", message: "Please fill in all fields!", preferredStyle: .alert)
@@ -56,37 +51,7 @@ class RegistrationViewController: UIViewController {
             }
         } else
         {
-            user.signUpInBackground {
-                (succeeded, error) in
-                if let error = error {
-                    _ = error;
-                    
-                    let alertController = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
-                    let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in }
-                    alertController.addAction(OKAction)
-                    self.present(alertController, animated: true) { }
-                } else {
-                    // Hooray! Let them use the app now.
-                    let alertController = UIAlertController(title: "Sucess", message: "Registration Complete!", preferredStyle: .alert)
-                    let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in }
-                    alertController.addAction(OKAction)
-                    self.present(alertController, animated: true) { }
-                    
-                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "map")
-                    self.present(viewController, animated: true, completion: nil)
-                }
-            }
+            User.signup(name: username!, username: username!, password: password!, email: email!, type: UserType(rawValue: userType)!)
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
