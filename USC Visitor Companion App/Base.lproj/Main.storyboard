@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="poS-Zl-lNF">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="poS-Zl-lNF">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -162,268 +162,158 @@
         <scene sceneID="c1C-hY-bww">
             <objects>
                 <tableViewController id="xUq-3O-UF5" customClass="AppPreferenceTableViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="35" sectionFooterHeight="28" id="Nny-iA-qZV">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Nny-iA-qZV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="  " id="cZH-HS-A4I" userLabel="Seciton1">
+                            <tableViewSection headerTitle="Link" id="Yhv-fD-LHJ">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="lsU-b2-rzr">
-                                        <rect key="frame" x="0.0" y="99" width="375" height="75"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="uHg-oN-aUI">
+                                        <rect key="frame" x="0.0" y="120" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lsU-b2-rzr" id="2u2-8k-b2V">
-                                            <frame key="frameInset" width="375" height="74"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shieldmono" translatesAutoresizingMaskIntoConstraints="NO" id="AQ3-Wn-wdo">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="114" id="kRG-aZ-Wq7"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="AQ3-Wn-wdo" secondAttribute="bottom" constant="3" id="L6t-b7-75l"/>
-                                                <constraint firstItem="AQ3-Wn-wdo" firstAttribute="top" secondItem="2u2-8k-b2V" secondAttribute="topMargin" constant="13" id="T0N-4j-gGi"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="AQ3-Wn-wdo" secondAttribute="trailing" constant="10" id="afc-Tl-og6"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vkM-yx-CPw">
-                                        <rect key="frame" x="0.0" y="174" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vkM-yx-CPw" id="7hn-yd-fGO">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uHg-oN-aUI" id="qIS-GO-LuQ">
                                             <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1y-G4-WbO">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="cDg-iB-EPw"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Link Account With Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8F1-qP-j0m">
+                                                    <frame key="frameInset" minX="24" width="289" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUb-Ys-z81">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="32" id="KfK-le-ogL"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZUA-wU-719"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXo-sN-Dsv">
+                                                    <frame key="frameInset" minX="321" width="46" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="&gt;">
+                                                        <color key="titleColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="L1y-G4-WbO" firstAttribute="bottom" secondItem="ZUA-wU-719" secondAttribute="bottom" id="7k6-oz-m8b"/>
-                                                <constraint firstItem="sUb-Ys-z81" firstAttribute="top" secondItem="7hn-yd-fGO" secondAttribute="topMargin" constant="-3" id="FKD-ZI-AWY"/>
-                                                <constraint firstAttribute="trailing" secondItem="ZUA-wU-719" secondAttribute="trailing" constant="20" id="MGP-Pj-PfG"/>
-                                                <constraint firstItem="sUb-Ys-z81" firstAttribute="leading" secondItem="7hn-yd-fGO" secondAttribute="leading" constant="20" id="PMA-qE-HDM"/>
-                                                <constraint firstItem="L1y-G4-WbO" firstAttribute="leading" secondItem="sUb-Ys-z81" secondAttribute="trailing" constant="22" id="jYX-2d-iVP"/>
-                                                <constraint firstItem="L1y-G4-WbO" firstAttribute="top" secondItem="ZUA-wU-719" secondAttribute="top" id="l49-YV-dTA"/>
-                                                <constraint firstItem="L1y-G4-WbO" firstAttribute="bottom" secondItem="7hn-yd-fGO" secondAttribute="bottomMargin" id="leJ-ur-yQs"/>
-                                                <constraint firstItem="sUb-Ys-z81" firstAttribute="centerY" secondItem="7hn-yd-fGO" secondAttribute="centerY" id="qYw-dl-nlV"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dfd-eA-xLe">
-                                        <rect key="frame" x="0.0" y="218" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="r0p-pS-T3E">
+                                        <rect key="frame" x="0.0" y="164" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dfd-eA-xLe" id="3oB-kU-M5W">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r0p-pS-T3E" id="muG-qy-BZF">
                                             <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vibration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAg-90-T7V">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="Efg-Ew-fTU"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Link Account With Instagram" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKe-hG-eF6">
+                                                    <frame key="frameInset" minX="24" width="289" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRA-19-NhG">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="32" id="VbZ-zU-TNK"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GtA-je-9Fz"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bx8-Qd-eGQ">
+                                                    <frame key="frameInset" minX="321" width="46" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="&gt;">
+                                                        <color key="titleColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="ZAg-90-T7V" firstAttribute="bottom" secondItem="GtA-je-9Fz" secondAttribute="bottom" id="0je-yf-o1Q"/>
-                                                <constraint firstItem="ZAg-90-T7V" firstAttribute="top" secondItem="GtA-je-9Fz" secondAttribute="top" id="FwY-Df-iAU"/>
-                                                <constraint firstItem="rRA-19-NhG" firstAttribute="centerY" secondItem="3oB-kU-M5W" secondAttribute="centerY" id="Gv5-7Q-hd8"/>
-                                                <constraint firstAttribute="trailing" secondItem="GtA-je-9Fz" secondAttribute="trailing" constant="20" id="ITh-t9-c1V"/>
-                                                <constraint firstItem="rRA-19-NhG" firstAttribute="top" secondItem="3oB-kU-M5W" secondAttribute="topMargin" constant="-3" id="dQP-Bu-jKg"/>
-                                                <constraint firstItem="rRA-19-NhG" firstAttribute="leading" secondItem="3oB-kU-M5W" secondAttribute="leading" constant="20" id="eDG-Ra-jJc"/>
-                                                <constraint firstItem="ZAg-90-T7V" firstAttribute="bottom" secondItem="3oB-kU-M5W" secondAttribute="bottomMargin" id="hae-RE-4vr"/>
-                                                <constraint firstItem="ZAg-90-T7V" firstAttribute="leading" secondItem="rRA-19-NhG" secondAttribute="trailing" constant="22" id="vhF-KB-bAG"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Qeo-ID-BXP">
-                                        <rect key="frame" x="0.0" y="262" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qeo-ID-BXP" id="KAI-mi-iKP">
-                                            <frame key="frameInset" width="375" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKc-eT-Ouj">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="yr8-hh-Jnb"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0p9-db-YOG">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="32" id="whu-py-UPb"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="23"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8LJ-wL-rXk"/>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="0p9-db-YOG" firstAttribute="centerY" secondItem="KAI-mi-iKP" secondAttribute="centerY" id="3Nx-5O-dYX"/>
-                                                <constraint firstItem="yKc-eT-Ouj" firstAttribute="top" secondItem="8LJ-wL-rXk" secondAttribute="top" id="DZP-UU-1p7"/>
-                                                <constraint firstItem="0p9-db-YOG" firstAttribute="leading" secondItem="KAI-mi-iKP" secondAttribute="leading" constant="20" id="I12-cM-inE"/>
-                                                <constraint firstItem="yKc-eT-Ouj" firstAttribute="leading" secondItem="0p9-db-YOG" secondAttribute="trailing" constant="22" id="Ite-od-dqW"/>
-                                                <constraint firstItem="yKc-eT-Ouj" firstAttribute="bottom" secondItem="8LJ-wL-rXk" secondAttribute="bottom" id="KUw-TM-zsg"/>
-                                                <constraint firstItem="0p9-db-YOG" firstAttribute="top" secondItem="KAI-mi-iKP" secondAttribute="topMargin" constant="-3" id="RtY-57-hWn"/>
-                                                <constraint firstAttribute="trailing" secondItem="8LJ-wL-rXk" secondAttribute="trailing" constant="20" id="gdB-pN-IXz"/>
-                                                <constraint firstItem="yKc-eT-Ouj" firstAttribute="bottom" secondItem="KAI-mi-iKP" secondAttribute="bottomMargin" id="pcw-xO-gVc"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="  " id="OT1-Cl-Doq" userLabel="Section2">
+                            <tableViewSection headerTitle="Account" id="MBk-Vq-tjR">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0Yq-0v-z8W">
-                                        <rect key="frame" x="0.0" y="341" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="n0a-Oz-Cdr">
+                                        <rect key="frame" x="0.0" y="265" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Yq-0v-z8W" id="rJU-wb-wx4">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n0a-Oz-Cdr" id="OAi-hM-PHJ">
                                             <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Choose An Interest    " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWl-fI-2cE">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="199" id="5Uk-dj-izY"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oz2-RK-cdL">
+                                                    <frame key="frameInset" minX="24" width="289" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtV-UU-vAd">
-                                                    <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="20"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLc-ae-I9k">
+                                                    <frame key="frameInset" minX="321" width="46" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="&gt;">
                                                         <color key="titleColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="gtV-UU-vAd" firstAttribute="centerY" secondItem="kWl-fI-2cE" secondAttribute="centerY" id="219-ts-JGP"/>
-                                                <constraint firstItem="gtV-UU-vAd" firstAttribute="centerY" secondItem="rJU-wb-wx4" secondAttribute="centerY" id="3Ug-ly-n0X"/>
-                                                <constraint firstItem="kWl-fI-2cE" firstAttribute="leading" secondItem="rJU-wb-wx4" secondAttribute="leadingMargin" constant="21" id="ere-yR-aK9"/>
-                                                <constraint firstAttribute="trailing" secondItem="gtV-UU-vAd" secondAttribute="trailing" constant="19" id="nBE-mF-t3N"/>
-                                                <constraint firstItem="gtV-UU-vAd" firstAttribute="leading" secondItem="kWl-fI-2cE" secondAttribute="trailing" constant="104.5" id="qUy-zV-ir6"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yjr-FJ-Up8">
-                                        <rect key="frame" x="0.0" y="385" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="NjT-wu-7OM">
+                                        <rect key="frame" x="0.0" y="309" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yjr-FJ-Up8" id="2nd-bH-bEM">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NjT-wu-7OM" id="kUW-8x-PFL">
                                             <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Begin A Scavenger Hunt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O11-1z-gx3">
-                                                    <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59A-rN-LHq">
+                                                    <frame key="frameInset" minX="24" width="289" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tx-NI-FsR">
-                                                    <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="20"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apd-mm-Jgq">
+                                                    <frame key="frameInset" minX="321" width="46" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="&gt;">
                                                         <color key="titleColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="1tx-NI-FsR" secondAttribute="trailing" constant="19" id="6w7-rw-JUY"/>
-                                                <constraint firstItem="1tx-NI-FsR" firstAttribute="centerY" secondItem="O11-1z-gx3" secondAttribute="centerY" id="MRE-27-wj3"/>
-                                                <constraint firstItem="1tx-NI-FsR" firstAttribute="leading" secondItem="O11-1z-gx3" secondAttribute="trailing" constant="104.5" id="R1s-lY-4Ml"/>
-                                                <constraint firstItem="O11-1z-gx3" firstAttribute="leading" secondItem="2nd-bH-bEM" secondAttribute="leadingMargin" constant="21" id="eyG-KY-yL0"/>
-                                                <constraint firstItem="1tx-NI-FsR" firstAttribute="leading" secondItem="O11-1z-gx3" secondAttribute="trailing" constant="104.5" id="nNM-HS-a0H"/>
-                                                <constraint firstItem="1tx-NI-FsR" firstAttribute="centerY" secondItem="2nd-bH-bEM" secondAttribute="centerY" id="xyb-WY-luf"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="VEa-jY-Lld">
-                                        <rect key="frame" x="0.0" y="429" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="kgR-2B-dXA">
+                                        <rect key="frame" x="0.0" y="353" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VEa-jY-Lld" id="KOZ-eZ-M9b">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kgR-2B-dXA" id="b83-Tq-4fg">
                                             <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="About This App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgk-1X-f1W">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="199" id="Zzo-r3-QTL"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPx-2T-d1r">
+                                                    <frame key="frameInset" minX="24" width="289" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkf-46-6c7">
-                                                    <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="20"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AK4-xZ-lAx">
+                                                    <frame key="frameInset" minX="321" width="46" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="&gt;">
                                                         <color key="titleColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                 </button>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="Mkf-46-6c7" firstAttribute="centerY" secondItem="Cgk-1X-f1W" secondAttribute="centerY" id="Ecs-Qm-1vp"/>
-                                                <constraint firstItem="Mkf-46-6c7" firstAttribute="centerY" secondItem="KOZ-eZ-M9b" secondAttribute="centerY" id="PV9-TJ-OdD"/>
-                                                <constraint firstItem="Mkf-46-6c7" firstAttribute="leading" secondItem="Cgk-1X-f1W" secondAttribute="trailing" constant="104.5" id="TOC-gW-3hm"/>
-                                                <constraint firstItem="Mkf-46-6c7" firstAttribute="leading" secondItem="Cgk-1X-f1W" secondAttribute="trailing" constant="104.5" id="ejh-Bu-K1P"/>
-                                                <constraint firstItem="Cgk-1X-f1W" firstAttribute="leading" secondItem="KOZ-eZ-M9b" secondAttribute="leadingMargin" constant="21" id="rWt-0N-0yG"/>
-                                                <constraint firstAttribute="trailing" secondItem="Mkf-46-6c7" secondAttribute="trailing" constant="19" id="ucy-nj-8VB"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Uvb-ut-8ah" kind="presentation" id="GVT-At-n9j"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="App Preferences" id="fQG-YP-Hp3">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="iHc-2s-Jim">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="iHc-2s-Jim">
+                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="closeButtonPressed:" destination="xUq-3O-UF5" id="byk-kf-3Ze"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="Nny-iA-qZV" id="Sy5-jn-pgG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MtE-za-bxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="-1236"/>
+            <point key="canvasLocation" x="1220" y="-1236.4317841079462"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="O99-2G-kTd">
@@ -549,7 +439,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aNb-BP-RKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3863" y="2136"/>
+            <point key="canvasLocation" x="4800.8000000000002" y="2135.9820089955024"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="lb4-ly-v7a">
@@ -563,15 +453,6 @@ Christian Villa – Computer Science Major    </string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TKX-7S-VHW">
-                                <items>
-                                    <navigationItem title="Login" id="ZGQ-GU-e6p">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="zMt-25-kEA">
-                                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="shieldmono-white" translatesAutoresizingMaskIntoConstraints="NO" id="oGJ-qz-T12"/>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QNz-Pe-t8w">
                                 <nil key="textColor"/>
@@ -590,7 +471,7 @@ Christian Villa – Computer Science Major    </string>
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="v03-aH-0gM" kind="presentation" id="gCe-fR-UHv"/>
+                                    <segue destination="POe-HH-Pg5" kind="presentation" id="gCe-fR-UHv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jug-cA-2Tl">
@@ -600,7 +481,7 @@ Christian Villa – Computer Science Major    </string>
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="GSc-vF-suX" kind="presentation" id="BzT-1z-mzn"/>
+                                    <segue destination="d2N-QX-Ezz" kind="presentation" id="BzT-1z-mzn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvr-gW-qgA">
@@ -619,13 +500,11 @@ Christian Villa – Computer Science Major    </string>
                             <constraint firstItem="ECg-ZQ-BpA" firstAttribute="top" secondItem="bY7-ls-2wI" secondAttribute="bottom" constant="26" id="0dp-ch-8j7"/>
                             <constraint firstItem="bY7-ls-2wI" firstAttribute="leading" secondItem="C40-Bi-Atg" secondAttribute="leadingMargin" constant="61" id="3W6-yF-f06"/>
                             <constraint firstItem="ECg-ZQ-BpA" firstAttribute="leading" secondItem="C40-Bi-Atg" secondAttribute="leadingMargin" constant="61" id="3dg-wJ-7bZ"/>
-                            <constraint firstItem="TKX-7S-VHW" firstAttribute="leading" secondItem="C40-Bi-Atg" secondAttribute="leading" id="6Zz-Tq-kgS"/>
                             <constraint firstItem="ECg-ZQ-BpA" firstAttribute="top" secondItem="bY7-ls-2wI" secondAttribute="bottom" constant="26" id="6fR-f0-Cnj"/>
                             <constraint firstItem="da7-mb-ZTF" firstAttribute="top" secondItem="Jug-cA-2Tl" secondAttribute="bottom" constant="150" id="7X6-y7-9TE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qvr-gW-qgA" secondAttribute="trailing" constant="62" id="Afk-NG-UA0"/>
                             <constraint firstItem="Qvr-gW-qgA" firstAttribute="leading" secondItem="ECg-ZQ-BpA" secondAttribute="trailing" constant="20" id="F3d-tC-k2n"/>
                             <constraint firstItem="QNz-Pe-t8w" firstAttribute="leading" secondItem="C40-Bi-Atg" secondAttribute="leadingMargin" constant="61" id="GXM-IC-Q08"/>
-                            <constraint firstItem="oGJ-qz-T12" firstAttribute="top" secondItem="TKX-7S-VHW" secondAttribute="bottom" constant="103" id="HaN-vs-gJH"/>
                             <constraint firstItem="Qvr-gW-qgA" firstAttribute="top" secondItem="bY7-ls-2wI" secondAttribute="bottom" constant="26" id="Ive-Nv-bTF"/>
                             <constraint firstItem="Jug-cA-2Tl" firstAttribute="top" secondItem="Qvr-gW-qgA" secondAttribute="bottom" constant="17" id="Iwx-hy-Nle"/>
                             <constraint firstItem="QNz-Pe-t8w" firstAttribute="top" secondItem="oGJ-qz-T12" secondAttribute="bottom" constant="83" id="JsE-ee-fyh"/>
@@ -642,7 +521,6 @@ Christian Villa – Computer Science Major    </string>
                             <constraint firstAttribute="trailingMargin" secondItem="QNz-Pe-t8w" secondAttribute="trailing" constant="62" id="jub-D4-lHy"/>
                             <constraint firstItem="da7-mb-ZTF" firstAttribute="top" secondItem="oGJ-qz-T12" secondAttribute="bottom" constant="432" id="kYA-aP-CXt"/>
                             <constraint firstItem="Jug-cA-2Tl" firstAttribute="top" secondItem="Qvr-gW-qgA" secondAttribute="bottom" constant="17" id="kZr-b8-bYi"/>
-                            <constraint firstAttribute="trailing" secondItem="TKX-7S-VHW" secondAttribute="trailing" id="lLu-xz-AdH"/>
                             <constraint firstItem="ECg-ZQ-BpA" firstAttribute="leading" secondItem="C40-Bi-Atg" secondAttribute="leadingMargin" constant="61" id="lYe-1S-B4Y"/>
                             <constraint firstItem="bY7-ls-2wI" firstAttribute="top" secondItem="QNz-Pe-t8w" secondAttribute="bottom" constant="26" id="lba-iZ-lv0"/>
                             <constraint firstItem="da7-mb-ZTF" firstAttribute="top" secondItem="Qvr-gW-qgA" secondAttribute="bottom" constant="201" id="n9R-zo-Hmu"/>
@@ -650,14 +528,17 @@ Christian Villa – Computer Science Major    </string>
                             <constraint firstItem="da7-mb-ZTF" firstAttribute="top" secondItem="ECg-ZQ-BpA" secondAttribute="bottom" constant="203" id="qJJ-3c-b1s"/>
                             <constraint firstItem="oGJ-qz-T12" firstAttribute="leading" secondItem="C40-Bi-Atg" secondAttribute="leadingMargin" constant="61" id="qaW-hU-zSi"/>
                             <constraint firstItem="Qvr-gW-qgA" firstAttribute="top" secondItem="bY7-ls-2wI" secondAttribute="bottom" constant="26" id="qjC-n5-AwN"/>
-                            <constraint firstItem="oGJ-qz-T12" firstAttribute="top" secondItem="TKX-7S-VHW" secondAttribute="bottom" constant="103" id="rZx-UM-NdJ"/>
                             <constraint firstItem="Qvr-gW-qgA" firstAttribute="leading" secondItem="ECg-ZQ-BpA" secondAttribute="trailing" constant="20" id="s3C-RN-ZDL"/>
                             <constraint firstItem="da7-mb-ZTF" firstAttribute="top" secondItem="Qvr-gW-qgA" secondAttribute="bottom" constant="201" id="s9b-e3-VZb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qvr-gW-qgA" secondAttribute="trailing" constant="62" id="spN-Ub-mlg"/>
-                            <constraint firstItem="TKX-7S-VHW" firstAttribute="top" secondItem="C40-Bi-Atg" secondAttribute="top" id="u81-Gt-XQu"/>
                             <constraint firstItem="Jug-cA-2Tl" firstAttribute="leading" secondItem="C40-Bi-Atg" secondAttribute="leadingMargin" constant="61" id="z4c-lz-CrO"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Login" id="YF7-zb-6oT">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="ysS-Ph-t8U">
+                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="passwordTextField" destination="bY7-ls-2wI" id="ycP-gj-lOk"/>
                         <outlet property="usernameTextField" destination="QNz-Pe-t8w" id="03n-oc-Ave"/>
@@ -665,7 +546,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9m-UM-YYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2822" y="1364"/>
+            <point key="canvasLocation" x="2905" y="1334"/>
         </scene>
         <!--Locations-->
         <scene sceneID="pKx-ju-pqn">
@@ -767,18 +648,6 @@ Christian Villa – Computer Science Major    </string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ca-Rv-FKN">
-                                <items>
-                                    <navigationItem title="Registration" id="tRf-gy-PaS">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="gq3-oT-ftZ">
-                                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <segue destination="4Ul-0g-Te1" kind="presentation" id="Onk-O6-ai2"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="shieldmono-white" translatesAutoresizingMaskIntoConstraints="NO" id="eOa-BP-5j4"/>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G7b-u7-3nh">
                                 <nil key="textColor"/>
@@ -792,7 +661,7 @@ Christian Villa – Computer Science Major    </string>
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4Ul-0g-Te1" kind="presentation" id="a44-iO-DyH"/>
+                                    <segue destination="aXu-4r-S0f" kind="presentation" id="a44-iO-DyH"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OZA-61-ddd">
@@ -823,14 +692,10 @@ Christian Villa – Computer Science Major    </string>
                             <constraint firstItem="rBP-vf-ZPs" firstAttribute="leading" secondItem="3nF-dr-sBd" secondAttribute="trailing" constant="20" id="44t-GH-IxZ"/>
                             <constraint firstItem="LBy-7M-tJh" firstAttribute="top" secondItem="eOa-BP-5j4" secondAttribute="bottom" constant="432" id="4ZX-Ok-v1W"/>
                             <constraint firstItem="G7b-u7-3nh" firstAttribute="top" secondItem="OZA-61-ddd" secondAttribute="bottom" constant="27" id="642-2d-XQp"/>
-                            <constraint firstItem="eOa-BP-5j4" firstAttribute="top" secondItem="0ca-Rv-FKN" secondAttribute="bottom" constant="103" id="6lh-0z-p1O"/>
                             <constraint firstAttribute="trailingMargin" secondItem="G7b-u7-3nh" secondAttribute="trailing" constant="62" id="7Ij-QJ-4tr"/>
-                            <constraint firstItem="eOa-BP-5j4" firstAttribute="top" secondItem="0ca-Rv-FKN" secondAttribute="bottom" constant="103" id="8oE-z8-y1i"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xvB-g4-jHY" secondAttribute="trailing" constant="62" id="8tB-4a-kbC"/>
-                            <constraint firstItem="0ca-Rv-FKN" firstAttribute="leading" secondItem="x1F-bw-5d8" secondAttribute="leading" id="9Mf-uE-vLa"/>
                             <constraint firstItem="G7b-u7-3nh" firstAttribute="leading" secondItem="x1F-bw-5d8" secondAttribute="leadingMargin" constant="61" id="Amb-6k-VT6"/>
                             <constraint firstItem="rBP-vf-ZPs" firstAttribute="leading" secondItem="3nF-dr-sBd" secondAttribute="trailing" constant="20" id="NQs-qD-A6b"/>
-                            <constraint firstItem="eOa-BP-5j4" firstAttribute="top" secondItem="0ca-Rv-FKN" secondAttribute="bottom" constant="103" id="OXq-OS-glO"/>
                             <constraint firstItem="3nF-dr-sBd" firstAttribute="baseline" secondItem="rBP-vf-ZPs" secondAttribute="baseline" id="Qmx-ij-KXO"/>
                             <constraint firstItem="rBP-vf-ZPs" firstAttribute="leading" secondItem="3nF-dr-sBd" secondAttribute="trailing" constant="20" id="TOM-5M-7x0"/>
                             <constraint firstItem="OZA-61-ddd" firstAttribute="top" secondItem="eOa-BP-5j4" secondAttribute="bottom" constant="71" id="V5T-cr-O3n"/>
@@ -839,18 +704,21 @@ Christian Villa – Computer Science Major    </string>
                             <constraint firstItem="OZA-61-ddd" firstAttribute="leading" secondItem="x1F-bw-5d8" secondAttribute="leadingMargin" constant="61" id="b0l-KE-qkU"/>
                             <constraint firstItem="3nF-dr-sBd" firstAttribute="leading" secondItem="x1F-bw-5d8" secondAttribute="leadingMargin" constant="61" id="cAB-FA-HnD"/>
                             <constraint firstItem="rBP-vf-ZPs" firstAttribute="leading" secondItem="3nF-dr-sBd" secondAttribute="trailing" constant="20" id="dO2-oE-KLD"/>
-                            <constraint firstItem="0ca-Rv-FKN" firstAttribute="top" secondItem="x1F-bw-5d8" secondAttribute="top" id="fIL-k3-4P1"/>
                             <constraint firstItem="3nF-dr-sBd" firstAttribute="leading" secondItem="x1F-bw-5d8" secondAttribute="leadingMargin" constant="61" id="hSQ-IV-B7I"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OZA-61-ddd" secondAttribute="trailing" constant="62" id="iAU-4Y-nXp"/>
                             <constraint firstItem="LBy-7M-tJh" firstAttribute="top" secondItem="3nF-dr-sBd" secondAttribute="bottom" constant="133" id="jp0-Sw-nRu"/>
                             <constraint firstItem="rBP-vf-ZPs" firstAttribute="top" secondItem="xvB-g4-jHY" secondAttribute="bottom" constant="50" id="rSo-8k-cmZ"/>
-                            <constraint firstAttribute="trailing" secondItem="0ca-Rv-FKN" secondAttribute="trailing" id="sJ2-rS-pKC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="G7b-u7-3nh" secondAttribute="trailing" constant="62" id="uic-nV-v3U"/>
                             <constraint firstItem="eOa-BP-5j4" firstAttribute="leading" secondItem="x1F-bw-5d8" secondAttribute="leadingMargin" constant="61" id="xZR-Jt-XL6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rBP-vf-ZPs" secondAttribute="trailing" constant="62" id="yKd-QM-ctY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eOa-BP-5j4" secondAttribute="trailing" constant="62" id="yNG-Yx-rKj"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Registration" id="Oyv-K8-WwU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="bvm-zu-eXL">
+                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="OZA-61-ddd" id="lp4-ck-Ujd"/>
                         <outlet property="passwordTextField" destination="xvB-g4-jHY" id="zMS-3W-mkl"/>
@@ -859,7 +727,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41D-qY-gmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3726" y="1364"/>
+            <point key="canvasLocation" x="3714" y="464"/>
         </scene>
         <!--Admin View Controller-->
         <scene sceneID="EOR-wf-Xpc">
@@ -1107,18 +975,6 @@ Christian Villa – Computer Science Major    </string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWc-IZ-kcQ">
-                                <items>
-                                    <navigationItem title="Forgot Password" id="XpX-xt-i9N">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="ERy-8z-seu">
-                                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <segue destination="4Ul-0g-Te1" kind="presentation" id="ChE-M2-qza"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="shieldmono-white" translatesAutoresizingMaskIntoConstraints="NO" id="KG5-6K-Xha"/>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cDv-wZ-AzC">
                                 <nil key="textColor"/>
@@ -1132,7 +988,7 @@ Christian Villa – Computer Science Major    </string>
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4Ul-0g-Te1" kind="presentation" id="3XF-nH-Oo0"/>
+                                    <segue destination="aXu-4r-S0f" kind="presentation" id="3XF-nH-Oo0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXj-K3-XAP">
@@ -1148,11 +1004,8 @@ Christian Villa – Computer Science Major    </string>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="CWc-IZ-kcQ" firstAttribute="leading" secondItem="csL-18-Mxu" secondAttribute="leading" id="6QC-AN-O55"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NXj-K3-XAP" secondAttribute="trailing" constant="62" id="Dc1-bS-ydQ"/>
-                            <constraint firstItem="KG5-6K-Xha" firstAttribute="top" secondItem="CWc-IZ-kcQ" secondAttribute="bottom" constant="103" id="EFC-c3-NRb"/>
                             <constraint firstItem="iYj-bI-PUx" firstAttribute="top" secondItem="KG5-6K-Xha" secondAttribute="bottom" constant="432" id="GzU-c2-Egv"/>
-                            <constraint firstItem="KG5-6K-Xha" firstAttribute="top" secondItem="CWc-IZ-kcQ" secondAttribute="bottom" constant="103" id="IwW-1K-NQd"/>
                             <constraint firstItem="I34-qS-tkB" firstAttribute="leading" secondItem="csL-18-Mxu" secondAttribute="leadingMargin" constant="61" id="JCf-cT-7fy"/>
                             <constraint firstItem="NXj-K3-XAP" firstAttribute="leading" secondItem="I34-qS-tkB" secondAttribute="trailing" constant="20" id="Jhd-0O-sN4"/>
                             <constraint firstItem="KG5-6K-Xha" firstAttribute="leading" secondItem="csL-18-Mxu" secondAttribute="leadingMargin" constant="61" id="LuH-e6-SO9"/>
@@ -1164,21 +1017,23 @@ Christian Villa – Computer Science Major    </string>
                             <constraint firstAttribute="trailingMargin" secondItem="cDv-wZ-AzC" secondAttribute="trailing" constant="62" id="hrF-rc-GMS"/>
                             <constraint firstItem="NXj-K3-XAP" firstAttribute="top" secondItem="cDv-wZ-AzC" secondAttribute="bottom" constant="30" id="iLw-Da-SEv"/>
                             <constraint firstItem="cDv-wZ-AzC" firstAttribute="top" secondItem="KG5-6K-Xha" secondAttribute="bottom" constant="83" id="iSY-rn-VQ5"/>
-                            <constraint firstItem="KG5-6K-Xha" firstAttribute="top" secondItem="CWc-IZ-kcQ" secondAttribute="bottom" constant="103" id="lST-lf-kwj"/>
                             <constraint firstItem="iYj-bI-PUx" firstAttribute="top" secondItem="I34-qS-tkB" secondAttribute="bottom" constant="245" id="lyc-MV-AAq"/>
-                            <constraint firstItem="CWc-IZ-kcQ" firstAttribute="top" secondItem="csL-18-Mxu" secondAttribute="top" id="mrL-IA-6QP"/>
-                            <constraint firstAttribute="trailing" secondItem="CWc-IZ-kcQ" secondAttribute="trailing" id="sZd-Xh-9vN"/>
                             <constraint firstItem="NXj-K3-XAP" firstAttribute="top" secondItem="cDv-wZ-AzC" secondAttribute="bottom" constant="30" id="tQd-B6-RnS"/>
                             <constraint firstItem="iYj-bI-PUx" firstAttribute="top" secondItem="NXj-K3-XAP" secondAttribute="bottom" constant="245" id="ulP-7I-Tva"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Forgot Password" id="ct0-ej-53x">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="kAL-PH-dti">
+                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="cDv-wZ-AzC" id="Mgv-tt-TAM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npc-bk-Bvx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2822" y="2069"/>
+            <point key="canvasLocation" x="3713" y="2136"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bjm-Zs-adQ">
@@ -1270,6 +1125,60 @@ Christian Villa – Computer Science Major    </string>
             </objects>
             <point key="canvasLocation" x="281" y="-1917"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="p6p-15-Zex">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aXu-4r-S0f" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="YFq-ps-1Qt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4Ul-0g-Te1" kind="relationship" relationship="rootViewController" id="RFh-CI-qcP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ila-nU-TkP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3713" y="1334"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4Qp-hJ-W89">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d2N-QX-Ezz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="r4l-LB-tV1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GSc-vF-suX" kind="relationship" relationship="rootViewController" id="l2g-Al-4cl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dKW-mI-jk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2905" y="2136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="R6P-N3-08U">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="POe-HH-Pg5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4v2-Sw-ijv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="v03-aH-0gM" kind="relationship" relationship="rootViewController" id="p2U-SS-gj9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TKY-xf-uKv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2906" y="464"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_my_location" width="24" height="24"/>
@@ -1277,7 +1186,6 @@ Christian Villa – Computer Science Major    </string>
         <image name="menu-icon-1" width="50" height="50"/>
         <image name="menu-icon-2" width="50" height="50"/>
         <image name="settings-icon-2" width="512" height="512"/>
-        <image name="shieldmono" width="300" height="100"/>
         <image name="shieldmono-white" width="300" height="100"/>
         <image name="tag" width="1024" height="1024"/>
         <image name="viterbi" width="206" height="36"/>

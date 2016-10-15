@@ -52,6 +52,7 @@ class RegistrationViewController: UIViewController {
         } else
         {
             User.signup(name: username!, username: username!, password: password!, email: email!, type: UserType(rawValue: userType)!)
+            //User.current.exists // successful
         }
     }
 }
