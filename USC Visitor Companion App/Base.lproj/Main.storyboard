@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="poS-Zl-lNF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nft-j1-Vc1">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="kPn-bi-yhC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5EB-oA-TVt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLt-Hd-n1v">
@@ -31,7 +30,24 @@
                                     <segue destination="R6u-rc-Dc3" kind="presentation" identifier="Show Menu" id="IPB-Lv-d0b"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" placeholder="Search USC" translatesAutoresizingMaskIntoConstraints="NO" id="dGk-MM-YB2">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Lc-j6-D7e" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="iUA-7f-mqg"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
+                                        <color key="value" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <searchBar contentMode="redraw" placeholder="Search USC" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dGk-MM-YB2">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,16 +56,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MY9-Id-f3I">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1u-NV-L1F">
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="I1u-NV-L1F" secondAttribute="height" multiplier="103:18" id="Y23-16-jK2"/>
-                                    <constraint firstAttribute="height" constant="13" id="seJ-ZD-cFY"/>
-                                </constraints>
-                                <state key="normal" image="viterbi"/>
-                                <connections>
-                                    <action selector="viterbiButtonPressed" destination="poS-Zl-lNF" eventType="touchUpInside" id="oei-Js-piT"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goZ-18-kmO">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="GHJ-Eb-9S6"/>
@@ -62,26 +68,28 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dGk-MM-YB2" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" constant="8" id="4Zk-TL-19t"/>
-                            <constraint firstAttribute="trailing" secondItem="I1u-NV-L1F" secondAttribute="trailing" constant="8" id="7BK-UO-fCG"/>
+                            <constraint firstItem="dGk-MM-YB2" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="4Zk-TL-19t"/>
                             <constraint firstItem="MY9-Id-f3I" firstAttribute="top" secondItem="dGk-MM-YB2" secondAttribute="bottom" id="HyC-Ev-o58"/>
-                            <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="I1u-NV-L1F" secondAttribute="bottom" constant="10" id="I9u-yf-kfJ"/>
-                            <constraint firstItem="MY9-Id-f3I" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" constant="8" id="KCw-MF-aKB"/>
-                            <constraint firstAttribute="trailing" secondItem="dGk-MM-YB2" secondAttribute="trailing" constant="8" id="NOY-lk-wyS"/>
+                            <constraint firstItem="MY9-Id-f3I" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="KCw-MF-aKB"/>
+                            <constraint firstItem="7Lc-j6-D7e" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" id="M75-U3-ggu"/>
+                            <constraint firstAttribute="trailing" secondItem="dGk-MM-YB2" secondAttribute="trailing" id="NOY-lk-wyS"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="oLt-Hd-n1v" secondAttribute="bottom" constant="25" id="O1J-2i-gJS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Lc-j6-D7e" secondAttribute="trailing" constant="-16" id="Rgp-3u-AuS"/>
                             <constraint firstItem="oLt-Hd-n1v" firstAttribute="centerX" secondItem="5EB-oA-TVt" secondAttribute="centerX" id="ULg-ej-uyF"/>
-                            <constraint firstItem="dGk-MM-YB2" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" constant="8" id="aJ2-vG-OIk"/>
-                            <constraint firstItem="I1u-NV-L1F" firstAttribute="top" secondItem="goZ-18-kmO" secondAttribute="bottom" constant="4" id="aYM-8S-hww"/>
+                            <constraint firstItem="dGk-MM-YB2" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" id="aJ2-vG-OIk"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="MY9-Id-f3I" secondAttribute="bottom" id="dOI-sI-dlV"/>
-                            <constraint firstAttribute="trailing" secondItem="MY9-Id-f3I" secondAttribute="trailing" constant="8" id="seG-oE-cSm"/>
+                            <constraint firstItem="7Lc-j6-D7e" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leadingMargin" constant="-16" id="pb3-b4-Ile"/>
+                            <constraint firstAttribute="trailing" secondItem="MY9-Id-f3I" secondAttribute="trailing" id="seG-oE-cSm"/>
                             <constraint firstItem="goZ-18-kmO" firstAttribute="top" secondItem="oLt-Hd-n1v" secondAttribute="top" id="xVU-gz-Mld"/>
                             <constraint firstItem="goZ-18-kmO" firstAttribute="trailing" secondItem="5EB-oA-TVt" secondAttribute="trailingMargin" id="yY9-rd-Jzn"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="hHR-zk-ele"/>
                     <connections>
                         <outlet property="menuButton" destination="oLt-Hd-n1v" id="l7L-GF-Gwh"/>
                         <outlet property="searchBar" destination="dGk-MM-YB2" id="P7P-vV-Waa"/>
                         <outlet property="searchTableView" destination="MY9-Id-f3I" id="0Vm-ht-vK1"/>
+                        <outlet property="segmentedControl" destination="7Lc-j6-D7e" id="T6T-KB-OUU"/>
                         <segue destination="fqA-ET-cOT" kind="modal" identifier="CheckInScreenSegue" id="Xxf-xt-ps3"/>
                     </connections>
                 </viewController>
@@ -166,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Sc-hO-onZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1015.2" y="-485.30734632683664"/>
+            <point key="canvasLocation" x="-1015" y="-485"/>
         </scene>
         <!--App Preferences-->
         <scene sceneID="c1C-hY-bww">
@@ -1206,6 +1214,7 @@ Christian Villa – Computer Science Major    </string>
             </objects>
             <point key="canvasLocation" x="2906" y="464"/>
         </scene>
+<<<<<<< HEAD
         <!--Edit Profile Table View Controller-->
         <scene sceneID="p3P-Un-F3i">
             <objects>
@@ -1473,6 +1482,26 @@ Christian Villa – Computer Science Major    </string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHt-M0-Kso" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1964" y="-178"/>
+=======
+        <!--Navigation Controller-->
+        <scene sceneID="JaM-gc-rNQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nft-j1-Vc1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="3Z1-Di-7Ym">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="poS-Zl-lNF" kind="relationship" relationship="rootViewController" id="dTK-jo-zZx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s1r-PO-HFF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2818" y="-485"/>
+>>>>>>> develop
         </scene>
     </scenes>
     <resources>
@@ -1483,7 +1512,6 @@ Christian Villa – Computer Science Major    </string>
         <image name="settings-icon-2" width="512" height="512"/>
         <image name="shieldmono-white" width="300" height="100"/>
         <image name="tag" width="1024" height="1024"/>
-        <image name="viterbi" width="206" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3XF-nH-Oo0"/>

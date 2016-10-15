@@ -354,7 +354,11 @@
 				TargetAttributes = {
 					AAD38B801D971648004DD648 = {
 						CreatedOnToolsVersion = 8.0;
+<<<<<<< HEAD
 						DevelopmentTeam = 76Z2F3DWYS;
+=======
+						DevelopmentTeam = 52NMKETQZ4;
+>>>>>>> develop
 						ProvisioningStyle = Automatic;
 					};
 					AAD38B971D971648004DD648 = {
@@ -724,11 +728,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = 76Z2F3DWYS;
+=======
+				DEVELOPMENT_TEAM = 52NMKETQZ4;
+>>>>>>> develop
 				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = edu.usc.2;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Viterbi-Go";
+>>>>>>> develop
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -740,11 +752,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = 76Z2F3DWYS;
+=======
+				DEVELOPMENT_TEAM = 52NMKETQZ4;
+>>>>>>> develop
 				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = edu.usc.2;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Viterbi-Go";
+>>>>>>> develop
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

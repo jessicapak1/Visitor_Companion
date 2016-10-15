@@ -11,6 +11,8 @@ import GoogleMaps
 import Parse
 import BubbleTransition
 import CoreLocation
+import BetterSegmentedControl
+
 
 class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
@@ -30,6 +32,15 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     
     // MARK: IBOutlets
+    @IBOutlet weak var segmentedControl: BetterSegmentedControl! {
+        didSet {
+            self.segmentedControl.titleFont = .systemFont(ofSize: 14.0)
+            self.segmentedControl.selectedTitleFont = .systemFont(ofSize: 14.0)
+            self.segmentedControl.titles = ["Locations", "Interests", "Food", "Search"]
+            self.segmentedControl.addTarget(self, action: #selector(MapViewController.segmentedControlValueChanged), for: .valueChanged)
+        }
+    }
+    
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             self.searchBar.delegate = self
@@ -49,12 +60,29 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     @IBOutlet weak var menuButton: UIButton!
     
     
-    // MARK: View Controller Lifecycle Methods
+    // MARK: View Controller Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.titleView = UIImageView(image: UIImage(named: "viterbi"))
         self.showMap()
         self.showMarkers()
         self.addSearch()
+    }
+    
+    
+    // MARK: Segmented Control Methods
+    func segmentedControlValueChanged() {
+        // clear all old locations
+        if self.segmentedControl.index == 0 { // Locations
+            // show locations with General interest from InterestData
+        } else if self.segmentedControl.index == 1 { // Interests
+            // show locations with User.current.interest from InterestData
+        } else if self.segmentedControl.index == 2 { // Food
+            // show locations with Food interets from InterestData
+        } else if self.segmentedControl.index == 3 { // Search
+            self.showSearch()
+            do { try self.segmentedControl.set(0, animated: true) } catch { } // should be set to the segment of the location
+        }
     }
     
     
@@ -109,22 +137,28 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: Search Methods
     func addSearch() {
+        self.searchBar.isHidden = true
         self.searchTableView.isHidden = true
         self.view.bringSubview(toFront: self.searchTableView)
     }
     
     func showSearch() {
+        // show the search bar and search results
+        self.searchBar.becomeFirstResponder()
+        self.searchBar.isHidden = false
+        self.searchTableView.isHidden = false
+        // show the results for the current search text
         self.searchResults = LocationData.shared.locations(withKeyword: self.searchBar.text!)
         self.searchTableView.reloadData()
-        self.searchTableView.isHidden = false
-        self.searchBar.showsCancelButton = true
     }
     
     func hideSearch() {
-        self.searchBar.text = ""
-        self.searchBar.showsCancelButton = false
+        // hide the search bar and search results
         self.searchBar.resignFirstResponder()
+        self.searchBar.isHidden = true
         self.searchTableView.isHidden = true
+        // reset the current search text
+        self.searchBar.text = ""
     }
     
     
@@ -226,13 +260,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     
     // MARK: IBAction Methods
-    @IBAction func viterbiButtonPressed() {
-        let viterbiURL = URL(string: "http://viterbi.usc.edu/")
-        if let viterbiURL = viterbiURL {
-            UIApplication.shared.openURL(viterbiURL)
-        }
-    }
-    
     @IBAction func locationButtonPressed(_ sender: UIButton) {
         let location = mapView.myLocation
         if (location != nil) {
