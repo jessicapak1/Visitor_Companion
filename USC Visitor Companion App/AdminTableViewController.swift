@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 class AdminTableViewController: UITableViewController {
 
@@ -65,7 +66,10 @@ class AdminTableViewController: UITableViewController {
 
             var interests = [String]()
             let description = descriptionTextView.text
-            LocationData.shared.create(name: name!, code: code!, details: description!, location: location, interests:interests, callback: {() -> Void in });
+            LocationData.shared.create(name: name!, code: code!, details: description!, location: location, interests:interests, callback: {
+                (succeeded) -> Void in
+                // callback code goes here
+            });
         }
     }
     
