@@ -100,7 +100,7 @@
         <!--Menu View Controller-->
         <scene sceneID="owr-IN-TUK">
             <objects>
-                <viewController id="R6u-rc-Dc3" customClass="MenuViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menu" id="R6u-rc-Dc3" customClass="MenuViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JYh-QU-iIF"/>
                         <viewControllerLayoutGuide type="bottom" id="FYk-j6-8UT"/>
@@ -155,12 +155,17 @@
                                 <frame key="frameInset" minX="297" minY="139" width="44" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="R6u-rc-Dc3" eventType="touchUpInside" id="ZmT-FU-zMS"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FP-eC-zQD">
-                                <frame key="frameInset" minX="284" minY="184" width="67" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaS-n6-tQv">
+                                <frame key="frameInset" minX="50" minY="147" width="145" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Register"/>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="tintColor" red="1" green="0.77681993130000004" blue="0.001346542883" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -169,12 +174,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="yPw-6p-FbT" id="0vF-JI-KJq"/>
                         <outlet property="menuButton" destination="gLR-Aq-xo7" id="Rni-D0-L7o"/>
+                        <outlet property="nameLabel" destination="KaS-n6-tQv" id="Nkj-b0-eLP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Sc-hO-onZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1015" y="-485"/>
+            <point key="canvasLocation" x="-1015.2" y="-485.30734632683664"/>
         </scene>
         <!--App Preferences-->
         <scene sceneID="c1C-hY-bww">
@@ -474,12 +481,12 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPF-VT-Kn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1015" y="268"/>
+            <point key="canvasLocation" x="-2762" y="268"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="lb4-ly-v7a">
             <objects>
-                <viewController storyboardIdentifier="login" id="4Ul-0g-Te1" userLabel="Login View Controller" customClass="LoginViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4Ul-0g-Te1" userLabel="Login View Controller" customClass="LoginViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="67M-jf-CwD"/>
                         <viewControllerLayoutGuide type="bottom" id="da7-mb-ZTF"/>
@@ -572,6 +579,9 @@ Christian Villa – Computer Science Major    </string>
                     <navigationItem key="navigationItem" title="Login" id="YF7-zb-6oT">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="ysS-Ph-t8U">
                             <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="4Ul-0g-Te1" id="8pO-mf-71A"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -581,7 +591,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9m-UM-YYx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3713" y="1204"/>
+            <point key="canvasLocation" x="6" y="244"/>
         </scene>
         <!--Locations View Controller-->
         <scene sceneID="pKx-ju-pqn">
@@ -617,7 +627,7 @@ Christian Villa – Computer Science Major    </string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5rJ-uk-b7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="268"/>
+            <point key="canvasLocation" x="1289" y="206"/>
         </scene>
         <!--Interests View Controller-->
         <scene sceneID="cC8-5i-4Sw">
@@ -752,6 +762,10 @@ Christian Villa – Computer Science Major    </string>
                     <navigationItem key="navigationItem" title="Registration" id="Oyv-K8-WwU">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="bvm-zu-eXL">
                             <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="v03-aH-0gM" id="WAo-PV-y8M"/>
+                                <segue destination="R6u-rc-Dc3" kind="presentation" id="Y10-97-bLS"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -762,7 +776,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41D-qY-gmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3714" y="464"/>
+            <point key="canvasLocation" x="-1393" y="245"/>
         </scene>
         <!--Admin Add Loc View Controller-->
         <scene sceneID="EOR-wf-Xpc">
@@ -1068,7 +1082,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npc-bk-Bvx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3713" y="2136"/>
+            <point key="canvasLocation" x="-270" y="1083"/>
         </scene>
         <!--App Preferences Navigation Controller-->
         <scene sceneID="Bjm-Zs-adQ">
@@ -1122,7 +1136,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pe2-Qz-fTu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="268"/>
+            <point key="canvasLocation" x="646" y="206"/>
         </scene>
         <!--Checkin Navigation Controller-->
         <scene sceneID="Wau-RF-f5R">
@@ -1140,7 +1154,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFA-lm-5f7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1930" y="268"/>
+            <point key="canvasLocation" x="-3441" y="268"/>
         </scene>
         <!--Admin Navigation Controller-->
         <scene sceneID="3BU-zV-UAo">
@@ -1163,7 +1177,7 @@ Christian Villa – Computer Science Major    </string>
         <!--Login Navigation Controller-->
         <scene sceneID="p6p-15-Zex">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aXu-4r-S0f" userLabel="Login Navigation Controller" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="login" automaticallyAdjustsScrollViewInsets="NO" id="aXu-4r-S0f" userLabel="Login Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="YFq-ps-1Qt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1176,7 +1190,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ila-nU-TkP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4498" y="871"/>
+            <point key="canvasLocation" x="-666" y="245"/>
         </scene>
         <!--Forgot Password Navigation Controller-->
         <scene sceneID="4Qp-hJ-W89">
@@ -1194,12 +1208,12 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dKW-mI-jk3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2905" y="2136"/>
+            <point key="canvasLocation" x="-911" y="1090"/>
         </scene>
         <!--Registration Navigation Controller-->
         <scene sceneID="R6P-N3-08U">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="POe-HH-Pg5" userLabel="Registration Navigation Controller" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="register" automaticallyAdjustsScrollViewInsets="NO" id="POe-HH-Pg5" userLabel="Registration Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4v2-Sw-ijv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1212,7 +1226,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKY-xf-uKv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2906" y="464"/>
+            <point key="canvasLocation" x="-2050" y="245"/>
         </scene>
         <!--Edit Profile Table View Controller-->
         <scene sceneID="p3P-Un-F3i">
@@ -1512,7 +1526,8 @@ Christian Villa – Computer Science Major    </string>
         <image name="tag" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3XF-nH-Oo0"/>
+        <segue reference="Y10-97-bLS"/>
+        <segue reference="a44-iO-DyH"/>
         <segue reference="iTj-Hh-4OM"/>
     </inferredMetricsTieBreakers>
 </document>
