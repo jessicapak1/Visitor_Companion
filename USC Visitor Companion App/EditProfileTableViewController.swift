@@ -25,6 +25,18 @@ class EditProfileViewController: UITableViewController, UIPickerViewDelegate, UI
         usertypePicker.dataSource = self;
         usertypePicker.delegate = self;
         // Do any additional setup after loading the view.
+        if User.current.exists {
+            if User.current.name != nil {
+                nameTextField.text = User.current.name
+            }
+            if User.current.username != nil {
+                usernameTextField.text = User.current.username
+            }
+            if User.current.email != nil {
+                emailTextField.text = User.current.email
+            }
+        }
+        
     }
     
     @IBAction func editProfileAction(_ sender: AnyObject) {

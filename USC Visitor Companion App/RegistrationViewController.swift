@@ -32,6 +32,9 @@ class RegistrationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func backButtonPressed(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: {})
+    }
     @IBAction func registerAction(_ sender: AnyObject) {
         let username = usernameTextField.text;
         let password = passwordTextField.text

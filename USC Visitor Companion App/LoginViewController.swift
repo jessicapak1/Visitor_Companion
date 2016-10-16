@@ -48,6 +48,9 @@ class LoginViewController: UIViewController {
         }
     }
 
+    @IBAction func backButtonPressed(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: {})
+    }
  
 }
 
