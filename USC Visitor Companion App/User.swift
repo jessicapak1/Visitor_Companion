@@ -61,8 +61,21 @@ class User: NSObject {
     }
     
     class func login(username: String, password: String) {
-        do { try PFUser.logIn(withUsername: username, password: password) } catch { }
+        do {
+            try PFUser.logIn(withUsername: username, password: password)
+        } catch {
+            print("Failed to login user")
+        }
         User.current.update()
+    }
+    
+    class func checkLogin(username: String, password: String) -> Bool {
+        do {
+            try PFUser.logIn(withUsername: username, password: password)
+        } catch {
+            return false
+        }
+        return true
     }
     
     class func logout() {
