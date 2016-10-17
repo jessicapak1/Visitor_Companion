@@ -89,4 +89,11 @@ class LocationData: NSObject {
         return nameMatches + wordMatches + codeMatches
     }
     
+    // call to completely delete a location
+    func deleteLocation(withName locationName: String) -> () {
+        if let location = LocationData.shared.namesToLocations[locationName] {
+            
+            location.delete()
+        }
+    }
 }

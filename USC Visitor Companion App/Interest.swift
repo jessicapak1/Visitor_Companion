@@ -11,7 +11,7 @@ import Parse
 class Interest: NSObject {
 
     // MARK: Parse object
-    private var object: PFObject?
+    private let object: PFObject?
     
     // MARK: Interest Properties
     var objectId: String?
@@ -23,36 +23,73 @@ class Interest: NSObject {
     // construct single localized Interest object
     init(object: PFObject) {
         
+        // set the object and
         self.object = object
         self.name = object["name"] as! String?
         self.objectId = object.objectId
-        if let objects = object["locations"] as! [PFObject]? {
-            // if the database grows, we may want to parse a few coordinated maps in LocationData to make these lookups constant time instead of n^2
-            for obj in objects {
-                
-                // if we find a name for this object ID
-                if let name = LocationData.shared.idsToNames[obj.objectId!] {
-                    if let location = LocationData.shared.namesToLocations[name] {
-                        self.locations?.append(location)
-                    }
+        if let locationNames = object["locations"] as! [String]? {
+            
+            for locName in locationNames {
+                if let locObject = LocationData.shared.namesToLocations[locName] {
+                    self.locations?.append(locObject)
                 }
             }
-            print(objects)
+        } else {
+            print("ERROR: could not acquire location names")
         }
         
-        
-       
-//        for loc in objects {
-//            //let location = Location(object: loc)
-//            print(loc)
-//            // Hey LocationData, give me the associated Location object
-//            
-//            //locations?.append(location)
+//        var locs = [String]()
+//        for locationName in LocationData.shared.namesToLocations.keys {
+//            locs.append(locationName)
 //        }
+//        
+//        self.object?["locations"] = locs
+//        self.object?.saveInBackground()
+
     }
     
+//    private func update(value: Any?, forKey key: String) {
+//        self.object?[key] = value
+//        self.object?.saveInBackground()
+//    }
+    
+    
+    
     // remove Location from "this" Interest
-    func deleteLocation(locationOb: Location) {
+    func untagLocation(locationName: String) -> () {
+        // arrays to store updated data
+        var locArr = [Location]()
+        var locNames = [String]()
+        
+        // for each Location object associated with this Interest
+        for locObject in self.locations! {
+            
+            // if the object isn't the one we're trying to remove
+            if locObject.name != locationName {
+                // add the object and its name to the appropriate new arrays
+                locArr.append(locObject)
+                locNames.append(locObject.name!)
+            }
+        }
+        
+        // assign the newly created Location array to the Interest object
+        self.locations = locArr
+        
+        // save the newly created String array to the interest object on the server
+        self.object?["locations"] = locNames
+        self.object?.saveInBackground()
+    }
+    
+    // deletes this location from everything. intended to be called from deleteInterests via InterestsData.shared
+    func delete() {
+        for location in self.locations! {
+            location.removeInterestTag(interestName: self.name!)
+        }
+        // delete from database
+        self.object?.deleteInBackground()
+        
+        // delete locally
+        InterestsData.shared.namesToInterests[self.name!] = nil;
         
     }
 }

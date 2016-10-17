@@ -47,4 +47,34 @@ class Location: NSObject {
         object?.saveInBackground()
     }
     
+    func removeInterestTag(interestName: String) {
+        
+        var interestNameArr = self.object?["interests"] as! [String]
+        if let serverIndex = interestNameArr.index(of: interestName) {
+            interestNameArr.remove(at: serverIndex)
+            self.object?.setObject(interestName, forKey: "interests")
+            self.object?.saveInBackground()
+            
+            let localIndex = self.interests?.index(of: interestName)
+            self.interests?.remove(at: localIndex!)
+        } else {
+            print("ERROR: something went wrong removing and interest from a location")
+        }
+        
+    }
+    
+    func delete() {
+        InterestsData.shared.removeLocation(withLocation: self)
+        
+        self.object?.deleteInBackground()
+        
+        LocationData.shared.idsToNames[self.objectId!] = nil
+        
+        LocationData.shared.namesToLocations[self.name!] = nil
+    }
+    
+//    func getPFObject() -> PFObject {
+//        return object!;
+//    }
+    
 }
