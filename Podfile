@@ -16,6 +16,8 @@ target 'USC Visitor Companion App' do
     pod 'Parse'
     pod 'GoogleMaps'
     pod 'GooglePlaces'
+    pod 'UIImageViewModeScaleAspect'
+
   end
 
   target 'USC Visitor Companion AppUITests' do
