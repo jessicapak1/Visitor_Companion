@@ -34,9 +34,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     // MARK: IBOutlets
     @IBOutlet weak var segmentedControl: BetterSegmentedControl! {
         didSet {
-            self.segmentedControl.titleFont = .systemFont(ofSize: 14.0)
-            self.segmentedControl.selectedTitleFont = .systemFont(ofSize: 14.0)
-            self.segmentedControl.titles = ["Locations", "Interests", "Food", "Search"]
+            self.segmentedControl.titleFont = .systemFont(ofSize: 16.0)
+            self.segmentedControl.selectedTitleFont = .systemFont(ofSize: 16.0)
+            self.segmentedControl.titles = ["General", "Interest", "Food", "Search"]
             self.segmentedControl.addTarget(self, action: #selector(MapViewController.segmentedControlValueChanged), for: .valueChanged)
         }
     }
@@ -73,9 +73,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     // MARK: Segmented Control Methods
     func segmentedControlValueChanged() {
         // clear all old locations
-        if self.segmentedControl.index == 0 { // Locations
+        if self.segmentedControl.index == 0 { // General
             // show locations with General interest from InterestData
-        } else if self.segmentedControl.index == 1 { // Interests
+        } else if self.segmentedControl.index == 1 { // Interest
             // show locations with User.current.interest from InterestData
         } else if self.segmentedControl.index == 2 { // Food
             // show locations with Food interets from InterestData
@@ -165,9 +165,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     // MARK: Storyboard Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Show Menu" {
-            let MVC = segue.destination as! MenuViewController
-            MVC.transitioningDelegate = self
-            MVC.modalPresentationStyle = .custom
+            let NVC = segue.destination as! UINavigationController
+            NVC.transitioningDelegate = self
+            NVC.modalPresentationStyle = .custom
         }
     }
     
@@ -240,7 +240,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: GMSMapViewDelegate Methods
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        self.performSegue(withIdentifier: "CheckInScreenSegue", sender: self)
+        self.performSegue(withIdentifier: "Show Location", sender: self)
     }
     
     
@@ -249,7 +249,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.bubbleTransition.duration = 0.25
         self.bubbleTransition.transitionMode = .present
         self.bubbleTransition.startingPoint = self.menuButton.center
-        self.bubbleTransition.bubbleColor = UIColor.init(white: 0.9, alpha: 0.9)
+        self.bubbleTransition.bubbleColor = .white
         return self.bubbleTransition
     }
     

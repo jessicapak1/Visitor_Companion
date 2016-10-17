@@ -56,7 +56,11 @@ class User: NSObject {
         user[UserKey.email.rawValue] = email
         user[UserKey.interest.rawValue] = "General"
         user[UserKey.type.rawValue] = type
-        do { try user.signUp() } catch { }
+        do {
+            try user.signUp()
+        } catch {
+            print("ERROR: User Class - Failed to signup with username \(username)")
+        }
         User.current.update()
     }
     
@@ -64,21 +68,9 @@ class User: NSObject {
         do {
             try PFUser.logIn(withUsername: username, password: password)
         } catch {
-            print("Failed to login user")
+            print("ERROR: User Class - Failed to login with username \(username)")
         }
         User.current.update()
-    }
-    
-    class func checkLogin(password: String) -> Bool {
-        if let username = User.current.name {
-            do {
-                try PFUser.logIn(withUsername: username, password: password)
-            } catch {
-                return false
-            }
-            return true
-        }
-        return false;
     }
     
     class func logout() {

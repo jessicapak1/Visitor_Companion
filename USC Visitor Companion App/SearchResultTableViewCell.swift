@@ -16,7 +16,9 @@ class SearchResultTableViewCell: UITableViewCell {
     
     // MARK: IBOutlets
     @IBOutlet weak var nameLabel: UILabel!
+    
     @IBOutlet weak var codeLabel: UILabel!
+    
     @IBOutlet weak var interestsLabel: UILabel!
     
 }

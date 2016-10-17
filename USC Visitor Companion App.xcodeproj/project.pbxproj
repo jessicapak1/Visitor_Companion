@@ -20,7 +20,7 @@
 		75EABC481D98BA1E0075E75E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC3F1D98BA1E0075E75E /* LoginViewController.swift */; };
 		75EABC491D98BA1E0075E75E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC401D98BA1E0075E75E /* AboutViewController.swift */; };
 		75EABC4A1D98BA1E0075E75E /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC411D98BA1E0075E75E /* LocationsViewController.swift */; };
-		75EABC4B1D98BA1E0075E75E /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC421D98BA1E0075E75E /* CheckInViewController.swift */; };
+		75EABC4B1D98BA1E0075E75E /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC421D98BA1E0075E75E /* LocationViewController.swift */; };
 		75EABC4C1D98BA1E0075E75E /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC431D98BA1E0075E75E /* InterestsViewController.swift */; };
 		75EABC4E1D98BA1E0075E75E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */; };
 		A1E1375FD19E64048101C8B3 /* Pods_USC_Visitor_Companion_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DB3DC7F7064736DF04206E /* Pods_USC_Visitor_Companion_App.framework */; };
@@ -30,6 +30,8 @@
 		AA1DFD591DAB687E00BECB5A /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1DFD581DAB687E00BECB5A /* UserTests.swift */; };
 		AA2277A21DA2039100F5C1B0 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2277A11DA2039100F5C1B0 /* LocationData.swift */; };
 		AA38AD3F1D9C9F150067E1C9 /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA38AD3E1D9C9F150067E1C9 /* Interest.swift */; };
+		AA536C4B1DB4822E009A608A /* MenuLoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA536C491DB4822E009A608A /* MenuLoginTableViewCell.swift */; };
+		AA536C4C1DB4822E009A608A /* MenuLoginTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA536C4A1DB4822E009A608A /* MenuLoginTableViewCell.xib */; };
 		AA7249DE1DA488B8009AED20 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7249DC1DA488B8009AED20 /* SearchResultTableViewCell.swift */; };
 		AA7249DF1DA488B8009AED20 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7249DD1DA488B8009AED20 /* SearchResultTableViewCell.xib */; };
 		AA7E0F321D98D298005C9786 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7E0F311D98D298005C9786 /* User.swift */; };
@@ -77,7 +79,7 @@
 		75EABC3F1D98BA1E0075E75E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		75EABC401D98BA1E0075E75E /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		75EABC411D98BA1E0075E75E /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
-		75EABC421D98BA1E0075E75E /* CheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
+		75EABC421D98BA1E0075E75E /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		75EABC431D98BA1E0075E75E /* InterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
 		75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		AA06C9061DA18CCD00B753CF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,8 @@
 		AA1DFD581DAB687E00BECB5A /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		AA2277A11DA2039100F5C1B0 /* LocationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		AA38AD3E1D9C9F150067E1C9 /* Interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
+		AA536C491DB4822E009A608A /* MenuLoginTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuLoginTableViewCell.swift; sourceTree = "<group>"; };
+		AA536C4A1DB4822E009A608A /* MenuLoginTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuLoginTableViewCell.xib; sourceTree = "<group>"; };
 		AA7249DC1DA488B8009AED20 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		AA7249DD1DA488B8009AED20 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
 		AA7E0F311D98D298005C9786 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 				AAD38B901D971648004DD648 /* LaunchScreen.storyboard */,
 				AA7249DD1DA488B8009AED20 /* SearchResultTableViewCell.xib */,
 				AA15CE351DA635B80025CBAA /* NoResultsFoundTableViewCell.xib */,
+				AA536C4A1DB4822E009A608A /* MenuLoginTableViewCell.xib */,
 				AAD38BBE1D972E44004DD648 /* Resources */,
 			);
 			name = Views;
@@ -234,7 +239,7 @@
 				75EABC3F1D98BA1E0075E75E /* LoginViewController.swift */,
 				75EABC401D98BA1E0075E75E /* AboutViewController.swift */,
 				75EABC411D98BA1E0075E75E /* LocationsViewController.swift */,
-				75EABC421D98BA1E0075E75E /* CheckInViewController.swift */,
+				75EABC421D98BA1E0075E75E /* LocationViewController.swift */,
 				75EABC431D98BA1E0075E75E /* InterestsViewController.swift */,
 				75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */,
 				755993ED1D98D5EC0090717C /* ForgotPasswordViewController.swift */,
@@ -260,6 +265,7 @@
 			children = (
 				AA7249DC1DA488B8009AED20 /* SearchResultTableViewCell.swift */,
 				AA15CE341DA635B80025CBAA /* NoResultsFoundTableViewCell.swift */,
+				AA536C491DB4822E009A608A /* MenuLoginTableViewCell.swift */,
 				AAD38B8E1D971648004DD648 /* Assets.xcassets */,
 			);
 			name = Resources;
@@ -398,6 +404,7 @@
 				AA7249DF1DA488B8009AED20 /* SearchResultTableViewCell.xib in Resources */,
 				AAD38B8F1D971648004DD648 /* Assets.xcassets in Resources */,
 				AAD38B8A1D971648004DD648 /* Main.storyboard in Resources */,
+				AA536C4C1DB4822E009A608A /* MenuLoginTableViewCell.xib in Resources */,
 				AA15CE371DA635B80025CBAA /* NoResultsFoundTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,7 +560,8 @@
 				4ED64E711DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift in Sources */,
 				75EABC4A1D98BA1E0075E75E /* LocationsViewController.swift in Sources */,
 				75EABC4C1D98BA1E0075E75E /* InterestsViewController.swift in Sources */,
-				75EABC4B1D98BA1E0075E75E /* CheckInViewController.swift in Sources */,
+				75EABC4B1D98BA1E0075E75E /* LocationViewController.swift in Sources */,
+				AA536C4B1DB4822E009A608A /* MenuLoginTableViewCell.swift in Sources */,
 				AAF9A9EF1D9B457F00CB57AF /* Location.swift in Sources */,
 				AA06C9071DA18CCD00B753CF /* MenuViewController.swift in Sources */,
 				758F446E1DB2D42B00138EB6 /* EditProfileTableViewController.swift in Sources */,
