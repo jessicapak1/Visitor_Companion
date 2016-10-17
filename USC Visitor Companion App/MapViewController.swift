@@ -111,6 +111,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     func showMarkers() {
+        let foodImage = UIImage(named: "food")!.withRenderingMode(.alwaysTemplate)
+        let foodView = UIImageView(image: foodImage)
+        let libraryImage = UIImage(named: "library")!.withRenderingMode(.alwaysTemplate)
+        let libraryView = UIImageView(image: libraryImage)
+        let buildingImage = UIImage(named: "building")!.withRenderingMode(.alwaysTemplate)
+        let buildingView = UIImageView(image: buildingImage)
+        
         for location in LocationData.shared.locations {
             let marker = GMSMarker()
             marker.map = self.mapView
@@ -121,21 +128,15 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             switch (location.locType){
                 
             case "food"?:
-                let image = UIImage(named: "food")!.withRenderingMode(.alwaysTemplate)
-                let imageView = UIImageView(image: image)
-                marker.iconView = imageView
+                marker.iconView = foodView
                 break
                 
             case "library"?:
-                let image = UIImage(named: "library")!.withRenderingMode(.alwaysTemplate)
-                let imageView = UIImageView(image: image)
-                marker.iconView = imageView
+                marker.iconView = libraryView
                 break
                 
             case "building"?:
-                let image = UIImage(named: "building")!.withRenderingMode(.alwaysTemplate)
-                let imageView = UIImageView(image: image)
-                marker.iconView = imageView
+                marker.iconView = buildingView
                 break
                 
             default:
