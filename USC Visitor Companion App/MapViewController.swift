@@ -111,13 +111,19 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     func showMarkers() {
+        //create custom marker icons
         let foodImage = UIImage(named: "food")!.withRenderingMode(.alwaysTemplate)
         let foodView = UIImageView(image: foodImage)
         let libraryImage = UIImage(named: "library")!.withRenderingMode(.alwaysTemplate)
         let libraryView = UIImageView(image: libraryImage)
         let buildingImage = UIImage(named: "building")!.withRenderingMode(.alwaysTemplate)
         let buildingView = UIImageView(image: buildingImage)
+        let fountainImage = UIImage(named: "fountain")!.withRenderingMode(.alwaysTemplate)
+        let fountainView = UIImageView(image: fountainImage)
+        let fieldImage = UIImage(named: "field")!.withRenderingMode(.alwaysTemplate)
+        let fieldView = UIImageView(image: fieldImage)
         
+        // create each marker
         for location in LocationData.shared.locations {
             let marker = GMSMarker()
             marker.map = self.mapView
@@ -137,6 +143,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
                 
             case "building"?:
                 marker.iconView = buildingView
+                break
+                
+            case "fountain"?:
+                marker.iconView = fountainView
+                break
+                
+            case "field"?:
+                marker.iconView = fieldView
                 break
                 
             default:
