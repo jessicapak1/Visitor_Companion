@@ -117,13 +117,28 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             marker.title = location.name
             marker.snippet = location.details
             marker.position = (location.location?.coordinate)!
-            if (location.name == "Panda Express")
-            {
-                let food = UIImage(named: "food")!.withRenderingMode(.alwaysTemplate)
-                let foodView = UIImageView(image : food)
-                marker.iconView = foodView
-            }
-            else {
+            
+            switch (location.locType){
+                
+            case "food"?:
+                let image = UIImage(named: "food")!.withRenderingMode(.alwaysTemplate)
+                let imageView = UIImageView(image: image)
+                marker.iconView = imageView
+                break
+                
+            case "library"?:
+                let image = UIImage(named: "library")!.withRenderingMode(.alwaysTemplate)
+                let imageView = UIImageView(image: image)
+                marker.iconView = imageView
+                break
+                
+            case "building"?:
+                let image = UIImage(named: "building")!.withRenderingMode(.alwaysTemplate)
+                let imageView = UIImageView(image: image)
+                marker.iconView = imageView
+                break
+                
+            default:
                 marker.icon = GMSMarker.markerImage(with: UIColor(red: 153.0, green: 0.0, blue: 0.0, alpha: 1.0))
             }
             
