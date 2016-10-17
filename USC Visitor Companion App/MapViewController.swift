@@ -81,7 +81,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             // show locations with Food interets from InterestData
         } else if self.segmentedControl.index == 3 { // Search
             self.showSearch()
-            do { try self.segmentedControl.set(0, animated: true) } catch { } // should be set to the segment of the location
+            do { try self.segmentedControl.set(index: 0, animated: true) } catch { } // should be set to the segment of the location
         }
     }
     
@@ -117,9 +117,20 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             marker.title = location.name
             marker.snippet = location.details
             marker.position = (location.location?.coordinate)!
-            marker.icon = GMSMarker.markerImage(with: UIColor(red: 153.0, green: 0.0, blue: 0.0, alpha: 1.0))
+            if (location.name == "Panda Express")
+            {
+                let food = UIImage(named: "food")!.withRenderingMode(.alwaysTemplate)
+                let foodView = UIImageView(image : food)
+                marker.iconView = foodView
+            }
+            else {
+                marker.icon = GMSMarker.markerImage(with: UIColor(red: 153.0, green: 0.0, blue: 0.0, alpha: 1.0))
+            }
+            
             self.markers[location.name!] = marker
         }
+        
+        
     }
     
     func animate(toLocation location: Location) {
