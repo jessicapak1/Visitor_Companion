@@ -1,5 +1,5 @@
 //
-//  CheckInViewController.swift
+//  LocationViewController.swift
 //  USC Visitor Companion App
 //
 //  Created by Jessica Pak on 9/24/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CheckInViewController: UIViewController {
+class LocationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
