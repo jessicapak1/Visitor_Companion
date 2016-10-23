@@ -50,13 +50,14 @@ class LocationData: NSObject {
 
     
     // MARK: Instance Methods
-    func create(name: String, code: String, details: String, location: CLLocation, interests: [String], callback: @escaping (Bool) -> Void) {
+    func create(name: String, code: String, details: String, location: CLLocation, interests: [String], locType: String, callback: @escaping (Bool) -> Void) {
         let object = PFObject(className: "Location")
         object["name"] = name
         object["code"] = code
         object["details"] = details
         object["location"] = location
         object["interests"] = interests
+        object["locType"] = locType
         object.saveInBackground(block: {
             (succeeded, error) -> Void in
             if succeeded {

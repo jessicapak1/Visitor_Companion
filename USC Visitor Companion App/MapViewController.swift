@@ -111,15 +111,61 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     func showMarkers() {
+        //create custom marker icons
+        let foodImage = UIImage(named: "food")!.withRenderingMode(.alwaysTemplate)
+        let foodView = UIImageView(image: foodImage)
+        foodView.tintColor = UIColor(displayP3Red: 99.0/255.0, green: 00.0/255.0, blue: 00.0/255.0, alpha: 1.0)
+        let libraryImage = UIImage(named: "library")!.withRenderingMode(.alwaysTemplate)
+        let libraryView = UIImageView(image: libraryImage)
+        libraryView.tintColor = UIColor(displayP3Red: 99.0/255.0, green: 00.0/255.0, blue: 00.0/255.0, alpha: 1.0)
+        let buildingImage = UIImage(named: "building")!.withRenderingMode(.alwaysTemplate)
+        let buildingView = UIImageView(image: buildingImage)
+        buildingView.tintColor = UIColor(displayP3Red: 99.0/255.0, green: 00.0/255.0, blue: 00.0/255.0, alpha: 1.0)
+        let fountainImage = UIImage(named: "fountain")!.withRenderingMode(.alwaysTemplate)
+        let fountainView = UIImageView(image: fountainImage)
+        fountainView.tintColor = UIColor(displayP3Red: 99.0/255.0, green: 00.0/255.0, blue: 00.0/255.0, alpha: 1.0)
+        let fieldImage = UIImage(named: "field")!.withRenderingMode(.alwaysTemplate)
+        let fieldView = UIImageView(image: fieldImage)
+        fieldView.tintColor = UIColor(displayP3Red: 99.0/255.0, green: 00.0/255.0, blue: 00.0/255.0, alpha: 1.0)
+        
+        // create each marker
         for location in LocationData.shared.locations {
             let marker = GMSMarker()
             marker.map = self.mapView
             marker.title = location.name
             marker.snippet = location.details
             marker.position = (location.location?.coordinate)!
-            marker.icon = GMSMarker.markerImage(with: UIColor(red: 153.0, green: 0.0, blue: 0.0, alpha: 1.0))
+            
+            switch (location.locType){
+                
+            case "food"?:
+                marker.iconView = foodView
+                break
+                
+            case "library"?:
+                marker.iconView = libraryView
+                break
+                
+            case "building"?:
+                marker.iconView = buildingView
+                break
+                
+            case "fountain"?:
+                marker.iconView = fountainView
+                break
+                
+            case "field"?:
+                marker.iconView = fieldView
+                break
+                
+            default:
+                marker.icon = GMSMarker.markerImage(with: UIColor(red: 153.0, green: 0.0, blue: 0.0, alpha: 1.0))
+            }
+            
             self.markers[location.name!] = marker
         }
+        
+        
     }
     
     func animate(toLocation location: Location) {

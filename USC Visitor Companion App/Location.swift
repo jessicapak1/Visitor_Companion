@@ -27,6 +27,8 @@ class Location: NSObject {
     
     var interests: [String]? { willSet { self.update(value: newValue, forKey: "interests") } }
     
+    var locType: String? { willSet {self.update(value: newValue, forKey: "locType") } }
+    
     
     // MARK: Constructor
     init(object: PFObject) {
@@ -38,6 +40,7 @@ class Location: NSObject {
         let coordinate = object["location"] as! PFGeoPoint?
         self.location = CLLocation(latitude: (coordinate?.latitude)!, longitude: (coordinate?.longitude)!)
         self.interests = object["interests"] as! [String]?
+        self.locType = object["locType"] as! String?
     }
     
     
