@@ -50,19 +50,23 @@ class Location: NSObject {
         object?.saveInBackground()
     }
     
-    func removeInterestTag(interestName: String) {
+    func removeInterestTag(withInterestName name: String) {
         
         var interestNameArr = self.object?["interests"] as! [String]
-        if let serverIndex = interestNameArr.index(of: interestName) {
+        if let serverIndex = interestNameArr.index(of: name) {
             interestNameArr.remove(at: serverIndex)
-            self.object?.setObject(interestName, forKey: "interests")
+            self.object?.setObject(name, forKey: "interests")
             self.object?.saveInBackground()
             
-            let localIndex = self.interests?.index(of: interestName)
+            let localIndex = self.interests?.index(of: name)
             self.interests?.remove(at: localIndex!)
         } else {
             print("ERROR: something went wrong removing and interest from a location")
         }
+        
+    }
+    
+    func addInterestTag(withInterestName name: String) {
         
     }
     

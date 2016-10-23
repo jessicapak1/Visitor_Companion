@@ -27,6 +27,7 @@ class Interest: NSObject {
         self.object = object
         self.name = object["name"] as! String?
         self.objectId = object.objectId
+        self.locations = [Location]()
         if let locationNames = object["locations"] as! [String]? {
             
             for locName in locationNames {
@@ -56,7 +57,7 @@ class Interest: NSObject {
     
     
     // remove Location from "this" Interest
-    func untagLocation(locationName: String) -> () {
+    func untagLocation(witLocationName name: String) -> () {
         // arrays to store updated data
         var locArr = [Location]()
         var locNames = [String]()
@@ -65,7 +66,7 @@ class Interest: NSObject {
         for locObject in self.locations! {
             
             // if the object isn't the one we're trying to remove
-            if locObject.name != locationName {
+            if locObject.name != name {
                 // add the object and its name to the appropriate new arrays
                 locArr.append(locObject)
                 locNames.append(locObject.name!)
@@ -82,8 +83,13 @@ class Interest: NSObject {
     
     // deletes this location from everything. intended to be called from deleteInterests via InterestsData.shared
     func delete() {
+        print()
+        print("Number of locations in this Interest: ")
+        print(self.locations?.count)
+        print()
         for location in self.locations! {
-            location.removeInterestTag(interestName: self.name!)
+            location.removeInterestTag(withInterestName: self.name!)//(interestName: self.name!)
+            
         }
         // delete from database
         self.object?.deleteInBackground()

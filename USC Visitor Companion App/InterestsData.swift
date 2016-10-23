@@ -89,7 +89,7 @@ class InterestsData : NSObject {
     // call to remove location from all interests
     func removeLocation(withLocation location: Location) -> () {
         for interestName in location.interests! {
-            self.namesToInterests[interestName]?.untagLocation(locationName: location.name!)
+            self.namesToInterests[interestName]?.untagLocation(witLocationName: location.name!)
         }
     }
     
