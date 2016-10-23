@@ -39,6 +39,11 @@ class ChangePasswordTableViewController: UITableViewController, UITextFieldDeleg
                 
             }
         }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelButtonPressed(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

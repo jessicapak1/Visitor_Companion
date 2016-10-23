@@ -111,7 +111,14 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    @IBOutlet weak var adminButtonPressed: UIBarButtonItem!
+    @IBAction func settingsButtonPressed(_ sender: AnyObject) {
+        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "settings")
+        self.present(viewController, animated: true, completion: nil)
+    }
+    @IBAction func adminButtonPressed(_ sender: AnyObject) {
+        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "admin")
+        self.present(viewController, animated: true, completion: nil)
+    }
+
  
 }
