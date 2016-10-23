@@ -9,7 +9,18 @@
 import UIKit
 
 class LocationViewController: UIViewController {
-
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    let mainImage = UIImageViewModeScaleAspect(frame: CGRect(x: 0, y: 0, width: 375, height: 188))
+    
+    var selectedLocation : Location? = nil
+    
+    
+    var locDescription : String = ""
+    var locTaggedInterests : String = ""
     //make navbar transparent
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)

@@ -133,7 +133,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Menu" id="nc0-eW-PQ3">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="ykz-6h-46f">
+                        <barButtonItem key="leftBarButtonItem" title="Admin" id="ykz-6h-46f">
                             <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="XUv-dB-iTc">
@@ -417,7 +417,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndo-79-sQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2809" y="-1449"/>
+            <point key="canvasLocation" x="2809" y="-1236"/>
         </scene>
         <!--Location-->
         <scene sceneID="E8w-Ph-5CI">
@@ -430,7 +430,39 @@ Christian Villa – Computer Science Major    </string>
                     <view key="view" contentMode="scaleToFill" id="U51-0m-PHx">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FWW-Hp-rkj"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1MR-0w-4j5">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eLB-Bt-VVg">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Dyg-WX-YzX">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1MR-0w-4j5" firstAttribute="bottom" secondItem="RZK-fi-ZMa" secondAttribute="top" id="MNu-CD-9ff"/>
+                            <constraint firstItem="FWW-Hp-rkj" firstAttribute="top" secondItem="U51-0m-PHx" secondAttribute="topMargin" constant="-63" id="Xq7-mY-HGd"/>
+                            <constraint firstItem="RZK-fi-ZMa" firstAttribute="top" secondItem="FWW-Hp-rkj" secondAttribute="bottom" constant="443" id="YxX-VB-jCR"/>
+                            <constraint firstItem="1MR-0w-4j5" firstAttribute="top" secondItem="xXi-Kb-nyz" secondAttribute="bottom" constant="159" id="m13-h3-NZF"/>
+                            <constraint firstAttribute="trailing" secondItem="1MR-0w-4j5" secondAttribute="trailing" id="sra-IB-IMk"/>
+                            <constraint firstItem="FWW-Hp-rkj" firstAttribute="trailing" secondItem="1MR-0w-4j5" secondAttribute="trailing" id="x2m-5F-jg7"/>
+                            <constraint firstItem="FWW-Hp-rkj" firstAttribute="leading" secondItem="1MR-0w-4j5" secondAttribute="leading" id="xzo-Gw-FBS"/>
+                            <constraint firstItem="1MR-0w-4j5" firstAttribute="leading" secondItem="U51-0m-PHx" secondAttribute="leading" id="ygU-iY-zU6"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Location" id="FRU-vO-w9b">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="iYb-1q-pwE">
@@ -440,10 +472,14 @@ Christian Villa – Computer Science Major    </string>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="1MR-0w-4j5" id="XIh-PX-QZA"/>
+                        <outlet property="imageView" destination="FWW-Hp-rkj" id="RyG-De-lmf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPF-VT-Kn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2863" y="243"/>
+            <point key="canvasLocation" x="-2863.1999999999998" y="242.42878560719643"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="lb4-ly-v7a">
