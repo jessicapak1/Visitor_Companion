@@ -15,6 +15,9 @@ enum MenuCell: String {
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MenuLoginTableViewCellDelegate {
     
+    @IBOutlet weak var adminButton: UIBarButtonItem!
+    
+    
     // MARK: Properties
     let bubbleTransition = BubbleTransition()
     
@@ -107,5 +110,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func menuButtonPressed() {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
+    @IBOutlet weak var adminButtonPressed: UIBarButtonItem!
  
 }
