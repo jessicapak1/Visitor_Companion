@@ -27,6 +27,7 @@ class Interest: NSObject {
         self.object = object
         self.name = object["name"] as! String?
         self.objectId = object.objectId
+        locations = [Location]()
         if let locationNames = object["locations"] as! [String]? {
             
             for locName in locationNames {
