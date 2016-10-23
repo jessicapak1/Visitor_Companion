@@ -61,7 +61,7 @@ class Location: NSObject {
             let localIndex = self.interests?.index(of: interestName)
             self.interests?.remove(at: localIndex!)
         } else {
-            print("ERROR: something went wrong removing and interest from a location")
+            print("ERROR: something went wrong removing an interest from a location")
         }
         
     }
