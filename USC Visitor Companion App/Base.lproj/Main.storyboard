@@ -312,6 +312,9 @@
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Uvb-ut-8ah" kind="presentation" id="7SV-ef-w1y"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jrH-DQ-gn6">
                                         <rect key="frame" x="0.0" y="498" width="375" height="44"/>
@@ -357,7 +360,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MtE-za-bxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="-1236.4317841079462"/>
+            <point key="canvasLocation" x="1015" y="-1236"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="O99-2G-kTd">
@@ -414,7 +417,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndo-79-sQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2702" y="-1575"/>
+            <point key="canvasLocation" x="2809" y="-1449"/>
         </scene>
         <!--Location-->
         <scene sceneID="E8w-Ph-5CI">
@@ -427,15 +430,6 @@ Christian Villa – Computer Science Major    </string>
                     <view key="view" contentMode="scaleToFill" id="U51-0m-PHx">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Check-in Screen to Come" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lge-1h-lJj">
-                                <frame key="frameInset" minX="96" minY="269" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Location" id="FRU-vO-w9b">
@@ -592,7 +586,7 @@ Christian Villa – Computer Science Major    </string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5rJ-uk-b7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1289" y="206"/>
+            <point key="canvasLocation" x="1564" y="242"/>
         </scene>
         <!--Interests View Controller-->
         <scene sceneID="cC8-5i-4Sw">
@@ -628,7 +622,7 @@ Christian Villa – Computer Science Major    </string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bts-dx-sbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2159.1999999999998" y="-485.30734632683664"/>
+            <point key="canvasLocation" x="1014" y="-485"/>
         </scene>
         <!--Interests Navigation Controller-->
         <scene sceneID="seM-1t-oHs">
@@ -644,7 +638,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gd8-NU-OSj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="-485.30734632683664"/>
+            <point key="canvasLocation" x="73" y="-485"/>
         </scene>
         <!--Registration View Controller-->
         <scene sceneID="cDc-VB-dgm">
@@ -733,7 +727,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41D-qY-gmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1393" y="245"/>
+            <point key="canvasLocation" x="-1394" y="244"/>
         </scene>
         <!--Admin Add Loc View Controller-->
         <scene sceneID="EOR-wf-Xpc">
@@ -884,7 +878,7 @@ Christian Villa – Computer Science Major    </string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nK-x6-eMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2810" y="-2359"/>
+            <point key="canvasLocation" x="2809" y="-2081"/>
         </scene>
         <!--Admin View Controller-->
         <scene sceneID="wSR-WG-udf">
@@ -951,7 +945,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4P-Pu-k7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="-1917"/>
+            <point key="canvasLocation" x="1188" y="-2081"/>
         </scene>
         <!--Admin Add Loc Navigation Controller-->
         <scene sceneID="iUw-MA-aq8">
@@ -967,7 +961,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1PT-7j-I5v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1914" y="-2359"/>
+            <point key="canvasLocation" x="1919" y="-2081"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="OPJ-ui-8lh">
@@ -1057,7 +1051,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Q6-og-JYs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="-1236"/>
+            <point key="canvasLocation" x="73" y="-1236"/>
         </scene>
         <!--About Navigation Controller-->
         <scene sceneID="nWM-uM-Srg">
@@ -1075,14 +1069,14 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DBJ-uP-8DL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1964" y="-1574"/>
+            <point key="canvasLocation" x="1918" y="-1236"/>
         </scene>
         <!--Locations Navigation Controller-->
         <scene sceneID="exX-zS-ydv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r2b-Bq-GWe" userLabel="Locations Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8R1-Rv-VQv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8R1-Rv-VQv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1093,7 +1087,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pe2-Qz-fTu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="646" y="206"/>
+            <point key="canvasLocation" x="774" y="242"/>
         </scene>
         <!--Checkin Navigation Controller-->
         <scene sceneID="Wau-RF-f5R">
@@ -1133,7 +1127,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Kw-zE-DjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="-1917"/>
+            <point key="canvasLocation" x="268" y="-2081"/>
         </scene>
         <!--Login Navigation Controller-->
         <scene sceneID="p6p-15-Zex">
@@ -1301,7 +1295,7 @@ Christian Villa – Computer Science Major    </string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meQ-b5-54a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3599.1999999999998" y="-849.62518740629696"/>
+            <point key="canvasLocation" x="3714" y="-485"/>
         </scene>
         <!--Change Password Table View Controller-->
         <scene sceneID="kAT-f0-Bkm">
@@ -1401,7 +1395,7 @@ Christian Villa – Computer Science Major    </string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aE5-uR-dBh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3567.1999999999998" y="-178.56071964017991"/>
+            <point key="canvasLocation" x="3780" y="383"/>
         </scene>
         <!--Edit Profile Navigation Controller-->
         <scene sceneID="fuf-2l-qHi">
@@ -1419,7 +1413,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JxB-Sk-r3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2903.1999999999998" y="-848.72563718140941"/>
+            <point key="canvasLocation" x="2902" y="-485"/>
         </scene>
         <!--Change Password Navigation Controller-->
         <scene sceneID="G2V-Kd-OPT">
@@ -1437,14 +1431,14 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHt-M0-Kso" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2903.1999999999998" y="-178.56071964017991"/>
+            <point key="canvasLocation" x="2903" y="383"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JaM-gc-rNQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nft-j1-Vc1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3Z1-Di-7Ym">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="3Z1-Di-7Ym">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

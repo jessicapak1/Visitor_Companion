@@ -100,7 +100,7 @@ class AdminSegmentedViewControoler: UIViewController, UITableViewDataSource, UIT
             //update the correct table and data source!
             if editingStyle == UITableViewCellEditingStyle.delete {
                 //delete from database
-                LocationData.shared.deleteLocation(withName: locations[indexPath.row].name)
+                LocationData.shared.deleteLocation(withName: locations[indexPath.row].name!)
                 //delete from local source array
                 locations.remove(at: indexPath.row)
                 //delete from view

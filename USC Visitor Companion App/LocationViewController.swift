@@ -10,6 +10,14 @@ import UIKit
 
 class LocationViewController: UIViewController {
 
+    //make navbar transparent
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

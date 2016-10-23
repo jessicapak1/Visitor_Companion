@@ -365,11 +365,13 @@
 					};
 					AAD38B971D971648004DD648 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = AAD38B801D971648004DD648;
 					};
 					AAD38BA21D971648004DD648 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = AAD38B801D971648004DD648;
 					};
