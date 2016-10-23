@@ -85,34 +85,26 @@ class AdminSegmentedViewControoler: UIViewController, UITableViewDataSource, UIT
         case 0:
             //update the correct table and data source!
             if editingStyle == UITableViewCellEditingStyle.delete {
-                
-                //also remove from database!!
-                //maybe use main queue for updating the database!
-                //doing backgroung stuff as well like ITP344
-                
-                //HAVENT DONE THE ACTUAL REMOVAL, BECAUSE I DONT THINK DELETING FROM THE
-                //DATABASE IS ALREADY IMPLEMENTED AND THAT IS WHAT WE NEED!
-                //MAYBE I SHOULD JUST DELETE FROM THE SHARED OBJECT??
-                //OR JUST FROM MY ARRAY
-                //TALK ABOUT IT WITH JEFF AND CHRISTIAN
+                //delete from database
+                InterestsData.shared.deleteInterest(withName: interests[indexPath.row])
+                //delete from local source array
+                interests.remove(at: indexPath.row)
+                //delete from view
+                interestsLocationsTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
             } else if editingStyle ==  UITableViewCellEditingStyle.insert {
-                //update database here, or not really? will only do it with the new admin view
+
             }
             
             break
         case 1:
             //update the correct table and data source!
             if editingStyle == UITableViewCellEditingStyle.delete {
-                
-                //also remove from database!!
-                //maybe use main queue for updating the database!
-                //doing backgroung stuff as well like ITP344
-                
-                //HAVENT DONE THE ACTUAL REMOVAL, BECAUSE I DONT THINK DELETING FROM THE
-                //DATABASE IS ALREADY IMPLEMENTED AND THAT IS WHAT WE NEED!
-                //MAYBE I SHOULD JUST DELETE FROM THE SHARED OBJECT??
-                //OR JUST FROM MY ARRAY
-                //TALK ABOUT IT WITH JEFF AND CHRISTIAN
+                //delete from database
+                LocationData.shared.deleteLocation(withName: locations[indexPath.row].name)
+                //delete from local source array
+                locations.remove(at: indexPath.row)
+                //delete from view
+                interestsLocationsTableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
             } else if editingStyle ==  UITableViewCellEditingStyle.insert {
                 //update database here, or not really? will only do it with the new admin view
             }
