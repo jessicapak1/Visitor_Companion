@@ -155,7 +155,18 @@ class LocationData: NSObject {
     }
     
     // change geo location of Location with name
-//    func changeGeoLocation(forLocationName name: String, withNewCode code: String)
+    func changeGeoLocation(forLocationName name: String, withCLLocation loc: CLLocation) {
+        if let locationOb = self.namesToLocations[name] {
+            locationOb.changeGeoLocation(withCLLocation: loc)
+        }
+    }
+    
+    func changeGeoLocation(forLocationName name: String, withLatitude lat: CLLocationDegrees, withLongitude long: CLLocationDegrees) {
+        if let locationOb = self.namesToLocations[name] {
+            let loc = CLLocation(latitude: lat, longitude: long)
+            locationOb.changeGeoLocation(withCLLocation: loc)
+        }
+    }
     
     // call to completely delete a location with name
     func deleteLocation(withName locationName: String) -> () {
