@@ -50,6 +50,7 @@ class Location: NSObject {
         object?.saveInBackground()
     }
     
+    // DO NOT USE. For Data models only. Removes interest names from location object locally and on database (does not handle removal of the object from the interests, that is handled within LocationData and the individual Interest objects)
     func removeInterestTags(interestNames: [String]) {
         
         var interestNameArr = self.object?["interests"] as! [String]
@@ -84,20 +85,46 @@ class Location: NSObject {
         
     }
     
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
     func changeDetails(newDetails: String) {
-        self.details = newDetails
-        
-        self.object?["details"] = newDetails
-        self.object?.saveInBackground()
+        if (self.details != newDetails) {
+            self.details = newDetails
+            
+            self.object?["details"] = newDetails
+            self.object?.saveInBackground()
+        }
     }
     
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
+    func changeCode(newCode: String) {
+        if (self.code != newCode) {
+            self.code = newCode
+            
+            self.object?["code"] = newCode
+            self.object?.saveInBackground()
+        }
+    }
+    
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
+    func changeLocType(newLocType: String) {
+        if (self.locType != newLocType) {
+            self.locType = newLocType
+            
+            self.object?["locType"] = newLocType
+            self.object?.saveInBackground()
+        }
+    }
+    
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
     func delete() {
+        // remove this Location from the InterestsData model
         InterestsData.shared.removeLocation(withLocation: self)
         
+        // delete this Location from database
         self.object?.deleteInBackground()
         
+        // delete this location from local backend (LocationData)
         LocationData.shared.idsToNames[self.objectId!] = nil
-        
         LocationData.shared.namesToLocations[self.name!] = nil
     }
     

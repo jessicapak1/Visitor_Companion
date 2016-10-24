@@ -27,6 +27,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     var markers: [String: GMSMarker] = [String: GMSMarker]()
+    var current_location = [Location]()
+    var current_marker = GMSMarker()
     
     var searchResults: [Location] = [Location]()
     
@@ -81,7 +83,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             // show locations with Food interets from InterestData
         } else if self.segmentedControl.index == 3 { // Search
             self.showSearch()
-            do { try self.segmentedControl.set(0, animated: true) } catch { } // should be set to the segment of the location
+            do { try self.segmentedControl.set(index: 0, animated: true) } catch { } // should be set to the segment of the location
         }
     }
     
@@ -215,6 +217,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             NVC.transitioningDelegate = self
             NVC.modalPresentationStyle = .custom
         }
+        
+        if segue.identifier == "Show Location" {
+            let navVC = segue.destination as! UINavigationController
+            let locationVC = navVC.viewControllers.first as! LocationViewController
+            locationVC.name = current_marker.title
+        }
     }
     
     
@@ -286,6 +294,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: GMSMapViewDelegate Methods
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        current_marker = marker
         self.performSegue(withIdentifier: "Show Location", sender: self)
     }
     
@@ -295,7 +304,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.bubbleTransition.duration = 0.25
         self.bubbleTransition.transitionMode = .present
         self.bubbleTransition.startingPoint = self.menuButton.center
-        self.bubbleTransition.bubbleColor = .white
+        self.bubbleTransition.bubbleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.80)
         return self.bubbleTransition
     }
     

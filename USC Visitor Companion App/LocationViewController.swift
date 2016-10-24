@@ -9,9 +9,38 @@
 import UIKit
 
 class LocationViewController: UIViewController {
+    
+
+    @IBOutlet weak var locationName: UITextView!
+    
+    var name : String?
+    var current_location : Location?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if name == nil {
+            locationName.text = "Check-in is temporarily unavailable"
+        }
+        else {
+            locationName.text = name
+        }
+        
+        findLocationObject()
+        loadLocationData()
+        
+    }
+    
+    func findLocationObject() {
+        for location in LocationData.shared.locations {
+            if location.name == name {
+                current_location = location
+                break
+            }
+        }
+    }
+    
+    func loadLocationData(){
+        // start loading fields with location data
     }
     
     
