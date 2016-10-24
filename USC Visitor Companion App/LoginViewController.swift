@@ -9,47 +9,66 @@
 import UIKit
 import Parse
 
+protocol LoginViewControllerDelegate {
+    func userDidLogin()
+}
+
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var passwordTextField: UITextField!
+    // MARK: IBOutlets
     @IBOutlet weak var usernameTextField: UITextField!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
+    @IBOutlet weak var passwordTextField: UITextField!
     
-    //Calls this function when the tap is recognized.
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    @IBAction func loginAction(_ sender: AnyObject) {
-        let username = usernameTextField.text
-        let password = passwordTextField.text
-        
-        if((usernameTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)!)
-        {
-            let alertController = UIAlertController(title: "Error", message: "Please fill in all fields!", preferredStyle: .alert)
-            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in }
-            alertController.addAction(OKAction)
-            self.present(alertController, animated: true) { }
-        } else {
-            User.login(username: username!, password:password!);
+    @IBOutlet weak var loginButton: UIButton! {
+        didSet {
+            self.loginButton.layer.cornerRadius = 7.0
         }
     }
+    
+    
+    // MARK: Properties
+    var delegate: LoginViewControllerDelegate?
 
-    @IBAction func backButtonPressed(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: {})
+    
+    // MARK: IBAction Methods
+    @IBAction func loginButtonPressed() {
+        if let username = self.usernameTextField.text, let password = self.passwordTextField.text {
+            if username.isEmpty || password.isEmpty {
+                self.showAlert(withTitle: "Missing Fields", message: "Please enter both your username and password to login", action: "OK")
+            } else {
+                self.checkLoginDetails()
+            }
+        }
+    }
+    
+    @IBAction func forgotLoginDetailsButtonPressed() {
+        
+    }
+    
+    @IBAction func backgroundButtonPressed() {
+        self.usernameTextField.resignFirstResponder()
+        self.passwordTextField.resignFirstResponder()
+    }
+    
+    
+    // MARK: General Methods
+    func showAlert(withTitle title: String, message: String, action: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: action, style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func checkLoginDetails() {
+        User.login(username: self.usernameTextField.text!, password: self.passwordTextField.text!)
+        if User.current.exists {
+            if let delegate = self.delegate {
+                delegate.userDidLogin()
+                let _ = self.navigationController?.popViewController(animated: true)
+            }
+        } else {
+            self.showAlert(withTitle: "Login Failed", message: "The username or password you entered was incorrect", action: "Try Again")
+        }
     }
  
 }

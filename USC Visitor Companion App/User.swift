@@ -48,7 +48,7 @@ class User: NSObject {
     
     
     // MARK: Class Methods
-    class func signup(name: String, username: String, password: String, email: String, type: UserType) {
+    class func signup(name: String, username: String, password: String, email: String, type: String) {
         let user = PFUser()
         user[UserKey.name.rawValue] = name
         user[UserKey.username.rawValue] = username
@@ -87,17 +87,17 @@ class User: NSObject {
         User.current.interest = PFUser.current()?[UserKey.interest.rawValue] as! String?
         let type = PFUser.current()?[UserKey.type.rawValue] as! String?
         if let type = type {
-            if type == UserType.parent.rawValue {
-                User.current.type = .parent
-            } else if type == UserType.prospective.rawValue {
+            if type == UserType.prospective.rawValue {
                 User.current.type = .prospective
             } else if type == UserType.current.rawValue {
                 User.current.type = .current
+            } else if type == UserType.parent.rawValue {
+                User.current.type = .parent
             } else if type == UserType.admin.rawValue {
                 User.current.type = .admin
             }
         } else {
-            User.current.type = .none  // user did not signup properly
+            User.current.type = .none  // user did not sign up properly
         }
     }
     

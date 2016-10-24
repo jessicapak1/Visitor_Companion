@@ -13,7 +13,7 @@ enum MenuCell: String {
     case login = "Login Cell"
 }
 
-class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MenuLoginTableViewCellDelegate {
+class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MenuLoginTableViewCellDelegate, LoginViewControllerDelegate, SignUpViewControllerDelegate {
     
     @IBOutlet weak var adminButton: UIBarButtonItem!
     
@@ -21,7 +21,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: Properties
     let bubbleTransition = BubbleTransition()
     
-    let cells: [MenuCell] = [.login]
+    var cells: [MenuCell] = []
     
     
     // MARK: IBOutlets
@@ -34,37 +34,35 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBOutlet weak var menuButton: UIButton!
-
     
-    // MARK: View Controller Methods
+    
+    // MARK: View Controller Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-//        nameLabel.isEnabled = false
-//        nameLabel.isHidden = true
-//        
-//        loginButton.isEnabled = false
-//        loginButton.isHidden = true
-//        if User.current.exists { // logged in
-//            nameLabel.isEnabled = true
-//            nameLabel.isHidden = false
-//            
-//            if User.current.name != nil {
-//                self.nameLabel.text = User.current.name
-//            }
-//            
-//            loginButton.isEnabled = false
-//            loginButton.isHidden = true
-//        } else {
-//            nameLabel.isEnabled = false
-//            nameLabel.isHidden = true
-//            
-//            loginButton.isEnabled = true
-//            loginButton.isHidden = false
-//        }
+        if User.current.exists {
+            
+        } else {
+            self.cells.append(.login)
+        }
+    }
+    
+    
+    // MARK: Navigation Controller Methods
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Show Login" {
+            let LVC = segue.destination as! LoginViewController
+            LVC.navigationItem.title = "Login"
+            LVC.delegate = self
+        } else if segue.identifier == "Show Sign Up" {
+            let SUVC = segue.destination as! SignUpViewController
+            SUVC.navigationItem.title = "Sign Up"
+            SUVC.delegate = self
+        }
     }
     
     
     // MARK: UITableViewDelegate Methods
+    
     
     
     // MARK: UITableVIewDataSource Methods
@@ -102,7 +100,21 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func signupButtonPressed() {
-        self.performSegue(withIdentifier: "Show Login", sender: nil)  // self.performSegue(withIdentifier: "Show Sign Up", sender: nil)
+        self.performSegue(withIdentifier: "Show Sign Up", sender: nil)
+    }
+    
+    
+    // MARK: LoginViewControllerDelegate Methods
+    func userDidLogin() {
+        // remove login cell and replace with account cell
+        User.logout()
+    }
+    
+    
+    // MARK: SignUpViewControllerDelegate Methods
+    func userDidSignUp() {
+        // remove login cell and replace with account cell
+        User.logout()
     }
     
     
@@ -112,11 +124,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func settingsButtonPressed(_ sender: AnyObject) {
-        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "settings")
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "settings")
         self.present(viewController, animated: true, completion: nil)
     }
+    
     @IBAction func adminButtonPressed(_ sender: AnyObject) {
-        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "admin")
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "admin")
         self.present(viewController, animated: true, completion: nil)
     }
 
