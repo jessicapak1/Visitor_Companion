@@ -29,6 +29,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     var markers: [String: GMSMarker] = [String: GMSMarker]()
     var current_location = [Location]()
     var current_marker = GMSMarker()
+    let locationManager = CLLocationManager()
     
     var searchResults: [Location] = [Location]()
     
@@ -93,8 +94,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         let camera = GMSCameraPosition.camera(withLatitude: 34.020496, longitude: -118.285317, zoom: 20.0, bearing: 30, viewingAngle: 90.0)
         self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         self.view.insertSubview(self.mapView, at: 0)
-      
-        let locationManager = CLLocationManager()
+    
         // request authorization from the user
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
@@ -105,12 +105,35 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             locationManager.startUpdatingLocation()
         }
         
+        let circleCenter = locationManager.location?.coordinate
+        let circ = GMSCircle(position: circleCenter!, radius: 10)
+        circ.fillColor = UIColor(red: 0.35, green: 0, blue: 0, alpha: 0.05)
+        circ.strokeColor = UIColor.red
+        circ.strokeWidth = 2
+        circ.map = mapView
+        
     }
-    
+
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0]
         print("locations = \(userLocation.coordinate.latitude) \(userLocation.coordinate.longitude)")
     }
+    
+    func nearby() {
+        //OR USE PARSE???? CHRISTIAN HALP
+        var distance : CLLocationDistance?
+        let maxDistance = CLLocationDistance(10)
+        for location in LocationData.shared.locations {
+            distance = locationManager.location?.distance(from: location.location!)
+            if distance! < maxDistance {
+                let marker = GMSMarker()
+                marker.map = self.mapView
+                marker.icon = GMSMarker.markerImage(with: UIColor.red)
+            }
+        }
+        
+    }
+    
     
     func showMarkers() {
         //create custom marker icons
@@ -166,6 +189,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             
             self.markers[location.name!] = marker
         }
+       
         
         
     }
@@ -181,7 +205,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     func showInformation(forLocation location: Location) {
         self.mapView.selectedMarker = self.markers[location.name!]
     }
-    
     
     // MARK: Search Methods
     func addSearch() {
@@ -312,7 +335,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.bubbleTransition.transitionMode = .dismiss
         return self.bubbleTransition
     }
-    
     
     // MARK: IBAction Methods
     @IBAction func locationButtonPressed(_ sender: UIButton) {
