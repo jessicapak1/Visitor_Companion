@@ -20,7 +20,7 @@ class EditProfileViewController: UITableViewController, UIPickerViewDelegate, UI
     var selectedUserType = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         usertypePicker.dataSource = self;
         usertypePicker.delegate = self;

@@ -22,29 +22,13 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton! {
         didSet {
-            self.loginButton.layer.cornerRadius = 10.0
+            self.loginButton.layer.cornerRadius = 7.0
         }
     }
     
     
     // MARK: Properties
     var delegate: LoginViewControllerDelegate?
-    
-    
-    // MARK: View Controller Lifecycle Methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
-    
-    //Calls this function when the tap is recognized.
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
 
     
     // MARK: IBAction Methods
@@ -60,6 +44,15 @@ class LoginViewController: UIViewController {
     
     @IBAction func forgotLoginDetailsButtonPressed() {
         
+    }
+    
+    @IBAction func backgroundButtonPressed() {
+        if self.usernameTextField.isFirstResponder {
+            self.usernameTextField.resignFirstResponder()
+        }
+        if self.passwordTextField.isFirstResponder {
+            self.passwordTextField.resignFirstResponder()
+        }
     }
     
     
