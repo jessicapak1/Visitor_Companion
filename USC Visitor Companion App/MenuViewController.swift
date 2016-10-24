@@ -13,7 +13,7 @@ enum MenuCell: String {
     case login = "Login Cell"
 }
 
-class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MenuLoginTableViewCellDelegate, LoginViewControllerDelegate {
+class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MenuLoginTableViewCellDelegate, LoginViewControllerDelegate, SignUpViewControllerDelegate {
     
     @IBOutlet weak var adminButton: UIBarButtonItem!
     
@@ -56,6 +56,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else if segue.identifier == "Show Sign Up" {
             let SUVC = segue.destination as! SignUpViewController
             SUVC.navigationItem.title = "Sign Up"
+            SUVC.delegate = self
         }
     }
     
@@ -105,6 +106,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: LoginViewControllerDelegate Methods
     func userDidLogin() {
+        // remove login cell and replace with account cell
+        User.logout()
+    }
+    
+    
+    // MARK: SignUpViewControllerDelegate Methods
+    func userDidSignUp() {
         // remove login cell and replace with account cell
         User.logout()
     }

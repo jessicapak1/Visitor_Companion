@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
             if username.isEmpty || password.isEmpty {
                 self.showAlert(withTitle: "Missing Fields", message: "Please enter both your username and password to login", action: "OK")
             } else {
-                self.checkLoginDetails(username: username, password: password)
+                self.checkLoginDetails()
             }
         }
     }
@@ -47,12 +47,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func backgroundButtonPressed() {
-        if self.usernameTextField.isFirstResponder {
-            self.usernameTextField.resignFirstResponder()
-        }
-        if self.passwordTextField.isFirstResponder {
-            self.passwordTextField.resignFirstResponder()
-        }
+        self.usernameTextField.resignFirstResponder()
+        self.passwordTextField.resignFirstResponder()
     }
     
     
@@ -63,8 +59,8 @@ class LoginViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func checkLoginDetails(username: String, password: String) {
-        User.login(username: username, password: password)
+    func checkLoginDetails() {
+        User.login(username: self.usernameTextField.text!, password: self.passwordTextField.text!)
         if User.current.exists {
             if let delegate = self.delegate {
                 delegate.userDidLogin()
