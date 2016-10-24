@@ -1,5 +1,5 @@
 //
-//  RegistrationViewController.swift
+//  SignUpViewController.swift
 //  USC Visitor Companion App
 //
 //  Created by Jessica Pak on 9/24/16.
@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class RegistrationViewController: UIViewController {
+class SignUpViewController: UIViewController {
 
   
     @IBOutlet weak var passwordTextField: UITextField!
@@ -17,7 +17,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegistrationViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
