@@ -31,7 +31,13 @@ class LocationViewController: UIViewController {
     
     func loadLocationData(){
         // start loading fields with location data
-        locationName.text = current_location?.name
+        if current_location != nil {
+            locationName.text = current_location?.name
+        }
+        else {
+            locationName.text = " Location is empty "
+        }
+        
     }
     
     
