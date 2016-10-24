@@ -10,17 +10,26 @@ import UIKit
 import CoreData
 import CoreLocation
 
+
 class AdminTableViewController: UITableViewController {
     var interestsArray: [String] = [String]()
+    var locationName: String = ""
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var interestsPicker: UIPickerView!
     @IBOutlet weak var interestsLabel: UILabel!
     @IBOutlet weak var locationsTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let locationObject = LocationData.shared.getLocation(withName: locationName)
+
+        
+        self.nameTextField.text = locationObject.name
+        self.codeTextField.text = locationObject.code
+        self.descriptionTextView.text = locationObject.details
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -35,8 +44,8 @@ class AdminTableViewController: UITableViewController {
     }
 
     @IBAction func interestsButtonAction(_ sender: AnyObject) {
-        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "interests")
-        self.present(viewController, animated: true, completion: nil)
+//        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "interests")
+//        self.present(viewController, animated: true, completion: nil)
         
     }
     @IBAction func addButtonAction(_ sender: AnyObject) {
@@ -90,8 +99,16 @@ class AdminTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("inside segue")
-        if (segue.identifier == "interests") {
+        if (segue.identifier == "admin_to_interest") {
             print("inside segue interests")
+            //get a reference to the destination view controller
+            let destinationVC:InterestsViewController = segue.destination as! InterestsViewController
+            
+            interestsArray = destinationVC.interests
+            for i in (0..<interestsArray.count) {
+                print(interestsArray[i])
+            }
+        } else if (segue.identifier == "admin_to_map") {
             //get a reference to the destination view controller
             let destinationVC:InterestsViewController = segue.destination as! InterestsViewController
             

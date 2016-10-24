@@ -811,6 +811,7 @@ Christian Villa – Computer Science Major    </string>
                                                     <state key="normal" title="Select Location"/>
                                                     <connections>
                                                         <action selector="locationsButtonAction:" destination="U5h-Tb-fNv" eventType="touchUpInside" id="Gpi-t3-7cf"/>
+                                                        <segue destination="nft-j1-Vc1" kind="presentation" identifier="admin_to_map" id="SiM-AL-qHH"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -858,6 +859,7 @@ Christian Villa – Computer Science Major    </string>
                                                     <state key="normal" title="Interests"/>
                                                     <connections>
                                                         <action selector="interestsButtonAction:" destination="U5h-Tb-fNv" eventType="touchUpInside" id="Jsw-NE-zOM"/>
+                                                        <segue destination="EQN-An-L1s" kind="presentation" identifier="admin_to_interests" id="cID-vd-WLx"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -952,7 +954,7 @@ Christian Villa – Computer Science Major    </string>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="+" id="RXQ-R6-3RG">
                             <connections>
-                                <segue destination="RYa-VT-6M0" kind="presentation" id="nyi-2A-dKa"/>
+                                <segue destination="RYa-VT-6M0" kind="presentation" identifier="admin_to_adminsingle" id="nyi-2A-dKa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -969,7 +971,7 @@ Christian Villa – Computer Science Major    </string>
         <scene sceneID="iUw-MA-aq8">
             <objects>
                 <navigationController storyboardIdentifier="admin_one" id="RYa-VT-6M0" userLabel="Admin Add Loc Navigation Controller" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dq1-DT-6Qm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Dq1-DT-6Qm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
