@@ -27,6 +27,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     var markers: [String: GMSMarker] = [String: GMSMarker]()
+    var current_location = GMSMarker()
     
     var searchResults: [Location] = [Location]()
     
@@ -81,7 +82,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             // show locations with Food interets from InterestData
         } else if self.segmentedControl.index == 3 { // Search
             self.showSearch()
-            do { try self.segmentedControl.set(0, animated: true) } catch { } // should be set to the segment of the location
+            do { try self.segmentedControl.set(index: 0, animated: true) } catch { } // should be set to the segment of the location
         }
     }
     
@@ -286,6 +287,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: GMSMapViewDelegate Methods
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        current_location = marker
         self.performSegue(withIdentifier: "Show Location", sender: self)
     }
     
