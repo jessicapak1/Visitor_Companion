@@ -50,20 +50,45 @@ class Location: NSObject {
         object?.saveInBackground()
     }
     
-    func removeInterestTag(interestName: String) {
+    func removeInterestTags(interestNames: [String]) {
         
         var interestNameArr = self.object?["interests"] as! [String]
-        if let serverIndex = interestNameArr.index(of: interestName) {
-            interestNameArr.remove(at: serverIndex)
-            self.object?.setObject(interestName, forKey: "interests")
-            self.object?.saveInBackground()
-            
-            let localIndex = self.interests?.index(of: interestName)
-            self.interests?.remove(at: localIndex!)
-        } else {
-            print("ERROR: something went wrong removing an interest from a location")
+        for interestName in interestNames {
+            if let serverIndex = interestNameArr.index(of: interestName) {
+                interestNameArr.remove(at: serverIndex)
+                self.object?.setObject(interestNameArr, forKey: "interests")
+                
+                let localIndex = self.interests?.index(of: interestName)
+                self.interests?.remove(at: localIndex!)
+            } else {
+                print("ERROR: something went wrong removing an interest from a location")
+            }
         }
         
+        self.object?.saveInBackground()
+        
+    }
+    
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
+    func addInterestTags(interestNames: [String]) {
+        
+        for interestName in interestNames {
+            if self.interests?.index(of: interestName) == nil {
+                self.interests?.append(interestName)
+            }
+        }
+        
+        self.object?["interests"] = self.interests
+        self.object?.saveInBackground()
+        
+        
+    }
+    
+    func changeDetails(newDetails: String) {
+        self.details = newDetails
+        
+        self.object?["details"] = newDetails
+        self.object?.saveInBackground()
     }
     
     func delete() {

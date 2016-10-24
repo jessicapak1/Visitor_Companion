@@ -81,10 +81,32 @@ class Interest: NSObject {
         self.object?.saveInBackground()
     }
     
+    // DO NOT CALL. for use by Data models
+    func tagLocation(locationName: String) -> () {
+        
+        let location = LocationData.shared.getLocation(withName: locationName)
+        
+        if self.locations?.index(of: location) == nil {
+            self.locations?.append(location)
+            
+            
+            var locNames = [String]()
+            
+            for locObject in self.locations! {
+                locNames.append(locObject.name!)
+            }
+            
+            self.object?["locations"] = locNames
+            self.object?.saveInBackground()
+        }
+    }
+    
     // deletes this location from everything. intended to be called from deleteInterests via InterestsData.shared
     func delete() {
         for location in self.locations! {
-            location.removeInterestTag(interestName: self.name!)
+            var names = [String]()
+            names.append(self.name!)
+            location.removeInterestTags(interestNames: names)
         }
         // delete from database
         self.object?.deleteInBackground()

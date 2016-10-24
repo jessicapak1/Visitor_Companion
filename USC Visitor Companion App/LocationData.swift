@@ -90,8 +90,45 @@ class LocationData: NSObject {
         return nameMatches + wordMatches + codeMatches
     }
     
-    func tagLocation(withLocationName name: String, withInterests interests: [String]) {
+    // call this function to tag locations with interests
+    func tagLocation(withLocationName locationName: String, withInterests interestNames: [String]) {
+        // if we find the Location we're looking for
+        if let locationOb = self.namesToLocations[locationName] {
+            var validTags = [String]()
+            
+            for interestName in interestNames {
+                if (InterestsData.shared.namesToInterests[interestName] != nil) {
+                    InterestsData.shared.namesToInterests[interestName]?.tagLocation(locationName: locationName)
+                    
+                    validTags.append(interestName)
+                }
+            }
+            
+            locationOb.addInterestTags(interestNames: validTags)
+            
+        } else {
+            print("ERROR: Trying to add interests to a Location that does not exist")
+        }
+    }
+    
+    func untagLocation(fromLocationName locationName: String, withInterests interestNames: [String]) {
         
+//        if let locationOb = self.namesToLocations[locationName] {
+//            var validTags = [String]()
+//            
+//            for interestName in interestNames {
+//                if (InterestsData.shared.namesToInterests[interestName] != nil) {
+//                    InterestsData.shared.namesToInterests[interestName]?.tagLocation(locationName: locationName)
+//                    
+//                    validTags.append(interestName)
+//                }
+//            }
+//            
+//            locationOb.addInterestTags(interestNames: validTags)
+//            
+//        } else {
+//            print("ERROR: Trying to add interests from a Location that does not exist")
+//        }
     }
     
     // call to completely delete a location
@@ -101,4 +138,10 @@ class LocationData: NSObject {
             location.delete()
         }
     }
+    
+    // get a single location by name. Only use to get data from a Location object
+    func getLocation(withName name: String) -> Location {
+        return self.namesToLocations[name]!
+    }
+
 }
