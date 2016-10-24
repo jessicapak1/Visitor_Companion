@@ -27,7 +27,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     var markers: [String: GMSMarker] = [String: GMSMarker]()
-    var current_location = GMSMarker()
+    var current_location = [Location]()
+    var current_marker = GMSMarker()
     
     var searchResults: [Location] = [Location]()
     
@@ -216,6 +217,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             NVC.transitioningDelegate = self
             NVC.modalPresentationStyle = .custom
         }
+        
+        if segue.identifier == "Show Location" {
+            let navVC = segue.destination as! UINavigationController
+            let locationVC = navVC.viewControllers.first as! LocationViewController
+            locationVC.name = current_marker.title
+        }
     }
     
     
@@ -287,7 +294,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: GMSMapViewDelegate Methods
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        current_location = marker
+        current_marker = marker
         self.performSegue(withIdentifier: "Show Location", sender: self)
     }
     

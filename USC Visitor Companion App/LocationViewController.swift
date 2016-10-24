@@ -9,9 +9,22 @@
 import UIKit
 
 class LocationViewController: UIViewController {
+    
+
+    @IBOutlet weak var locationName: UITextView!
+    
+    var name : String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (name == nil)
+        {
+            locationName.text = "Check-in ain't working, man"
+        }
+        else {
+            locationName.text = name
+        }
+        
     }
     
     
