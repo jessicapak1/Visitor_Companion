@@ -111,34 +111,60 @@ class LocationData: NSObject {
         }
     }
     
+    
+    // untags the interests (interestNames) from a particular
     func untagLocation(fromLocationName locationName: String, withInterests interestNames: [String]) {
         
-//        if let locationOb = self.namesToLocations[locationName] {
-//            var validTags = [String]()
-//            
-//            for interestName in interestNames {
-//                if (InterestsData.shared.namesToInterests[interestName] != nil) {
-//                    InterestsData.shared.namesToInterests[interestName]?.tagLocation(locationName: locationName)
-//                    
-//                    validTags.append(interestName)
-//                }
-//            }
-//            
-//            locationOb.addInterestTags(interestNames: validTags)
-//            
-//        } else {
-//            print("ERROR: Trying to add interests from a Location that does not exist")
-//        }
+        if let locationOb = self.namesToLocations[locationName] {
+            var validTags = [String]()
+            
+            // for every interest's name we passed in
+            for interestName in interestNames {
+                
+                // if we actually have that interest
+                if (InterestsData.shared.namesToInterests[interestName] != nil) {
+                    
+                    // untag the location from that interest
+                    InterestsData.shared.namesToInterests[interestName]?.untagLocation(locationName: locationName)
+                    
+                    // and add the interest to the array we're actually removing from this location (trying to avoid attempting an inappropriate removal)
+                    validTags.append(interestName)
+                }
+            }
+            
+            
+            locationOb.removeInterestTags(interestNames: validTags)
+            
+        } else {
+            print("ERROR: Trying to remove interests from a Location that does not exist")
+        }
     }
     
-    // call to completely delete a location
+    // change the details for this Location with name
+    func changeDetails(forLocationName name: String, withNewDetails details: String) {
+        if let locationOb = self.namesToLocations[name] {
+            locationOb.changeDetails(newDetails: details)
+        }
+    }
+    
+    // change the building code for this Location with name
+    func changeCode(forLocationName name: String, withNewCode code: String) {
+        if let locationOb = self.namesToLocations[name] {
+            locationOb.changeCode(newCode: code)
+        }
+    }
+    
+    // change geo location of Location with name
+//    func changeGeoLocation(forLocationName name: String, withNewCode code: String)
+    
+    // call to completely delete a location with name
     func deleteLocation(withName locationName: String) -> () {
         if let location = LocationData.shared.namesToLocations[locationName] {
             
             location.delete()
         }
     }
-    
+
     // get a single location by name. Only use to get data from a Location object
     func getLocation(withName name: String) -> Location {
         return self.namesToLocations[name]!
