@@ -18,12 +18,6 @@ class LocationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if name == nil {
-            locationName.text = "Check-in is temporarily unavailable"
-        }
-        else {
-            locationName.text = name
-        }
         
         findLocationObject()
         loadLocationData()
@@ -31,16 +25,13 @@ class LocationViewController: UIViewController {
     }
     
     func findLocationObject() {
-        for location in LocationData.shared.locations {
-            if location.name == name {
-                current_location = location
-                break
-            }
-        }
+        current_location = LocationData.shared.getLocation(withName: name!)
+        
     }
     
     func loadLocationData(){
         // start loading fields with location data
+        locationName.text = current_location?.name
     }
     
     
