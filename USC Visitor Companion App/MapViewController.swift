@@ -106,12 +106,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         }
         
         let circleCenter = locationManager.location?.coordinate
-        let circ = GMSCircle(position: circleCenter!, radius: 10)
-        circ.fillColor = UIColor(red: 0.35, green: 0, blue: 0, alpha: 0.05)
-        circ.strokeColor = UIColor.red
-        circ.strokeWidth = 2
-        circ.map = mapView
-        
+        if let circleCenter = circleCenter {
+            let circ = GMSCircle(position: circleCenter, radius: 10)
+            circ.fillColor = UIColor(red: 0.35, green: 0, blue: 0, alpha: 0.05)
+            circ.strokeColor = UIColor.red
+            circ.strokeWidth = 2
+            circ.map = mapView
+        }
     }
 
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -324,6 +325,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: UIViewControllerTransitioningDelegate Methods
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        self.segmentedControl.isHidden = true
         self.bubbleTransition.duration = 0.25
         self.bubbleTransition.transitionMode = .present
         self.bubbleTransition.startingPoint = self.menuButton.center
