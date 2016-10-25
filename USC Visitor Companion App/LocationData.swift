@@ -155,19 +155,52 @@ class LocationData: NSObject {
     }
     
     // change geo location of Location with name
-//    func changeGeoLocation(forLocationName name: String, withNewCode code: String)
+    func changeGeoLocation(forLocationName name: String, withCLLocation loc: CLLocation) {
+        if let locationOb = self.namesToLocations[name] {
+            locationOb.changeGeoLocation(withCLLocation: loc)
+        }
+    }
+    
+    func changeGeoLocation(forLocationName name: String, withLatitude lat: CLLocationDegrees, withLongitude long: CLLocationDegrees) {
+        if let locationOb = self.namesToLocations[name] {
+            let loc = CLLocation(latitude: lat, longitude: long)
+            locationOb.changeGeoLocation(withCLLocation: loc)
+        }
+    }
+    
+    func changeLocationName(oldName: String, newName: String) {
+        if let locationOb = self.namesToLocations[oldName] {
+            
+            for interestName in locationOb.interests! {
+                if let interestOb = InterestsData.shared.namesToInterests[interestName] {
+                    interestOb.renameLocation(oldName: oldName, newName: newName)
+                }
+            }
+            
+            // change name within maps
+            self.idsToNames[locationOb.objectId!] = newName
+            self.namesToLocations[newName] = locationOb
+            self.namesToLocations[oldName] = nil
+            
+            // change name within object
+            locationOb.changeName(newName: newName)
+        }
+    }
     
     // call to completely delete a location with name
     func deleteLocation(withName locationName: String) -> () {
-        if let location = LocationData.shared.namesToLocations[locationName] {
+        if let location = self.namesToLocations[locationName] {
             
             location.delete()
         }
     }
 
     // get a single location by name. Only use to get data from a Location object
-    func getLocation(withName name: String) -> Location {
-        return self.namesToLocations[name]!
+    func getLocation(withName name: String) -> Location? {
+        if self.namesToLocations[name] != nil {
+            return self.namesToLocations[name]!
+        }
+        return nil
     }
 
 }

@@ -9,9 +9,35 @@
 import UIKit
 
 class LocationViewController: UIViewController {
+    
+
+    @IBOutlet weak var locationName: UITextView!
+    
+    var name : String?
+    var currentLocation : Location?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        findLocationObject()
+        loadLocationData()
+        
+    }
+    
+    func findLocationObject() {
+        currentLocation = LocationData.shared.getLocation(withName: name!)
+        
+    }
+    
+    func loadLocationData(){
+        // start loading fields with location data
+        if currentLocation != nil {
+            locationName.text = currentLocation?.name
+        }
+        else {
+            locationName.text = " Location is empty "
+        }
+        
     }
     
     

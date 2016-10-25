@@ -115,6 +115,24 @@ class Location: NSObject {
         }
     }
     
+    
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
+    func changeGeoLocation(withCLLocation loc: CLLocation) {
+        // save locally
+        self.location = loc
+        
+        // save on database
+        self.object?["location"] = loc
+        self.object?.saveInBackground()
+    }
+    
+    func changeName(newName: String) {
+        self.name = newName
+        
+        self.object?["name"] = newName
+        self.object?.saveInBackground()
+    }
+    
     // DO NOT CALL THIS FUNCTION. Only for use by LocationData
     func delete() {
         // remove this Location from the InterestsData model
