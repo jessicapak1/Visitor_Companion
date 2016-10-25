@@ -17,7 +17,7 @@ class ChangePasswordTableViewController: UITableViewController, UITextFieldDeleg
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ChangePasswordTableViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         doneButton.isEnabled = false
         // Do any additional setup after loading the view.
@@ -39,6 +39,11 @@ class ChangePasswordTableViewController: UITableViewController, UITextFieldDeleg
                 
             }
         }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelButtonPressed(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

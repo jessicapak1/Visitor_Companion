@@ -11,14 +11,18 @@ import BubbleTransition
 
 enum MenuCell: String {
     case login = "Login Cell"
+    case interest = "Interest Cell"
 }
 
-class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MenuLoginTableViewCellDelegate {
+class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MenuLoginTableViewCellDelegate, LoginViewControllerDelegate, SignUpViewControllerDelegate {
+    
+    @IBOutlet weak var adminButton: UIBarButtonItem!
+    
     
     // MARK: Properties
     let bubbleTransition = BubbleTransition()
     
-    let cells: [MenuCell] = [.login]
+    var cells: [MenuCell] = []
     
     
     // MARK: IBOutlets
@@ -27,41 +31,40 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.menuTableView.delegate = self
             self.menuTableView.dataSource = self
             self.menuTableView.register(UINib(nibName: "MenuLoginTableViewCell", bundle: nil), forCellReuseIdentifier: "Login Cell")
+            self.menuTableView.register(UINib(nibName: "MenuInterestTableViewCell", bundle: nil), forCellReuseIdentifier: "Interest Cell")
         }
     }
     
     @IBOutlet weak var menuButton: UIButton!
-
     
-    // MARK: View Controller Methods
+    
+    // MARK: View Controller Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-//        nameLabel.isEnabled = false
-//        nameLabel.isHidden = true
-//        
-//        loginButton.isEnabled = false
-//        loginButton.isHidden = true
-//        if User.current.exists { // logged in
-//            nameLabel.isEnabled = true
-//            nameLabel.isHidden = false
-//            
-//            if User.current.name != nil {
-//                self.nameLabel.text = User.current.name
-//            }
-//            
-//            loginButton.isEnabled = false
-//            loginButton.isHidden = true
-//        } else {
-//            nameLabel.isEnabled = false
-//            nameLabel.isHidden = true
-//            
-//            loginButton.isEnabled = true
-//            loginButton.isHidden = false
-//        }
+        if User.current.exists {
+            self.cells = [.interest]
+        } else {
+            self.cells = [.interest, .login]
+        }
+    }
+    
+    
+    // MARK: Navigation Controller Methods
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Show Login" {
+            let LVC = segue.destination as! LoginViewController
+            LVC.navigationItem.title = "Login"
+            LVC.delegate = self
+        } else if segue.identifier == "Show Sign Up" {
+            let SUVC = segue.destination as! SignUpViewController
+            SUVC.navigationItem.title = "Sign Up"
+            SUVC.delegate = self
+        }
     }
     
     
     // MARK: UITableViewDelegate Methods
+    
     
     
     // MARK: UITableVIewDataSource Methods
@@ -74,12 +77,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let identifier = self.cells[indexPath.row].rawValue
         
         if cell == .login {
-            let loginCell = self.menuTableView.dequeueReusableCell(withIdentifier: identifier) as! MenuLoginTableViewCell
-            loginCell.delegate = self
-            return loginCell
+            return self.configureLoginCell(withIdentifier: identifier)
+        } else if cell == .interest {
+            return self.configureInterestCell(withIdentifier: identifier)
         }
         
-        return UITableViewCell() // DELETE ASAP
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -87,9 +90,27 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if cell == .login {
             return MenuLoginTableViewCell.defaultHeight
+        } else if cell == .interest {
+            return MenuInterestTableViewCell.defaultHeight
         }
         
-        return 50.0 // DELETE ASAP
+        return 0.0
+    }
+    
+    func configureInterestCell(withIdentifier identifier: String) -> MenuInterestTableViewCell {
+        let interestCell = self.menuTableView.dequeueReusableCell(withIdentifier: identifier) as! MenuInterestTableViewCell
+        if User.current.exists {
+            interestCell.interestLabel.text = User.current.interest
+        } else {
+            interestCell.interestLabel.text = "General"
+        }
+        return interestCell
+    }
+    
+    func configureLoginCell(withIdentifier identifier: String) -> MenuLoginTableViewCell {
+        let loginCell = self.menuTableView.dequeueReusableCell(withIdentifier: identifier) as! MenuLoginTableViewCell
+        loginCell.delegate = self
+        return loginCell
     }
     
     
@@ -98,8 +119,22 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.performSegue(withIdentifier: "Show Login", sender: nil)
     }
     
-    func signupButtonPressed() {
-        self.performSegue(withIdentifier: "Show Login", sender: nil)  // self.performSegue(withIdentifier: "Show Sign Up", sender: nil)
+    func signUpButtonPressed() {
+        self.performSegue(withIdentifier: "Show Sign Up", sender: nil)
+    }
+    
+    
+    // MARK: LoginViewControllerDelegate Methods
+    func userDidLogin() {
+        // remove login cell and replace with account cell
+        User.logout()
+    }
+    
+    
+    // MARK: SignUpViewControllerDelegate Methods
+    func userDidSignUp() {
+        // remove login cell and replace with account cell
+        User.logout()
     }
     
     
@@ -107,5 +142,16 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func menuButtonPressed() {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func settingsButtonPressed(_ sender: AnyObject) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "settings")
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func adminButtonPressed(_ sender: AnyObject) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "admin")
+        self.present(viewController, animated: true, completion: nil)
+    }
+
  
 }

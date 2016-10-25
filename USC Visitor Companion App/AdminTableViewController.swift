@@ -11,7 +11,7 @@ import CoreData
 import CoreLocation
 
 class AdminTableViewController: UITableViewController {
-
+    var interestsArray: [String] = [String]()
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var interestsPicker: UIPickerView!
@@ -21,6 +21,7 @@ class AdminTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -34,9 +35,9 @@ class AdminTableViewController: UITableViewController {
     }
 
     @IBAction func interestsButtonAction(_ sender: AnyObject) {
-        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "interests") as! InterestsViewController
+        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "interests")
+        self.present(viewController, animated: true, completion: nil)
         
-        self.navigationController?.pushViewController(secondViewController, animated: true)
     }
     @IBAction func addButtonAction(_ sender: AnyObject) {
         if((nameTextField.text?.isEmpty)! || (descriptionTextView.text?.isEmpty)!)
@@ -72,9 +73,32 @@ class AdminTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 4 { // link with facebook
+            // do something
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func closeButtonAction(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("inside segue")
+        if (segue.identifier == "interests") {
+            print("inside segue interests")
+            //get a reference to the destination view controller
+            let destinationVC:InterestsViewController = segue.destination as! InterestsViewController
+            
+            interestsArray = destinationVC.interests
+            for i in (0..<interestsArray.count) {
+                print(interestsArray[i])
+            }
+        }
+    }
 }

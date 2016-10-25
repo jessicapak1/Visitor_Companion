@@ -23,7 +23,7 @@
 		75EABC491D98BA1E0075E75E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC401D98BA1E0075E75E /* AboutViewController.swift */; };
 		75EABC4A1D98BA1E0075E75E /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC411D98BA1E0075E75E /* LocationsViewController.swift */; };
 		75EABC4C1D98BA1E0075E75E /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC431D98BA1E0075E75E /* InterestsViewController.swift */; };
-		75EABC4E1D98BA1E0075E75E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */; };
+		75EABC4E1D98BA1E0075E75E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC451D98BA1E0075E75E /* SignUpViewController.swift */; };
 		A1E1375FD19E64048101C8B3 /* Pods_USC_Visitor_Companion_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DB3DC7F7064736DF04206E /* Pods_USC_Visitor_Companion_App.framework */; };
 		AA06C9071DA18CCD00B753CF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA06C9061DA18CCD00B753CF /* MenuViewController.swift */; };
 		AA15CE361DA635B80025CBAA /* NoResultsFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA15CE341DA635B80025CBAA /* NoResultsFoundTableViewCell.swift */; };
@@ -31,6 +31,8 @@
 		AA1DFD591DAB687E00BECB5A /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1DFD581DAB687E00BECB5A /* UserTests.swift */; };
 		AA2277A21DA2039100F5C1B0 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2277A11DA2039100F5C1B0 /* LocationData.swift */; };
 		AA38AD3F1D9C9F150067E1C9 /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA38AD3E1D9C9F150067E1C9 /* Interest.swift */; };
+		AA3B8A041DBF29BF0013580E /* MenuInterestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3B8A021DBF29BF0013580E /* MenuInterestTableViewCell.swift */; };
+		AA3B8A051DBF29BF0013580E /* MenuInterestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA3B8A031DBF29BF0013580E /* MenuInterestTableViewCell.xib */; };
 		AA536C4B1DB4822E009A608A /* MenuLoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA536C491DB4822E009A608A /* MenuLoginTableViewCell.swift */; };
 		AA536C4C1DB4822E009A608A /* MenuLoginTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA536C4A1DB4822E009A608A /* MenuLoginTableViewCell.xib */; };
 		AA7249DE1DA488B8009AED20 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7249DC1DA488B8009AED20 /* SearchResultTableViewCell.swift */; };
@@ -83,13 +85,15 @@
 		75EABC401D98BA1E0075E75E /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		75EABC411D98BA1E0075E75E /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		75EABC431D98BA1E0075E75E /* InterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
-		75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		75EABC451D98BA1E0075E75E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		AA06C9061DA18CCD00B753CF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		AA15CE341DA635B80025CBAA /* NoResultsFoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoResultsFoundTableViewCell.swift; sourceTree = "<group>"; };
 		AA15CE351DA635B80025CBAA /* NoResultsFoundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoResultsFoundTableViewCell.xib; sourceTree = "<group>"; };
 		AA1DFD581DAB687E00BECB5A /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		AA2277A11DA2039100F5C1B0 /* LocationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		AA38AD3E1D9C9F150067E1C9 /* Interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
+		AA3B8A021DBF29BF0013580E /* MenuInterestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuInterestTableViewCell.swift; sourceTree = "<group>"; };
+		AA3B8A031DBF29BF0013580E /* MenuInterestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuInterestTableViewCell.xib; sourceTree = "<group>"; };
 		AA536C491DB4822E009A608A /* MenuLoginTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuLoginTableViewCell.swift; sourceTree = "<group>"; };
 		AA536C4A1DB4822E009A608A /* MenuLoginTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuLoginTableViewCell.xib; sourceTree = "<group>"; };
 		AA7249DC1DA488B8009AED20 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 		AAD38BA31D971648004DD648 /* USC Visitor Companion AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "USC Visitor Companion AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD38BA71D971648004DD648 /* USC_Visitor_Companion_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USC_Visitor_Companion_AppUITests.swift; sourceTree = "<group>"; };
 		AAD38BA91D971648004DD648 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAEBF4881DBD96A2004EC6DD /* USC Visitor Companion App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "USC Visitor Companion App.entitlements"; sourceTree = "<group>"; };
 		AAF9A9EE1D9B457F00CB57AF /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BEA06F35E18ACCBABF2C162A /* Pods-USC Visitor Companion App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USC Visitor Companion App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-USC Visitor Companion App/Pods-USC Visitor Companion App.debug.xcconfig"; sourceTree = "<group>"; };
 		D52836DEAE47E698A6361404 /* Pods-USC Visitor Companion AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USC Visitor Companion AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-USC Visitor Companion AppTests/Pods-USC Visitor Companion AppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +158,24 @@
 				F76203F56CA56F4183C9D94C /* Pods_USC_Visitor_Companion_AppUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA625C031DBD85E30097B51E /* Menu Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA3B8A031DBF29BF0013580E /* MenuInterestTableViewCell.xib */,
+				AA536C4A1DB4822E009A608A /* MenuLoginTableViewCell.xib */,
+			);
+			name = "Menu Views";
+			sourceTree = "<group>";
+		};
+		AA625C041DBD85E80097B51E /* Map Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA7249DD1DA488B8009AED20 /* SearchResultTableViewCell.xib */,
+				AA15CE351DA635B80025CBAA /* NoResultsFoundTableViewCell.xib */,
+			);
+			name = "Map Views";
 			sourceTree = "<group>";
 		};
 		AAD38B781D971648004DD648 = {
@@ -224,9 +247,8 @@
 			children = (
 				AAD38B881D971648004DD648 /* Main.storyboard */,
 				AAD38B901D971648004DD648 /* LaunchScreen.storyboard */,
-				AA7249DD1DA488B8009AED20 /* SearchResultTableViewCell.xib */,
-				AA15CE351DA635B80025CBAA /* NoResultsFoundTableViewCell.xib */,
-				AA536C4A1DB4822E009A608A /* MenuLoginTableViewCell.xib */,
+				AA625C041DBD85E80097B51E /* Map Views */,
+				AA625C031DBD85E30097B51E /* Menu Views */,
 				AAD38BBE1D972E44004DD648 /* Resources */,
 			);
 			name = Views;
@@ -242,7 +264,7 @@
 				75EABC401D98BA1E0075E75E /* AboutViewController.swift */,
 				75EABC411D98BA1E0075E75E /* LocationsViewController.swift */,
 				75EABC431D98BA1E0075E75E /* InterestsViewController.swift */,
-				75EABC451D98BA1E0075E75E /* RegistrationViewController.swift */,
+				75EABC451D98BA1E0075E75E /* SignUpViewController.swift */,
 				755993ED1D98D5EC0090717C /* ForgotPasswordViewController.swift */,
 				75CDBD091DA1B9B300AC0E1C /* AdminTableViewController.swift */,
 				4ED64E701DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift */,
@@ -257,6 +279,7 @@
 		AAD38BBD1D972E26004DD648 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AAEBF4881DBD96A2004EC6DD /* USC Visitor Companion App.entitlements */,
 				AAD38B841D971648004DD648 /* AppDelegate.swift */,
 				AAD38B931D971648004DD648 /* Info.plist */,
 			);
@@ -268,6 +291,7 @@
 			children = (
 				AA7249DC1DA488B8009AED20 /* SearchResultTableViewCell.swift */,
 				AA15CE341DA635B80025CBAA /* NoResultsFoundTableViewCell.swift */,
+				AA3B8A021DBF29BF0013580E /* MenuInterestTableViewCell.swift */,
 				AA536C491DB4822E009A608A /* MenuLoginTableViewCell.swift */,
 				AAD38B8E1D971648004DD648 /* Assets.xcassets */,
 			);
@@ -365,6 +389,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = LE9MW95T43;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					AAD38B971D971648004DD648 = {
 						CreatedOnToolsVersion = 8.0;
@@ -408,6 +437,7 @@
 				AAD38B921D971648004DD648 /* LaunchScreen.storyboard in Resources */,
 				AA7249DF1DA488B8009AED20 /* SearchResultTableViewCell.xib in Resources */,
 				AAD38B8F1D971648004DD648 /* Assets.xcassets in Resources */,
+				AA3B8A051DBF29BF0013580E /* MenuInterestTableViewCell.xib in Resources */,
 				AAD38B8A1D971648004DD648 /* Main.storyboard in Resources */,
 				AA536C4C1DB4822E009A608A /* MenuLoginTableViewCell.xib in Resources */,
 				AA15CE371DA635B80025CBAA /* NoResultsFoundTableViewCell.xib in Resources */,
@@ -573,9 +603,10 @@
 				4EC1196C1DBD49ED0037996E /* UIImageViewModeScaleAspect.swift in Sources */,
 				75CDBD0A1DA1B9B300AC0E1C /* AdminTableViewController.swift in Sources */,
 				758F446C1DB2D3EC00138EB6 /* ChangePasswordTableViewController.swift in Sources */,
+				AA3B8A041DBF29BF0013580E /* MenuInterestTableViewCell.swift in Sources */,
 				AA7249DE1DA488B8009AED20 /* SearchResultTableViewCell.swift in Sources */,
 				304290C51DA2074A00354AF9 /* InterestsData.swift in Sources */,
-				75EABC4E1D98BA1E0075E75E /* RegistrationViewController.swift in Sources */,
+				75EABC4E1D98BA1E0075E75E /* SignUpViewController.swift in Sources */,
 				75EABC491D98BA1E0075E75E /* AboutViewController.swift in Sources */,
 				AA15CE361DA635B80025CBAA /* NoResultsFoundTableViewCell.swift in Sources */,
 				AA38AD3F1D9C9F150067E1C9 /* Interest.swift in Sources */,
@@ -737,6 +768,7 @@
 			baseConfigurationReference = BEA06F35E18ACCBABF2C162A /* Pods-USC Visitor Companion App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "USC Visitor Companion App/USC Visitor Companion App.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = LE9MW95T43;
 				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
@@ -753,6 +785,7 @@
 			baseConfigurationReference = 004973256B7351236653CCF5 /* Pods-USC Visitor Companion App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "USC Visitor Companion App/USC Visitor Companion App.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = LE9MW95T43;
 				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";

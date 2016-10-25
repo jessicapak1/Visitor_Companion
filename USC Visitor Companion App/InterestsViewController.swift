@@ -14,7 +14,8 @@ class InterestsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.allowsMultipleSelection = true
+
         //get all locations from wrapper class
         interests = InterestsData.shared.interestNames()
     }
@@ -49,5 +50,31 @@ class InterestsViewController: UITableViewController {
         cell.textLabel?.text = interests[indexPath.item]
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+        let cell = tableView.cellForRow(at: indexPath)
+        interests.append((cell?.textLabel?.text)!)
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("inside segue")
+        if (segue.identifier == "admin_one") {
+            print("inside segue interests")
+            //get a reference to the destination view controller
+            let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
+        
+            destinationVC.interestsArray = interests
+            for i in (0..<interests.count) {
+                print(interests[i])
+            }
+        }
+    }
+
 
 }

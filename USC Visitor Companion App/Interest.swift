@@ -27,6 +27,7 @@ class Interest: NSObject {
         self.object = object
         self.name = object["name"] as! String?
         self.objectId = object.objectId
+        locations = [Location]()
         if let locationNames = object["locations"] as! [String]? {
             
             for locName in locationNames {
@@ -55,7 +56,7 @@ class Interest: NSObject {
     
     
     
-    // remove Location from "this" Interest
+    // DO NOT CALL. for use by Data models. remove Location from "this" Interest
     func untagLocation(locationName: String) -> () {
         // arrays to store updated data
         var locArr = [Location]()
@@ -80,10 +81,56 @@ class Interest: NSObject {
         self.object?.saveInBackground()
     }
     
-    // deletes this location from everything. intended to be called from deleteInterests via InterestsData.shared
+    // DO NOT CALL. for use by Data models
+    func tagLocation(locationName: String) -> () {
+        
+        if let location = LocationData.shared.getLocation(withName: locationName) {
+        
+            if self.locations?.index(of: location) == nil {
+                self.locations?.append(location)
+                
+                
+                var locNames = [String]()
+                
+                for locObject in self.locations! {
+                    locNames.append(locObject.name!)
+                }
+                
+                self.object?["locations"] = locNames
+                self.object?.saveInBackground()
+            }
+        }
+    }
+    
+    // DO NOT CALL. for use by Data models. Updates the location name on the database (the local object's name is changed in LocationData)
+    func renameLocation(oldName: String, newName: String) {
+       
+        var locNames = [String]()
+        
+        // for each Location object associated with this Interest
+        for locObject in self.locations! {
+            
+            // if the object isn't the one we're trying to remove
+            if locObject.name != oldName {
+                // add the location name to the new array
+                locNames.append(locObject.name!)
+            }
+        }
+        
+        // add the new name to the array
+        locNames.append(newName)
+        
+        // save the newly created String array to the interest object on the server
+        self.object?["locations"] = locNames
+        self.object?.saveInBackground()
+    }
+    
+    // DO NOT CALL. for use by Data models. deletes this location from everything. intended to be called from deleteInterests via InterestsData.shared
     func delete() {
         for location in self.locations! {
-            location.removeInterestTag(interestName: self.name!)
+            var names = [String]()
+            names.append(self.name!)
+            location.removeInterestTags(interestNames: names)
         }
         // delete from database
         self.object?.deleteInBackground()

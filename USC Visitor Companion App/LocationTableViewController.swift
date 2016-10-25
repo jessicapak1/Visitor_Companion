@@ -13,6 +13,8 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     
+    var name : String = ""
+    
     //make navbar transparent
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)

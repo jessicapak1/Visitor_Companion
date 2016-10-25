@@ -27,6 +27,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     var markers: [String: GMSMarker] = [String: GMSMarker]()
+    var currentLocation = [Location]()
+    var currentMarker = GMSMarker()
+    let locationManager = CLLocationManager()
     
     var searchResults: [Location] = [Location]()
     
@@ -91,8 +94,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         let camera = GMSCameraPosition.camera(withLatitude: 34.020496, longitude: -118.285317, zoom: 20.0, bearing: 30, viewingAngle: 90.0)
         self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         self.view.insertSubview(self.mapView, at: 0)
-      
-        let locationManager = CLLocationManager()
+    
         // request authorization from the user
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
@@ -103,12 +105,36 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             locationManager.startUpdatingLocation()
         }
         
+        let circleCenter = locationManager.location?.coordinate
+        if let circleCenter = circleCenter {
+            let circ = GMSCircle(position: circleCenter, radius: 10)
+            circ.fillColor = UIColor(red: 0.35, green: 0, blue: 0, alpha: 0.05)
+            circ.strokeColor = UIColor.red
+            circ.strokeWidth = 2
+            circ.map = mapView
+        }
     }
-    
+
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0]
         print("locations = \(userLocation.coordinate.latitude) \(userLocation.coordinate.longitude)")
     }
+    
+    func nearby() {
+        //OR USE PARSE???? CHRISTIAN HALP
+        var distance : CLLocationDistance?
+        let maxDistance = CLLocationDistance(10)
+        for location in LocationData.shared.locations {
+            distance = locationManager.location?.distance(from: location.location!)
+            if distance! < maxDistance {
+                let marker = GMSMarker()
+                marker.map = self.mapView
+                marker.icon = GMSMarker.markerImage(with: UIColor.red)
+            }
+        }
+        
+    }
+    
     
     func showMarkers() {
         //create custom marker icons
@@ -164,6 +190,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             
             self.markers[location.name!] = marker
         }
+       
         
         
     }
@@ -179,7 +206,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     func showInformation(forLocation location: Location) {
         self.mapView.selectedMarker = self.markers[location.name!]
     }
-    
     
     // MARK: Search Methods
     func addSearch() {
@@ -214,6 +240,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             let NVC = segue.destination as! UINavigationController
             NVC.transitioningDelegate = self
             NVC.modalPresentationStyle = .custom
+        }
+        
+        if segue.identifier == "Show Location" {
+            let navVC = segue.destination as! UINavigationController
+            let locationVC = navVC.viewControllers.first as! LocationTableViewController
+            locationVC.name = currentMarker.title!
         }
     }
     
@@ -286,24 +318,26 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: GMSMapViewDelegate Methods
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        currentMarker = marker
         self.performSegue(withIdentifier: "Show Location", sender: self)
     }
     
     
     // MARK: UIViewControllerTransitioningDelegate Methods
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        self.segmentedControl.isHidden = true
         self.bubbleTransition.duration = 0.25
         self.bubbleTransition.transitionMode = .present
         self.bubbleTransition.startingPoint = self.menuButton.center
-        self.bubbleTransition.bubbleColor = .white
+        self.bubbleTransition.bubbleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.75)
         return self.bubbleTransition
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        self.segmentedControl.isHidden = false
         self.bubbleTransition.transitionMode = .dismiss
         return self.bubbleTransition
     }
-    
     
     // MARK: IBAction Methods
     @IBAction func locationButtonPressed(_ sender: UIButton) {

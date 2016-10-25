@@ -10,13 +10,13 @@ import UIKit
 
 protocol MenuLoginTableViewCellDelegate {
     func loginButtonPressed()
-    func signupButtonPressed()
+    func signUpButtonPressed()
 }
 
 class MenuLoginTableViewCell: UITableViewCell {
     
     // MARK: Properties
-    static let defaultHeight: CGFloat = 150.0
+    static let defaultHeight: CGFloat = 180.0
     
     var delegate: MenuLoginTableViewCellDelegate?
     
@@ -24,13 +24,13 @@ class MenuLoginTableViewCell: UITableViewCell {
     // MARK: IBOutlets
     @IBOutlet weak var loginButton: UIButton! {
         didSet {
-            self.loginButton.layer.cornerRadius = 10.0
+            self.loginButton.layer.cornerRadius = 5.0
         }
     }
     
-    @IBOutlet weak var signupButton: UIButton! {
+    @IBOutlet weak var signUpButton: UIButton! {
         didSet {
-            self.signupButton.layer.cornerRadius = 10.0
+            self.signUpButton.layer.cornerRadius = 5.0
         }
     }
     
@@ -42,9 +42,9 @@ class MenuLoginTableViewCell: UITableViewCell {
         }
     }
     
-    @IBAction func signupButtonPressed() {
+    @IBAction func signUpButtonPressed() {
         if let delegate = self.delegate {
-            delegate.signupButtonPressed()
+            delegate.signUpButtonPressed()
         }
     }
     

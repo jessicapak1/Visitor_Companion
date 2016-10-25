@@ -50,29 +50,99 @@ class Location: NSObject {
         object?.saveInBackground()
     }
     
-    func removeInterestTag(interestName: String) {
+    // DO NOT USE. For Data models only. Removes interest names from location object locally and on database (does not handle removal of the object from the interests, that is handled within LocationData and the individual Interest objects)
+    func removeInterestTags(interestNames: [String]) {
         
         var interestNameArr = self.object?["interests"] as! [String]
-        if let serverIndex = interestNameArr.index(of: interestName) {
-            interestNameArr.remove(at: serverIndex)
-            self.object?.setObject(interestName, forKey: "interests")
-            self.object?.saveInBackground()
-            
-            let localIndex = self.interests?.index(of: interestName)
-            self.interests?.remove(at: localIndex!)
-        } else {
-            print("ERROR: something went wrong removing and interest from a location")
+        for interestName in interestNames {
+            if let serverIndex = interestNameArr.index(of: interestName) {
+                interestNameArr.remove(at: serverIndex)
+                self.object?.setObject(interestNameArr, forKey: "interests")
+                
+                let localIndex = self.interests?.index(of: interestName)
+                self.interests?.remove(at: localIndex!)
+            } else {
+                print("ERROR: something went wrong removing an interest from a location")
+            }
         }
+        
+        self.object?.saveInBackground()
         
     }
     
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
+    func addInterestTags(interestNames: [String]) {
+        
+        for interestName in interestNames {
+            if self.interests?.index(of: interestName) == nil {
+                self.interests?.append(interestName)
+            }
+        }
+        
+        self.object?["interests"] = self.interests
+        self.object?.saveInBackground()
+        
+        
+    }
+    
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
+    func changeDetails(newDetails: String) {
+        if (self.details != newDetails) {
+            self.details = newDetails
+            
+            self.object?["details"] = newDetails
+            self.object?.saveInBackground()
+        }
+    }
+    
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
+    func changeCode(newCode: String) {
+        if (self.code != newCode) {
+            self.code = newCode
+            
+            self.object?["code"] = newCode
+            self.object?.saveInBackground()
+        }
+    }
+    
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
+    func changeLocType(newLocType: String) {
+        if (self.locType != newLocType) {
+            self.locType = newLocType
+            
+            self.object?["locType"] = newLocType
+            self.object?.saveInBackground()
+        }
+    }
+    
+    
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
+    func changeGeoLocation(withCLLocation loc: CLLocation) {
+        // save locally
+        self.location = loc
+        
+        // save on database
+        self.object?["location"] = loc
+        self.object?.saveInBackground()
+    }
+    
+    func changeName(newName: String) {
+        self.name = newName
+        
+        self.object?["name"] = newName
+        self.object?.saveInBackground()
+    }
+    
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
     func delete() {
+        // remove this Location from the InterestsData model
         InterestsData.shared.removeLocation(withLocation: self)
         
+        // delete this Location from database
         self.object?.deleteInBackground()
         
+        // delete this location from local backend (LocationData)
         LocationData.shared.idsToNames[self.objectId!] = nil
-        
         LocationData.shared.namesToLocations[self.name!] = nil
     }
     
