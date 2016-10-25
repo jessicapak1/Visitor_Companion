@@ -11,6 +11,7 @@ import BubbleTransition
 
 enum MenuCell: String {
     case login = "Login Cell"
+    case interest = "Interest Cell"
 }
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MenuLoginTableViewCellDelegate, LoginViewControllerDelegate, SignUpViewControllerDelegate {
@@ -30,6 +31,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.menuTableView.delegate = self
             self.menuTableView.dataSource = self
             self.menuTableView.register(UINib(nibName: "MenuLoginTableViewCell", bundle: nil), forCellReuseIdentifier: "Login Cell")
+            self.menuTableView.register(UINib(nibName: "MenuInterestTableViewCell", bundle: nil), forCellReuseIdentifier: "Interest Cell")
         }
     }
     
@@ -40,9 +42,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         if User.current.exists {
-            
+            self.cells = [.interest]
         } else {
-            self.cells.append(.login)
+            self.cells = [.interest, .login]
         }
     }
     
@@ -75,12 +77,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let identifier = self.cells[indexPath.row].rawValue
         
         if cell == .login {
-            let loginCell = self.menuTableView.dequeueReusableCell(withIdentifier: identifier) as! MenuLoginTableViewCell
-            loginCell.delegate = self
-            return loginCell
+            return self.configureLoginCell(withIdentifier: identifier)
+        } else if cell == .interest {
+            return self.configureInterestCell(withIdentifier: identifier)
         }
         
-        return UITableViewCell() // DELETE ASAP
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -88,9 +90,27 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if cell == .login {
             return MenuLoginTableViewCell.defaultHeight
+        } else if cell == .interest {
+            return MenuInterestTableViewCell.defaultHeight
         }
         
-        return 50.0 // DELETE ASAP
+        return 0.0
+    }
+    
+    func configureInterestCell(withIdentifier identifier: String) -> MenuInterestTableViewCell {
+        let interestCell = self.menuTableView.dequeueReusableCell(withIdentifier: identifier) as! MenuInterestTableViewCell
+        if User.current.exists {
+            interestCell.interestLabel.text = User.current.interest
+        } else {
+            interestCell.interestLabel.text = "General"
+        }
+        return interestCell
+    }
+    
+    func configureLoginCell(withIdentifier identifier: String) -> MenuLoginTableViewCell {
+        let loginCell = self.menuTableView.dequeueReusableCell(withIdentifier: identifier) as! MenuLoginTableViewCell
+        loginCell.delegate = self
+        return loginCell
     }
     
     
@@ -99,7 +119,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.performSegue(withIdentifier: "Show Login", sender: nil)
     }
     
-    func signupButtonPressed() {
+    func signUpButtonPressed() {
         self.performSegue(withIdentifier: "Show Sign Up", sender: nil)
     }
     

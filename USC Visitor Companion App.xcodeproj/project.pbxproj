@@ -30,6 +30,8 @@
 		AA1DFD591DAB687E00BECB5A /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1DFD581DAB687E00BECB5A /* UserTests.swift */; };
 		AA2277A21DA2039100F5C1B0 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2277A11DA2039100F5C1B0 /* LocationData.swift */; };
 		AA38AD3F1D9C9F150067E1C9 /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA38AD3E1D9C9F150067E1C9 /* Interest.swift */; };
+		AA3B8A041DBF29BF0013580E /* MenuInterestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3B8A021DBF29BF0013580E /* MenuInterestTableViewCell.swift */; };
+		AA3B8A051DBF29BF0013580E /* MenuInterestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA3B8A031DBF29BF0013580E /* MenuInterestTableViewCell.xib */; };
 		AA536C4B1DB4822E009A608A /* MenuLoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA536C491DB4822E009A608A /* MenuLoginTableViewCell.swift */; };
 		AA536C4C1DB4822E009A608A /* MenuLoginTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA536C4A1DB4822E009A608A /* MenuLoginTableViewCell.xib */; };
 		AA7249DE1DA488B8009AED20 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7249DC1DA488B8009AED20 /* SearchResultTableViewCell.swift */; };
@@ -88,6 +90,8 @@
 		AA1DFD581DAB687E00BECB5A /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		AA2277A11DA2039100F5C1B0 /* LocationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		AA38AD3E1D9C9F150067E1C9 /* Interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
+		AA3B8A021DBF29BF0013580E /* MenuInterestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuInterestTableViewCell.swift; sourceTree = "<group>"; };
+		AA3B8A031DBF29BF0013580E /* MenuInterestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuInterestTableViewCell.xib; sourceTree = "<group>"; };
 		AA536C491DB4822E009A608A /* MenuLoginTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuLoginTableViewCell.swift; sourceTree = "<group>"; };
 		AA536C4A1DB4822E009A608A /* MenuLoginTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuLoginTableViewCell.xib; sourceTree = "<group>"; };
 		AA7249DC1DA488B8009AED20 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 		AA625C031DBD85E30097B51E /* Menu Views */ = {
 			isa = PBXGroup;
 			children = (
+				AA3B8A031DBF29BF0013580E /* MenuInterestTableViewCell.xib */,
 				AA536C4A1DB4822E009A608A /* MenuLoginTableViewCell.xib */,
 			);
 			name = "Menu Views";
@@ -283,6 +288,7 @@
 			children = (
 				AA7249DC1DA488B8009AED20 /* SearchResultTableViewCell.swift */,
 				AA15CE341DA635B80025CBAA /* NoResultsFoundTableViewCell.swift */,
+				AA3B8A021DBF29BF0013580E /* MenuInterestTableViewCell.swift */,
 				AA536C491DB4822E009A608A /* MenuLoginTableViewCell.swift */,
 				AAD38B8E1D971648004DD648 /* Assets.xcassets */,
 			);
@@ -426,6 +432,7 @@
 				AAD38B921D971648004DD648 /* LaunchScreen.storyboard in Resources */,
 				AA7249DF1DA488B8009AED20 /* SearchResultTableViewCell.xib in Resources */,
 				AAD38B8F1D971648004DD648 /* Assets.xcassets in Resources */,
+				AA3B8A051DBF29BF0013580E /* MenuInterestTableViewCell.xib in Resources */,
 				AAD38B8A1D971648004DD648 /* Main.storyboard in Resources */,
 				AA536C4C1DB4822E009A608A /* MenuLoginTableViewCell.xib in Resources */,
 				AA15CE371DA635B80025CBAA /* NoResultsFoundTableViewCell.xib in Resources */,
@@ -590,6 +597,7 @@
 				758F446E1DB2D42B00138EB6 /* EditProfileTableViewController.swift in Sources */,
 				75CDBD0A1DA1B9B300AC0E1C /* AdminTableViewController.swift in Sources */,
 				758F446C1DB2D3EC00138EB6 /* ChangePasswordTableViewController.swift in Sources */,
+				AA3B8A041DBF29BF0013580E /* MenuInterestTableViewCell.swift in Sources */,
 				AA7249DE1DA488B8009AED20 /* SearchResultTableViewCell.swift in Sources */,
 				304290C51DA2074A00354AF9 /* InterestsData.swift in Sources */,
 				75EABC4E1D98BA1E0075E75E /* SignUpViewController.swift in Sources */,

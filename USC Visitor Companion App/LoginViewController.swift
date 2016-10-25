@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton! {
         didSet {
-            self.loginButton.layer.cornerRadius = 7.0
+            self.loginButton.layer.cornerRadius = 5.0
         }
     }
     
