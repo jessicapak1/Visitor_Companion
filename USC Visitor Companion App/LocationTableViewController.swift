@@ -10,30 +10,42 @@ import UIKit
 
 class LocationTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            self.tableView.register(UINib(nibName: "BlankCellView", bundle: nil), forCellReuseIdentifier: "blankCellView")
+            self.tableView.register(UINib(nibName: "DescriptionCellView", bundle: nil), forCellReuseIdentifier: "descriptionCellView")
+        }
+    }
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var directionsButton: UIBarButtonItem!
+    @IBOutlet weak var shadowImage: UIImageView!
+    @IBOutlet weak var mainImage: UIImageViewModeScaleAspect!
     
+    //let mainImage = UIImageViewModeScaleAspect(frame: CGRect(x: 0, y: 0, width: 375, height: 170))
     var name : String = ""
+    var current : Location? = nil
     
     //make navbar transparent
     override func viewWillAppear(_ animated: Bool) {
+        
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-        /*
-        self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 3)
-        self.navigationController?.navigationBar.layer.shadowOpacity = 0.25
-        self.navigationController?.navigationBar.layer.masksToBounds = false
-        self.navigationController?.navigationBar.layer.shouldRasterize = true
-         */
+        self.navigationItem.title = name
+
+        current = LocationData.shared.getLocation(withName: name)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        imageView.image = UIImage(named: "tommy trojan")
+        mainImage.image = UIImage(named: "Tommy Trojan")
+        mainImage.contentMode = .scaleAspectFill
+        mainImage.backgroundColor = UIColor.black
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LocationTableViewController.animateImage))
+        mainImage.addGestureRecognizer(tapGesture)
+        //imageView.image = UIImage(named: name)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,38 +53,71 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+    func animateImage() {
+        
+        if mainImage.contentMode == .scaleAspectFill {
+            self.view.bringSubview(toFront: mainImage)
+            mainImage.animate( .fit, frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height), duration: 0.4)
+        } else {
+            mainImage.animate( .fill, frame: CGRect(x: 0, y: 0, width: 375, height: 200), duration: 0.4)
+            //sleep(4)
+            self.view.bringSubview(toFront: tableView)
+            self.view.bringSubview(toFront: shadowImage)
+        }
+        
     }
+    
+    // TABLE VIEW CODE
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 200.0
+            return 199.0
         } else if indexPath.row == 1 {
-            return 160.0
+            return 149.0
         }
         return 44.0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "blankCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "blankCellView")!
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LocationTableViewController.animateImage))
+            cell.addGestureRecognizer(tapGesture)
             return cell
         } else if indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCellView") as! DescriptionCell
+            cell.descriptionLabel.text = current?.details!
             return cell
-        } else if indexPath.row == 2 {
+        }
+        /*else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "mediaCell", for: indexPath)
             return cell
         } else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "instagramCell", for: indexPath)
             return cell
-        } else {
-            let cell = UITableViewCell()
+        } */else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell")!
             return cell
         }
     }
-
+    
+    //NAVIGATION BAR ITEMS CODE
+    
+    @IBAction func closeButtonPressed(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func directionsButtonPressed(_ sender: AnyObject) {
+        
+        //get direcitons and dismiss
+    }
+    
     /*
     // MARK: - Navigation
 
