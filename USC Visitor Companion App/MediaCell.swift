@@ -16,6 +16,15 @@ class MediaCell: UITableViewCell {
         // Initialization code
         myBackgroundView.layer.cornerRadius = 10
         myBackgroundView.layer.masksToBounds = true
+
+        /*
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = myBackgroundView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
+        myBackgroundView.addSubview(blurEffectView)
+         */
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

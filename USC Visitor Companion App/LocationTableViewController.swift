@@ -41,12 +41,12 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        mainImage.image = UIImage(named: "Tommy Trojan")
+        //mainImage.image = UIImage(named: "Tommy Trojan")
         mainImage.contentMode = .scaleAspectFill
-        mainImage.backgroundColor = UIColor.black
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LocationTableViewController.animateImage))
-        mainImage.addGestureRecognizer(tapGesture)
-        //imageView.image = UIImage(named: name)
+        mainImage.backgroundColor = UIColor.clear
+        //let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LocationTableViewController.animateImage))
+        //mainImage.addGestureRecognizer(tapGesture)
+        imageView.image = UIImage(named: "tommy_trojan_2")
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,8 +86,8 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
 
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "blankCellView")!
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LocationTableViewController.animateImage))
-            cell.addGestureRecognizer(tapGesture)
+            //let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LocationTableViewController.animateImage))
+            //cell.addGestureRecognizer(tapGesture)
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCellView") as! DescriptionCell
