@@ -18,6 +18,10 @@ class AdminTableViewController: UITableViewController {
     @IBOutlet weak var interestsLabel: UILabel!
     @IBOutlet weak var locationsTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+    
+    var addLocationValue: CLLocationCoordinate2D?
+    var locationName: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +31,33 @@ class AdminTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let locationObject = LocationData.shared.getLocation(withName: locationName)
+        self.nameTextField.text = locationObject.name
+        self.codeTextField.text = locationObject.code
+        self.descriptionTextView.text = locationObject.details
+        if(!interestsArray.isEmpty)
+        {
+            var interestString = ""
+            for i in (0..<interestsArray.count)
+            {
+                interestString = interestString + interestsArray[i] + " "
+            }
+            self.interestsLabel.text = interestString
+        }
+        if let locationObject = LocationData.shared.getLocation(withName: locationName)
+        {
+            self.nameTextField.text = locationObject.name
+            self.codeTextField.text = locationObject.code
+            self.descriptionTextView.text = locationObject.details
+            let array: [String] = locationObject.interests!
+                var interestString = ""
+                for i in (0..<array.count)
+                {
+    interestString = interestString + array[i] + " "
+                }
+                self.interestsLabel.text = interestString
+        }
     }
     @IBAction func locationsButtonAction(_ sender: AnyObject) {
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "map") as! MapViewController

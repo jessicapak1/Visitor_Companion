@@ -16,6 +16,9 @@ import BetterSegmentedControl
 
 class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
+    var added_marker = GMSMarker()?
+    var fromAdmin : Bool?
+    var newLocation: CLLocationCoordinate2D?
     // MARK: Properties
     let bubbleTransition: BubbleTransition = BubbleTransition()
     
@@ -66,6 +69,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     // MARK: View Controller Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.fromAdmin = false
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "viterbi"))
         self.showMap()
         self.showMarkers()
@@ -247,6 +251,16 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             let locationVC = navVC.viewControllers.first as! LocationViewController
             locationVC.name = currentMarker.title
         }
+        
+        if(fromAdmin) {
+            if segue.identifier == "map_to_admin" {
+                let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
+                destinationVC.addLocationValue = newLocation;
+                print("new location corrd name: ")
+                print(newLocation?.latitude)
+                print(newLocation?.longitude)
+            }
+        }
     }
     
     
@@ -320,6 +334,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         currentMarker = marker
         self.performSegue(withIdentifier: "Show Location", sender: self)
+        print("tap info window")
+        added_marker = marker;
+        newLocation = marker.position
+        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -347,5 +365,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         }
     }
     
+    
+    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+        let new_marker = GMSMarker()
+        print("long press")
+        new_marker.position = coordinate
+        new_marker.map = self.mapView
+        new_marker.title = "Click to save location"
+    }
 
 }

@@ -11,6 +11,7 @@ import UIKit
 class InterestsViewController: UITableViewController {
 
     var interests: [String] = [String]()
+    var fromAdmin: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +30,16 @@ class InterestsViewController: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if(fromAdmin) {
+            if segue.identifier == "interests_to_admin" {
+                let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
+                destinationVC.interestsArray = interests
+            }
+        }
     }
-    */
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
