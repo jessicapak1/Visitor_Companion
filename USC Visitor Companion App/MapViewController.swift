@@ -31,6 +31,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     var currentMarker = GMSMarker()
     let locationManager = CLLocationManager()
     
+    var newMarker : Bool = false
+    
     var searchResults: [Location] = [Location]()
     
     
@@ -317,8 +319,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: GMSMapViewDelegate Methods
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        currentMarker = marker
+        if newMarker == true {
+            // add Jess's code for new location markers
+        }
+        /*currentMarker = marker
         self.performSegue(withIdentifier: "Show Location", sender: self)
+        */
+        
     }
     
     
