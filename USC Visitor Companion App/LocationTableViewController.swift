@@ -14,6 +14,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         didSet {
             self.tableView.register(UINib(nibName: "BlankCellView", bundle: nil), forCellReuseIdentifier: "blankCellView")
             self.tableView.register(UINib(nibName: "DescriptionCellView", bundle: nil), forCellReuseIdentifier: "descriptionCellView")
+            self.tableView.register(UINib(nibName: "MediaCellView", bundle: nil), forCellReuseIdentifier: "mediaCellView")
         }
     }
     @IBOutlet weak var imageView: UIImageView!
@@ -70,17 +71,15 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     // TABLE VIEW CODE
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 6
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 199.0
-        } else if indexPath.row == 1 {
-            return 149.0
+            return 200.0
         }
-        return 44.0
+        return 149.0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,7 +101,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             let cell = tableView.dequeueReusableCell(withIdentifier: "instagramCell", for: indexPath)
             return cell
         } */else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell")!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "mediaCellView")!
             return cell
         }
     }
