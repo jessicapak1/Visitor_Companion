@@ -881,7 +881,7 @@ Christian Villa – Computer Science Major    </string>
                                                     <state key="normal" title="Select Location"/>
                                                     <connections>
                                                         <action selector="locationsButtonAction:" destination="U5h-Tb-fNv" eventType="touchUpInside" id="Gpi-t3-7cf"/>
-                                                        <segue destination="nft-j1-Vc1" kind="presentation" identifier="admin_to_map" id="7aI-OM-WFc"/>
+                                                        <segue destination="nft-j1-Vc1" kind="presentation" identifier="admin_to_map" id="SiM-AL-qHH"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -901,7 +901,7 @@ Christian Villa – Computer Science Major    </string>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desctiption:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ecb-6w-2ln">
-                                                    <rect key="frame" x="28" y="8" width="92.5" height="20.5"/>
+                                                    <rect key="frame" x="28" y="8" width="93" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -944,7 +944,7 @@ Christian Villa – Computer Science Major    </string>
                                                     <state key="normal" title="Edit Interests"/>
                                                     <connections>
                                                         <action selector="interestsButtonAction:" destination="U5h-Tb-fNv" eventType="touchUpInside" id="Jsw-NE-zOM"/>
-                                                        <segue destination="EQN-An-L1s" kind="presentation" identifier="admin_to_interest" id="Sis-JK-DDj"/>
+                                                        <segue destination="EQN-An-L1s" kind="presentation" identifier="admin_to_interests" id="cID-vd-WLx"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1042,7 +1042,7 @@ Christian Villa – Computer Science Major    </string>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="+" id="RXQ-R6-3RG">
                             <connections>
-                                <segue destination="RYa-VT-6M0" kind="presentation" id="nyi-2A-dKa"/>
+                                <segue destination="RYa-VT-6M0" kind="presentation" identifier="admin_to_adminsingle" id="nyi-2A-dKa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1076,7 +1076,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController storyboardIdentifier="settings" automaticallyAdjustsScrollViewInsets="NO" id="dDA-Be-9Lo" userLabel="App Preferences Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Lvw-hL-Jzu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lvw-hL-Jzu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1130,7 +1130,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fqA-ET-cOT" userLabel="Checkin Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="gPk-Va-0EN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="gPk-Va-0EN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1400,7 +1400,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController storyboardIdentifier="edit_profile" automaticallyAdjustsScrollViewInsets="NO" id="ry9-LU-p0Z" userLabel="Edit Profile Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="CSq-RB-AQB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CSq-RB-AQB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1436,7 +1436,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nft-j1-Vc1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="3Z1-Di-7Ym">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3Z1-Di-7Ym">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

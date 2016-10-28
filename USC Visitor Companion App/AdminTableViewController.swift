@@ -11,9 +11,9 @@ import CoreData
 import CoreLocation
 
 
-
 class AdminTableViewController: UITableViewController,  InterestsViewDelegates, MapViewDelegates{
     var mInterestsArray: [String] = [String]()
+
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var interestsPicker: UIPickerView!
@@ -23,9 +23,16 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
     
     var addLocationValue: CLLocationCoordinate2D?
     var locationName: String = ""
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let locationObject = LocationData.shared.getLocation(withName: locationName)
+
+        
+        self.nameTextField.text = locationObject?.name
+        self.codeTextField.text = locationObject?.code
+        self.descriptionTextView.text = locationObject?.details
         
         if let locationObject = LocationData.shared.getLocation(withName: locationName)
         {
@@ -48,7 +55,6 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
     }
 
     @IBAction func interestsButtonAction(_ sender: AnyObject) {
-        
         
     }
     @IBAction func addButtonAction(_ sender: AnyObject) {
