@@ -8,15 +8,28 @@
 
 import UIKit
 
+protocol InterestsViewDelegates {
+    func userDidSave(interestsArray: [String])
+}
+
 class InterestsViewController: UITableViewController {
 
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     var interests: [String] = [String]()
     var fromAdmin: Bool?
+    var interestDelegate: InterestsViewDelegates?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.allowsMultipleSelection = true
-
+        
+        saveButton.isEnabled = false
+        saveButton.title = ""
+        
+        if fromAdmin! {
+            saveButton.isEnabled = true
+            saveButton.title = "Save"
+        }
         //get all locations from wrapper class
         interests = InterestsData.shared.interestNames()
     }
@@ -31,15 +44,32 @@ class InterestsViewController: UITableViewController {
     }
 
 
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(fromAdmin) {
-            if segue.identifier == "interests_to_admin" {
-                let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
-                destinationVC.interestsArray = interests
-            }
+    @IBAction func saveButtonPressed(_ sender: AnyObject) {
+        if let delegate = self.interestDelegate {
+            delegate.userDidSave(interestsArray: interests)
         }
+        self.dismiss(animated: true, completion: nil)
     }
+    
+    // MARK: - Navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if fromAdmin! {
+//            if segue.identifier == "interests_to_admin" {
+//                let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
+//                destinationVC.mInterestsArray = interests
+//            }
+//        }
+//        if (segue.identifier == "admin_one") {
+//            print("inside segue interests")
+//            //get a reference to the destination view controller
+//            let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
+//            
+//            destinationVC.mInterestsArray = interests
+//            for i in (0..<interests.count) {
+//                print(interests[i])
+//            }
+//        }
+//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -63,20 +93,4 @@ class InterestsViewController: UITableViewController {
         tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
 
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("inside segue")
-        if (segue.identifier == "admin_one") {
-            print("inside segue interests")
-            //get a reference to the destination view controller
-            let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
-        
-            destinationVC.interestsArray = interests
-            for i in (0..<interests.count) {
-                print(interests[i])
-            }
-        }
-    }
-
-
 }

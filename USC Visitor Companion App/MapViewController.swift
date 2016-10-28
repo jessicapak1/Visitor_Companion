@@ -13,15 +13,20 @@ import BubbleTransition
 import CoreLocation
 import BetterSegmentedControl
 
+protocol MapViewDelegates {
+    func userDidSave(interestsArray: [String])
+}
+
 
 class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
-    var added_marker = GMSMarker()?
+    var added_marker = GMSMarker()
     var fromAdmin : Bool?
     var newLocation: CLLocationCoordinate2D?
     // MARK: Properties
     let bubbleTransition: BubbleTransition = BubbleTransition()
-    
+    var mapDelegate: MapViewDelegates?
+
     var mapView: GMSMapView! {
         didSet {
             self.mapView.delegate = self
@@ -121,7 +126,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
 
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0]
-        print("locations = \(userLocation.coordinate.latitude) \(userLocation.coordinate.longitude)")
+//        print("locations = \(userLocation.coordinate.latitude) \(userLocation.coordinate.longitude)")
     }
     
     func nearby() {
@@ -252,13 +257,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             locationVC.name = currentMarker.title
         }
         
-        if(fromAdmin) {
+        if fromAdmin! {
             if segue.identifier == "map_to_admin" {
                 let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
                 destinationVC.addLocationValue = newLocation;
-                print("new location corrd name: ")
-                print(newLocation?.latitude)
-                print(newLocation?.longitude)
             }
         }
     }
