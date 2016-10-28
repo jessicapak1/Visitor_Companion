@@ -11,9 +11,13 @@ import CoreData
 import CoreLocation
 
 
-class AdminTableViewController: UITableViewController,  InterestsViewDelegates, MapViewDelegates{
+class AdminTableViewController: UITableViewController,  InterestsViewDelegates, MapViewDelegates, UIPickerViewDelegate, UIPickerViewDataSource {
     var mInterestsArray: [String] = [String]()
-
+    var selectedLocationType: String = ""
+    var locationTypes = ["Food", "Library", "Building", "Fountain", "Field"]
+    
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var locationTypePicker: UIPickerView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var interestsPicker: UIPickerView!
@@ -21,19 +25,14 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
     @IBOutlet weak var locationsTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    var addLocationValue: CLLocationCoordinate2D?
+    var addLocationValue: CLLocation?
     var locationName: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let locationObject = LocationData.shared.getLocation(withName: locationName)
-
-        
-        self.nameTextField.text = locationObject?.name
-        self.codeTextField.text = locationObject?.code
-        self.descriptionTextView.text = locationObject?.details
-
+        locationTypePicker.dataSource = self;
+        locationTypePicker.delegate = self;
         if let locationObject = LocationData.shared.getLocation(withName: locationName)
         {
             self.nameTextField.text = locationObject.name
@@ -49,14 +48,13 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
         }
     }
     @IBAction func locationsButtonAction(_ sender: AnyObject) {
-        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "map") as! MapViewController
-        
-        self.navigationController?.pushViewController(secondViewController, animated: true)
+    
     }
 
     @IBAction func interestsButtonAction(_ sender: AnyObject) {
         
     }
+    
     @IBAction func addButtonAction(_ sender: AnyObject) {
         if((nameTextField.text?.isEmpty)! || (descriptionTextView.text?.isEmpty)!)
         {
@@ -75,24 +73,37 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
         }
         else
         {
-//            let name = nameTextField.text
-//            let code = codeTextField.text            
-//            let description = descriptionTextView.text
-//            
-//            let location = CLLocation(latitude: 34.0224, longitude: 118.2851)
-
-//            LocationData.shared.create(name: name!, code: code!, details: description!, location: location, interests:interestsArray, locType: , callback: {() -> Void in });
+            let name = nameTextField.text
+            let code = codeTextField.text            
+            let description = descriptionTextView.text
+            
+            LocationData.shared.create(name: name!, code: code!, details: description!, location: addLocationValue!, interests:mInterestsArray, locType: selectedLocationType, callback: {
+                (succeeded) in
+                if(succeeded) {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            });
 
         }
+    }
+    func userDidSaveMap(newLocation: CLLocation) {
+        addLocationValue = newLocation
+        var locationString = "Location: "
+        locationString.append((addLocationValue?.coordinate.latitude.description)!)
+        locationString.append(", ")
+        locationString.append((addLocationValue?.coordinate.longitude.description)!)
+        self.locationLabel.text = locationString
     }
     
     func userDidSave(interestsArray: [String]) {
         print("did save function");
+        print(interestsArray.count);
         mInterestsArray = interestsArray
         var interestString = ""
+    
         for i in (0..<interestsArray.count)
         {
-            interestString = interestString + interestsArray[i] + " "
+            interestString.append(interestsArray[i] + " ")
         }
         self.interestsLabel.text = interestString
     }
@@ -114,7 +125,7 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "admin_to_interest") {
+        if (segue.identifier == "admin_to_interests") {
             print("inside segue interests")
             //get a reference to the destination view controller
             let navigationVC = segue.destination as! UINavigationController
@@ -130,5 +141,21 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
             destinationVC.mapDelegate = self
             destinationVC.fromAdmin = true
         }
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return locationTypes.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return locationTypes[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedLocationType = locationTypes[row]
     }
 }

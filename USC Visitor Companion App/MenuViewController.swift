@@ -127,7 +127,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: LoginViewControllerDelegate Methods
     func userDidLogin() {
         // remove login cell and replace with account cell
-        User.logout()
+//        User.logout()
     }
     
     

@@ -14,7 +14,7 @@ import CoreLocation
 import BetterSegmentedControl
 
 protocol MapViewDelegates {
-    func userDidSave(interestsArray: [String])
+    func userDidSaveMap(newLocation: CLLocation)
 }
 
 
@@ -22,7 +22,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     var added_marker = GMSMarker()
     var fromAdmin : Bool?
-    var newLocation: CLLocationCoordinate2D?
+    var newLocation: CLLocation?
     // MARK: Properties
     let bubbleTransition: BubbleTransition = BubbleTransition()
     var mapDelegate: MapViewDelegates?
@@ -79,6 +79,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.showMap()
         self.showMarkers()
         self.addSearch()
+        User.login(username: "pakjessi@usc.edu", password: "password")
     }
     
     
@@ -334,11 +335,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: GMSMapViewDelegate Methods
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        currentMarker = marker
-        self.performSegue(withIdentifier: "Show Location", sender: self)
-        print("tap info window")
+//        currentMarker = marker
+//        self.performSegue(withIdentifier: "Show Location", sender: self)
+      
         added_marker = marker;
-        newLocation = marker.position
+        newLocation = CLLocation(latitude: marker.position.latitude, longitude: marker.position.longitude)
+        if let delegate = self.mapDelegate {
+            delegate.userDidSaveMap(newLocation: newLocation!)
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
