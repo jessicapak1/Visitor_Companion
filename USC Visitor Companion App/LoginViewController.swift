@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonPressed() {
         if let username = self.usernameTextField.text, let password = self.passwordTextField.text {
             if username.isEmpty || password.isEmpty {
-                self.showAlert(withTitle: "Missing Fields", message: "Please enter both your username and password to login", action: "OK")
+                self.showAlert(withTitle: "Missing Fields", message: "Please enter your username and password to login", action: "OK")
             } else {
                 self.checkLoginDetails()
             }

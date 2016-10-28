@@ -59,7 +59,7 @@ class User: NSObject {
         do {
             try user.signUp()
         } catch {
-            print("ERROR: User Class - Failed to signup with username \(username)")
+            print("ERROR: User Class - Failed to sign up with username \(username)")
         }
         User.current.update()
     }
@@ -80,7 +80,7 @@ class User: NSObject {
     
     
     // MARK: Private Methods
-    private func update() {
+    func update() {
         User.current.name = PFUser.current()?[UserKey.name.rawValue] as! String?
         User.current.username = PFUser.current()?[UserKey.username.rawValue] as! String?
         User.current.email = PFUser.current()?[UserKey.email.rawValue] as! String?

@@ -34,6 +34,8 @@
 		AA3B8A051DBF29BF0013580E /* MenuInterestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA3B8A031DBF29BF0013580E /* MenuInterestTableViewCell.xib */; };
 		AA536C4B1DB4822E009A608A /* MenuLoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA536C491DB4822E009A608A /* MenuLoginTableViewCell.swift */; };
 		AA536C4C1DB4822E009A608A /* MenuLoginTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA536C4A1DB4822E009A608A /* MenuLoginTableViewCell.xib */; };
+		AA5854A41DC32CEC002D2D60 /* MenuAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5854A21DC32CEC002D2D60 /* MenuAccountTableViewCell.swift */; };
+		AA5854A51DC32CEC002D2D60 /* MenuAccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA5854A31DC32CEC002D2D60 /* MenuAccountTableViewCell.xib */; };
 		AA7249DE1DA488B8009AED20 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7249DC1DA488B8009AED20 /* SearchResultTableViewCell.swift */; };
 		AA7249DF1DA488B8009AED20 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7249DD1DA488B8009AED20 /* SearchResultTableViewCell.xib */; };
 		AA7E0F321D98D298005C9786 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7E0F311D98D298005C9786 /* User.swift */; };
@@ -94,6 +96,8 @@
 		AA3B8A031DBF29BF0013580E /* MenuInterestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuInterestTableViewCell.xib; sourceTree = "<group>"; };
 		AA536C491DB4822E009A608A /* MenuLoginTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuLoginTableViewCell.swift; sourceTree = "<group>"; };
 		AA536C4A1DB4822E009A608A /* MenuLoginTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuLoginTableViewCell.xib; sourceTree = "<group>"; };
+		AA5854A21DC32CEC002D2D60 /* MenuAccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuAccountTableViewCell.swift; sourceTree = "<group>"; };
+		AA5854A31DC32CEC002D2D60 /* MenuAccountTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuAccountTableViewCell.xib; sourceTree = "<group>"; };
 		AA7249DC1DA488B8009AED20 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		AA7249DD1DA488B8009AED20 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
 		AA7E0F311D98D298005C9786 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 			children = (
 				AA3B8A031DBF29BF0013580E /* MenuInterestTableViewCell.xib */,
 				AA536C4A1DB4822E009A608A /* MenuLoginTableViewCell.xib */,
+				AA5854A31DC32CEC002D2D60 /* MenuAccountTableViewCell.xib */,
 			);
 			name = "Menu Views";
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 				AA15CE341DA635B80025CBAA /* NoResultsFoundTableViewCell.swift */,
 				AA3B8A021DBF29BF0013580E /* MenuInterestTableViewCell.swift */,
 				AA536C491DB4822E009A608A /* MenuLoginTableViewCell.swift */,
+				AA5854A21DC32CEC002D2D60 /* MenuAccountTableViewCell.swift */,
 				AAD38B8E1D971648004DD648 /* Assets.xcassets */,
 			);
 			name = Resources;
@@ -431,6 +437,7 @@
 			files = (
 				AAD38B921D971648004DD648 /* LaunchScreen.storyboard in Resources */,
 				AA7249DF1DA488B8009AED20 /* SearchResultTableViewCell.xib in Resources */,
+				AA5854A51DC32CEC002D2D60 /* MenuAccountTableViewCell.xib in Resources */,
 				AAD38B8F1D971648004DD648 /* Assets.xcassets in Resources */,
 				AA3B8A051DBF29BF0013580E /* MenuInterestTableViewCell.xib in Resources */,
 				AAD38B8A1D971648004DD648 /* Main.storyboard in Resources */,
@@ -607,6 +614,7 @@
 				AAD38B8D1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld in Sources */,
 				755993EE1D98D5EC0090717C /* ForgotPasswordViewController.swift in Sources */,
 				75EABC471D98BA1E0075E75E /* AppPreferenceTableViewController.swift in Sources */,
+				AA5854A41DC32CEC002D2D60 /* MenuAccountTableViewCell.swift in Sources */,
 				75EABC461D98BA1E0075E75E /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -768,7 +776,7 @@
 				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Viterbi-Go";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -785,7 +793,7 @@
 				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Viterbi-Go";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

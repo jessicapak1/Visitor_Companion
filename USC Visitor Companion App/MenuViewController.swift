@@ -12,18 +12,10 @@ import BubbleTransition
 enum MenuCell: String {
     case login = "Login Cell"
     case interest = "Interest Cell"
+    case account = "Account Cell"
 }
 
-class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MenuLoginTableViewCellDelegate, LoginViewControllerDelegate, SignUpViewControllerDelegate {
-    
-    @IBOutlet weak var adminButton: UIBarButtonItem!
-    
-    
-    // MARK: Properties
-    let bubbleTransition = BubbleTransition()
-    
-    var cells: [MenuCell] = []
-    
+class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MenuLoginTableViewCellDelegate, LoginViewControllerDelegate, SignUpViewControllerDelegate, MenuInterestTableViewCellDelegate {
     
     // MARK: IBOutlets
     @IBOutlet weak var menuTableView: UITableView! {
@@ -32,20 +24,29 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.menuTableView.dataSource = self
             self.menuTableView.register(UINib(nibName: "MenuLoginTableViewCell", bundle: nil), forCellReuseIdentifier: "Login Cell")
             self.menuTableView.register(UINib(nibName: "MenuInterestTableViewCell", bundle: nil), forCellReuseIdentifier: "Interest Cell")
+            self.menuTableView.register(UINib(nibName: "MenuAccountTableViewCell", bundle: nil), forCellReuseIdentifier: "Account Cell")
         }
     }
     
     @IBOutlet weak var menuButton: UIButton!
     
+    @IBOutlet weak var adminButton: UIBarButtonItem!
+    
+    
+    // MARK: Properties
+    let bubbleTransition: BubbleTransition = BubbleTransition()
+    
+    var cells: [MenuCell] = [] {
+        didSet {
+            self.menuTableView.reloadData()
+        }
+    }
+    
     
     // MARK: View Controller Lifecycle Methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if User.current.exists {
-            self.cells = [.interest]
-        } else {
-            self.cells = [.login]
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.configureMenuCells()
     }
     
     
@@ -76,41 +77,47 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = self.cells[indexPath.row]
         let identifier = self.cells[indexPath.row].rawValue
         
-        if cell == .login {
+        switch cell {
+        case .login:
             return self.configureLoginCell(withIdentifier: identifier)
-        } else if cell == .interest {
+        case .interest:
             return self.configureInterestCell(withIdentifier: identifier)
+        case .account:
+            return self.configureAccountCell(withIdentifier: identifier)
         }
-        
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cell = self.cells[indexPath.row]
         
-        if cell == .login {
+        switch cell {
+        case .login:
             return MenuLoginTableViewCell.defaultHeight
-        } else if cell == .interest {
+        case .interest:
             return MenuInterestTableViewCell.defaultHeight
+        case .account:
+            return MenuAccountTableViewCell.defaultHeight
         }
-        
-        return 0.0
-    }
-    
-    func configureInterestCell(withIdentifier identifier: String) -> MenuInterestTableViewCell {
-        let interestCell = self.menuTableView.dequeueReusableCell(withIdentifier: identifier) as! MenuInterestTableViewCell
-        if User.current.exists {
-            interestCell.interestLabel.text = User.current.interest
-        } else {
-            interestCell.interestLabel.text = "General"
-        }
-        return interestCell
     }
     
     func configureLoginCell(withIdentifier identifier: String) -> MenuLoginTableViewCell {
         let loginCell = self.menuTableView.dequeueReusableCell(withIdentifier: identifier) as! MenuLoginTableViewCell
         loginCell.delegate = self
         return loginCell
+    }
+    
+    func configureInterestCell(withIdentifier identifier: String) -> MenuInterestTableViewCell {
+        let interestCell = self.menuTableView.dequeueReusableCell(withIdentifier: identifier) as! MenuInterestTableViewCell
+        interestCell.delegate = self
+        interestCell.interestButton.setTitle(User.current.interest, for: .normal)
+        return interestCell
+    }
+    
+    func configureAccountCell(withIdentifier identifier: String) -> MenuAccountTableViewCell {
+        let accountCell = self.menuTableView.dequeueReusableCell(withIdentifier: identifier) as! MenuAccountTableViewCell
+        accountCell.nameLabel.text = User.current.name
+        accountCell.usernameLabel.text = User.current.username
+        return accountCell
     }
     
     
@@ -124,17 +131,31 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+    // MARK: MenuInterestTableViewCellDelegate Methods
+    func interestButtonPressed() {
+        // show interest selection table
+    }
+    
+    
     // MARK: LoginViewControllerDelegate Methods
     func userDidLogin() {
-        // remove login cell and replace with account cell
-        User.logout()
+        self.configureMenuCells()
     }
     
     
     // MARK: SignUpViewControllerDelegate Methods
     func userDidSignUp() {
-        // remove login cell and replace with account cell
-        User.logout()
+        self.configureMenuCells()
+    }
+    
+    
+    // MARK: Menu Methods
+    func configureMenuCells() {
+        if User.current.exists {
+            self.cells = [.account, .interest]
+        } else {
+            self.cells = [.login]
+        }
     }
     
     

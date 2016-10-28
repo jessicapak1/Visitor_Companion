@@ -46,15 +46,17 @@ class AppPreferenceTableViewController: UITableViewController {
             self.present(viewController, animated: true, completion: nil)
         } else if indexPath.section == 1 && indexPath.row == 2 { // logout
             User.logout();
-            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "map")
-            self.present(viewController, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Logout", message: "You have successfully logged out", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         } else if indexPath.section == 2 && indexPath.row == 0 { // about
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "about")
             self.present(viewController, animated: true, completion: nil)
         } else if indexPath.section == 2 && indexPath.row == 1 { // privacy?
             
         }
+        
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
-
 
 }
