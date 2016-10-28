@@ -10,6 +10,8 @@
 		300729771DAC08D600D39C80 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300729761DAC08D600D39C80 /* CoreLocation.framework */; };
 		304290C51DA2074A00354AF9 /* InterestsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304290C41DA2074A00354AF9 /* InterestsData.swift */; };
 		4B1C25F0B5A8148675F75AA0 /* Pods_USC_Visitor_Companion_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */; };
+		4EAF18161DC3143300EC0C12 /* InterestsCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EAF18151DC3143300EC0C12 /* InterestsCellView.xib */; };
+		4EAF18181DC3155200EC0C12 /* InterestsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAF18171DC3155200EC0C12 /* InterestsCell.swift */; };
 		4EC1196C1DBD49ED0037996E /* UIImageViewModeScaleAspect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC1196B1DBD49ED0037996E /* UIImageViewModeScaleAspect.swift */; };
 		4EC119721DBE7FAB0037996E /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC119711DBE7FAB0037996E /* LocationTableViewController.swift */; };
 		4ED64E711DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED64E701DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift */; };
@@ -77,6 +79,8 @@
 		300729761DAC08D600D39C80 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		304290C41DA2074A00354AF9 /* InterestsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsData.swift; sourceTree = "<group>"; };
 		44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USC_Visitor_Companion_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EAF18151DC3143300EC0C12 /* InterestsCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InterestsCellView.xib; sourceTree = "<group>"; };
+		4EAF18171DC3155200EC0C12 /* InterestsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsCell.swift; sourceTree = "<group>"; };
 		4EC1196B1DBD49ED0037996E /* UIImageViewModeScaleAspect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewModeScaleAspect.swift; sourceTree = "<group>"; };
 		4EC119711DBE7FAB0037996E /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
 		4ED64E701DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminSegmentedViewControoler.swift; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 				4EDB15221DBFDE1000978CEA /* DescriptionCellView.xib */,
 				4EDB15241DBFDE7200978CEA /* BlankCellView.xib */,
 				4EDB152A1DC083FF00978CEA /* MediaCellView.xib */,
+				4EAF18151DC3143300EC0C12 /* InterestsCellView.xib */,
 			);
 			name = "Location Views";
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 				AA536C491DB4822E009A608A /* MenuLoginTableViewCell.swift */,
 				AAD38B8E1D971648004DD648 /* Assets.xcassets */,
 				4EDB152C1DC084D800978CEA /* MediaCell.swift */,
+				4EAF18171DC3155200EC0C12 /* InterestsCell.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -462,6 +468,7 @@
 				AAD38B8F1D971648004DD648 /* Assets.xcassets in Resources */,
 				AA3B8A051DBF29BF0013580E /* MenuInterestTableViewCell.xib in Resources */,
 				AAD38B8A1D971648004DD648 /* Main.storyboard in Resources */,
+				4EAF18161DC3143300EC0C12 /* InterestsCellView.xib in Resources */,
 				4EDB152B1DC083FF00978CEA /* MediaCellView.xib in Resources */,
 				4EDB15251DBFDE7200978CEA /* BlankCellView.xib in Resources */,
 				AA536C4C1DB4822E009A608A /* MenuLoginTableViewCell.xib in Resources */,
@@ -639,6 +646,7 @@
 				AA15CE361DA635B80025CBAA /* NoResultsFoundTableViewCell.swift in Sources */,
 				AA38AD3F1D9C9F150067E1C9 /* Interest.swift in Sources */,
 				AAD38B8D1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld in Sources */,
+				4EAF18181DC3155200EC0C12 /* InterestsCell.swift in Sources */,
 				755993EE1D98D5EC0090717C /* ForgotPasswordViewController.swift in Sources */,
 				75EABC471D98BA1E0075E75E /* AppPreferenceTableViewController.swift in Sources */,
 				75EABC461D98BA1E0075E75E /* MapViewController.swift in Sources */,

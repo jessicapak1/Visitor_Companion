@@ -9,6 +9,7 @@
 import UIKit
 
 class DescriptionCell: UITableViewCell {
+    @IBOutlet weak var topView: UIView!
 
     @IBOutlet weak var myBackgroundView: UIView!
     
@@ -20,9 +21,10 @@ class DescriptionCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        myBackgroundView.layer.cornerRadius = 10
+        myBackgroundView.layer.cornerRadius = 15
         myBackgroundView.layer.masksToBounds = true
-
+        //topView.layer.cornerRadius = 10
+        //topView.layer.masksToBounds = true
         /*
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)

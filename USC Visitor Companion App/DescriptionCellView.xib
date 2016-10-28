@@ -3,54 +3,77 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="descriptionCellView" rowHeight="149" id="2EC-kf-ZVt" customClass="DescriptionCell" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="descriptionCellView" rowHeight="149" id="mdy-f2-bz3" customClass="DescriptionCell" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2EC-kf-ZVt" id="qZN-2O-EAL">
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mdy-f2-bz3" id="mg8-zH-U11">
                 <frame key="frameInset" width="375" height="148"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2cm-b9-QzK">
-                        <frame key="frameInset" minX="3" minY="3" width="365" height="142"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pG-TL-SGP">
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKe-HU-6fv">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpZ-iO-XSl">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="98" id="6SG-z5-C0P"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="HpZ-iO-XSl" firstAttribute="top" secondItem="tKe-HU-6fv" secondAttribute="top" constant="2" id="DDL-0R-Bca"/>
+                                    <constraint firstItem="HpZ-iO-XSl" firstAttribute="centerY" secondItem="tKe-HU-6fv" secondAttribute="centerY" id="RN3-zM-0WO"/>
+                                    <constraint firstItem="HpZ-iO-XSl" firstAttribute="leading" secondItem="tKe-HU-6fv" secondAttribute="leading" constant="30" id="Uwp-LK-G4W"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHI-S6-H9a">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="99" id="pno-1P-fnT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tKe-HU-6fv" secondAttribute="trailing" id="1Xe-uK-B9u"/>
+                            <constraint firstAttribute="trailing" secondItem="mHI-S6-H9a" secondAttribute="trailing" constant="30" id="8Y2-OF-PnW"/>
+                            <constraint firstItem="mHI-S6-H9a" firstAttribute="top" secondItem="tKe-HU-6fv" secondAttribute="bottom" constant="8" id="CtB-en-Owz"/>
+                            <constraint firstItem="tKe-HU-6fv" firstAttribute="top" secondItem="1pG-TL-SGP" secondAttribute="top" id="Jzl-rQ-P9b"/>
+                            <constraint firstItem="mHI-S6-H9a" firstAttribute="top" secondItem="tKe-HU-6fv" secondAttribute="bottom" constant="8" symbolic="YES" id="Loq-vJ-uLQ"/>
+                            <constraint firstItem="mHI-S6-H9a" firstAttribute="leading" secondItem="1pG-TL-SGP" secondAttribute="leading" constant="30" id="TUb-2Q-lmb"/>
+                            <constraint firstAttribute="bottom" secondItem="mHI-S6-H9a" secondAttribute="bottom" constant="8" id="WQB-Kz-Kww"/>
+                            <constraint firstItem="mHI-S6-H9a" firstAttribute="top" secondItem="tKe-HU-6fv" secondAttribute="bottom" constant="8" id="Zoh-E1-ON2"/>
+                            <constraint firstItem="tKe-HU-6fv" firstAttribute="leading" secondItem="1pG-TL-SGP" secondAttribute="leading" id="f6n-Fy-MCa"/>
+                        </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9d-6c-fca">
-                        <frame key="frameInset" minX="14" minY="8" width="231" height="134"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="building" translatesAutoresizingMaskIntoConstraints="NO" id="xnI-2C-40o">
-                        <frame key="frameInset" minX="284" minY="38" width="64" height="66"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gold separator" translatesAutoresizingMaskIntoConstraints="NO" id="Po4-P8-0i6">
-                        <frame key="frameInset" minX="253" minY="5" width="5" height="138"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="1pG-TL-SGP" firstAttribute="leading" secondItem="mg8-zH-U11" secondAttribute="leadingMargin" id="F79-uz-hJR"/>
+                    <constraint firstItem="1pG-TL-SGP" firstAttribute="centerY" secondItem="mg8-zH-U11" secondAttribute="centerY" id="gQd-Qd-G6n"/>
+                    <constraint firstItem="1pG-TL-SGP" firstAttribute="top" secondItem="mg8-zH-U11" secondAttribute="topMargin" constant="-4" id="rcf-yI-5g1"/>
+                    <constraint firstItem="1pG-TL-SGP" firstAttribute="centerX" secondItem="mg8-zH-U11" secondAttribute="centerX" id="sAW-fr-FWA"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="backgroundView" destination="2cm-b9-QzK" id="WCY-RB-zhW"/>
-                <outlet property="descriptionLabel" destination="y9d-6c-fca" id="Reh-5V-jTr"/>
-                <outlet property="locationTypeImage" destination="xnI-2C-40o" id="LBO-I2-5hx"/>
-                <outlet property="myBackgroundView" destination="2cm-b9-QzK" id="np3-Fm-p8E"/>
+                <outlet property="descriptionLabel" destination="mHI-S6-H9a" id="6Ur-oi-NR2"/>
+                <outlet property="myBackgroundView" destination="1pG-TL-SGP" id="Yf4-aQ-b3e"/>
+                <outlet property="topView" destination="tKe-HU-6fv" id="GTo-4a-BAS"/>
             </connections>
-            <point key="canvasLocation" x="-108.5" y="47.5"/>
+            <point key="canvasLocation" x="-173.5" y="3.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="building" width="20" height="20"/>
-        <image name="gold separator" width="10" height="150"/>
-    </resources>
 </document>

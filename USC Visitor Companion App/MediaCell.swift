@@ -10,12 +10,15 @@ import UIKit
 
 class MediaCell: UITableViewCell {
 
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var myBackgroundView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        myBackgroundView.layer.cornerRadius = 10
+        myBackgroundView.layer.cornerRadius = 15
         myBackgroundView.layer.masksToBounds = true
+        //topView.layer.cornerRadius = 10
+        //topView.layer.masksToBounds = true
 
         /*
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)

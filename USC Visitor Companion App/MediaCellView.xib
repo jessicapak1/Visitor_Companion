@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,19 +16,50 @@
                 <frame key="frameInset" width="375" height="148"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vn6-NU-zPS">
-                        <frame key="frameInset" minX="3" minY="2" width="368" height="145"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vn6-NU-zPS">
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yl-qy-H2q">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Media" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kht-3b-x3q">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="88" id="3PD-h0-SHG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Kht-3b-x3q" firstAttribute="leading" secondItem="0yl-qy-H2q" secondAttribute="leading" constant="30" id="1VM-H8-Gxn"/>
+                                    <constraint firstItem="Kht-3b-x3q" firstAttribute="centerY" secondItem="0yl-qy-H2q" secondAttribute="centerY" id="FbY-em-UXE"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kht-3b-x3q" secondAttribute="bottom" id="sYB-ec-sca"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0yl-qy-H2q" firstAttribute="top" secondItem="vn6-NU-zPS" secondAttribute="top" id="6ZW-X6-KaP"/>
+                            <constraint firstAttribute="bottom" secondItem="0yl-qy-H2q" secondAttribute="bottom" constant="119" id="Idv-2b-O4h"/>
+                            <constraint firstItem="0yl-qy-H2q" firstAttribute="leading" secondItem="vn6-NU-zPS" secondAttribute="leading" id="PKL-o3-wLi"/>
+                            <constraint firstAttribute="trailing" secondItem="0yl-qy-H2q" secondAttribute="trailing" id="wE8-zr-mOz"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="vn6-NU-zPS" firstAttribute="top" secondItem="YIW-h0-zVS" secondAttribute="topMargin" constant="-4" id="8Fu-hF-hQi"/>
+                    <constraint firstItem="vn6-NU-zPS" firstAttribute="centerY" secondItem="YIW-h0-zVS" secondAttribute="centerY" id="AHD-y0-5Mg"/>
+                    <constraint firstItem="vn6-NU-zPS" firstAttribute="leading" secondItem="YIW-h0-zVS" secondAttribute="leadingMargin" id="kF9-Bw-Wvb"/>
+                    <constraint firstItem="vn6-NU-zPS" firstAttribute="centerX" secondItem="YIW-h0-zVS" secondAttribute="centerX" id="uod-mG-VQt"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="myBackgroundView" destination="vn6-NU-zPS" id="edo-25-fyc"/>
+                <outlet property="topView" destination="0yl-qy-H2q" id="LVx-dJ-o9O"/>
             </connections>
-            <point key="canvasLocation" x="11.5" y="100"/>
+            <point key="canvasLocation" x="11.5" y="99.5"/>
         </tableViewCell>
     </objects>
 </document>

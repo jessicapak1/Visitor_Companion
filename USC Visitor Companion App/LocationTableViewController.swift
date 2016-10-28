@@ -15,6 +15,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             self.tableView.register(UINib(nibName: "BlankCellView", bundle: nil), forCellReuseIdentifier: "blankCellView")
             self.tableView.register(UINib(nibName: "DescriptionCellView", bundle: nil), forCellReuseIdentifier: "descriptionCellView")
             self.tableView.register(UINib(nibName: "MediaCellView", bundle: nil), forCellReuseIdentifier: "mediaCellView")
+            self.tableView.register(UINib(nibName: "InterestsCellView", bundle: nil), forCellReuseIdentifier: "interestsCellView")
         }
     }
     @IBOutlet weak var imageView: UIImageView!
@@ -35,6 +36,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         self.navigationItem.title = name
 
         current = LocationData.shared.getLocation(withName: name)
+
     }
     
     override func viewDidLoad() {
@@ -71,14 +73,11 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     // TABLE VIEW CODE
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 200.0
-        }
         return 149.0
     }
 
@@ -90,8 +89,23 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             //cell.addGestureRecognizer(tapGesture)
             return cell
         } else if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "blankCellView")!
+            //let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LocationTableViewController.animateImage))
+            //cell.addGestureRecognizer(tapGesture)
+            return cell
+        } else if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "blankCellView")!
+            //let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LocationTableViewController.animateImage))
+            //cell.addGestureRecognizer(tapGesture)
+            return cell
+        } else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCellView") as! DescriptionCell
             cell.descriptionLabel.text = current?.details!
+            return cell
+        } else if indexPath.row == 4 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "interestsCellView", for: indexPath) as! InterestsCell
+            let stringRepresentation = current?.interests?.joined(separator: ", ")
+            cell.interestsLabel.text = stringRepresentation
             return cell
         }
         /*else if indexPath.row == 2 {
