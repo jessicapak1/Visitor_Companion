@@ -9,6 +9,7 @@
 import UIKit
 
 class InfoWindow: UIView {
+    @IBOutlet weak var locationNameLabel: UILabel!
     
     
     

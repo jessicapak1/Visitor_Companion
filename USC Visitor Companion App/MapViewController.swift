@@ -353,6 +353,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         let infoWindow = Bundle.main.loadNibNamed("InfoWindow", owner: self, options: nil)?.first! as! InfoWindow
+        infoWindow.locationNameLabel.text = "Please work"
         return infoWindow
     }
     
