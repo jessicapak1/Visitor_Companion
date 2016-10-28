@@ -44,7 +44,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         if User.current.exists {
             self.cells = [.interest]
         } else {
-            self.cells = [.interest, .login]
+            self.cells = [.login]
         }
     }
     

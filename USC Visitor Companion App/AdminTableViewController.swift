@@ -33,7 +33,7 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
         self.nameTextField.text = locationObject?.name
         self.codeTextField.text = locationObject?.code
         self.descriptionTextView.text = locationObject?.details
-        
+
         if let locationObject = LocationData.shared.getLocation(withName: locationName)
         {
             self.nameTextField.text = locationObject.name

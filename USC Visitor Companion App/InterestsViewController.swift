@@ -49,6 +49,7 @@ class InterestsViewController: UITableViewController {
             delegate.userDidSave(interestsArray: interests)
         }
         self.dismiss(animated: true, completion: nil)
+
     }
     
     // MARK: - Navigation
