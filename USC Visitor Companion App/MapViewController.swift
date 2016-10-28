@@ -16,7 +16,7 @@ import BetterSegmentedControl
 
 class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
-    var added_marker = GMSMarker()?
+    var added_marker = GMSMarker()
     var fromAdmin : Bool?
     var newLocation: CLLocationCoordinate2D?
     // MARK: Properties
@@ -252,7 +252,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             locationVC.name = currentMarker.title
         }
         
-        if(fromAdmin) {
+        if(fromAdmin)! {
             if segue.identifier == "map_to_admin" {
                 let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
                 destinationVC.addLocationValue = newLocation;

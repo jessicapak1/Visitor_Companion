@@ -33,10 +33,20 @@ class InterestsViewController: UITableViewController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(fromAdmin) {
+        if(fromAdmin)! {
             if segue.identifier == "interests_to_admin" {
                 let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
                 destinationVC.interestsArray = interests
+            }
+        }
+        if (segue.identifier == "admin_one") {
+            print("inside segue interests")
+            //get a reference to the destination view controller
+            let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
+            
+            destinationVC.interestsArray = interests
+            for i in (0..<interests.count) {
+                print(interests[i])
             }
         }
     }
@@ -63,20 +73,5 @@ class InterestsViewController: UITableViewController {
         tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
 
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("inside segue")
-        if (segue.identifier == "admin_one") {
-            print("inside segue interests")
-            //get a reference to the destination view controller
-            let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
-        
-            destinationVC.interestsArray = interests
-            for i in (0..<interests.count) {
-                print(interests[i])
-            }
-        }
-    }
-
 
 }

@@ -33,9 +33,9 @@ class AdminTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         let locationObject = LocationData.shared.getLocation(withName: locationName)
-        self.nameTextField.text = locationObject.name
-        self.codeTextField.text = locationObject.code
-        self.descriptionTextView.text = locationObject.details
+        self.nameTextField.text = locationObject?.name
+        self.codeTextField.text = locationObject?.code
+        self.descriptionTextView.text = locationObject?.details
         if(!interestsArray.isEmpty)
         {
             var interestString = ""
