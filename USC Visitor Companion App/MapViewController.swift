@@ -13,12 +13,20 @@ import BubbleTransition
 import CoreLocation
 import BetterSegmentedControl
 
+protocol MapViewDelegates {
+    func userDidSaveMap(newLocation: CLLocation)
+}
+
 
 class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
+    var added_marker = GMSMarker()
+    var fromAdmin : Bool?
+    var newLocation: CLLocation?
     // MARK: Properties
     let bubbleTransition: BubbleTransition = BubbleTransition()
-    
+    var mapDelegate: MapViewDelegates?
+
     var mapView: GMSMapView! {
         didSet {
             self.mapView.delegate = self
@@ -30,8 +38,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     var currentLocation = [Location]()
     var currentMarker = GMSMarker()
     let locationManager = CLLocationManager()
-    
-    var newMarker : Bool = false
     
     var searchResults: [Location] = [Location]()
     
@@ -68,10 +74,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     // MARK: View Controller Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.fromAdmin = false
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "viterbi"))
         self.showMap()
         self.showMarkers()
         self.addSearch()
+        User.login(username: "pakjessi@usc.edu", password: "password")
     }
     
     
@@ -86,7 +94,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             // show locations with Food interets from InterestData
         } else if self.segmentedControl.index == 3 { // Search
             self.showSearch()
-            do { try self.segmentedControl.set(index: 0, animated: true) } catch { } // should be set to the segment of the location
+            do { try self.segmentedControl.set(0, animated: true) } catch { } // should be set to the segment of the location
         }
     }
     
@@ -108,17 +116,18 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         }
         
         let circleCenter = locationManager.location?.coordinate
-        let circ = GMSCircle(position: circleCenter!, radius: 10)
-        circ.fillColor = UIColor(red: 0.35, green: 0, blue: 0, alpha: 0.05)
-        circ.strokeColor = UIColor.red
-        circ.strokeWidth = 2
-        circ.map = mapView
-        
+        if let circleCenter = circleCenter {
+            let circ = GMSCircle(position: circleCenter, radius: 10)
+            circ.fillColor = UIColor(red: 0.35, green: 0, blue: 0, alpha: 0.05)
+            circ.strokeColor = UIColor.red
+            circ.strokeWidth = 2
+            circ.map = mapView
+        }
     }
 
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0]
-        print("locations = \(userLocation.coordinate.latitude) \(userLocation.coordinate.longitude)")
+//        print("locations = \(userLocation.coordinate.latitude) \(userLocation.coordinate.longitude)")
     }
     
     func nearby() {
@@ -248,6 +257,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             let locationVC = navVC.viewControllers.first as! LocationViewController
             locationVC.name = currentMarker.title
         }
+        
+        if fromAdmin! {
+            if segue.identifier == "map_to_admin" {
+                let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
+                destinationVC.addLocationValue = newLocation;
+            }
+        }
     }
     
     
@@ -319,25 +335,30 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: GMSMapViewDelegate Methods
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        if newMarker == true {
-            // add Jess's code for new location markers
+//        currentMarker = marker
+//        self.performSegue(withIdentifier: "Show Location", sender: self)
+      
+        added_marker = marker;
+        newLocation = CLLocation(latitude: marker.position.latitude, longitude: marker.position.longitude)
+        if let delegate = self.mapDelegate {
+            delegate.userDidSaveMap(newLocation: newLocation!)
         }
-        currentMarker = marker
-        self.performSegue(withIdentifier: "Show Location", sender: self)
-        
+        self.dismiss(animated: true, completion: nil)
     }
     
     
     // MARK: UIViewControllerTransitioningDelegate Methods
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        self.segmentedControl.isHidden = true
         self.bubbleTransition.duration = 0.25
         self.bubbleTransition.transitionMode = .present
         self.bubbleTransition.startingPoint = self.menuButton.center
-        self.bubbleTransition.bubbleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.80)
+        self.bubbleTransition.bubbleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.75)
         return self.bubbleTransition
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        self.segmentedControl.isHidden = false
         self.bubbleTransition.transitionMode = .dismiss
         return self.bubbleTransition
     }
@@ -350,12 +371,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         }
     }
     
-    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-        let infoWindow = Bundle.main.loadNibNamed("InfoWindow", owner: self, options: nil)?.first! as! InfoWindow
-        infoWindow.locationNameLabel.text = marker.title
-        infoWindow.userInfoLabel.text = "User location info will go here."
-        return infoWindow
-    }
     
+    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+        let new_marker = GMSMarker()
+        print("long press")
+        new_marker.position = coordinate
+        new_marker.map = self.mapView
+        new_marker.title = "Click to save location"
+    }
 
 }

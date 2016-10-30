@@ -37,7 +37,7 @@ class SignUpViewController: UIViewController {
 
     @IBOutlet weak var signUpButton: UIButton! {
         didSet {
-            self.signUpButton.layer.cornerRadius = 7.0
+            self.signUpButton.layer.cornerRadius = 5.0
         }
     }
     
