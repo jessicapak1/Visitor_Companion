@@ -76,7 +76,7 @@ class LoginViewController: UIViewController {
                 print("LoginViewController - user cancelled login")
             case .success(grantedPermissions: _, declinedPermissions: _, token: _):
                 print("LoginViewController - user logged in")
-                // prepare current user with logged in facebook user
+                // prepare current user with logged in facebook user through graph request
             }
         })
     }

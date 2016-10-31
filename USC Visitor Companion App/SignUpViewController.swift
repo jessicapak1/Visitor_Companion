@@ -94,7 +94,7 @@ class SignUpViewController: UIViewController {
                 print("LoginViewController - user cancelled login")
             case .success(grantedPermissions: _, declinedPermissions: _, token: _):
                 print("LoginViewController - user logged in")
-                // sign up user with information gathered from facebook login
+                // sign up user with information gathered from facebook login through graph request
             }
         })
     }
