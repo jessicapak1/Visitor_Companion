@@ -7,6 +7,8 @@
 //
 
 import Parse
+import FacebookCore
+import FacebookLogin
 
 enum UserType: String {
     case parent = "Parent"
@@ -75,6 +77,10 @@ class User: NSObject {
     
     class func logout() {
         PFUser.logOut()
+        if let _ = AccessToken.current {
+            LoginManager().logOut()
+            AccessToken.current = nil
+        }
         User.current.update()
     }
     

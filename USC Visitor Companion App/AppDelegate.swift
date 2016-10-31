@@ -11,6 +11,7 @@ import CoreData
 import Parse
 import GoogleMaps
 import GooglePlaces
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Prepare Google Maps and Google Places
         GMSServices.provideAPIKey("AIzaSyB1iOGx8a5ppieIX_gVXHqPTvhjSTxH6Lk")
         GMSPlacesClient.provideAPIKey("AIzaSyBlDnXlMBbnJsiHw-dg1VYcA00SYkS08Rs")
+        
+        // Prepare Facebook
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return true
     }
@@ -57,6 +61,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        return handled
     }
 
     // MARK: - Core Data stack
