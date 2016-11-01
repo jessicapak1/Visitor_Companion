@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nft-j1-Vc1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nft-j1-Vc1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -186,7 +186,7 @@
                                     <action selector="backgroundButtonPressed" destination="Sgj-3z-ixe" eventType="touchUpInside" id="3It-Ab-rgA"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rRK-Mb-KXe">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rRK-Mb-KXe">
                                 <rect key="frame" x="40" y="40" width="295" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="nNE-iu-Ohq"/>
@@ -339,7 +339,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4XW-W3-lOo">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4XW-W3-lOo">
                                 <rect key="frame" x="40" y="96" width="295" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ZAO-QD-XT8"/>
@@ -348,7 +348,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GvE-hs-5ad">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GvE-hs-5ad">
                                 <rect key="frame" x="40" y="152" width="295" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="q0v-4n-Iw0"/>
@@ -455,14 +455,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="confirmEmailTextField" destination="GvE-hs-5ad" id="7b6-bt-jIU"/>
                         <outlet property="confirmPasswordTextField" destination="u9x-yp-2gV" id="59s-uY-CEi"/>
-                        <outlet property="emailTextField" destination="GvE-hs-5ad" id="kMS-3y-kUN"/>
+                        <outlet property="emailTextField" destination="4XW-W3-lOo" id="ITF-LR-Ozf"/>
                         <outlet property="facebookSignUpButton" destination="XZg-T3-TWX" id="U4y-ZS-hZf"/>
                         <outlet property="nameTextField" destination="A1y-hg-BxF" id="sfH-Ft-LrA"/>
                         <outlet property="passwordTextField" destination="6B6-fw-9XT" id="gLq-ub-b8t"/>
                         <outlet property="segmentedControl" destination="TYA-gF-GO0" id="TBK-NE-frt"/>
                         <outlet property="signUpButton" destination="sdD-Lf-7cf" id="br4-eH-B2U"/>
-                        <outlet property="usernameTextField" destination="4XW-W3-lOo" id="3F4-5V-uZF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpv-Nh-FD2" userLabel="First Responder" sceneMemberID="firstResponder"/>

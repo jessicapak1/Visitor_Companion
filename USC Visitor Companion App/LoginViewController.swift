@@ -87,6 +87,7 @@ class LoginViewController: UIViewController {
                 let _ = self.navigationController?.popViewController(animated: true)
             }
         } else {
+            User.logout() // remove token in case Facebook login was correct but information was changed
             self.showAlert(withTitle: "Login Failed", message: "The username or password you entered was incorrect", action: "Try Again")
         }
     }

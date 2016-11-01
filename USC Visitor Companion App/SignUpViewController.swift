@@ -20,9 +20,9 @@ class SignUpViewController: UIViewController {
     // MARK: IBOutlets
     @IBOutlet weak var nameTextField: UITextField!
     
-    @IBOutlet weak var usernameTextField: UITextField!
-    
     @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var confirmEmailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -56,21 +56,23 @@ class SignUpViewController: UIViewController {
     // MARK: IBAction Methods
     @IBAction func signUpButtonPressed() {
         let name = self.nameTextField.text
-        let username = self.usernameTextField.text
         let email = self.emailTextField.text
+        let confirmedEmail = self.confirmEmailTextField.text
         let password = self.passwordTextField.text
         let confirmedPassword = self.confirmPasswordTextField.text
-        if let name = name, let username = username, let email = email, let password = password, let confirmedPassword = confirmedPassword {
-            if name.isEmpty || username.isEmpty || email.isEmpty || password.isEmpty || confirmedPassword.isEmpty {
-                self.showAlert(withTitle: "Missing Fields", message: "Please enter your information for all fields to sign up", action: "OK")
+        if let name = name, let email = email, let confirmedEmail = confirmedEmail, let password = password, let confirmedPassword = confirmedPassword{
+            if name.isEmpty || email.isEmpty || confirmedEmail.isEmpty || password.isEmpty || confirmedPassword.isEmpty {
+                self.showAlert(withTitle: "Missing Fields", message: "Please enter your information in all fields to sign up", action: "OK")
             } else {
                 let type = self.segmentedControl.titles[Int(self.segmentedControl.index)]
-                if self.passwordTextField.text == self.confirmPasswordTextField.text {
-                    User.signup(name: name, username: username, password: password, email: email, type: type, callback: {
+                if self.passwordTextField.text != self.confirmPasswordTextField.text {
+                    self.showAlert(withTitle: "Mismatched Passwords", message: "The passwords you entered do not match", action: "OK")
+                } else if self.emailTextField.text != self.confirmEmailTextField.text {
+                    self.showAlert(withTitle: "Mismatched Emails", message: "The emails you entered do not match", action: "OK")
+                } else {
+                    User.signup(name: name, username: email, password: password, email: email, type: type, callback: {
                         self.checkSignUpDetails()
                     })
-                } else {
-                    self.showAlert(withTitle: "Mismatched Passwords", message: "The passwords you entered do not match", action: "OK")
                 }
             }
         }
@@ -78,8 +80,8 @@ class SignUpViewController: UIViewController {
     
     @IBAction func backgroundButtonPressed() {
         self.nameTextField.resignFirstResponder()
-        self.usernameTextField.resignFirstResponder()
         self.emailTextField.resignFirstResponder()
+        self.confirmEmailTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
         self.confirmPasswordTextField.resignFirstResponder()
     }
@@ -105,7 +107,8 @@ class SignUpViewController: UIViewController {
                 let _ = self.navigationController?.popViewController(animated: true)
             }
         } else {
-            self.showAlert(withTitle: "Sign Up Failed", message: "The username you entered is already being used", action: "Try Again")
+            User.logout() // remove token in case Facebook login was correct but local account was already created
+            self.showAlert(withTitle: "Sign Up Failed", message: "The email you entered is already being used", action: "Try Again")
         }
     }
     

@@ -7,6 +7,7 @@
 //
 
 import Parse
+import FacebookCore
 import FacebookLogin
 
 enum UserType: String {
@@ -14,7 +15,7 @@ enum UserType: String {
     case prospective = "Prospective Student"
     case current = "Current Student"
     case admin = "Administrator"
-    case none = "None"  // should never be stored on database
+    case none = "None" // should never be stored on database
 }
 
 
@@ -70,15 +71,16 @@ class User: NSObject {
         loginManager.logIn([.email, .publicProfile], viewController: nil, completion: {
             (loginResult) in
             switch loginResult {
-            case .success(grantedPermissions: _, declinedPermissions: _, token: _):
-                print("Login Success")
+            case .success(grantedPermissions: _, declinedPermissions: _, token: let accessToken):
+                User.current.signupThroughGraphRequest(withAccessToken: accessToken, callback:{
+                    User.current.update()
+                    callback()
+                })
             case .failed(_):
                 break
             case .cancelled:
                 break
             }
-            User.current.update()
-            callback()
         })
     }
     
@@ -96,15 +98,16 @@ class User: NSObject {
         loginManager.logIn([.email, .publicProfile], viewController: nil, completion: {
             (loginResult) in
             switch loginResult {
-            case .success(grantedPermissions: _, declinedPermissions: _, token: _):
-                print("Login Success")
+            case .success(grantedPermissions: _, declinedPermissions: _, token: let accessToken):
+                User.current.loginThroughGraphRequest(withAccessToken: accessToken, callback: {
+                    User.current.update()
+                    callback()
+                })
             case .failed(_):
                 break
             case .cancelled:
                 break
             }
-            User.current.update()
-            callback()
         })
     }
     
@@ -140,6 +143,45 @@ class User: NSObject {
     private func update(value: Any?, forKey key: String) {
         PFUser.current()?[key] = value
         do { try PFUser.current()?.save() } catch { }
+    }
+    
+    private func signupThroughGraphRequest(withAccessToken accessToken: AccessToken, callback: @escaping () -> Void) {
+        let request = GraphRequest(graphPath: "me", parameters: ["fields": "email, name"], accessToken: accessToken, httpMethod: .GET, apiVersion: GraphAPIVersion.defaultVersion)
+        request.start({
+            (response, result) in
+            switch result {
+            case .success(response: let value):
+                let values = value.dictionaryValue!
+                let id = values["id"] as! String
+                let name = values["name"] as! String
+                let email = values["email"] as! String
+                // id should be hashed with SHA256 then stored as password
+                User.signup(name: name, username: email, password: id, email: email, type: "Prospective Student", callback: {
+                    callback()
+                })
+            case .failed(_):
+                break
+            }
+        })
+    }
+    
+    private func loginThroughGraphRequest(withAccessToken accessToken: AccessToken, callback: @escaping () -> Void) {
+        let request = GraphRequest(graphPath: "me", parameters: ["fields": "email"], accessToken: accessToken, httpMethod: .GET, apiVersion: GraphAPIVersion.defaultVersion)
+        request.start({
+            (response, result) in
+            switch result {
+            case .success(response: let value):
+                let values = value.dictionaryValue!
+                let id = values["id"] as! String
+                let email = values["email"] as! String
+                // id should be hashed with SHA256 then stored as password
+                User.login(username: email, password: id, callback: {
+                    callback()
+                })
+            case .failed(_):
+                break
+            }
+        })
     }
     
 }
