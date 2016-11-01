@@ -50,7 +50,9 @@ class LoginViewController: UIViewController {
             if username.isEmpty || password.isEmpty {
                 self.showAlert(withTitle: "Missing Fields", message: "Please enter your username and password to login", action: "OK")
             } else {
-                self.checkLoginDetails()
+                User.login(username: self.usernameTextField.text!, password: self.passwordTextField.text!, callback: {
+                    self.checkLoginDetails()
+                })
             }
         }
     }
@@ -65,19 +67,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func facebookLoginButtonPressed() {
-        let loginManager = LoginManager()
-        loginManager.logIn([.publicProfile, .email], viewController: self, completion: {
-            (loginResult) in
-            
-            switch loginResult {
-            case .failed(let error):
-                print(error)
-            case .cancelled:
-                print("LoginViewController - user cancelled login")
-            case .success(grantedPermissions: _, declinedPermissions: _, token: _):
-                print("LoginViewController - user logged in")
-                // prepare current user with logged in facebook user through graph request
-            }
+        User.loginWithFacebook(callback: {
+            self.checkLoginDetails()
         })
     }
     
@@ -90,7 +81,6 @@ class LoginViewController: UIViewController {
     }
     
     func checkLoginDetails() {
-        User.login(username: self.usernameTextField.text!, password: self.passwordTextField.text!)
         if User.current.exists {
             if let delegate = self.delegate {
                 delegate.userDidLogin()

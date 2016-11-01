@@ -66,7 +66,9 @@ class SignUpViewController: UIViewController {
             } else {
                 let type = self.segmentedControl.titles[Int(self.segmentedControl.index)]
                 if self.passwordTextField.text == self.confirmPasswordTextField.text {
-                    self.checkSignUpDetails(name: name, username: username, password: password, email: email, type: type)
+                    User.signup(name: name, username: username, password: password, email: email, type: type, callback: {
+                        self.checkSignUpDetails()
+                    })
                 } else {
                     self.showAlert(withTitle: "Mismatched Passwords", message: "The passwords you entered do not match", action: "OK")
                 }
@@ -83,19 +85,8 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func facebookSignUpButtonPressed() {
-        let loginManager = LoginManager()
-        loginManager.logIn([.publicProfile, .email], viewController: self, completion: {
-            (loginResult) in
-            
-            switch loginResult {
-            case .failed(let error):
-                print(error)
-            case .cancelled:
-                print("LoginViewController - user cancelled login")
-            case .success(grantedPermissions: _, declinedPermissions: _, token: _):
-                print("LoginViewController - user logged in")
-                // sign up user with information gathered from facebook login through graph request
-            }
+        User.signupWithFacebook(callback: {
+            self.checkSignUpDetails()
         })
     }
     
@@ -107,8 +98,7 @@ class SignUpViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func checkSignUpDetails(name: String, username: String, password: String, email: String, type: String) {
-        User.signup(name: name, username: username, password: password, email: email, type: type)
+    func checkSignUpDetails() {
         if User.current.exists {
             if let delegate = self.delegate {
                 delegate.userDidSignUp()

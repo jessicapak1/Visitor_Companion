@@ -7,7 +7,6 @@
 //
 
 import Parse
-import FacebookCore
 import FacebookLogin
 
 enum UserType: String {
@@ -50,7 +49,7 @@ class User: NSObject {
     
     
     // MARK: Class Methods
-    class func signup(name: String, username: String, password: String, email: String, type: String) {
+    class func signup(name: String, username: String, password: String, email: String, type: String, callback: @escaping () -> Void) {
         let user = PFUser()
         user[UserKey.name.rawValue] = name
         user[UserKey.username.rawValue] = username
@@ -58,29 +57,60 @@ class User: NSObject {
         user[UserKey.email.rawValue] = email
         user[UserKey.interest.rawValue] = "General"
         user[UserKey.type.rawValue] = type
-        do {
-            try user.signUp()
-        } catch {
-            print("ERROR: User Class - Failed to sign up with username \(username)")
-        }
-        User.current.update()
+        user.signUpInBackground(block: {
+            (succeeded, error) in
+            User.current.update()
+            callback()
+        })
     }
     
-    class func login(username: String, password: String) {
-        do {
-            try PFUser.logIn(withUsername: username, password: password)
-        } catch {
-            print("ERROR: User Class - Failed to login with username \(username)")
-        }
-        User.current.update()
+    class func signupWithFacebook(callback: @escaping () -> Void) {
+        let loginManager = LoginManager()
+        loginManager.loginBehavior = .web
+        loginManager.logIn([.email, .publicProfile], viewController: nil, completion: {
+            (loginResult) in
+            switch loginResult {
+            case .success(grantedPermissions: _, declinedPermissions: _, token: _):
+                print("Login Success")
+            case .failed(_):
+                break
+            case .cancelled:
+                break
+            }
+            User.current.update()
+            callback()
+        })
+    }
+    
+    class func login(username: String, password: String, callback: @escaping () -> Void) {
+        PFUser.logInWithUsername(inBackground: username, password: password, block: {
+            (user, error) in
+            User.current.update()
+            callback()
+        })
+    }
+    
+    class func loginWithFacebook(callback: @escaping () -> Void) {
+        let loginManager = LoginManager()
+        loginManager.loginBehavior = .web
+        loginManager.logIn([.email, .publicProfile], viewController: nil, completion: {
+            (loginResult) in
+            switch loginResult {
+            case .success(grantedPermissions: _, declinedPermissions: _, token: _):
+                print("Login Success")
+            case .failed(_):
+                break
+            case .cancelled:
+                break
+            }
+            User.current.update()
+            callback()
+        })
     }
     
     class func logout() {
         PFUser.logOut()
-        if let _ = AccessToken.current {
-            LoginManager().logOut()
-            AccessToken.current = nil
-        }
+        LoginManager().logOut()
         User.current.update()
     }
     
