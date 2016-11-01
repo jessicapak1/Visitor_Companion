@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import FacebookLogin
 
 protocol LoginViewControllerDelegate {
     func userDidLogin()
@@ -26,9 +27,21 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var facebookLoginButton: UIButton! {
+        didSet {
+            self.facebookLoginButton.layer.cornerRadius = 5.0
+        }
+    }
+    
     
     // MARK: Properties
     var delegate: LoginViewControllerDelegate?
+    
+    
+    // MARK: View Controller Lifecycle Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 
     
     // MARK: IBAction Methods
@@ -49,6 +62,23 @@ class LoginViewController: UIViewController {
     @IBAction func backgroundButtonPressed() {
         self.usernameTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
+    }
+    
+    @IBAction func facebookLoginButtonPressed() {
+        let loginManager = LoginManager()
+        loginManager.logIn([.publicProfile, .email], viewController: self, completion: {
+            (loginResult) in
+            
+            switch loginResult {
+            case .failed(let error):
+                print(error)
+            case .cancelled:
+                print("LoginViewController - user cancelled login")
+            case .success(grantedPermissions: _, declinedPermissions: _, token: _):
+                print("LoginViewController - user logged in")
+                // prepare current user with logged in facebook user through graph request
+            }
+        })
     }
     
     

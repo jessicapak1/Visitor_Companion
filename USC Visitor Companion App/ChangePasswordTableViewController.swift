@@ -12,7 +12,6 @@ import Parse
 class ChangePasswordTableViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var doneButton: UIBarButtonItem!
-    @IBOutlet weak var currentPasswordTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     override func viewDidLoad() {
@@ -21,7 +20,6 @@ class ChangePasswordTableViewController: UITableViewController, UITextFieldDeleg
         view.addGestureRecognizer(tap)
         doneButton.isEnabled = false
         // Do any additional setup after loading the view.
-        self.currentPasswordTextField.delegate = self;  // set delegate of text field
         self.newPasswordTextField.delegate = self;
         self.confirmPasswordTextField.delegate = self;
     }
@@ -31,13 +29,9 @@ class ChangePasswordTableViewController: UITableViewController, UITextFieldDeleg
     }
     
     @IBAction func changePasswordAction(_ sender: AnyObject) {
-        if User.current.exists {
-            //            if User.current.password == currentPasswordTextField.text { // current password is legit
-            //
-            //            }
-            if newPasswordTextField.text == confirmPasswordTextField.text { // both password is same
+        if newPasswordTextField.text == confirmPasswordTextField.text
+        { // both password is same
                 
-            }
         }
         self.dismiss(animated: true, completion: nil)
     }

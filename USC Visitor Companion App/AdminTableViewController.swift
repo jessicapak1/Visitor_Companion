@@ -10,8 +10,14 @@ import UIKit
 import CoreData
 import CoreLocation
 
-class AdminTableViewController: UITableViewController {
-    var interestsArray: [String] = [String]()
+
+class AdminTableViewController: UITableViewController,  InterestsViewDelegates, MapViewDelegates, UIPickerViewDelegate, UIPickerViewDataSource {
+    var mInterestsArray: [String] = [String]()
+    var selectedLocationType: String = ""
+    var locationTypes = ["Food", "Library", "Building", "Fountain", "Field"]
+    
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var locationTypePicker: UIPickerView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var interestsPicker: UIPickerView!
@@ -19,32 +25,14 @@ class AdminTableViewController: UITableViewController {
     @IBOutlet weak var locationsTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    var addLocationValue: CLLocationCoordinate2D?
+    var addLocationValue: CLLocation?
     var locationName: String = ""
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        let locationObject = LocationData.shared.getLocation(withName: locationName)
-        self.nameTextField.text = locationObject?.name
-        self.codeTextField.text = locationObject?.code
-        self.descriptionTextView.text = locationObject?.details
-        if(!interestsArray.isEmpty)
-        {
-            var interestString = ""
-            for i in (0..<interestsArray.count)
-            {
-                interestString = interestString + interestsArray[i] + " "
-            }
-            self.interestsLabel.text = interestString
-        }
+        locationTypePicker.dataSource = self;
+        locationTypePicker.delegate = self;
         if let locationObject = LocationData.shared.getLocation(withName: locationName)
         {
             self.nameTextField.text = locationObject.name
@@ -54,22 +42,19 @@ class AdminTableViewController: UITableViewController {
                 var interestString = ""
                 for i in (0..<array.count)
                 {
-    interestString = interestString + array[i] + " "
+                    interestString = interestString + array[i] + " "
                 }
                 self.interestsLabel.text = interestString
         }
     }
     @IBAction func locationsButtonAction(_ sender: AnyObject) {
-        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "map") as! MapViewController
-        
-        self.navigationController?.pushViewController(secondViewController, animated: true)
+    
     }
 
     @IBAction func interestsButtonAction(_ sender: AnyObject) {
-        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "interests")
-        self.present(viewController, animated: true, completion: nil)
         
     }
+    
     @IBAction func addButtonAction(_ sender: AnyObject) {
         if((nameTextField.text?.isEmpty)! || (descriptionTextView.text?.isEmpty)!)
         {
@@ -86,23 +71,43 @@ class AdminTableViewController: UITableViewController {
             self.present(alertController, animated: true) { }
             
         }
-            //        else if() locations input verification
-            //        {
-            //
-            //        }
         else
         {
-
-//            let name = nameTextField.text
-//            let code = codeTextField.text            
-//            let location = CLLocation(latitude: 34.0224, longitude: 118.2851)
-//
-//            var interests = [String]()
-//            let description = descriptionTextView.text
-//            LocationData.shared.create(name: name!, code: code!, details: description!, location: location, interests:interests, callback: {() -> Void in });
+            let name = nameTextField.text
+            let code = codeTextField.text            
+            let description = descriptionTextView.text
+            
+            LocationData.shared.create(name: name!, code: code!, details: description!, location: addLocationValue!, interests:mInterestsArray, locType: selectedLocationType, callback: {
+                (succeeded) in
+                if(succeeded) {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            });
 
         }
     }
+    func userDidSaveMap(newLocation: CLLocation) {
+        addLocationValue = newLocation
+        var locationString = "Location: "
+        locationString.append((addLocationValue?.coordinate.latitude.description)!)
+        locationString.append(", ")
+        locationString.append((addLocationValue?.coordinate.longitude.description)!)
+        self.locationLabel.text = locationString
+    }
+    
+    func userDidSave(interestsArray: [String]) {
+        print("did save function");
+        print(interestsArray.count);
+        mInterestsArray = interestsArray
+        var interestString = ""
+    
+        for i in (0..<interestsArray.count)
+        {
+            interestString.append(interestsArray[i] + " ")
+        }
+        self.interestsLabel.text = interestString
+    }
+
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 && indexPath.row == 4 { // link with facebook
@@ -120,16 +125,37 @@ class AdminTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("inside segue")
-        if (segue.identifier == "interests") {
+        if (segue.identifier == "admin_to_interests") {
             print("inside segue interests")
             //get a reference to the destination view controller
-            let destinationVC:InterestsViewController = segue.destination as! InterestsViewController
-            
-            interestsArray = destinationVC.interests
-            for i in (0..<interestsArray.count) {
-                print(interestsArray[i])
-            }
+            let navigationVC = segue.destination as! UINavigationController
+            let destinationVC = navigationVC.viewControllers.first as! InterestsViewController
+            destinationVC.interestDelegate = self
+            destinationVC.fromAdmin = true
         }
+        if (segue.identifier == "admin_to_map") {
+            print("inside segue interests")
+            //get a reference to the destination view controller
+            let navigationVC = segue.destination as! UINavigationController
+            let destinationVC = navigationVC.viewControllers.first as! MapViewController
+            destinationVC.mapDelegate = self
+            destinationVC.fromAdmin = true
+        }
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return locationTypes.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return locationTypes[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedLocationType = locationTypes[row]
     }
 }

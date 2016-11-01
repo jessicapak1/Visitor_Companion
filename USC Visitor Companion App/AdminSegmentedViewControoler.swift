@@ -16,7 +16,7 @@ class AdminSegmentedViewControoler: UIViewController, UITableViewDataSource, UIT
     
     var interests: [String] = [String]()
     var locations: [Location] = [Location]()
-    
+    var locationName : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +71,7 @@ class AdminSegmentedViewControoler: UIViewController, UITableViewDataSource, UIT
         default:
             break
         }
+        locationName = (cell.textLabel?.text!)!;
         return cell
     }
 
@@ -123,14 +124,23 @@ class AdminSegmentedViewControoler: UIViewController, UITableViewDataSource, UIT
 
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "admin_to_adminsignle") {
+            
+                //get a reference to the destination view controller
+            let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
+            destinationVC.locationName = locationName
+       
+        }
+        
+
     }
-    */
+ 
 
 }

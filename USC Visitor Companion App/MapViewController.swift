@@ -13,15 +13,20 @@ import BubbleTransition
 import CoreLocation
 import BetterSegmentedControl
 
+protocol MapViewDelegates {
+    func userDidSaveMap(newLocation: CLLocation)
+}
+
 
 class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     var added_marker = GMSMarker()
     var fromAdmin : Bool?
-    var newLocation: CLLocationCoordinate2D?
+    var newLocation: CLLocation?
     // MARK: Properties
     let bubbleTransition: BubbleTransition = BubbleTransition()
-    
+    var mapDelegate: MapViewDelegates?
+
     var mapView: GMSMapView! {
         didSet {
             self.mapView.delegate = self
@@ -33,6 +38,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     var currentLocation = [Location]()
     var currentMarker = GMSMarker()
     let locationManager = CLLocationManager()
+    var newMarker: Bool = false
     
     var searchResults: [Location] = [Location]()
     
@@ -74,6 +80,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.showMap()
         self.showMarkers()
         self.addSearch()
+        //User.login(username: "pakjessi@usc.edu", password: "password")
     }
     
     
@@ -121,7 +128,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
 
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0]
-        print("locations = \(userLocation.coordinate.latitude) \(userLocation.coordinate.longitude)")
+//        print("locations = \(userLocation.coordinate.latitude) \(userLocation.coordinate.longitude)")
     }
     
     func nearby() {
@@ -252,13 +259,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             locationVC.name = currentMarker.title
         }
         
-        if(fromAdmin)! {
+        if fromAdmin! {
             if segue.identifier == "map_to_admin" {
                 let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
                 destinationVC.addLocationValue = newLocation;
-                print("new location corrd name: ")
-                print(newLocation?.latitude)
-                print(newLocation?.longitude)
             }
         }
     }
@@ -332,12 +336,20 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: GMSMapViewDelegate Methods
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        currentMarker = marker
-        self.performSegue(withIdentifier: "Show Location", sender: self)
-        print("tap info window")
-        added_marker = marker;
-        newLocation = marker.position
-        self.dismiss(animated: true, completion: nil)
+        if newMarker == true {
+            added_marker = marker;
+            newLocation = CLLocation(latitude: marker.position.latitude, longitude: marker.position.longitude)
+            if let delegate = self.mapDelegate {
+                delegate.userDidSaveMap(newLocation: newLocation!)
+            }
+            self.dismiss(animated: true, completion: nil)
+            newMarker = false
+        }
+        else{
+            currentMarker = marker
+            self.performSegue(withIdentifier: "Show Location", sender: self)
+        }
+        
     }
     
     
@@ -367,11 +379,19 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+        newMarker = true
         let new_marker = GMSMarker()
         print("long press")
         new_marker.position = coordinate
         new_marker.map = self.mapView
         new_marker.title = "Click to save location"
+    }
+    
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        let infoWindow = Bundle.main.loadNibNamed("InfoWindow", owner: self, options: nil)?.first! as! InfoWindow
+        infoWindow.locationNameLabel.text = marker.title
+        infoWindow.userInfoLabel.text = "User location info will go here."
+        return infoWindow
     }
 
 }

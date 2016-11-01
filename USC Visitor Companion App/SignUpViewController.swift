@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import BetterSegmentedControl
+import FacebookLogin
 
 protocol SignUpViewControllerDelegate {
     func userDidSignUp()
@@ -38,6 +39,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton! {
         didSet {
             self.signUpButton.layer.cornerRadius = 5.0
+        }
+    }
+    
+    @IBOutlet weak var facebookSignUpButton: UIButton! {
+        didSet {
+            self.facebookSignUpButton.layer.cornerRadius = 5.0
         }
     }
     
@@ -73,6 +80,23 @@ class SignUpViewController: UIViewController {
         self.emailTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
         self.confirmPasswordTextField.resignFirstResponder()
+    }
+    
+    @IBAction func facebookSignUpButtonPressed() {
+        let loginManager = LoginManager()
+        loginManager.logIn([.publicProfile, .email], viewController: self, completion: {
+            (loginResult) in
+            
+            switch loginResult {
+            case .failed(let error):
+                print(error)
+            case .cancelled:
+                print("LoginViewController - user cancelled login")
+            case .success(grantedPermissions: _, declinedPermissions: _, token: _):
+                print("LoginViewController - user logged in")
+                // sign up user with information gathered from facebook login through graph request
+            }
+        })
     }
     
     

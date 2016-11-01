@@ -122,7 +122,7 @@ class Location: NSObject {
         self.location = loc
         
         // save on database
-        self.object?["location"] = loc
+        self.object?["location"] = PFGeoPoint(location: loc)
         self.object?.saveInBackground()
     }
     
