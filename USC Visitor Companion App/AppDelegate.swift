@@ -68,6 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return handled
     }
 
+    
     // MARK: - Core Data stack
 
     @available(iOS 10.0, *)
