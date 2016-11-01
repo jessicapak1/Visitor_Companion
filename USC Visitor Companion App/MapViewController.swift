@@ -38,6 +38,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     var currentLocation = [Location]()
     var currentMarker = GMSMarker()
     let locationManager = CLLocationManager()
+    var newMarker: Bool = false
     
     var searchResults: [Location] = [Location]()
     
@@ -79,7 +80,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.showMap()
         self.showMarkers()
         self.addSearch()
-        User.login(username: "pakjessi@usc.edu", password: "password")
+        //User.login(username: "pakjessi@usc.edu", password: "password")
     }
     
     
@@ -94,7 +95,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             // show locations with Food interets from InterestData
         } else if self.segmentedControl.index == 3 { // Search
             self.showSearch()
-            do { try self.segmentedControl.set(0, animated: true) } catch { } // should be set to the segment of the location
+            do { try self.segmentedControl.set(index: 0, animated: true) } catch { } // should be set to the segment of the location
         }
     }
     
@@ -335,15 +336,20 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: GMSMapViewDelegate Methods
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-//        currentMarker = marker
-//        self.performSegue(withIdentifier: "Show Location", sender: self)
-      
-        added_marker = marker;
-        newLocation = CLLocation(latitude: marker.position.latitude, longitude: marker.position.longitude)
-        if let delegate = self.mapDelegate {
-            delegate.userDidSaveMap(newLocation: newLocation!)
+        if newMarker == true {
+            added_marker = marker;
+            newLocation = CLLocation(latitude: marker.position.latitude, longitude: marker.position.longitude)
+            if let delegate = self.mapDelegate {
+                delegate.userDidSaveMap(newLocation: newLocation!)
+            }
+            self.dismiss(animated: true, completion: nil)
+            newMarker = false
         }
-        self.dismiss(animated: true, completion: nil)
+        else{
+            currentMarker = marker
+            self.performSegue(withIdentifier: "Show Location", sender: self)
+        }
+        
     }
     
     
@@ -373,11 +379,19 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+        newMarker = true
         let new_marker = GMSMarker()
         print("long press")
         new_marker.position = coordinate
         new_marker.map = self.mapView
         new_marker.title = "Click to save location"
+    }
+    
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        let infoWindow = Bundle.main.loadNibNamed("InfoWindow", owner: self, options: nil)?.first! as! InfoWindow
+        infoWindow.locationNameLabel.text = marker.title
+        infoWindow.userInfoLabel.text = "User location info will go here."
+        return infoWindow
     }
 
 }
