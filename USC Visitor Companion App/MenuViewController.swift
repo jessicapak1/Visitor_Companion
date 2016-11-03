@@ -135,7 +135,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: MenuInterestTableViewCellDelegate Methods
     func interestButtonPressed() {
-        // show interest selection table
+        self.performSegue(withIdentifier: "Show Interests", sender: nil)
     }
     
     

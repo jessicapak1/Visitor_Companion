@@ -31,6 +31,7 @@
 		AA15CE371DA635B80025CBAA /* NoResultsFoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA15CE351DA635B80025CBAA /* NoResultsFoundTableViewCell.xib */; };
 		AA1DFD591DAB687E00BECB5A /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1DFD581DAB687E00BECB5A /* UserTests.swift */; };
 		AA2277A21DA2039100F5C1B0 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2277A11DA2039100F5C1B0 /* LocationData.swift */; };
+		AA272A6E1DCBDC6B0020746C /* InterestSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA272A6D1DCBDC6B0020746C /* InterestSelectionViewController.swift */; };
 		AA38AD3F1D9C9F150067E1C9 /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA38AD3E1D9C9F150067E1C9 /* Interest.swift */; };
 		AA3B8A041DBF29BF0013580E /* MenuInterestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3B8A021DBF29BF0013580E /* MenuInterestTableViewCell.swift */; };
 		AA3B8A051DBF29BF0013580E /* MenuInterestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA3B8A031DBF29BF0013580E /* MenuInterestTableViewCell.xib */; };
@@ -104,6 +105,7 @@
 		AA15CE351DA635B80025CBAA /* NoResultsFoundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoResultsFoundTableViewCell.xib; sourceTree = "<group>"; };
 		AA1DFD581DAB687E00BECB5A /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		AA2277A11DA2039100F5C1B0 /* LocationData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
+		AA272A6D1DCBDC6B0020746C /* InterestSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestSelectionViewController.swift; sourceTree = "<group>"; };
 		AA38AD3E1D9C9F150067E1C9 /* Interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
 		AA3B8A021DBF29BF0013580E /* MenuInterestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuInterestTableViewCell.swift; sourceTree = "<group>"; };
 		AA3B8A031DBF29BF0013580E /* MenuInterestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuInterestTableViewCell.xib; sourceTree = "<group>"; };
@@ -182,6 +184,51 @@
 				F76203F56CA56F4183C9D94C /* Pods_USC_Visitor_Companion_AppUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA272A651DCBD8B00020746C /* Map Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				75EABC3D1D98BA1E0075E75E /* MapViewController.swift */,
+				AACDE2981DCACBAD00C9C625 /* LocationTableViewController.swift */,
+				AACDE29E1DCACCDE00C9C625 /* UIImageViewModeScaleAspect.swift */,
+			);
+			name = "Map Controllers";
+			sourceTree = "<group>";
+		};
+		AA272A661DCBD8CE0020746C /* Menu Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AA06C9061DA18CCD00B753CF /* MenuViewController.swift */,
+				75EABC3F1D98BA1E0075E75E /* LoginViewController.swift */,
+				75EABC451D98BA1E0075E75E /* SignUpViewController.swift */,
+				AA272A6D1DCBDC6B0020746C /* InterestSelectionViewController.swift */,
+			);
+			name = "Menu Controllers";
+			sourceTree = "<group>";
+		};
+		AA272A671DCBD8ED0020746C /* Admin Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				75EABC411D98BA1E0075E75E /* LocationsViewController.swift */,
+				75EABC421D98BA1E0075E75E /* LocationViewController.swift */,
+				75EABC431D98BA1E0075E75E /* InterestsViewController.swift */,
+				75CDBD091DA1B9B300AC0E1C /* AdminTableViewController.swift */,
+				4ED64E701DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift */,
+			);
+			name = "Admin Controllers";
+			sourceTree = "<group>";
+		};
+		AA272A681DCBD91C0020746C /* Settings Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				75EABC3E1D98BA1E0075E75E /* SettingsTableViewController.swift */,
+				75EABC401D98BA1E0075E75E /* AboutViewController.swift */,
+				755993ED1D98D5EC0090717C /* ForgotPasswordViewController.swift */,
+				758F446B1DB2D3EC00138EB6 /* ChangePasswordTableViewController.swift */,
+				758F446D1DB2D42B00138EB6 /* EditProfileTableViewController.swift */,
+			);
+			name = "Settings Controllers";
 			sourceTree = "<group>";
 		};
 		AA625C031DBD85E30097B51E /* Menu Views */ = {
@@ -295,22 +342,10 @@
 		AAD38BBC1D972E23004DD648 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				75EABC3D1D98BA1E0075E75E /* MapViewController.swift */,
-				AACDE2981DCACBAD00C9C625 /* LocationTableViewController.swift */,
-				AA06C9061DA18CCD00B753CF /* MenuViewController.swift */,
-				75EABC3E1D98BA1E0075E75E /* SettingsTableViewController.swift */,
-				75EABC3F1D98BA1E0075E75E /* LoginViewController.swift */,
-				75EABC401D98BA1E0075E75E /* AboutViewController.swift */,
-				75EABC411D98BA1E0075E75E /* LocationsViewController.swift */,
-				75EABC421D98BA1E0075E75E /* LocationViewController.swift */,
-				75EABC431D98BA1E0075E75E /* InterestsViewController.swift */,
-				75EABC451D98BA1E0075E75E /* SignUpViewController.swift */,
-				755993ED1D98D5EC0090717C /* ForgotPasswordViewController.swift */,
-				75CDBD091DA1B9B300AC0E1C /* AdminTableViewController.swift */,
-				4ED64E701DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift */,
-				758F446B1DB2D3EC00138EB6 /* ChangePasswordTableViewController.swift */,
-				758F446D1DB2D42B00138EB6 /* EditProfileTableViewController.swift */,
-				AACDE29E1DCACCDE00C9C625 /* UIImageViewModeScaleAspect.swift */,
+				AA272A651DCBD8B00020746C /* Map Controllers */,
+				AA272A661DCBD8CE0020746C /* Menu Controllers */,
+				AA272A681DCBD91C0020746C /* Settings Controllers */,
+				AA272A671DCBD8ED0020746C /* Admin Controllers */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -647,6 +682,7 @@
 				AACDE29D1DCACCBE00C9C625 /* InterestsCell.swift in Sources */,
 				75EABC4A1D98BA1E0075E75E /* LocationsViewController.swift in Sources */,
 				75EABC4C1D98BA1E0075E75E /* InterestsViewController.swift in Sources */,
+				AA272A6E1DCBDC6B0020746C /* InterestSelectionViewController.swift in Sources */,
 				AACDE29F1DCACCDE00C9C625 /* UIImageViewModeScaleAspect.swift in Sources */,
 				75EABC4B1D98BA1E0075E75E /* LocationViewController.swift in Sources */,
 				AACDE2991DCACBAD00C9C625 /* LocationTableViewController.swift in Sources */,
