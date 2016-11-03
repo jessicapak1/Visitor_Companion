@@ -55,7 +55,7 @@ class LocationData: NSObject {
         object["name"] = name
         object["code"] = code
         object["details"] = details
-        object["location"] = location
+        object["location"] = PFGeoPoint(location: location)
         object["interests"] = interests
         object["locType"] = locType
         object.saveInBackground(block: {

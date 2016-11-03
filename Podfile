@@ -9,6 +9,9 @@ target 'USC Visitor Companion App' do
   pod 'GooglePlaces'
   pod 'BubbleTransition'
   pod 'BetterSegmentedControl'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
 
   target 'USC Visitor Companion AppTests' do
     inherit! :search_paths

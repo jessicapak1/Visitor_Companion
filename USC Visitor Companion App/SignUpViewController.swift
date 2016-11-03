@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import BetterSegmentedControl
+import FacebookLogin
 
 protocol SignUpViewControllerDelegate {
     func userDidSignUp()
@@ -19,9 +20,9 @@ class SignUpViewController: UIViewController {
     // MARK: IBOutlets
     @IBOutlet weak var nameTextField: UITextField!
     
-    @IBOutlet weak var usernameTextField: UITextField!
-    
     @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var confirmEmailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -41,27 +42,50 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var facebookSignUpButton: UIButton! {
+        didSet {
+            self.facebookSignUpButton.layer.cornerRadius = 5.0
+        }
+    }
+    
     
     // MARK: Properties
     var delegate: SignUpViewControllerDelegate?
+    
+    var graySpinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    
+    var whiteSpinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .white)
+    
+    
+    // MARK: View Controller Lifecycle Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.graySpinner.startAnimating()
+        self.whiteSpinner.startAnimating()
+    }
     
     
     // MARK: IBAction Methods
     @IBAction func signUpButtonPressed() {
         let name = self.nameTextField.text
-        let username = self.usernameTextField.text
         let email = self.emailTextField.text
+        let confirmedEmail = self.confirmEmailTextField.text
         let password = self.passwordTextField.text
         let confirmedPassword = self.confirmPasswordTextField.text
-        if let name = name, let username = username, let email = email, let password = password, let confirmedPassword = confirmedPassword {
-            if name.isEmpty || username.isEmpty || email.isEmpty || password.isEmpty || confirmedPassword.isEmpty {
-                self.showAlert(withTitle: "Missing Fields", message: "Please enter your information for all fields to sign up", action: "OK")
+        if let name = name, let email = email, let confirmedEmail = confirmedEmail, let password = password, let confirmedPassword = confirmedPassword{
+            if name.isEmpty || email.isEmpty || confirmedEmail.isEmpty || password.isEmpty || confirmedPassword.isEmpty {
+                self.showAlert(withTitle: "Missing Fields", message: "Please enter your information in all fields to sign up", action: "OK")
             } else {
                 let type = self.segmentedControl.titles[Int(self.segmentedControl.index)]
-                if self.passwordTextField.text == self.confirmPasswordTextField.text {
-                    self.checkSignUpDetails(name: name, username: username, password: password, email: email, type: type)
-                } else {
+                if self.passwordTextField.text != self.confirmPasswordTextField.text {
                     self.showAlert(withTitle: "Mismatched Passwords", message: "The passwords you entered do not match", action: "OK")
+                } else if self.emailTextField.text != self.confirmEmailTextField.text {
+                    self.showAlert(withTitle: "Mismatched Emails", message: "The emails you entered do not match", action: "OK")
+                } else {
+                    self.showSpinnerForSignUpButton()
+                    User.signup(name: name, username: email, password: password, email: email, type: type, callback: {
+                        self.checkSignUpDetails()
+                    })
                 }
             }
         }
@@ -69,10 +93,17 @@ class SignUpViewController: UIViewController {
     
     @IBAction func backgroundButtonPressed() {
         self.nameTextField.resignFirstResponder()
-        self.usernameTextField.resignFirstResponder()
         self.emailTextField.resignFirstResponder()
+        self.confirmEmailTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
         self.confirmPasswordTextField.resignFirstResponder()
+    }
+    
+    @IBAction func facebookSignUpButtonPressed() {
+        self.showSpinnerForFacebookSignUpButton()
+        User.signupWithFacebook(callback: {
+            self.checkSignUpDetails()
+        })
     }
     
     
@@ -83,15 +114,41 @@ class SignUpViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func checkSignUpDetails(name: String, username: String, password: String, email: String, type: String) {
-        User.signup(name: name, username: username, password: password, email: email, type: type)
+    func showSpinnerForSignUpButton() {
+        self.signUpButton.setTitle("", for: .normal)
+        self.graySpinner.frame = self.signUpButton.bounds
+        self.signUpButton.addSubview(self.graySpinner)
+        self.signUpButton.isEnabled = false
+        self.facebookSignUpButton.isEnabled = false
+    }
+    
+    func showSpinnerForFacebookSignUpButton() {
+        self.facebookSignUpButton.setTitle("", for: .normal)
+        self.whiteSpinner.frame = self.facebookSignUpButton.bounds
+        self.facebookSignUpButton.addSubview(self.whiteSpinner)
+        self.facebookSignUpButton.isEnabled = false
+        self.signUpButton.isEnabled = false
+    }
+    
+    func resetSignUpButtons() {
+        self.signUpButton.setTitle("Sign Up", for: .normal)
+        self.facebookSignUpButton.setTitle("Sign Up with Facebook", for: .normal)
+        self.graySpinner.removeFromSuperview()
+        self.whiteSpinner.removeFromSuperview()
+        self.signUpButton.isEnabled = true
+        self.facebookSignUpButton.isEnabled = true
+    }
+    
+    func checkSignUpDetails() {
         if User.current.exists {
             if let delegate = self.delegate {
                 delegate.userDidSignUp()
                 let _ = self.navigationController?.popViewController(animated: true)
             }
         } else {
-            self.showAlert(withTitle: "Sign Up Failed", message: "The username you entered is already being used", action: "Try Again")
+            self.resetSignUpButtons()
+            User.logout() // remove token in case Facebook login was correct but local account was already created
+            self.showAlert(withTitle: "Sign Up Failed", message: "The email you entered is already being used", action: "Try Again")
         }
     }
     

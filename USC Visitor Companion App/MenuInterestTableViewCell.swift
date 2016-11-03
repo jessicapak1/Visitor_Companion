@@ -8,13 +8,31 @@
 
 import UIKit
 
+protocol MenuInterestTableViewCellDelegate {
+    func interestButtonPressed()
+}
+
 class MenuInterestTableViewCell: UITableViewCell {
 
     // MARK: IBOutlets
-    @IBOutlet weak var interestLabel: UILabel!
+    @IBOutlet weak var interestButton: UIButton! {
+        didSet {
+            self.interestButton.layer.cornerRadius = 5.0
+        }
+    }
     
     
     // MARK: Properties
-    static let defaultHeight: CGFloat = 96.0
+    static let defaultHeight: CGFloat = 140.0
+    
+    var delegate: MenuInterestTableViewCellDelegate?
+    
+    
+    // MARK: IBAction Methods
+    @IBAction func interestButtonPressed() {
+        if let delegate = self.delegate {
+            delegate.interestButtonPressed()
+        }
+    }
     
 }

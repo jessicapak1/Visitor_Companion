@@ -7,13 +7,15 @@
 //
 
 import Parse
+import FacebookCore
+import FacebookLogin
 
 enum UserType: String {
     case parent = "Parent"
     case prospective = "Prospective Student"
     case current = "Current Student"
     case admin = "Administrator"
-    case none = "None"  // should never be stored on database
+    case none = "None" // should never be stored on database
 }
 
 
@@ -48,7 +50,7 @@ class User: NSObject {
     
     
     // MARK: Class Methods
-    class func signup(name: String, username: String, password: String, email: String, type: String) {
+    class func signup(name: String, username: String, password: String, email: String, type: String, callback: @escaping () -> Void) {
         let user = PFUser()
         user[UserKey.name.rawValue] = name
         user[UserKey.username.rawValue] = username
@@ -56,31 +58,68 @@ class User: NSObject {
         user[UserKey.email.rawValue] = email
         user[UserKey.interest.rawValue] = "General"
         user[UserKey.type.rawValue] = type
-        do {
-            try user.signUp()
-        } catch {
-            print("ERROR: User Class - Failed to signup with username \(username)")
-        }
-        User.current.update()
+        user.signUpInBackground(block: {
+            (succeeded, error) in
+            User.current.update()
+            callback()
+        })
     }
     
-    class func login(username: String, password: String) {
-        do {
-            try PFUser.logIn(withUsername: username, password: password)
-        } catch {
-            print("ERROR: User Class - Failed to login with username \(username)")
-        }
-        User.current.update()
+    class func signupWithFacebook(callback: @escaping () -> Void) {
+        let loginManager = LoginManager()
+        loginManager.loginBehavior = .web
+        loginManager.logIn([.email, .publicProfile], viewController: nil, completion: {
+            (loginResult) in
+            switch loginResult {
+            case .success(grantedPermissions: _, declinedPermissions: _, token: let accessToken):
+                User.current.signupThroughGraphRequest(withAccessToken: accessToken, callback:{
+                    User.current.update()
+                    callback()
+                })
+            case .failed(_):
+                break
+            case .cancelled:
+                break
+            }
+        })
+    }
+    
+    class func login(username: String, password: String, callback: @escaping () -> Void) {
+        PFUser.logInWithUsername(inBackground: username, password: password, block: {
+            (user, error) in
+            User.current.update()
+            callback()
+        })
+    }
+    
+    class func loginWithFacebook(callback: @escaping () -> Void) {
+        let loginManager = LoginManager()
+        loginManager.loginBehavior = .web
+        loginManager.logIn([.email, .publicProfile], viewController: nil, completion: {
+            (loginResult) in
+            switch loginResult {
+            case .success(grantedPermissions: _, declinedPermissions: _, token: let accessToken):
+                User.current.loginThroughGraphRequest(withAccessToken: accessToken, callback: {
+                    User.current.update()
+                    callback()
+                })
+            case .failed(_):
+                break
+            case .cancelled:
+                break
+            }
+        })
     }
     
     class func logout() {
         PFUser.logOut()
+        LoginManager().logOut()
         User.current.update()
     }
     
     
     // MARK: Private Methods
-    private func update() {
+    func update() {
         User.current.name = PFUser.current()?[UserKey.name.rawValue] as! String?
         User.current.username = PFUser.current()?[UserKey.username.rawValue] as! String?
         User.current.email = PFUser.current()?[UserKey.email.rawValue] as! String?
@@ -104,6 +143,45 @@ class User: NSObject {
     private func update(value: Any?, forKey key: String) {
         PFUser.current()?[key] = value
         do { try PFUser.current()?.save() } catch { }
+    }
+    
+    private func signupThroughGraphRequest(withAccessToken accessToken: AccessToken, callback: @escaping () -> Void) {
+        let request = GraphRequest(graphPath: "me", parameters: ["fields": "email, name"], accessToken: accessToken, httpMethod: .GET, apiVersion: GraphAPIVersion.defaultVersion)
+        request.start({
+            (response, result) in
+            switch result {
+            case .success(response: let value):
+                let values = value.dictionaryValue!
+                let id = values["id"] as! String
+                let name = values["name"] as! String
+                let email = values["email"] as! String
+                // id should be hashed with SHA256 then stored as password
+                User.signup(name: name, username: email, password: id, email: email, type: "Prospective Student", callback: {
+                    callback()
+                })
+            case .failed(_):
+                break
+            }
+        })
+    }
+    
+    private func loginThroughGraphRequest(withAccessToken accessToken: AccessToken, callback: @escaping () -> Void) {
+        let request = GraphRequest(graphPath: "me", parameters: ["fields": "email"], accessToken: accessToken, httpMethod: .GET, apiVersion: GraphAPIVersion.defaultVersion)
+        request.start({
+            (response, result) in
+            switch result {
+            case .success(response: let value):
+                let values = value.dictionaryValue!
+                let id = values["id"] as! String
+                let email = values["email"] as! String
+                // id should be hashed with SHA256 then stored as password
+                User.login(username: email, password: id, callback: {
+                    callback()
+                })
+            case .failed(_):
+                break
+            }
+        })
     }
     
 }

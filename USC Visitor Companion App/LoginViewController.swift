@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import FacebookLogin
 
 protocol LoginViewControllerDelegate {
     func userDidLogin()
@@ -26,18 +27,39 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var facebookLoginButton: UIButton! {
+        didSet {
+            self.facebookLoginButton.layer.cornerRadius = 5.0
+        }
+    }
+    
     
     // MARK: Properties
     var delegate: LoginViewControllerDelegate?
+    
+    var graySpinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    
+    var whiteSpinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .white)
+    
+    
+    // MARK: View Controller Lifecycle Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.graySpinner.startAnimating()
+        self.whiteSpinner.startAnimating()
+    }
 
     
     // MARK: IBAction Methods
     @IBAction func loginButtonPressed() {
         if let username = self.usernameTextField.text, let password = self.passwordTextField.text {
             if username.isEmpty || password.isEmpty {
-                self.showAlert(withTitle: "Missing Fields", message: "Please enter both your username and password to login", action: "OK")
+                self.showAlert(withTitle: "Missing Fields", message: "Please enter your username and password to login", action: "OK")
             } else {
-                self.checkLoginDetails()
+                self.showSpinnerForLoginButton()
+                User.login(username: self.usernameTextField.text!, password: self.passwordTextField.text!, callback: {
+                    self.checkLoginDetails()
+                })
             }
         }
     }
@@ -51,6 +73,13 @@ class LoginViewController: UIViewController {
         self.passwordTextField.resignFirstResponder()
     }
     
+    @IBAction func facebookLoginButtonPressed() {
+        self.showSpinnerForFacebookLoginButton()
+        User.loginWithFacebook(callback: {
+            self.checkLoginDetails()
+        })
+    }
+    
     
     // MARK: General Methods
     func showAlert(withTitle title: String, message: String, action: String) {
@@ -59,14 +88,40 @@ class LoginViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func showSpinnerForLoginButton() {
+        self.loginButton.setTitle("", for: .normal)
+        self.graySpinner.frame = self.loginButton.bounds
+        self.loginButton.addSubview(self.graySpinner)
+        self.loginButton.isEnabled = false
+        self.facebookLoginButton.isEnabled = false
+    }
+    
+    func showSpinnerForFacebookLoginButton() {
+        self.facebookLoginButton.setTitle("", for: .normal)
+        self.whiteSpinner.frame = self.facebookLoginButton.bounds
+        self.facebookLoginButton.addSubview(self.whiteSpinner)
+        self.facebookLoginButton.isEnabled = false
+        self.loginButton.isEnabled = false
+    }
+    
+    func resetLoginButtons() {
+        self.loginButton.setTitle("Login", for: .normal)
+        self.facebookLoginButton.setTitle("Login with Facebook", for: .normal)
+        self.graySpinner.removeFromSuperview()
+        self.whiteSpinner.removeFromSuperview()
+        self.loginButton.isEnabled = true
+        self.facebookLoginButton.isEnabled = true
+    }
+    
     func checkLoginDetails() {
-        User.login(username: self.usernameTextField.text!, password: self.passwordTextField.text!)
         if User.current.exists {
             if let delegate = self.delegate {
                 delegate.userDidLogin()
                 let _ = self.navigationController?.popViewController(animated: true)
             }
         } else {
+            self.resetLoginButtons()
+            User.logout() // remove token in case Facebook login was correct but information was changed
             self.showAlert(withTitle: "Login Failed", message: "The username or password you entered was incorrect", action: "Try Again")
         }
     }
