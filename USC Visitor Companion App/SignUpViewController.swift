@@ -106,6 +106,10 @@ class SignUpViewController: UIViewController {
         })
     }
     
+    @IBAction func closeButtonPressed() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     // MARK: General Methods
     func showAlert(withTitle title: String, message: String, action: String) {
@@ -143,7 +147,7 @@ class SignUpViewController: UIViewController {
         if User.current.exists {
             if let delegate = self.delegate {
                 delegate.userDidSignUp()
-                let _ = self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
             }
         } else {
             self.resetSignUpButtons()

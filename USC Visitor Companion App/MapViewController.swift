@@ -127,7 +127,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
 
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation:CLLocation = locations[0]
+//        let userLocation:CLLocation = locations[0]
 //        print("locations = \(userLocation.coordinate.latitude) \(userLocation.coordinate.longitude)")
     }
     
@@ -248,12 +248,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     // MARK: Storyboard Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Show Menu" {
-            let NVC = segue.destination as! UINavigationController
-            NVC.transitioningDelegate = self
-            NVC.modalPresentationStyle = .custom
-        }
-        
-        if segue.identifier == "Show Location" {
+            let MVC = segue.destination as! MenuViewController
+            MVC.transitioningDelegate = self
+            MVC.modalPresentationStyle = .custom
+        } else if segue.identifier == "Show Location" {
             let navVC = segue.destination as! UINavigationController
             let locationVC = navVC.viewControllers.first as! LocationTableViewController
             locationVC.name = currentMarker.title!
@@ -355,16 +353,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: UIViewControllerTransitioningDelegate Methods
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        self.segmentedControl.isHidden = true
         self.bubbleTransition.duration = 0.25
         self.bubbleTransition.transitionMode = .present
         self.bubbleTransition.startingPoint = self.menuButton.center
-        self.bubbleTransition.bubbleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.90)
+        self.bubbleTransition.bubbleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
         return self.bubbleTransition
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        self.segmentedControl.isHidden = false
         self.bubbleTransition.transitionMode = .dismiss
         return self.bubbleTransition
     }

@@ -1,5 +1,5 @@
 //
-//  AppPreferenceTableViewController.swift
+//  SettingsTableViewController.swift
 //  USC Visitor Companion App
 //
 //  Created by Jessica Pak on 9/24/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppPreferenceTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController {
 
 //    @IBOutlet var tableView: UITableView!
     

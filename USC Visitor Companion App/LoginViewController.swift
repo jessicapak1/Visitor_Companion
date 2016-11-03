@@ -80,6 +80,10 @@ class LoginViewController: UIViewController {
         })
     }
     
+    @IBAction func closeButtonPressed() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     // MARK: General Methods
     func showAlert(withTitle title: String, message: String, action: String) {
@@ -117,7 +121,7 @@ class LoginViewController: UIViewController {
         if User.current.exists {
             if let delegate = self.delegate {
                 delegate.userDidLogin()
-                let _ = self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
             }
         } else {
             self.resetLoginButtons()
