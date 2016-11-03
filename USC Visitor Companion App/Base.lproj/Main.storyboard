@@ -31,7 +31,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" image="menu-icon-1"/>
                                 <connections>
-                                    <segue destination="R6u-rc-Dc3" kind="presentation" identifier="Show Menu" id="ctv-Mf-uLW"/>
+                                    <segue destination="1N9-tY-HF4" kind="presentation" identifier="Show Menu" id="ZrQ-IZ-H8i"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Lc-j6-D7e" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
@@ -98,11 +98,33 @@
                         <outlet property="searchBar" destination="dGk-MM-YB2" id="P7P-vV-Waa"/>
                         <outlet property="searchTableView" destination="MY9-Id-f3I" id="0Vm-ht-vK1"/>
                         <outlet property="segmentedControl" destination="7Lc-j6-D7e" id="T6T-KB-OUU"/>
+                        <segue destination="nEF-nh-8vb" kind="presentation" identifier="Show Location" id="HBg-eV-00v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVm-tf-BUo" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2863" y="-485"/>
+            <point key="canvasLocation" x="-3778" y="-485"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="j0H-8A-2ka">
+            <objects>
+                <navigationController id="1N9-tY-HF4" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="vHG-9H-R7x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="R6u-rc-Dc3" kind="relationship" relationship="rootViewController" id="y3K-rK-oow"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yJg-Ia-045" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2882" y="-485"/>
         </scene>
         <!--Menu-->
         <scene sceneID="owr-IN-TUK">
@@ -113,26 +135,19 @@
                         <viewControllerLayoutGuide type="bottom" id="FYk-j6-8UT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1mt-75-6xR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CjJ-rB-eLY">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="A4u-Qi-ptZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6O1-Rc-0jI">
-                                <rect key="frame" x="279" y="36" width="64" height="32"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLR-Aq-xo7">
-                                <rect key="frame" x="163" y="592" width="50" height="50"/>
+                                <rect key="frame" x="163" y="528" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Duk-5S-ODI"/>
                                     <constraint firstAttribute="width" constant="50" id="yza-qI-5wi"/>
@@ -142,8 +157,8 @@
                                     <action selector="menuButtonPressed" destination="R6u-rc-Dc3" eventType="touchUpInside" id="B0h-DO-Fe0"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wTQ-9e-Bwd">
-                                <rect key="frame" x="0.0" y="84" width="375" height="483"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wTQ-9e-Bwd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="503"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -152,11 +167,9 @@
                             <constraint firstItem="CjJ-rB-eLY" firstAttribute="top" secondItem="JYh-QU-iIF" secondAttribute="bottom" id="4Mp-6h-v5q"/>
                             <constraint firstItem="gLR-Aq-xo7" firstAttribute="centerX" secondItem="1mt-75-6xR" secondAttribute="centerX" id="JsW-EU-Cg9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CjJ-rB-eLY" secondAttribute="trailing" constant="-16" id="M10-1U-8eg"/>
-                            <constraint firstItem="6O1-Rc-0jI" firstAttribute="top" secondItem="JYh-QU-iIF" secondAttribute="bottom" constant="16" id="QAF-9h-zoF"/>
+                            <constraint firstItem="wTQ-9e-Bwd" firstAttribute="top" secondItem="JYh-QU-iIF" secondAttribute="bottom" id="NUQ-ua-9fU"/>
                             <constraint firstAttribute="trailing" secondItem="wTQ-9e-Bwd" secondAttribute="trailing" id="SV7-Df-avn"/>
-                            <constraint firstItem="wTQ-9e-Bwd" firstAttribute="top" secondItem="6O1-Rc-0jI" secondAttribute="bottom" constant="16" id="Zxl-ji-YqQ"/>
                             <constraint firstItem="wTQ-9e-Bwd" firstAttribute="leading" secondItem="1mt-75-6xR" secondAttribute="leading" id="ao6-Ff-Y59"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6O1-Rc-0jI" secondAttribute="trailing" constant="16" id="h61-vX-3Xo"/>
                             <constraint firstItem="FYk-j6-8UT" firstAttribute="top" secondItem="gLR-Aq-xo7" secondAttribute="bottom" constant="25" id="nSf-eZ-W48"/>
                             <constraint firstItem="FYk-j6-8UT" firstAttribute="top" secondItem="CjJ-rB-eLY" secondAttribute="bottom" id="x9P-o2-GUD"/>
                             <constraint firstItem="gLR-Aq-xo7" firstAttribute="top" secondItem="wTQ-9e-Bwd" secondAttribute="bottom" constant="25" id="ybD-AH-aF9"/>
@@ -166,7 +179,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="XUv-dB-iTc">
                             <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="dDA-Be-9Lo" kind="presentation" identifier="Show Settings" id="2r3-Mh-kDJ"/>
+                                <segue destination="dDA-Be-9Lo" kind="presentation" identifier="Show Settings" id="Jjo-NV-gFQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -179,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Sc-hO-onZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1967.2" y="-485.30734632683664"/>
+            <point key="canvasLocation" x="-2006" y="-485"/>
         </scene>
         <!--Login-->
         <scene sceneID="Er3-7l-XTg">
@@ -558,15 +571,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="bEY-wQ-fZd" style="IBUITableViewCellStyleDefault" id="9rt-BL-emj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="bEY-wQ-fZd" style="IBUITableViewCellStyleDefault" id="9rt-BL-emj">
                                         <rect key="frame" x="0.0" y="188" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9rt-BL-emj" id="sYr-Kv-pkT">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bEY-wQ-fZd">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -703,13 +716,7 @@ Christian Villa – Computer Science Major    </string>
                             <constraint firstItem="cOY-go-Gq6" firstAttribute="leading" secondItem="50n-tv-P5c" secondAttribute="leadingMargin" constant="51" id="vhz-hd-5Oq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="About" id="vTb-pL-P5l">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="h8d-nk-xJp">
-                            <connections>
-                                <action selector="closeButtonPressed:" destination="u2i-Ve-9T2" id="wbJ-BA-3YA"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="About" id="vTb-pL-P5l"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndo-79-sQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -789,7 +796,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnM-bb-z1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2863" y="270"/>
+            <point key="canvasLocation" x="-2882" y="271"/>
         </scene>
         <!--Locations View Controller-->
         <scene sceneID="pKx-ju-pqn">
@@ -825,7 +832,7 @@ Christian Villa – Computer Science Major    </string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5rJ-uk-b7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2228" y="205.54722638680661"/>
+            <point key="canvasLocation" x="2988" y="270"/>
         </scene>
         <!--Interests View Controller-->
         <scene sceneID="cC8-5i-4Sw">
@@ -1141,7 +1148,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4P-Pu-k7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1006" y="-1917"/>
+            <point key="canvasLocation" x="1034" y="-2359"/>
         </scene>
         <!--Admin Add Loc Navigation Controller-->
         <scene sceneID="iUw-MA-aq8">
@@ -1198,7 +1205,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pe2-Qz-fTu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1584.8" y="205.54722638680661"/>
+            <point key="canvasLocation" x="2159" y="271"/>
         </scene>
         <!--Admin Navigation Controller-->
         <scene sceneID="3BU-zV-UAo">
@@ -1216,7 +1223,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Kw-zE-DjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="-1917"/>
+            <point key="canvasLocation" x="161" y="-2359"/>
         </scene>
         <!--Edit Profile Table View Controller-->
         <scene sceneID="p3P-Un-F3i">
@@ -1479,7 +1486,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s1r-PO-HFF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3754" y="-485"/>
+            <point key="canvasLocation" x="-4673" y="-485"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ocz-Op-KBc">
@@ -1501,7 +1508,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccL-vs-CcD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3754" y="269"/>
+            <point key="canvasLocation" x="-3778" y="272"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="d4T-lv-KQG">

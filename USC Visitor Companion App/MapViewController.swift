@@ -95,7 +95,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             // show locations with Food interets from InterestData
         } else if self.segmentedControl.index == 3 { // Search
             self.showSearch()
-            do { try self.segmentedControl.set(index: 0, animated: true) } catch { } // should be set to the segment of the location
+            do { try self.segmentedControl.set(0, animated: true) } catch { } // should be set to the segment of the location
         }
     }
     
@@ -248,9 +248,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     // MARK: Storyboard Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Show Menu" {
-            let MVC = segue.destination as! MenuViewController
-            MVC.transitioningDelegate = self
-            MVC.modalPresentationStyle = .custom
+            let NVC = segue.destination as! UINavigationController
+            NVC.transitioningDelegate = self
+            NVC.modalPresentationStyle = .custom
         } else if segue.identifier == "Show Location" {
             let navVC = segue.destination as! UINavigationController
             let locationVC = navVC.viewControllers.first as! LocationTableViewController
