@@ -78,24 +78,33 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.fromAdmin = false
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "viterbi"))
         self.showMap()
-        self.showMarkers()
+        let locations = InterestsData.shared.interest(withName: "General")?.locations
+        if let locations = locations {
+            self.showMarkers(forLocations: locations)
+        }
         self.addSearch()
-        //User.login(username: "pakjessi@usc.edu", password: "password")
     }
     
     
     // MARK: Segmented Control Methods
     func segmentedControlValueChanged() {
-        // clear all old locations
-        if self.segmentedControl.index == 0 { // General
-            // show locations with General interest from InterestData
-        } else if self.segmentedControl.index == 1 { // Interest
-            // show locations with User.current.interest from InterestData
-        } else if self.segmentedControl.index == 2 { // Food
-            // show locations with Food interets from InterestData
-        } else if self.segmentedControl.index == 3 { // Search
+        self.mapView.clear()
+        var locations: [Location]? = nil
+        
+        if self.segmentedControl.index == 0 {
+            locations = (InterestsData.shared.interest(withName: "General")?.locations)
+        } else if self.segmentedControl.index == 1 {
+            let interest = User.current.exists ? User.current.interest! : "General"
+            locations = InterestsData.shared.interest(withName: interest)?.locations
+        } else if self.segmentedControl.index == 2 {
+            locations = InterestsData.shared.interest(withName: "Food")?.locations
+        } else if self.segmentedControl.index == 3 {
             self.showSearch()
-            do { try self.segmentedControl.set(0, animated: true) } catch { } // should be set to the segment of the location
+            do { try self.segmentedControl.set(0, animated: true) } catch { }
+        }
+        
+        if let locations = locations {
+            self.showMarkers(forLocations: locations)
         }
     }
     
@@ -147,7 +156,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     
-    func showMarkers() {
+    func showMarkers(forLocations locations: [Location]) {
         //create custom marker icons
         let foodImage = UIImage(named: "food")!.withRenderingMode(.alwaysTemplate)
         let foodView = UIImageView(image: foodImage)
@@ -166,7 +175,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         fieldView.tintColor = UIColor(displayP3Red: 99.0/255.0, green: 00.0/255.0, blue: 00.0/255.0, alpha: 1.0)
         
         // create each marker
-        for location in LocationData.shared.locations {
+        for location in locations {
             let marker = GMSMarker()
             marker.map = self.mapView
             marker.title = location.name
@@ -217,6 +226,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     func showInformation(forLocation location: Location) {
         self.mapView.selectedMarker = self.markers[location.name!]
     }
+    
     
     // MARK: Search Methods
     func addSearch() {
