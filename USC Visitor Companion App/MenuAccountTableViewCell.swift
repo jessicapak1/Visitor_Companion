@@ -13,7 +13,7 @@ class MenuAccountTableViewCell: UITableViewCell {
     // MARK: IBOutlets
     @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     
     //@IBOutlet weak var locationsVisitedCountLabel: UILabel!
     

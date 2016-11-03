@@ -537,6 +537,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="7Hb-xH-SMQ" kind="show" identifier="" id="3Zs-Pb-pne"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="4Va-oU-9W6" style="IBUITableViewCellStyleDefault" id="NjT-wu-7OM">
                                         <rect key="frame" x="0.0" y="100" width="375" height="44"/>
@@ -554,16 +557,19 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Ndl-v9-lxg" kind="show" id="3YQ-e7-ZBF"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="l9o-kz-GZ8" style="IBUITableViewCellStyleDefault" id="kgR-2B-dXA">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="l9o-kz-GZ8" style="IBUITableViewCellStyleDefault" id="kgR-2B-dXA">
                                         <rect key="frame" x="0.0" y="144" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kgR-2B-dXA" id="b83-Tq-4fg">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Connect with Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l9o-kz-GZ8">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -856,7 +862,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lC8-TD-kK4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-164" y="1003.4482758620691"/>
+            <point key="canvasLocation" x="-164" y="1021"/>
         </scene>
         <!--Locations View Controller-->
         <scene sceneID="pKx-ju-pqn">
@@ -1135,7 +1141,7 @@ Christian Villa – Computer Science Major    </string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nK-x6-eMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2808.8000000000002" y="-2359.0704647676162"/>
+            <point key="canvasLocation" x="-1830" y="-2603"/>
         </scene>
         <!--Admin View Controller-->
         <scene sceneID="wSR-WG-udf">
@@ -1208,7 +1214,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4P-Pu-k7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1034" y="-2359"/>
+            <point key="canvasLocation" x="-3606" y="-2603"/>
         </scene>
         <!--Admin Add Loc Navigation Controller-->
         <scene sceneID="iUw-MA-aq8">
@@ -1224,7 +1230,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1PT-7j-I5v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1914" y="-2359"/>
+            <point key="canvasLocation" x="-2726" y="-2603"/>
         </scene>
         <!--App Preferences Navigation Controller-->
         <scene sceneID="Bjm-Zs-adQ">
@@ -1283,14 +1289,14 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Kw-zE-DjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="-2359"/>
+            <point key="canvasLocation" x="-4414" y="-2603"/>
         </scene>
         <!--Edit Profile Table View Controller-->
         <scene sceneID="p3P-Un-F3i">
             <objects>
                 <tableViewController id="7Hb-xH-SMQ" userLabel="Edit Profile Table View Controller" customClass="EditProfileViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="IgS-CI-30I">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -1390,20 +1396,7 @@ Christian Villa – Computer Science Major    </string>
                             <outlet property="delegate" destination="7Hb-xH-SMQ" id="MM0-Hw-5c4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Edit Profile" id="nEU-6D-tBA">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="XVc-oV-c2n">
-                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="cancelButtonPressed:" destination="7Hb-xH-SMQ" id="zy6-5w-xg2"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="CAJ-OU-PEW">
-                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="editProfileAction:" destination="7Hb-xH-SMQ" id="Ar8-qP-6gP"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="nEU-6D-tBA"/>
                     <connections>
                         <outlet property="emailTextField" destination="4kJ-We-9lv" id="fPV-If-rki"/>
                         <outlet property="nameTextField" destination="DdY-7g-TdN" id="tws-YH-djz"/>
@@ -1414,14 +1407,14 @@ Christian Villa – Computer Science Major    </string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meQ-b5-54a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4652" y="-485.30734632683664"/>
+            <point key="canvasLocation" x="729" y="-2727"/>
         </scene>
         <!--Change Password Table View Controller-->
         <scene sceneID="kAT-f0-Bkm">
             <objects>
                 <tableViewController id="Ndl-v9-lxg" userLabel="Change Password Table View Controller" customClass="ChangePasswordTableViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="M3w-c5-y7E">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -1469,65 +1462,15 @@ Christian Villa – Computer Science Major    </string>
                             <outlet property="delegate" destination="Ndl-v9-lxg" id="gmW-Ce-Bvt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Change Password" id="fKa-O1-xCk">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xIo-Ep-qc2">
-                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="cancelButtonPressed:" destination="Ndl-v9-lxg" id="vOU-na-RRD"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="wHf-nT-JPu">
-                            <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="changePasswordAction:" destination="Ndl-v9-lxg" id="2xZ-x4-soW"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Change Password" id="fKa-O1-xCk"/>
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="rk4-qP-nhN" id="dqR-yy-Fh8"/>
-                        <outlet property="doneButton" destination="wHf-nT-JPu" id="870-4i-Cct"/>
                         <outlet property="newPasswordTextField" destination="DLz-PS-ip5" id="igW-Hn-F3Q"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aE5-uR-dBh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7536.8000000000002" y="381.85907046476763"/>
-        </scene>
-        <!--Edit Profile Navigation Controller-->
-        <scene sceneID="fuf-2l-qHi">
-            <objects>
-                <navigationController storyboardIdentifier="edit_profile" automaticallyAdjustsScrollViewInsets="NO" id="ry9-LU-p0Z" userLabel="Edit Profile Navigation Controller" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="CSq-RB-AQB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="7Hb-xH-SMQ" kind="relationship" relationship="rootViewController" id="WH0-dr-PoM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JxB-Sk-r3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3840.8000000000002" y="-485.30734632683664"/>
-        </scene>
-        <!--Change Password Navigation Controller-->
-        <scene sceneID="G2V-Kd-OPT">
-            <objects>
-                <navigationController storyboardIdentifier="change_password" automaticallyAdjustsScrollViewInsets="NO" id="sC4-2P-HVn" userLabel="Change Password Navigation Controller" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Zpt-YH-UY3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Ndl-v9-lxg" kind="relationship" relationship="rootViewController" id="QnZ-fA-glq"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CHt-M0-Kso" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6658.3999999999996" y="381.85907046476763"/>
+            <point key="canvasLocation" x="729" y="-1977"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JaM-gc-rNQ">
@@ -1637,7 +1580,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BaY-hB-yJ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1103.2" y="1004.3478260869566"/>
+            <point key="canvasLocation" x="-1103" y="1021"/>
         </scene>
     </scenes>
     <resources>

@@ -20,65 +20,31 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6b9-DE-FIg">
-                        <rect key="frame" x="8" y="32" width="304" height="29"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                        <rect key="frame" x="8" y="32" width="304" height="26.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4F-9h-5Ln">
-                        <rect key="frame" x="8" y="69" width="304" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locations Visited" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gof-7k-cIt">
-                        <rect key="frame" x="32" y="111" width="120.5" height="18"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance Walked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVV-er-nOj">
-                        <rect key="frame" x="171" y="111" width="117" height="18"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDd-Pw-iTJ">
-                        <rect key="frame" x="73" y="137" width="39" height="29"/>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="456" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PmC-nu-JKN">
-                        <rect key="frame" x="207.5" y="137" width="44" height="29"/>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4F-9h-5Ln">
+                        <rect key="frame" x="8" y="66.5" width="304" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="a4F-9h-5Ln" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="1C8-uN-oI9"/>
-                    <constraint firstItem="vDd-Pw-iTJ" firstAttribute="centerX" secondItem="Gof-7k-cIt" secondAttribute="centerX" id="6UO-4v-qac"/>
-                    <constraint firstItem="gVV-er-nOj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gof-7k-cIt" secondAttribute="trailing" constant="16" id="8Hi-b7-cYT"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="gVV-er-nOj" secondAttribute="trailing" constant="24" id="8OH-sc-kT1"/>
-                    <constraint firstItem="gVV-er-nOj" firstAttribute="baseline" secondItem="Gof-7k-cIt" secondAttribute="baseline" id="Cpi-aE-xbZ"/>
-                    <constraint firstItem="Gof-7k-cIt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="24" id="H6G-s5-uY2"/>
-                    <constraint firstItem="PmC-nu-JKN" firstAttribute="top" secondItem="gVV-er-nOj" secondAttribute="bottom" constant="8" id="PKV-2u-S7y"/>
                     <constraint firstAttribute="trailingMargin" secondItem="6b9-DE-FIg" secondAttribute="trailing" id="PxC-3s-Tgl"/>
-                    <constraint firstItem="gVV-er-nOj" firstAttribute="top" secondItem="a4F-9h-5Ln" secondAttribute="bottom" constant="24" id="Qyo-rq-mJZ"/>
-                    <constraint firstItem="Gof-7k-cIt" firstAttribute="top" secondItem="a4F-9h-5Ln" secondAttribute="bottom" constant="24" id="ZCk-0j-yZ4"/>
                     <constraint firstItem="6b9-DE-FIg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="24" id="adc-Hk-sda"/>
                     <constraint firstItem="a4F-9h-5Ln" firstAttribute="top" secondItem="6b9-DE-FIg" secondAttribute="bottom" constant="8" id="dpN-DP-Ig0"/>
-                    <constraint firstItem="vDd-Pw-iTJ" firstAttribute="top" secondItem="Gof-7k-cIt" secondAttribute="bottom" constant="8" id="jcc-Io-HZc"/>
-                    <constraint firstItem="PmC-nu-JKN" firstAttribute="centerX" secondItem="gVV-er-nOj" secondAttribute="centerX" id="kcb-iN-nil"/>
                     <constraint firstAttribute="trailingMargin" secondItem="a4F-9h-5Ln" secondAttribute="trailing" id="tcQ-bM-9Rr"/>
                     <constraint firstItem="6b9-DE-FIg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="vcK-k5-d1Q"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="emailLabel" destination="a4F-9h-5Ln" id="tej-iz-Wh5"/>
                 <outlet property="nameLabel" destination="6b9-DE-FIg" id="gE8-tD-d3Q"/>
-                <outlet property="usernameLabel" destination="a4F-9h-5Ln" id="264-IV-idf"/>
             </connections>
             <point key="canvasLocation" x="35" y="124"/>
         </tableViewCell>

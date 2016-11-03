@@ -118,7 +118,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func configureAccountCell(withIdentifier identifier: String) -> MenuAccountTableViewCell {
         let accountCell = self.menuTableView.dequeueReusableCell(withIdentifier: identifier) as! MenuAccountTableViewCell
         accountCell.nameLabel.text = User.current.name
-        accountCell.usernameLabel.text = User.current.username
+        accountCell.emailLabel.text = User.current.email
         return accountCell
     }
     

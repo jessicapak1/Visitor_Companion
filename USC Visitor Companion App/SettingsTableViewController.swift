@@ -10,29 +10,49 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     
+    
+    // MARK: UITableViewDelegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = self.tableView.cellForRow(at: indexPath)
         
-        if selectedCell?.textLabel?.text == "Edit Profile" {
-            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "edit_profile")
-            self.present(viewController, animated: true, completion: nil)
-        } else if selectedCell?.textLabel?.text == "Change Password" {
-            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "change_password")
-            self.present(viewController, animated: true, completion: nil)
-        } else if selectedCell?.textLabel?.text == "Connect with Facebook" {
-        
+        if selectedCell?.textLabel?.text == "Connect with Facebook" {
+            self.showConnectWithFacebook()
         } else if selectedCell?.textLabel?.text == "Logout" {
-            User.logout();
-            let alert = UIAlertController(title: "Logout", message: "You have successfully logged out", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            self.showLogout()
         }
         
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    
+    // MARK: IBAction Methods
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    // MARK: General Methods
+    func showLogout() {
+        if User.current.exists {
+            User.logout()
+            self.showAlert(withTitle: "Logout", message: "You have successfully logged out")
+        } else {
+            self.showAlert(withTitle: "Error", message: "You are not logged in with an account")
+        }
+    }
+    
+    func showConnectWithFacebook() {
+        if User.current.exists {
+            // connect account with Facebook ----------------------------------------------------------------------------
+        } else {
+            self.showAlert(withTitle: "Error", message: "You must be logged in with an account")
+        }
+    }
+    
+    func showAlert(withTitle title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 
 }
