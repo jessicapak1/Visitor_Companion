@@ -64,15 +64,11 @@ class SignUpViewController: UIViewController, SignUpInfoViewControllerDelegate {
     
     // MARK: SignUpInfoViewControllerDelegate Methods
     func userDidSaveInfo() {
-        if let delegate = self.delegate {
+        if User.current.exists && User.current.name == "" {
+            User.current.delete()
+        } else if let delegate = self.delegate {
             delegate.userDidSignUp()
             self.dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    func userDidCancelInfo() {
-        if User.current.exists {
-            User.current.delete()
         }
     }
     

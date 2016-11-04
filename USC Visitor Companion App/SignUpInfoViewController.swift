@@ -10,7 +10,6 @@ import UIKit
 
 protocol SignUpInfoViewControllerDelegate {
     func userDidSaveInfo()
-    func userDidCancelInfo()
 }
 
 class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -45,7 +44,7 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if let delegate = delegate {
-            delegate.userDidCancelInfo()
+            delegate.userDidSaveInfo()
         }
     }
     
