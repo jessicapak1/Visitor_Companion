@@ -27,6 +27,7 @@
 		75EABC4E1D98BA1E0075E75E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC451D98BA1E0075E75E /* SignUpViewController.swift */; };
 		A1E1375FD19E64048101C8B3 /* Pods_USC_Visitor_Companion_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DB3DC7F7064736DF04206E /* Pods_USC_Visitor_Companion_App.framework */; };
 		AA06C9071DA18CCD00B753CF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA06C9061DA18CCD00B753CF /* MenuViewController.swift */; };
+		AA14ECCD1DCC41670086BC57 /* SignUpInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA14ECCC1DCC41670086BC57 /* SignUpInfoViewController.swift */; };
 		AA15CE361DA635B80025CBAA /* NoResultsFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA15CE341DA635B80025CBAA /* NoResultsFoundTableViewCell.swift */; };
 		AA15CE371DA635B80025CBAA /* NoResultsFoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA15CE351DA635B80025CBAA /* NoResultsFoundTableViewCell.xib */; };
 		AA1DFD591DAB687E00BECB5A /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1DFD581DAB687E00BECB5A /* UserTests.swift */; };
@@ -101,6 +102,7 @@
 		75EABC431D98BA1E0075E75E /* InterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
 		75EABC451D98BA1E0075E75E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		AA06C9061DA18CCD00B753CF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		AA14ECCC1DCC41670086BC57 /* SignUpInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInfoViewController.swift; sourceTree = "<group>"; };
 		AA15CE341DA635B80025CBAA /* NoResultsFoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoResultsFoundTableViewCell.swift; sourceTree = "<group>"; };
 		AA15CE351DA635B80025CBAA /* NoResultsFoundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoResultsFoundTableViewCell.xib; sourceTree = "<group>"; };
 		AA1DFD581DAB687E00BECB5A /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				AA06C9061DA18CCD00B753CF /* MenuViewController.swift */,
 				75EABC3F1D98BA1E0075E75E /* LoginViewController.swift */,
 				75EABC451D98BA1E0075E75E /* SignUpViewController.swift */,
+				AA14ECCC1DCC41670086BC57 /* SignUpInfoViewController.swift */,
 				AA272A6D1DCBDC6B0020746C /* InterestSelectionViewController.swift */,
 			);
 			name = "Menu Controllers";
@@ -692,6 +695,7 @@
 				AA06C9071DA18CCD00B753CF /* MenuViewController.swift in Sources */,
 				758F446E1DB2D42B00138EB6 /* EditProfileTableViewController.swift in Sources */,
 				75CDBD0A1DA1B9B300AC0E1C /* AdminTableViewController.swift in Sources */,
+				AA14ECCD1DCC41670086BC57 /* SignUpInfoViewController.swift in Sources */,
 				758F446C1DB2D3EC00138EB6 /* ChangePasswordTableViewController.swift in Sources */,
 				AA3B8A041DBF29BF0013580E /* MenuInterestTableViewCell.swift in Sources */,
 				AA7249DE1DA488B8009AED20 /* SearchResultTableViewCell.swift in Sources */,

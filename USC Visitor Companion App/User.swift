@@ -46,7 +46,7 @@ class User: NSObject {
     
     var interest: String? { willSet { User.current.update(value: newValue, forKey: UserKey.interest.rawValue) } }
     
-    var type: UserType = .none  // should never be set after signup
+    var type: UserType = .none { willSet { User.current.update(value: newValue.rawValue, forKey: UserKey.type.rawValue) } }
     
     
     // MARK: Class Methods
@@ -77,8 +77,10 @@ class User: NSObject {
                     callback()
                 })
             case .failed(_):
+                callback()
                 break
             case .cancelled:
+                callback()
                 break
             }
         })
@@ -104,8 +106,10 @@ class User: NSObject {
                     callback()
                 })
             case .failed(_):
+                callback()
                 break
             case .cancelled:
+                callback()
                 break
             }
         })
@@ -119,6 +123,14 @@ class User: NSObject {
     
     
     // MARK: Private Methods
+    func delete() {
+        PFUser.current()?.deleteInBackground(block: {
+            (succeeded) in
+            User.logout()
+            User.current.update()
+        })
+    }
+    
     func update() {
         User.current.name = PFUser.current()?[UserKey.name.rawValue] as! String?
         User.current.username = PFUser.current()?[UserKey.username.rawValue] as! String?

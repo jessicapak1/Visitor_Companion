@@ -35,6 +35,7 @@ PODS:
     - GoogleMaps/Base (= 2.1.0)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
+  - TextFieldEffects (1.3.0)
   - UIImageViewModeScaleAspect (2.0)
 
 DEPENDENCIES:
@@ -46,6 +47,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - Parse
+  - TextFieldEffects
   - UIImageViewModeScaleAspect
 
 SPEC CHECKSUMS:
@@ -61,8 +63,9 @@ SPEC CHECKSUMS:
   GoogleMaps: 06589b9a38097bce0cd6e90f0fd9b5e4b4a9344c
   GooglePlaces: 16e96266483b8010e9f275399403647978523c86
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
+  TextFieldEffects: ef594746f17997c813e07633f8ae5acaf9b04f27
   UIImageViewModeScaleAspect: 32c43b419b0762001d5e476a4af48c1fe875f60a
 
-PODFILE CHECKSUM: 89d5e2ad18c68a38fb1ef62569bf22709e473a60
+PODFILE CHECKSUM: 396b109a2b05e7434ffc756eef484516fb0c3a0b
 
 COCOAPODS: 1.0.1

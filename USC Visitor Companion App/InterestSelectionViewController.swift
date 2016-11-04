@@ -26,8 +26,8 @@ class InterestSelectionViewController: UIViewController, UITableViewDelegate, UI
     
     // MARK: UITableViewDelegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let interestCell = self.interestTableView.cellForRow(at: indexPath)
-        User.current.interest = interestCell?.textLabel?.text
+        self.interestTableView.deselectRow(at: indexPath, animated: true)
+        User.current.interest = self.interests[indexPath.row]
         self.interestTableView.reloadData()
     }
     
