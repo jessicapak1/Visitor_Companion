@@ -129,32 +129,19 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0]
         //print("locations = \(userLocation.coordinate.latitude) \(userLocation.coordinate.longitude)")
-        // nearby locations?
+        
+        // nearby markers color change
         print("in location manager didUpdateLocations func")
         var distance : CLLocationDistance?
-        let maxDist = CLLocationDistance(10)
-        /*
+        let maxDist = CLLocationDistance(30)
         for location in LocationData.shared.locations{
             distance = userLocation.distance(from: location.location!)
             if distance! < maxDist {
-                let marker = GMSMarker()
-                marker.map = self.mapView
-                marker.icon = GMSMarker.markerImage(with: UIColor.red)
-                marker.position = (location.location?.coordinate)!
+                self.markers[location.name!]?.iconView?.tintColor = UIColor.blue
             }
-        }
-        */
-        // temp for nearby location testing
-        
-        let house : CLLocation = CLLocation(latitude: 34.024771, longitude: -118.281451)
-        distance = userLocation.distance(from: house)
-        if distance! < maxDist {
-            let marker = GMSMarker()
-            marker.map = self.mapView
-            marker.title = "ADX House"
-            marker.snippet = "This is where sarah lives"
-            marker.position = CLLocationCoordinate2D(latitude: 34.024771, longitude: -118.281451)
-            marker.icon = GMSMarker.markerImage(with: UIColor.black)
+            else {
+                self.markers[location.name!]?.iconView?.tintColor = UIColor(displayP3Red: 99.0/255.0, green: 00.0/255.0, blue: 00.0/255.0, alpha: 1.0)
+            }
         }
         
         
