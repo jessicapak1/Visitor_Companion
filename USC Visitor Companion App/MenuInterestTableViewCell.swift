@@ -13,13 +13,6 @@ protocol MenuInterestTableViewCellDelegate {
 }
 
 class MenuInterestTableViewCell: UITableViewCell {
-    
-    // MARK: Properties
-    let links: [String: String] = [
-        "General": "http://viterbi.usc.edu",
-        "Computer Science": "http://cs.usc.edu",
-    ]
-    
 
     // MARK: IBOutlets
     @IBOutlet weak var interestButton: ShadowButton! {
@@ -32,7 +25,7 @@ class MenuInterestTableViewCell: UITableViewCell {
     
     
     // MARK: Properties
-    static let defaultHeight: CGFloat = 130.0
+    static let defaultHeight: CGFloat = 122.0
     
     var delegate: MenuInterestTableViewCellDelegate?
     

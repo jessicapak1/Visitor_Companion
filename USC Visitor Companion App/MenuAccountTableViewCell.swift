@@ -17,6 +17,6 @@ class MenuAccountTableViewCell: UITableViewCell {
     
     
     // MARK: Properties
-    static let defaultHeight: CGFloat = 100.0
+    static let defaultHeight: CGFloat = 104.0
     
 }

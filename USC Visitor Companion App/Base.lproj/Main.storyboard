@@ -219,7 +219,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="nNE-iu-Ohq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
@@ -239,7 +239,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="HSn-Pr-Ybg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
@@ -268,8 +268,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EFy-v3-xHA">
-                                <rect key="frame" x="56" y="273" width="263" height="26"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                                <rect key="frame" x="56" y="273" width="263" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Forgot your login details?">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -278,7 +278,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P4N-z8-gQa">
-                                <rect key="frame" x="63" y="357" width="100" height="1"/>
+                                <rect key="frame" x="63" y="358" width="100" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="FAN-hB-rNs"/>
@@ -289,12 +289,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbK-Op-3Ft">
-                                <rect key="frame" x="179" y="347" width="16" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <rect key="frame" x="179" y="348" width="16" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xks-ft-VPs" customClass="ShadowButton" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
-                                <rect key="frame" x="40" y="416" width="295" height="45"/>
+                                <rect key="frame" x="40" y="417" width="295" height="45"/>
                                 <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="hEc-kQ-lk9"/>
@@ -308,7 +308,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGj-Nf-808">
-                                <rect key="frame" x="211" y="357" width="100" height="1"/>
+                                <rect key="frame" x="211" y="358" width="100" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="dd5-Ba-6RO"/>
@@ -391,7 +391,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="KRZ-Na-5Y3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
@@ -411,7 +411,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6Fe-Xa-9q9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
@@ -431,7 +431,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mFf-Hh-ckL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
@@ -461,7 +461,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NI-IX-dQt">
                                 <rect key="frame" x="179" y="387" width="16" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8v7-gF-Zr3">
@@ -574,7 +574,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="zqg-9Y-rQ9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
@@ -588,7 +588,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BZO-DK-GQx">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BZO-DK-GQx">
                                 <rect key="frame" x="40" y="210" width="295" height="135"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -605,10 +605,11 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="User Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NFm-mc-yxp">
                                                     <rect key="frame" x="15" y="0.0" width="265" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -617,7 +618,7 @@
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm currently a..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGE-Cz-cJQ">
                                 <rect key="frame" x="40" y="178" width="295" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrG-ai-KO0" customClass="ShadowButton" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
@@ -640,7 +641,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ty8-lB-X71"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
@@ -656,7 +657,7 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your name?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yrv-qw-EDY">
                                 <rect key="frame" x="40" y="48" width="295" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1006,7 +1007,7 @@ Christian Villa – Computer Science Major    </string>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ast-V6-2D8">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Interest Cell" textLabel="7td-Bg-tHM" style="IBUITableViewCellStyleDefault" id="KiE-lx-fsx">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -1018,12 +1019,14 @@ Christian Villa – Computer Science Major    </string>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Interest Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7td-Bg-tHM">
                                                     <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
