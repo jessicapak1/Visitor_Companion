@@ -39,13 +39,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     var currentMarker = GMSMarker()
     let locationManager = CLLocationManager()
     var newMarker: Bool = false
-    
     var searchResults: [Location] = [Location]()
     
     
     // MARK: IBOutlets
     @IBOutlet weak var segmentedControl: BetterSegmentedControl! {
         didSet {
+            // configure segments
             self.segmentedControl.titleFont = .systemFont(ofSize: 16.0)
             self.segmentedControl.selectedTitleFont = .systemFont(ofSize: 16.0)
             self.segmentedControl.titles = ["General", "Interest", "Food", "Search"]
@@ -69,7 +69,15 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         }
     }
     
-    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton! {
+        didSet {
+            // add a drop shadow
+            self.menuButton.layer.shadowColor = UIColor.darkGray.cgColor
+            self.menuButton.layer.shadowOffset = CGSize(width: 0.0, height: 1.5)
+            self.menuButton.layer.shadowOpacity = 1.0
+            self.menuButton.layer.shadowRadius = 1.5
+        }
+    }
     
     
     // MARK: View Controller Methods
@@ -366,7 +374,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.bubbleTransition.duration = 0.25
         self.bubbleTransition.transitionMode = .present
         self.bubbleTransition.startingPoint = self.menuButton.center
-        self.bubbleTransition.bubbleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
+        self.bubbleTransition.bubbleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
         return self.bubbleTransition
     }
     

@@ -16,7 +16,7 @@ protocol MenuLoginTableViewCellDelegate {
 class MenuLoginTableViewCell: UITableViewCell {
     
     // MARK: Properties
-    static let defaultHeight: CGFloat = 180.0
+    static let defaultHeight: CGFloat = 155.0
     
     var delegate: MenuLoginTableViewCellDelegate?
     
@@ -24,13 +24,25 @@ class MenuLoginTableViewCell: UITableViewCell {
     // MARK: IBOutlets
     @IBOutlet weak var loginButton: UIButton! {
         didSet {
+            // make the corners round
             self.loginButton.layer.cornerRadius = 5.0
+            // add a drop shadow
+            self.loginButton.layer.shadowColor = UIColor.darkGray.cgColor
+            self.loginButton.layer.shadowOffset = CGSize(width: 0.0, height: 1.5)
+            self.loginButton.layer.shadowOpacity = 1.0
+            self.loginButton.layer.shadowRadius = 1.5
         }
     }
     
     @IBOutlet weak var signUpButton: UIButton! {
         didSet {
+            // make the corners round
             self.signUpButton.layer.cornerRadius = 5.0
+            // add a drop shadow
+            self.signUpButton.layer.shadowColor = UIColor.darkGray.cgColor
+            self.signUpButton.layer.shadowOffset = CGSize(width: 0.0, height: 1.5)
+            self.signUpButton.layer.shadowOpacity = 1.0
+            self.signUpButton.layer.shadowRadius = 1.5
         }
     }
     

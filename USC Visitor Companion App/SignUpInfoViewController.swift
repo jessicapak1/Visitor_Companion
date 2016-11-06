@@ -23,7 +23,9 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     // MARK: IBOutlets
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
+    
+    @IBOutlet weak var lastNameTextField: UITextField!
     
     @IBOutlet weak var typeTableView: UITableView! {
         didSet {
@@ -70,22 +72,24 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 65.0
+        return 50.0
     }
     
     
     // MARK: IBAction
     @IBAction func backgroundButtonPressed() {
-        self.nameTextField.resignFirstResponder()
+        self.firstNameTextField.resignFirstResponder()
+        self.lastNameTextField.resignFirstResponder()
     }
     
     @IBAction func signUpButtonPressed() {
-        let name = self.nameTextField.text
-        if let name = name {
-            if name.isEmpty {
-                self.showAlert(withTitle: "Missing Field", message: "Please enter your name to sign up", action: "OK")
+        let firstName = self.firstNameTextField.text
+        let lastName = self.lastNameTextField.text
+        if let firstName = firstName, let lastName = lastName {
+            if firstName.isEmpty || lastName.isEmpty {
+                self.showAlert(withTitle: "Missing Field", message: "Please enter your first and last name to sign up", action: "OK")
             } else {
-                User.current.name = name
+                User.current.name = firstName + " " + lastName
                 User.current.type = self.types[self.selectedTypeIndex]
                 if let delegate = self.delegate {
                     delegate.userDidSaveInfo()

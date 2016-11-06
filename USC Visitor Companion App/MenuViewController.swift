@@ -28,7 +28,15 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton! {
+        didSet {
+            // add a drop shadow
+            self.menuButton.layer.shadowColor = UIColor.darkGray.cgColor
+            self.menuButton.layer.shadowOffset = CGSize(width: 0.0, height: 1.5)
+            self.menuButton.layer.shadowOpacity = 1.0
+            self.menuButton.layer.shadowRadius = 1.5
+        }
+    }
     
     @IBOutlet weak var adminButton: UIBarButtonItem!
     
