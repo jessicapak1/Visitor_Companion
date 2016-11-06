@@ -9,13 +9,14 @@
 import UIKit
 
 protocol InterestsViewDelegates {
-    func userDidSave(interestsArray: [String])
+    func userDidSave(interestsArray: [String], interestsForDatabase: [String])
 }
 
 class InterestsViewController: UITableViewController {
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var interestsArray: [String] = [String]()
+    var interestsForDatabase: [String] = [String]()
     var interests: [String] = [String]()
     var fromAdmin: Bool = false
     var interestDelegate: InterestsViewDelegates?
@@ -28,6 +29,7 @@ class InterestsViewController: UITableViewController {
         saveButton.title = ""
         
         interestsArray.removeAll()
+        interestsForDatabase.removeAll()
         interestsArray.append("Interests: ")
         
         if fromAdmin {
@@ -52,7 +54,7 @@ class InterestsViewController: UITableViewController {
 
     @IBAction func saveButtonPressed(_ sender: AnyObject) {
         if let delegate = self.interestDelegate {
-            delegate.userDidSave(interestsArray: interestsArray)
+            delegate.userDidSave(interestsArray: interestsArray, interestsForDatabase: interestsForDatabase)
         }
         self.dismiss(animated: true, completion: nil)
 
@@ -76,6 +78,7 @@ class InterestsViewController: UITableViewController {
         let indexPath = tableView.indexPathForSelectedRow
         let cell = tableView.cellForRow(at: indexPath!)
         interestsArray.append((cell?.textLabel?.text)!)
+        interestsForDatabase.append((cell?.textLabel?.text)!)
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

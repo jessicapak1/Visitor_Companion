@@ -13,6 +13,7 @@ import CoreLocation
 
 class AdminTableViewController: UITableViewController,  InterestsViewDelegates, MapViewDelegates, UIPickerViewDelegate, UIPickerViewDataSource {
     var mInterestsArray: [String] = [String]()
+    var mInterestsForDatabase: [String] = [String]()
     var selectedLocationType: String = ""
     var locationTypes = ["Food", "Library", "Building", "Fountain", "Field"]
     
@@ -77,7 +78,7 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
             let code = codeTextField.text            
             let description = descriptionTextView.text
             
-            LocationData.shared.create(name: name!, code: code!, details: description!, location: addLocationValue!, interests:mInterestsArray, locType: selectedLocationType, callback: {
+            LocationData.shared.create(name: name!, code: code!, details: description!, location: addLocationValue!, interests:mInterestsForDatabase, locType: selectedLocationType, callback: {
                 (succeeded) in
                 if(succeeded) {
                     self.dismiss(animated: true, completion: nil)
@@ -95,10 +96,9 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
         self.locationLabel.text = locationString
     }
     
-    func userDidSave(interestsArray: [String]) {
-        print("did save function");
-        print(interestsArray.count);
+    func userDidSave(interestsArray: [String], interestsForDatabase: [String]) {
         mInterestsArray = interestsArray
+        mInterestsForDatabase = interestsForDatabase
         var interestString = ""
     
         for i in (0..<interestsArray.count)

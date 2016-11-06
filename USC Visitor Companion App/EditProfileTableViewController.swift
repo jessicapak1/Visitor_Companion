@@ -38,8 +38,11 @@ class EditProfileViewController: UITableViewController, UIPickerViewDelegate, UI
         }
         
     }
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
-    @IBAction func editProfileAction(_ sender: AnyObject) {
+    @IBAction func editProfileButtonPressed(_ sender: Any) {
         if User.current.exists {
             if User.current.name != nil {
                 User.current.name = nameTextField.text
@@ -55,9 +58,10 @@ class EditProfileViewController: UITableViewController, UIPickerViewDelegate, UI
                 User.current.type = UserType(rawValue: selectedUserType)!
             }
         }
+        
         self.dismiss(animated: true, completion: nil)
     }
-    
+ 
     //Calls this function when the tap is recognized.
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
