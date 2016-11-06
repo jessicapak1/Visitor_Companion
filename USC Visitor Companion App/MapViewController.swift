@@ -20,26 +20,24 @@ protocol MapViewDelegates {
 
 class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
-    var added_marker = GMSMarker()
-    var fromAdmin : Bool?
-    var newLocation: CLLocation?
     // MARK: Properties
     let bubbleTransition: BubbleTransition = BubbleTransition()
     var mapDelegate: MapViewDelegates?
-
     var mapView: GMSMapView! {
         didSet {
             self.mapView.delegate = self
             self.mapView.isMyLocationEnabled = true
         }
     }
-    
     var markers: [String: GMSMarker] = [String: GMSMarker]()
     var currentLocation = [Location]()
     var currentMarker = GMSMarker()
     let locationManager = CLLocationManager()
     var newMarker: Bool = false
     var searchResults: [Location] = [Location]()
+    var added_marker = GMSMarker()
+    var fromAdmin : Bool?
+    var newLocation: CLLocation?
     
     
     // MARK: IBOutlets
@@ -69,6 +67,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         }
     }
     
+    @IBOutlet weak var locationsShownButton: ShadowButton! {
+        didSet {
+            self.locationsShownButton.addShadow()
+        }
+    }
+    
     @IBOutlet weak var menuButton: ShadowButton! {
         didSet {
             self.menuButton.addShadow()
@@ -82,10 +86,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.fromAdmin = false
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "viterbi"))
         self.showMap()
-        let locations = InterestsData.shared.interest(withName: "General")?.locations
-        if let locations = locations {
-            self.showMarkers(forLocations: locations)
-        }
+        self.showLocationsFromSegment()
         self.addSearch()
     }
     
@@ -94,19 +95,28 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     func segmentedControlValueChanged() {
         self.mapView.clear()
         var locations: [Location]? = nil
+        let segmentName = self.segmentedControl.titles[Int(self.segmentedControl.index)]
         
-        if self.segmentedControl.index == 0 {
-            locations = (InterestsData.shared.interest(withName: "General")?.locations)
+        if self.segmentedControl.index == 0 || self.segmentedControl.index == 2 {
+            self.locationsShownButton.setTitle("Showing \(segmentName) Locations", for: .normal)
+            locations = InterestsData.shared.interest(withName: segmentName)?.locations
         } else if self.segmentedControl.index == 1 {
-            let interest = User.current.exists ? User.current.interest! : "General"
-            locations = InterestsData.shared.interest(withName: interest)?.locations
-        } else if self.segmentedControl.index == 2 {
-            locations = InterestsData.shared.interest(withName: "Food")?.locations
+            let interestName = User.current.exists ? User.current.interest! : "General"
+            self.locationsShownButton.setTitle("Showing \(interestName) Locations", for: .normal)
+            locations = InterestsData.shared.interest(withName: interestName)?.locations
         } else if self.segmentedControl.index == 3 {
             self.showSearch()
             do { try self.segmentedControl.set(0, animated: true) } catch { }
         }
         
+        if let locations = locations {
+            self.showMarkers(forLocations: locations)
+        }
+    }
+    
+    func showLocationsFromSegment() {
+        let interestName = self.segmentedControl.titles[Int(self.segmentedControl.index)]
+        let locations = InterestsData.shared.interest(withName: interestName)?.locations
         if let locations = locations {
             self.showMarkers(forLocations: locations)
         }
@@ -307,8 +317,19 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.searchTableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.searchBar.resignFirstResponder()
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if self.searchBar.isFirstResponder == true {
+            self.searchBar.resignFirstResponder()
+            for view1 in self.searchBar.subviews {
+                for view2 in view1.subviews {
+                    if view2 is UIButton {
+                        let button = view2 as! UIButton
+                        button.isEnabled = true
+                        button.isUserInteractionEnabled = true
+                    }
+                }
+            }
+        }
     }
     
     

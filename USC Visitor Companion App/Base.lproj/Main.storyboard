@@ -52,7 +52,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <searchBar contentMode="redraw" placeholder="Search USC" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dGk-MM-YB2">
+                            <searchBar contentMode="redraw" placeholder="Search USC" showsCancelButton="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGk-MM-YB2">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,6 +63,17 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tb-ud-2jw" customClass="ShadowButton" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="375" height="25"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="vKz-XB-qZq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                                <state key="normal" title="Showing General Locations">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goZ-18-kmO">
                                 <rect key="frame" x="314" y="528" width="45" height="24"/>
                                 <constraints>
@@ -76,6 +87,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="3tb-ud-2jw" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leadingMargin" constant="-16" id="2Tc-O0-SFu"/>
                             <constraint firstItem="dGk-MM-YB2" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="4Zk-TL-19t"/>
                             <constraint firstItem="MY9-Id-f3I" firstAttribute="top" secondItem="dGk-MM-YB2" secondAttribute="bottom" id="HyC-Ev-o58"/>
                             <constraint firstItem="MY9-Id-f3I" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="KCw-MF-aKB"/>
@@ -83,9 +95,11 @@
                             <constraint firstAttribute="trailing" secondItem="dGk-MM-YB2" secondAttribute="trailing" id="NOY-lk-wyS"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="oLt-Hd-n1v" secondAttribute="bottom" constant="25" id="O1J-2i-gJS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7Lc-j6-D7e" secondAttribute="trailing" constant="-16" id="Rgp-3u-AuS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3tb-ud-2jw" secondAttribute="trailing" constant="-16" id="SoZ-ui-k84"/>
                             <constraint firstItem="oLt-Hd-n1v" firstAttribute="centerX" secondItem="5EB-oA-TVt" secondAttribute="centerX" id="ULg-ej-uyF"/>
                             <constraint firstItem="dGk-MM-YB2" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" id="aJ2-vG-OIk"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="MY9-Id-f3I" secondAttribute="bottom" id="dOI-sI-dlV"/>
+                            <constraint firstItem="3tb-ud-2jw" firstAttribute="top" secondItem="dGk-MM-YB2" secondAttribute="bottom" id="oIP-iq-x7K"/>
                             <constraint firstItem="7Lc-j6-D7e" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leadingMargin" constant="-16" id="pb3-b4-Ile"/>
                             <constraint firstAttribute="trailing" secondItem="MY9-Id-f3I" secondAttribute="trailing" id="seG-oE-cSm"/>
                             <constraint firstItem="goZ-18-kmO" firstAttribute="top" secondItem="oLt-Hd-n1v" secondAttribute="top" id="xVU-gz-Mld"/>
@@ -94,6 +108,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="hHR-zk-ele"/>
                     <connections>
+                        <outlet property="locationsShownButton" destination="3tb-ud-2jw" id="TRb-by-RdQ"/>
                         <outlet property="menuButton" destination="oLt-Hd-n1v" id="l7L-GF-Gwh"/>
                         <outlet property="searchBar" destination="dGk-MM-YB2" id="P7P-vV-Waa"/>
                         <outlet property="searchTableView" destination="MY9-Id-f3I" id="0Vm-ht-vK1"/>
@@ -103,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVm-tf-BUo" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3778" y="-485"/>
+            <point key="canvasLocation" x="-3778.4000000000001" y="-485.30734632683664"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="j0H-8A-2ka">
