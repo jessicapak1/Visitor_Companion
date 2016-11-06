@@ -21,15 +21,17 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBOutlet weak var loginButton: UIButton! {
+    @IBOutlet weak var loginButton: ShadowButton! {
         didSet {
             self.loginButton.layer.cornerRadius = 5.0
+            self.loginButton.addShadow()
         }
     }
     
-    @IBOutlet weak var facebookLoginButton: UIButton! {
+    @IBOutlet weak var facebookLoginButton: ShadowButton! {
         didSet {
             self.facebookLoginButton.layer.cornerRadius = 5.0
+            self.facebookLoginButton.addShadow()
         }
     }
     
@@ -37,15 +39,12 @@ class LoginViewController: UIViewController {
     // MARK: Properties
     var delegate: LoginViewControllerDelegate?
     
-    var graySpinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-    
     var whiteSpinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .white)
     
     
     // MARK: View Controller Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.graySpinner.startAnimating()
         self.whiteSpinner.startAnimating()
     }
 
@@ -94,8 +93,8 @@ class LoginViewController: UIViewController {
     
     func showSpinnerForLoginButton() {
         self.loginButton.setTitle("", for: .normal)
-        self.graySpinner.frame = self.loginButton.bounds
-        self.loginButton.addSubview(self.graySpinner)
+        self.whiteSpinner.frame = self.loginButton.bounds
+        self.loginButton.addSubview(self.whiteSpinner)
         self.loginButton.isEnabled = false
         self.facebookLoginButton.isEnabled = false
     }
@@ -111,7 +110,6 @@ class LoginViewController: UIViewController {
     func resetLoginButtons() {
         self.loginButton.setTitle("Login", for: .normal)
         self.facebookLoginButton.setTitle("Login with Facebook", for: .normal)
-        self.graySpinner.removeFromSuperview()
         self.whiteSpinner.removeFromSuperview()
         self.loginButton.isEnabled = true
         self.facebookLoginButton.isEnabled = true

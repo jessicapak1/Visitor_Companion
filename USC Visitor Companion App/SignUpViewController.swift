@@ -24,15 +24,17 @@ class SignUpViewController: UIViewController, SignUpInfoViewControllerDelegate {
     
     @IBOutlet weak var confirmPasswordTextField: UITextField!
 
-    @IBOutlet weak var signUpButton: UIButton! {
+    @IBOutlet weak var signUpButton: ShadowButton! {
         didSet {
             self.signUpButton.layer.cornerRadius = 5.0
+            self.signUpButton.addShadow()
         }
     }
     
-    @IBOutlet weak var facebookSignUpButton: UIButton! {
+    @IBOutlet weak var facebookSignUpButton: ShadowButton! {
         didSet {
             self.facebookSignUpButton.layer.cornerRadius = 5.0
+            self.facebookSignUpButton.addShadow()
         }
     }
     
@@ -40,15 +42,12 @@ class SignUpViewController: UIViewController, SignUpInfoViewControllerDelegate {
     // MARK: Properties
     var delegate: SignUpViewControllerDelegate?
     
-    var graySpinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-    
     var whiteSpinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .white)
     
     
     // MARK: View Controller Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.graySpinner.startAnimating()
         self.whiteSpinner.startAnimating()
     }
     
@@ -121,8 +120,8 @@ class SignUpViewController: UIViewController, SignUpInfoViewControllerDelegate {
     
     func showSpinnerForSignUpButton() {
         self.signUpButton.setTitle("", for: .normal)
-        self.graySpinner.frame = self.signUpButton.bounds
-        self.signUpButton.addSubview(self.graySpinner)
+        self.whiteSpinner.frame = self.signUpButton.bounds
+        self.signUpButton.addSubview(self.whiteSpinner)
         self.signUpButton.isEnabled = false
         self.facebookSignUpButton.isEnabled = false
     }
@@ -138,7 +137,6 @@ class SignUpViewController: UIViewController, SignUpInfoViewControllerDelegate {
     func resetSignUpButtons() {
         self.signUpButton.setTitle("Sign Up", for: .normal)
         self.facebookSignUpButton.setTitle("Sign Up with Facebook", for: .normal)
-        self.graySpinner.removeFromSuperview()
         self.whiteSpinner.removeFromSuperview()
         self.signUpButton.isEnabled = true
         self.facebookSignUpButton.isEnabled = true

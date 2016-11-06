@@ -35,9 +35,10 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    @IBOutlet weak var signUpButton: UIButton! {
+    @IBOutlet weak var signUpButton: ShadowButton! {
         didSet {
             self.signUpButton.layer.cornerRadius = 5.0
+            self.signUpButton.addShadow()
         }
     }
     
