@@ -52,9 +52,12 @@ class User: NSObject {
     // MARK: Class Methods
     class func signup(username: String, password: String, callback: @escaping () -> Void) {
         let user = PFUser()
+        user[UserKey.name.rawValue] = ""
         user[UserKey.username.rawValue] = username
         user[UserKey.password.rawValue] = password
         user[UserKey.email.rawValue] = username
+        user[UserKey.interest.rawValue] = ""
+        user[UserKey.type.rawValue] = UserType.none.rawValue
         user.signUpInBackground(block: {
             (succeeded, error) in
             User.current.update()
