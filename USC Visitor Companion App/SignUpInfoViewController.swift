@@ -25,6 +25,8 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var delegate: SignUpInfoViewControllerDelegate?
     
+    var whiteSpinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .white)
+    
     
     // MARK: IBOutlets
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -56,6 +58,11 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     // MARK: View Controller Lifecycle Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.whiteSpinner.startAnimating()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if let delegate = delegate {
@@ -123,6 +130,7 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
             if firstName.isEmpty || lastName.isEmpty {
                 self.showAlert(withTitle: "Missing Field", message: "Please enter your first and last name to sign up", action: "OK")
             } else {
+                self.showSpinnerForSignUpButton()
                 User.current.name = firstName + " " + lastName
                 User.current.interest = self.interests[self.interestIndex]
                 User.current.type = self.types[self.typeIndex]
@@ -140,6 +148,13 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: action, style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showSpinnerForSignUpButton() {
+        self.signUpButton.setTitle("", for: .normal)
+        self.whiteSpinner.frame = self.signUpButton.bounds
+        self.signUpButton.addSubview(self.whiteSpinner)
+        self.signUpButton.isEnabled = false
     }
 
 }
