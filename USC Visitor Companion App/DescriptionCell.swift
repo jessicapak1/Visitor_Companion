@@ -13,7 +13,8 @@ class DescriptionCell: UITableViewCell {
 
     @IBOutlet weak var myBackgroundView: UIView!
     
-
+    @IBOutlet weak var backgroundBlurView: UIVisualEffectView!
+    
     @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBOutlet weak var locationTypeImage: UIImageView!
@@ -23,6 +24,9 @@ class DescriptionCell: UITableViewCell {
         // Initialization code
         myBackgroundView.layer.cornerRadius = 15
         myBackgroundView.layer.masksToBounds = true
+        
+        backgroundBlurView.layer.cornerRadius = 15
+        backgroundBlurView.layer.masksToBounds = true
         //topView.layer.cornerRadius = 10
         //topView.layer.masksToBounds = true
         /*

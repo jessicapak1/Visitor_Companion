@@ -124,7 +124,7 @@
         <scene sceneID="j0H-8A-2ka">
             <objects>
                 <navigationController id="1N9-tY-HF4" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="vHG-9H-R7x">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="vHG-9H-R7x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1139,7 +1139,7 @@ Christian Villa – Computer Science Major    </string>
         <scene sceneID="seM-1t-oHs">
             <objects>
                 <navigationController storyboardIdentifier="interests" id="EQN-An-L1s" userLabel="Interests Navigation Controller" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jbP-BK-rHc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jbP-BK-rHc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1239,7 +1239,7 @@ Christian Villa – Computer Science Major    </string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-8G-QNj">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
+                                                    <rect key="frame" x="-0.5" y="0.0" width="375" height="149"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 </pickerView>
                                             </subviews>
@@ -1417,7 +1417,7 @@ Christian Villa – Computer Science Major    </string>
         <scene sceneID="iUw-MA-aq8">
             <objects>
                 <navigationController storyboardIdentifier="admin_one" id="RYa-VT-6M0" userLabel="Admin Add Loc Navigation Controller" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Dq1-DT-6Qm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dq1-DT-6Qm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1434,7 +1434,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController storyboardIdentifier="settings" automaticallyAdjustsScrollViewInsets="NO" id="dDA-Be-9Lo" userLabel="App Preferences Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Lvw-hL-Jzu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Lvw-hL-Jzu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1457,7 +1457,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r2b-Bq-GWe" userLabel="Locations Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8R1-Rv-VQv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8R1-Rv-VQv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1475,7 +1475,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController storyboardIdentifier="admin" automaticallyAdjustsScrollViewInsets="NO" id="Ked-3e-tgT" userLabel="Admin Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="E9I-I5-QiM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E9I-I5-QiM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1541,7 +1541,7 @@ Christian Villa – Computer Science Major    </string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UmN-A0-reF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="150"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 </pickerView>
                                             </subviews>
@@ -1669,7 +1669,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nft-j1-Vc1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="3Z1-Di-7Ym">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3Z1-Di-7Ym">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1688,7 +1688,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nEF-nh-8vb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="W93-Lh-BAu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W93-Lh-BAu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1710,7 +1710,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rNq-dJ-y7J" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="mZE-I5-maL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="mZE-I5-maL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1733,7 +1733,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2yC-WM-zcX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="2oB-Wg-CgT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2oB-Wg-CgT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1756,7 +1756,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZQ2-v3-Uek" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="2fo-c3-eNX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2fo-c3-eNX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1779,7 +1779,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ge7-Um-BN1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="qeH-Pi-6ak">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="qeH-Pi-6ak">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

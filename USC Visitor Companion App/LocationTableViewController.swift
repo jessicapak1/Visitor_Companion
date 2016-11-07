@@ -107,14 +107,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             let stringRepresentation = current?.interests?.joined(separator: ", ")
             cell.interestsLabel.text = stringRepresentation
             return cell
-        }
-        /*else if indexPath.row == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "mediaCell", for: indexPath)
-            return cell
-        } else if indexPath.row == 3 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "instagramCell", for: indexPath)
-            return cell
-        } */else {
+        } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "mediaCellView")!
             return cell
         }
