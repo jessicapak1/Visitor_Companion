@@ -40,6 +40,27 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     let locationManager = CLLocationManager()
     var newMarker: Bool = false
     
+    let customMapStyle = "[" +
+        "  {" +
+        "    \"featureType\": \"poi\"," +
+        "    \"elementType\": \"all\"," +
+        "    \"stylers\": [" +
+        "      {" +
+        "        \"visibility\": \"off\"" +
+        "      }" +
+        "    ]" +
+        "  }," +
+        "  {" +
+        "    \"featureType\": \"transit\"," +
+        "    \"elementType\": \"labels.icon\"," +
+        "    \"stylers\": [" +
+        "      {" +
+        "        \"visibility\": \"off\"" +
+        "      }" +
+        "    ]" +
+        "  }" +
+    "]"
+    
     var searchResults: [Location] = [Location]()
     
     
@@ -104,6 +125,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     func showMap() {
         let camera = GMSCameraPosition.camera(withLatitude: 34.020496, longitude: -118.285317, zoom: 20.0, bearing: 30, viewingAngle: 90.0)
         self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
+        
+        do {
+           // set map style by passing JSON string
+            mapView.mapStyle = try GMSMapStyle(jsonString: customMapStyle)
+        } catch {
+            NSLog("\(error) The style definition could not be loaded.")
+        }
+        
         self.view.insertSubview(self.mapView, at: 0)
     
         // request authorization from the user
