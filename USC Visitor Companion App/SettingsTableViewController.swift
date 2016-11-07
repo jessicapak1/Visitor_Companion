@@ -15,7 +15,9 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = self.tableView.cellForRow(at: indexPath)
         
-        if selectedCell?.textLabel?.text == "Connect with Facebook" {
+        if selectedCell?.textLabel?.text == "Edit Profile" {
+            self.showEditProfile()
+        } else if selectedCell?.textLabel?.text == "Connect with Facebook" {
             self.showConnectWithFacebook()
         } else if selectedCell?.textLabel?.text == "Logout" {
             self.showLogout()
@@ -32,6 +34,14 @@ class SettingsTableViewController: UITableViewController {
     
     
     // MARK: General Methods
+    func showEditProfile() {
+        if User.current.exists {
+            self.performSegue(withIdentifier: "Show Edit Profile", sender: nil)
+        } else {
+            self.showAlert(withTitle: "Error", message: "You are not logged in with an account")
+        }
+    }
+    
     func showLogout() {
         if User.current.exists {
             User.logout()
@@ -45,7 +55,7 @@ class SettingsTableViewController: UITableViewController {
         if User.current.exists {
             // connect account with Facebook ----------------------------------------------------------------------------
         } else {
-            self.showAlert(withTitle: "Error", message: "You must be logged in with an account")
+            self.showAlert(withTitle: "Error", message: "You are not logged in with an account")
         }
     }
     
