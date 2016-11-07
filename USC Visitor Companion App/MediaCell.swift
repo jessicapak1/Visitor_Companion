@@ -10,6 +10,7 @@ import UIKit
 
 class MediaCell: UITableViewCell {
 
+    @IBOutlet weak var backgroundBlurView: UIVisualEffectView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var myBackgroundView: UIView!
     override func awakeFromNib() {
@@ -17,6 +18,8 @@ class MediaCell: UITableViewCell {
         // Initialization code
         myBackgroundView.layer.cornerRadius = 15
         myBackgroundView.layer.masksToBounds = true
+        backgroundBlurView.layer.cornerRadius = 15
+        backgroundBlurView.layer.masksToBounds = true
         //topView.layer.cornerRadius = 10
         //topView.layer.masksToBounds = true
 

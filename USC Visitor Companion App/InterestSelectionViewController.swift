@@ -42,7 +42,7 @@ class InterestSelectionViewController: UIViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let interestCell = self.interestTableView.dequeueReusableCell(withIdentifier: "Interest Cell")
         interestCell?.textLabel?.text = self.interests[indexPath.row]
-        interestCell?.accessoryType = (self.interests[indexPath.row] == User.current.interest) ? .checkmark : .none
+        interestCell?.accessoryType = (self.interests[indexPath.row] == self.currentInterest) ? .checkmark : .none
         return interestCell!
     }
     

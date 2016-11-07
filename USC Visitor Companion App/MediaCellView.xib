@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,14 +16,37 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CpU-SG-95h" id="YIW-h0-zVS">
-                <frame key="frameInset" width="375" height="148"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="148"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4kv-5Y-SPU">
+                        <rect key="frame" x="8" y="4" width="359" height="141"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="8ac-gb-IBY">
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="141"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                        <blurEffect style="extraLight"/>
+                    </visualEffectView>
                     <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vn6-NU-zPS">
+                        <rect key="frame" x="8" y="4" width="359" height="141"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yl-qy-H2q">
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="26"/>
                                 <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2gF-QU-a6y">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="oha-zM-jzR">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <vibrancyEffect>
+                                            <blurEffect style="extraLight"/>
+                                        </vibrancyEffect>
+                                    </visualEffectView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Media" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kht-3b-x3q">
+                                        <rect key="frame" x="30" y="0.0" width="88" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="88" id="3PD-h0-SHG"/>
                                         </constraints>
@@ -37,10 +63,10 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0yl-qy-H2q" firstAttribute="top" secondItem="vn6-NU-zPS" secondAttribute="top" id="6ZW-X6-KaP"/>
-                            <constraint firstAttribute="bottom" secondItem="0yl-qy-H2q" secondAttribute="bottom" constant="119" id="Idv-2b-O4h"/>
+                            <constraint firstAttribute="bottom" secondItem="0yl-qy-H2q" secondAttribute="bottom" constant="115" id="Idv-2b-O4h"/>
                             <constraint firstItem="0yl-qy-H2q" firstAttribute="leading" secondItem="vn6-NU-zPS" secondAttribute="leading" id="PKL-o3-wLi"/>
                             <constraint firstAttribute="trailing" secondItem="0yl-qy-H2q" secondAttribute="trailing" id="wE8-zr-mOz"/>
                         </constraints>
@@ -56,6 +82,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="backgroundBlurView" destination="4kv-5Y-SPU" id="yYl-V9-ub8"/>
                 <outlet property="myBackgroundView" destination="vn6-NU-zPS" id="edo-25-fyc"/>
                 <outlet property="topView" destination="0yl-qy-H2q" id="LVx-dJ-o9O"/>
             </connections>

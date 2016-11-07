@@ -10,6 +10,7 @@ import UIKit
 
 class InterestsCell: UITableViewCell {
 
+    @IBOutlet weak var backgroundBlurView: UIVisualEffectView!
     @IBOutlet weak var myBackgroundView: UIView!
     @IBOutlet weak var interestsLabel: UILabel!
     
@@ -18,6 +19,8 @@ class InterestsCell: UITableViewCell {
         // Initialization code
         myBackgroundView.layer.cornerRadius = 15
         myBackgroundView.layer.masksToBounds = true
+        backgroundBlurView.layer.cornerRadius = 15
+        backgroundBlurView.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

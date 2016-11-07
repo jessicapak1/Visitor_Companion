@@ -63,7 +63,7 @@ class SignUpViewController: UIViewController, SignUpInfoViewControllerDelegate {
     
     // MARK: SignUpInfoViewControllerDelegate Methods
     func userDidSaveInfo() {
-        if User.current.exists && User.current.name == nil {
+        if User.current.exists && User.current.name == "" {
             User.current.delete()
         } else if let delegate = self.delegate {
             delegate.userDidSignUp()

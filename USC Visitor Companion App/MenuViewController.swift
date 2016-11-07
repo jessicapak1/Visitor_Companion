@@ -168,9 +168,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: Menu Methods
     func configureMenuCells() {
-        if User.current.exists {
+        if User.current.exists && User.current.name != "" {
             self.cells = [.account, .interest]
         } else {
+            if User.current.exists {
+                User.current.delete()
+            }
             self.cells = [.login]
         }
     }
