@@ -170,8 +170,8 @@ class User: NSObject {
                 User.signup(username: email, password: id, callback: {
                     if User.current.exists {
                         User.current.name = name
-                        User.current.type = UserType.prospective
                         User.current.interest = "General"
+                        User.current.type = UserType.prospective
                     }
                     callback()
                 })

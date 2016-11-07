@@ -117,7 +117,7 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    // MARK: IBAction
+    // MARK: IBAction Methods
     @IBAction func backgroundButtonPressed() {
         self.firstNameTextField.resignFirstResponder()
         self.lastNameTextField.resignFirstResponder()
@@ -128,7 +128,7 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
         let lastName = self.lastNameTextField.text
         if let firstName = firstName, let lastName = lastName {
             if firstName.isEmpty || lastName.isEmpty {
-                self.showAlert(withTitle: "Missing Field", message: "Please enter your first and last name to sign up", action: "OK")
+                self.showAlert(withTitle: "Missing Fields", message: "Please enter your first and last name to sign up", action: "OK")
             } else {
                 self.showSpinnerForSignUpButton()
                 User.current.name = firstName + " " + lastName
