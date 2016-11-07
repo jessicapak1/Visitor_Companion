@@ -123,16 +123,15 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             self.locationsShownButton.setTitle("Showing \(segmentName) Locations", for: .normal)
             locations = InterestsData.shared.interest(withName: segmentName)?.locations
         } else if self.segmentedControl.index == 1 {
-            let interestName = User.current.exists ? User.current.interest! : "General"
-            self.locationsShownButton.setTitle("Showing \(interestName) Locations", for: .normal)
-            locations = InterestsData.shared.interest(withName: interestName)?.locations
-        } else if self.segmentedControl.index == 2 {
-            let interestName = User.current.exists ? User.current.interest! : "Food"
-            self.locationsShownButton.setTitle("Showing \(interestName) Locations", for: .normal)
-            locations = InterestsData.shared.interest(withName: interestName)?.locations
+            if User.current.exists {
+                self.locationsShownButton.setTitle("Showing \(User.current.interest!) Locations", for: .normal)
+                locations = InterestsData.shared.interest(withName: User.current.interest!)?.locations
+            } else {
+                self.locationsShownButton.setTitle("Login or Sign Up to Use Interests", for: .normal)
+            }
         } else if self.segmentedControl.index == 3 {
             self.showSearch()
-            do { try self.segmentedControl.set(0, animated: true) } catch { }
+            do { try self.segmentedControl.set(index: 0, animated: true) } catch { }
         }
         
         if let locations = locations {
@@ -188,7 +187,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         //print("locations = \(userLocation.coordinate.latitude) \(userLocation.coordinate.longitude)")
         
         // nearby markers color change
-        print("in location manager didUpdateLocations func")
+        //print("in location manager didUpdateLocations func")
         var distance : CLLocationDistance?
         let maxDist = CLLocationDistance(30)
         for location in LocationData.shared.locations{

@@ -13,6 +13,8 @@ class InterestSelectionViewController: UIViewController, UITableViewDelegate, UI
     // MARK: Properties
     var interests: [String] = InterestsData.shared.interestNames()
     
+    var currentInterest: String = User.current.interest!
+    
     
     // MARK: IBOutlets
     @IBOutlet weak var interestTableView: UITableView! {
@@ -27,7 +29,7 @@ class InterestSelectionViewController: UIViewController, UITableViewDelegate, UI
     // MARK: UITableViewDelegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.interestTableView.deselectRow(at: indexPath, animated: true)
-        User.current.interest = self.interests[indexPath.row]
+        self.currentInterest = self.interests[indexPath.row]
         self.interestTableView.reloadData()
     }
     
@@ -51,6 +53,7 @@ class InterestSelectionViewController: UIViewController, UITableViewDelegate, UI
     
     // MARK: IBAction Methods
     @IBAction func closeButtonPressed() {
+        User.current.interest = self.currentInterest
         self.dismiss(animated: true, completion: nil)
     }
     

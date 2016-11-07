@@ -16,7 +16,7 @@ protocol MenuLoginTableViewCellDelegate {
 class MenuLoginTableViewCell: UITableViewCell {
     
     // MARK: Properties
-    static let defaultHeight: CGFloat = 155.0
+    static let defaultHeight: CGFloat = 163.0
     
     var delegate: MenuLoginTableViewCellDelegate?
     
