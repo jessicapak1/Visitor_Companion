@@ -28,7 +28,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var menuButton: ShadowButton! {
+        didSet {
+            self.menuButton.addShadow()
+        }
+    }
     
     @IBOutlet weak var adminButton: UIBarButtonItem!
     
@@ -53,11 +57,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: Navigation Controller Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Show Login" {
-            let LVC = segue.destination as! LoginViewController
+            let NVC = segue.destination as! UINavigationController
+            let LVC = NVC.viewControllers.first as! LoginViewController
             LVC.navigationItem.title = "Login"
             LVC.delegate = self
         } else if segue.identifier == "Show Sign Up" {
-            let SUVC = segue.destination as! SignUpViewController
+            let NVC = segue.destination as! UINavigationController
+            let SUVC = NVC.viewControllers.first as! SignUpViewController
             SUVC.navigationItem.title = "Sign Up"
             SUVC.delegate = self
         }
@@ -116,7 +122,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func configureAccountCell(withIdentifier identifier: String) -> MenuAccountTableViewCell {
         let accountCell = self.menuTableView.dequeueReusableCell(withIdentifier: identifier) as! MenuAccountTableViewCell
         accountCell.nameLabel.text = User.current.name
-        accountCell.usernameLabel.text = User.current.username
+        accountCell.emailLabel.text = User.current.email
         return accountCell
     }
     
@@ -133,7 +139,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: MenuInterestTableViewCellDelegate Methods
     func interestButtonPressed() {
-        // show interest selection table
+        self.performSegue(withIdentifier: "Show Interests", sender: nil)
     }
     
     
@@ -162,11 +168,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: IBAction Methods
     @IBAction func menuButtonPressed() {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func settingsButtonPressed(_ sender: AnyObject) {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "settings")
-        self.present(viewController, animated: true, completion: nil)
     }
     
     @IBAction func adminButtonPressed(_ sender: AnyObject) {

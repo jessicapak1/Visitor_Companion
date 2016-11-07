@@ -20,20 +20,15 @@ protocol MapViewDelegates {
 
 class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
-    var added_marker = GMSMarker()
-    var fromAdmin : Bool?
-    var newLocation: CLLocation?
     // MARK: Properties
     let bubbleTransition: BubbleTransition = BubbleTransition()
     var mapDelegate: MapViewDelegates?
-
     var mapView: GMSMapView! {
         didSet {
             self.mapView.delegate = self
             self.mapView.isMyLocationEnabled = true
         }
     }
-    
     var markers: [String: GMSMarker] = [String: GMSMarker]()
     var currentLocation = [Location]()
     var currentMarker = GMSMarker()
@@ -62,11 +57,15 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     "]"
     
     var searchResults: [Location] = [Location]()
+    var added_marker = GMSMarker()
+    var fromAdmin : Bool?
+    var newLocation: CLLocation?
     
     
     // MARK: IBOutlets
     @IBOutlet weak var segmentedControl: BetterSegmentedControl! {
         didSet {
+            // configure segments
             self.segmentedControl.titleFont = .systemFont(ofSize: 16.0)
             self.segmentedControl.selectedTitleFont = .systemFont(ofSize: 16.0)
             self.segmentedControl.titles = ["General", "Interest", "Food", "Search"]
@@ -90,7 +89,17 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         }
     }
     
-    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var locationsShownButton: ShadowButton! {
+        didSet {
+            self.locationsShownButton.addShadow()
+        }
+    }
+    
+    @IBOutlet weak var menuButton: ShadowButton! {
+        didSet {
+            self.menuButton.addShadow()
+        }
+    }
     
     
     // MARK: View Controller Methods
@@ -99,24 +108,39 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.fromAdmin = false
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "viterbi"))
         self.showMap()
-        self.showMarkers()
+        self.showLocationsFromSegment()
         self.addSearch()
-        //User.login(username: "pakjessi@usc.edu", password: "password")
     }
     
     
     // MARK: Segmented Control Methods
     func segmentedControlValueChanged() {
-        // clear all old locations
-        if self.segmentedControl.index == 0 { // General
-            // show locations with General interest from InterestData
-        } else if self.segmentedControl.index == 1 { // Interest
-            // show locations with User.current.interest from InterestData
-        } else if self.segmentedControl.index == 2 { // Food
-            // show locations with Food interets from InterestData
-        } else if self.segmentedControl.index == 3 { // Search
+        self.mapView.clear()
+        var locations: [Location]? = nil
+        let segmentName = self.segmentedControl.titles[Int(self.segmentedControl.index)]
+        
+        if self.segmentedControl.index == 0 || self.segmentedControl.index == 2 {
+            self.locationsShownButton.setTitle("Showing \(segmentName) Locations", for: .normal)
+            locations = InterestsData.shared.interest(withName: segmentName)?.locations
+        } else if self.segmentedControl.index == 1 {
+            let interestName = User.current.exists ? User.current.interest! : "General"
+            self.locationsShownButton.setTitle("Showing \(interestName) Locations", for: .normal)
+            locations = InterestsData.shared.interest(withName: interestName)?.locations
+        } else if self.segmentedControl.index == 3 {
             self.showSearch()
-            do { try self.segmentedControl.set(index: 0, animated: true) } catch { } // should be set to the segment of the location
+            do { try self.segmentedControl.set(0, animated: true) } catch { }
+        }
+        
+        if let locations = locations {
+            self.showMarkers(forLocations: locations)
+        }
+    }
+    
+    func showLocationsFromSegment() {
+        let interestName = self.segmentedControl.titles[Int(self.segmentedControl.index)]
+        let locations = InterestsData.shared.interest(withName: interestName)?.locations
+        if let locations = locations {
+            self.showMarkers(forLocations: locations)
         }
     }
     
@@ -176,8 +200,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         
     }
     
-    func showMarkers() {
-        
+    
+    func showMarkers(forLocations locations: [Location]) {
         //create custom marker icons
         let foodImage = UIImage(named: "food")!.withRenderingMode(.alwaysTemplate)
         let foodView = UIImageView(image: foodImage)
@@ -196,7 +220,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         fieldView.tintColor = UIColor(displayP3Red: 99.0/255.0, green: 00.0/255.0, blue: 00.0/255.0, alpha: 1.0)
         
         // create each marker
-        for location in LocationData.shared.locations {
+        for location in locations {
             let marker = GMSMarker()
             marker.map = self.mapView
             marker.title = location.name
@@ -248,6 +272,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.mapView.selectedMarker = self.markers[location.name!]
     }
     
+    
     // MARK: Search Methods
     func addSearch() {
         self.searchBar.isHidden = true
@@ -281,9 +306,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             let NVC = segue.destination as! UINavigationController
             NVC.transitioningDelegate = self
             NVC.modalPresentationStyle = .custom
-        }
-        
-        if segue.identifier == "Show Location" {
+        } else if segue.identifier == "Show Location" {
             let navVC = segue.destination as! UINavigationController
             let locationVC = navVC.viewControllers.first as! LocationTableViewController
             locationVC.name = currentMarker.title!
@@ -325,8 +348,19 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         self.searchTableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.searchBar.resignFirstResponder()
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if self.searchBar.isFirstResponder == true {
+            self.searchBar.resignFirstResponder()
+            for view1 in self.searchBar.subviews {
+                for view2 in view1.subviews {
+                    if view2 is UIButton {
+                        let button = view2 as! UIButton
+                        button.isEnabled = true
+                        button.isUserInteractionEnabled = true
+                    }
+                }
+            }
+        }
     }
     
     
@@ -385,16 +419,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: UIViewControllerTransitioningDelegate Methods
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        self.segmentedControl.isHidden = true
         self.bubbleTransition.duration = 0.25
         self.bubbleTransition.transitionMode = .present
         self.bubbleTransition.startingPoint = self.menuButton.center
-        self.bubbleTransition.bubbleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.90)
+        self.bubbleTransition.bubbleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
         return self.bubbleTransition
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        self.segmentedControl.isHidden = false
         self.bubbleTransition.transitionMode = .dismiss
         return self.bubbleTransition
     }

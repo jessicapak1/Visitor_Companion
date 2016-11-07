@@ -16,21 +16,25 @@ protocol MenuLoginTableViewCellDelegate {
 class MenuLoginTableViewCell: UITableViewCell {
     
     // MARK: Properties
-    static let defaultHeight: CGFloat = 180.0
+    static let defaultHeight: CGFloat = 155.0
     
     var delegate: MenuLoginTableViewCellDelegate?
     
     
     // MARK: IBOutlets
-    @IBOutlet weak var loginButton: UIButton! {
+    @IBOutlet weak var loginButton: ShadowButton! {
         didSet {
+            // make the corners round
             self.loginButton.layer.cornerRadius = 5.0
+            self.loginButton.addShadow()
         }
     }
     
-    @IBOutlet weak var signUpButton: UIButton! {
+    @IBOutlet weak var signUpButton: ShadowButton! {
         didSet {
+            // make the corners round
             self.signUpButton.layer.cornerRadius = 5.0
+            self.signUpButton.addShadow()
         }
     }
     

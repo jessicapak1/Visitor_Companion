@@ -64,8 +64,12 @@ class InterestsData : NSObject {
     }
     
     // returns Interest with name if it exists, otherwise nil
-    func interest(withName name: String) -> Interest {
-        return self.namesToInterests[name]!
+    func interest(withName name: String) -> Interest? {
+        let interest = self.namesToInterests[name]
+        if let interest = interest {
+            return interest
+        }
+        return nil
     }
     
     // returns array strings as names of all interests with names that either begin with or contain the 'keyword'

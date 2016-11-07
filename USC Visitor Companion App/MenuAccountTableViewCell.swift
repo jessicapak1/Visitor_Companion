@@ -13,14 +13,10 @@ class MenuAccountTableViewCell: UITableViewCell {
     // MARK: IBOutlets
     @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var usernameLabel: UILabel!
-    
-    //@IBOutlet weak var locationsVisitedCountLabel: UILabel!
-    
-    //@IBOutlet weak var distanceWalkedCountLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     
     
     // MARK: Properties
-    static let defaultHeight: CGFloat = 190.0
+    static let defaultHeight: CGFloat = 106.0
     
 }

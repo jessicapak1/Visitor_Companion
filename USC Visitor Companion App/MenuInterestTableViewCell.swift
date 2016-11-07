@@ -15,15 +15,17 @@ protocol MenuInterestTableViewCellDelegate {
 class MenuInterestTableViewCell: UITableViewCell {
 
     // MARK: IBOutlets
-    @IBOutlet weak var interestButton: UIButton! {
+    @IBOutlet weak var interestButton: ShadowButton! {
         didSet {
+            // make the corners round
             self.interestButton.layer.cornerRadius = 5.0
+            self.interestButton.addShadow()
         }
     }
     
     
     // MARK: Properties
-    static let defaultHeight: CGFloat = 140.0
+    static let defaultHeight: CGFloat = 122.0
     
     var delegate: MenuInterestTableViewCellDelegate?
     
