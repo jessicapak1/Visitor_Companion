@@ -131,7 +131,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             }
         } else if self.segmentedControl.index == 3 {
             self.showSearch()
-            do { try self.segmentedControl.set(0, animated: true) } catch { }
+            do { try self.segmentedControl.set(index: 0, animated: true) } catch { }
         }
         
         if let locations = locations {

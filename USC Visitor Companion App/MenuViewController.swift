@@ -17,6 +17,7 @@ enum MenuCell: String {
 
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MenuLoginTableViewCellDelegate, LoginViewControllerDelegate, SignUpViewControllerDelegate, MenuInterestTableViewCellDelegate {
     
+    @IBOutlet weak var adminButton: UIBarButtonItem!
     // MARK: IBOutlets
     @IBOutlet weak var menuTableView: UITableView! {
         didSet {
@@ -34,7 +35,17 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    @IBOutlet weak var adminButton: UIBarButtonItem!
+    // MARK: View Controller Lifecycle Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if User.current.type == .admin {
+            self.adminButton.title = "Admin"
+            self.adminButton.isEnabled = true
+        } else {
+            self.adminButton.title = ""
+            self.adminButton.isEnabled = false
+        }
+    }
     
     
     // MARK: Properties
