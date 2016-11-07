@@ -69,7 +69,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="vKz-XB-qZq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                                 <state key="normal" title="Showing General Locations">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -172,8 +172,8 @@
                                     <action selector="menuButtonPressed" destination="R6u-rc-Dc3" eventType="touchUpInside" id="B0h-DO-Fe0"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wTQ-9e-Bwd">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="503"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wTQ-9e-Bwd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="520"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -187,7 +187,7 @@
                             <constraint firstItem="wTQ-9e-Bwd" firstAttribute="leading" secondItem="1mt-75-6xR" secondAttribute="leading" id="ao6-Ff-Y59"/>
                             <constraint firstItem="FYk-j6-8UT" firstAttribute="top" secondItem="gLR-Aq-xo7" secondAttribute="bottom" constant="25" id="nSf-eZ-W48"/>
                             <constraint firstItem="FYk-j6-8UT" firstAttribute="top" secondItem="CjJ-rB-eLY" secondAttribute="bottom" id="x9P-o2-GUD"/>
-                            <constraint firstItem="gLR-Aq-xo7" firstAttribute="top" secondItem="wTQ-9e-Bwd" secondAttribute="bottom" constant="25" id="ybD-AH-aF9"/>
+                            <constraint firstItem="gLR-Aq-xo7" firstAttribute="top" secondItem="wTQ-9e-Bwd" secondAttribute="bottom" constant="8" id="ybD-AH-aF9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Menu" id="nc0-eW-PQ3">
@@ -1807,9 +1807,7 @@ Christian Villa – Computer Science Major    </string>
                             <constraint firstItem="TGc-EF-HxI" firstAttribute="leading" secondItem="TJt-kx-kdC" secondAttribute="leadingMargin" constant="24" id="viW-RR-aO7"/>
                         </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="ajx-s1-5ee"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Edit Profile" id="Yl3-d1-Zyq">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="2Vm-2c-I6T">
                             <connections>
