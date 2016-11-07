@@ -17,7 +17,11 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
     // MARK: Properties
     let types: [UserType] = [.prospective, .current, .parent]
     
-    var selectedTypeIndex: Int = 0
+    var typeIndex: Int = 0
+    
+    let interests: [String] = InterestsData.shared.interestNames()
+    
+    var interestIndex: Int = 0
     
     var delegate: SignUpInfoViewControllerDelegate?
     
@@ -32,6 +36,14 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
             self.typeTableView.delegate = self
             self.typeTableView.dataSource = self
             self.typeTableView.tableFooterView = UIView(frame: .zero)
+        }
+    }
+    
+    @IBOutlet weak var interestTableView: UITableView! {
+        didSet {
+            self.interestTableView.delegate = self
+            self.interestTableView.dataSource = self
+            self.interestTableView.tableFooterView = UIView(frame: .zero)
         }
     }
     
@@ -54,26 +66,47 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: UITableViewDelegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.typeTableView.deselectRow(at: indexPath, animated: true)
-        self.selectedTypeIndex = indexPath.row
-        self.typeTableView.reloadData()
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if tableView == self.interestTableView {
+            self.interestIndex = indexPath.row
+        } else if tableView == self.typeTableView {
+            self.typeIndex = indexPath.row
+        }
+        
+        tableView.reloadData()
     }
     
     
     // MARK: UITableViewDataSource Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.types.count
+        if tableView == self.interestTableView {
+            return self.interests.count
+        } else if tableView == self.typeTableView {
+            return self.types.count
+        }
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let typeCell = self.typeTableView.dequeueReusableCell(withIdentifier: "Type Cell")
-        typeCell?.textLabel?.text = self.types[indexPath.row].rawValue
-        typeCell?.accessoryType = (indexPath.row == self.selectedTypeIndex) ? .checkmark : .none
-        return typeCell!
+        if tableView == self.interestTableView {
+            let interestCell = self.interestTableView.dequeueReusableCell(withIdentifier: "Interest Cell")
+            interestCell?.textLabel?.text = self.interests[indexPath.row]
+            interestCell?.accessoryType = (indexPath.row == self.interestIndex) ? .checkmark : .none
+            return interestCell!
+        } else if tableView == self.typeTableView {
+            let typeCell = self.typeTableView.dequeueReusableCell(withIdentifier: "Type Cell")
+            typeCell?.textLabel?.text = self.types[indexPath.row].rawValue
+            typeCell?.accessoryType = (indexPath.row == self.typeIndex) ? .checkmark : .none
+            return typeCell!
+        }
+        
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50.0
+        return 45.0
     }
     
     
@@ -91,7 +124,8 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
                 self.showAlert(withTitle: "Missing Field", message: "Please enter your first and last name to sign up", action: "OK")
             } else {
                 User.current.name = firstName + " " + lastName
-                User.current.type = self.types[self.selectedTypeIndex]
+                User.current.interest = self.interests[self.interestIndex]
+                User.current.type = self.types[self.typeIndex]
                 if let delegate = self.delegate {
                     delegate.userDidSaveInfo()
                     let _ = self.navigationController?.popViewController(animated: true)

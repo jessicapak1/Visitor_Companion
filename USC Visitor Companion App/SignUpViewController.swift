@@ -63,7 +63,7 @@ class SignUpViewController: UIViewController, SignUpInfoViewControllerDelegate {
     
     // MARK: SignUpInfoViewControllerDelegate Methods
     func userDidSaveInfo() {
-        if User.current.exists && User.current.name == "" {
+        if User.current.exists && User.current.name == nil {
             User.current.delete()
         } else if let delegate = self.delegate {
             delegate.userDidSignUp()
@@ -81,11 +81,11 @@ class SignUpViewController: UIViewController, SignUpInfoViewControllerDelegate {
             if email.isEmpty || password.isEmpty || confirmedPassword.isEmpty {
                 self.showAlert(withTitle: "Missing Fields", message: "Please enter your information in all fields to sign up", action: "OK")
             } else {
-                if self.passwordTextField.text != self.confirmPasswordTextField.text {
+                if password != confirmedPassword {
                     self.showAlert(withTitle: "Mismatched Passwords", message: "The passwords you entered do not match", action: "OK")
                 } else {
                     self.showSpinnerForSignUpButton()
-                    User.signup(name: "", username: email, password: password, email: email, type: "", callback: {
+                    User.signup(username: email, password: password, callback: {
                         self.checkSignUpDetails()
                     })
                 }

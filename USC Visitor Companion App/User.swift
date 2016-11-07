@@ -50,14 +50,11 @@ class User: NSObject {
     
     
     // MARK: Class Methods
-    class func signup(name: String, username: String, password: String, email: String, type: String, callback: @escaping () -> Void) {
+    class func signup(username: String, password: String, callback: @escaping () -> Void) {
         let user = PFUser()
-        user[UserKey.name.rawValue] = name
         user[UserKey.username.rawValue] = username
         user[UserKey.password.rawValue] = password
-        user[UserKey.email.rawValue] = email
-        user[UserKey.interest.rawValue] = "General"
-        user[UserKey.type.rawValue] = type
+        user[UserKey.email.rawValue] = username
         user.signUpInBackground(block: {
             (succeeded, error) in
             User.current.update()
@@ -136,8 +133,7 @@ class User: NSObject {
         User.current.username = PFUser.current()?[UserKey.username.rawValue] as! String?
         User.current.email = PFUser.current()?[UserKey.email.rawValue] as! String?
         User.current.interest = PFUser.current()?[UserKey.interest.rawValue] as! String?
-        let type = PFUser.current()?[UserKey.type.rawValue] as! String?
-        if let type = type {
+        if let type = PFUser.current()?[UserKey.type.rawValue] as! String? {
             if type == UserType.prospective.rawValue {
                 User.current.type = .prospective
             } else if type == UserType.current.rawValue {
@@ -168,7 +164,12 @@ class User: NSObject {
                 let name = values["name"] as! String
                 let email = values["email"] as! String
                 // id should be hashed with SHA256 then stored as password
-                User.signup(name: name, username: email, password: id, email: email, type: "Prospective Student", callback: {
+                User.signup(username: email, password: id, callback: {
+                    if User.current.exists {
+                        User.current.name = name
+                        User.current.type = UserType.prospective
+                        User.current.interest = "General"
+                    }
                     callback()
                 })
             case .failed(_):
