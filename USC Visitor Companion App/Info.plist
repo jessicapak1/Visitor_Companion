@@ -53,6 +53,12 @@
 	<string>This app needs location serviecs to work. </string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need access to your photos to let you upload them.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NationalWeb-Semibold.ttf</string>
+		<string>NationalWeb-Regular.ttf</string>
+		<string>National-Regular.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
