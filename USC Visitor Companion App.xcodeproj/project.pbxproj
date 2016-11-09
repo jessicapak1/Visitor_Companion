@@ -24,9 +24,6 @@
 		75EABC4B1D98BA1E0075E75E /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC421D98BA1E0075E75E /* LocationViewController.swift */; };
 		75EABC4C1D98BA1E0075E75E /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC431D98BA1E0075E75E /* InterestsViewController.swift */; };
 		75EABC4E1D98BA1E0075E75E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC451D98BA1E0075E75E /* SignUpViewController.swift */; };
-		75F7E5FF1DD11FD800CC8867 /* NationalWeb-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75F7E5FD1DD11FD800CC8867 /* NationalWeb-Semibold.ttf */; };
-		75F7E6001DD11FD800CC8867 /* NationalWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75F7E5FE1DD11FD800CC8867 /* NationalWeb-Regular.ttf */; };
-		75F7E6021DD1269A00CC8867 /* National-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 75F7E6011DD1269A00CC8867 /* National-Regular.otf */; };
 		A1E1375FD19E64048101C8B3 /* Pods_USC_Visitor_Companion_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DB3DC7F7064736DF04206E /* Pods_USC_Visitor_Companion_App.framework */; };
 		AA06C9071DA18CCD00B753CF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA06C9061DA18CCD00B753CF /* MenuViewController.swift */; };
 		AA14ECCD1DCC41670086BC57 /* SignUpInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA14ECCC1DCC41670086BC57 /* SignUpInfoViewController.swift */; };
@@ -104,9 +101,6 @@
 		75EABC421D98BA1E0075E75E /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		75EABC431D98BA1E0075E75E /* InterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
 		75EABC451D98BA1E0075E75E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		75F7E5FD1DD11FD800CC8867 /* NationalWeb-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NationalWeb-Semibold.ttf"; path = "../../Downloads/NationalWeb-Semibold.ttf"; sourceTree = "<group>"; };
-		75F7E5FE1DD11FD800CC8867 /* NationalWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NationalWeb-Regular.ttf"; path = "../../Downloads/NationalWeb-Regular.ttf"; sourceTree = "<group>"; };
-		75F7E6011DD1269A00CC8867 /* National-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "National-Regular.otf"; path = "../../Downloads/National-Regular.otf"; sourceTree = "<group>"; };
 		AA06C9061DA18CCD00B753CF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		AA14ECCC1DCC41670086BC57 /* SignUpInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInfoViewController.swift; sourceTree = "<group>"; };
 		AA15CE341DA635B80025CBAA /* NoResultsFoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoResultsFoundTableViewCell.swift; sourceTree = "<group>"; };
@@ -199,9 +193,6 @@
 		75F7E5FB1DD11CA900CC8867 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				75F7E5FD1DD11FD800CC8867 /* NationalWeb-Semibold.ttf */,
-				75F7E6011DD1269A00CC8867 /* National-Regular.otf */,
-				75F7E5FE1DD11FD800CC8867 /* NationalWeb-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -485,11 +476,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "University of Southern California";
 				TargetAttributes = {
 					AAD38B801D971648004DD648 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 52NMKETQZ4;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -537,8 +529,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75F7E6021DD1269A00CC8867 /* National-Regular.otf in Resources */,
-				75F7E5FF1DD11FD800CC8867 /* NationalWeb-Semibold.ttf in Resources */,
 				AAD38B921D971648004DD648 /* LaunchScreen.storyboard in Resources */,
 				AA7249DF1DA488B8009AED20 /* SearchResultTableViewCell.xib in Resources */,
 				AA5854A51DC32CEC002D2D60 /* MenuAccountTableViewCell.xib in Resources */,
@@ -547,7 +537,6 @@
 				AACDE2911DCACB7400C9C625 /* DescriptionCellView.xib in Resources */,
 				AA3B8A051DBF29BF0013580E /* MenuInterestTableViewCell.xib in Resources */,
 				AAD38B8A1D971648004DD648 /* Main.storyboard in Resources */,
-				75F7E6001DD11FD800CC8867 /* NationalWeb-Regular.ttf in Resources */,
 				AA536C4C1DB4822E009A608A /* MenuLoginTableViewCell.xib in Resources */,
 				AACDE2931DCACB7A00C9C625 /* MediaCellView.xib in Resources */,
 				30D289A51DC00925003D578C /* InfoWindow.xib in Resources */,
@@ -903,10 +892,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BEA06F35E18ACCBABF2C162A /* Pods-USC Visitor Companion App.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "USC Visitor Companion App/USC Visitor Companion App.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 52NMKETQZ4;
 				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -920,10 +910,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 004973256B7351236653CCF5 /* Pods-USC Visitor Companion App.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "USC Visitor Companion App/USC Visitor Companion App.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 52NMKETQZ4;
 				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
