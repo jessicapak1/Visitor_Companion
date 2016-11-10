@@ -191,7 +191,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.delegate = self
-            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
             self.locationManager.startUpdatingLocation()
         }
     }

@@ -1,5 +1,5 @@
 //
-//  InterestSelectionViewController.swift
+//  FilterViewController.swift
 //  USC Visitor Companion App
 //
 //  Created by Christian Villa on 11/3/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InterestSelectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: Properties
     var interests: [String] = InterestsData.shared.interestNames()
