@@ -17,11 +17,9 @@ protocol MapViewDelegates {
     func userDidSaveMap(newLocation: CLLocation)
 }
 
-
-class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerTransitioningDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
+class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     // MARK: Properties
-    let bubbleTransition: BubbleTransition = BubbleTransition()
     var mapDelegate: MapViewDelegates?
     var mapView: GMSMapView! {
         didSet {
@@ -63,16 +61,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     
     // MARK: IBOutlets
-    @IBOutlet weak var segmentedControl: BetterSegmentedControl! {
-        didSet {
-            // configure segments
-            self.segmentedControl.titleFont = .systemFont(ofSize: 16.0)
-            self.segmentedControl.selectedTitleFont = .systemFont(ofSize: 16.0)
-            self.segmentedControl.titles = ["General", "Interest", "Food", "Search"]
-            self.segmentedControl.addTarget(self, action: #selector(MapViewController.segmentedControlValueChanged), for: .valueChanged)
-        }
-    }
-    
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             self.searchBar.delegate = self
@@ -83,21 +71,11 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         didSet {
             self.searchTableView.delegate = self
             self.searchTableView.dataSource = self
-            self.searchTableView.register(UINib(nibName: "SearchResultTableViewCell", bundle: nil), forCellReuseIdentifier: "Search Result Cell")
-            self.searchTableView.register(UINib(nibName: "NoResultsFoundTableViewCell", bundle: nil), forCellReuseIdentifier: "No Results Found Cell")
+            let resultFoundID = "ResultFoundTableViewCell"
+            self.searchTableView.register(UINib(nibName: resultFoundID, bundle: nil), forCellReuseIdentifier: resultFoundID)
+            let noResultFoundID = "NoResultsFoundTableViewCell"
+            self.searchTableView.register(UINib(nibName: noResultFoundID, bundle: nil), forCellReuseIdentifier: noResultFoundID)
             self.searchTableView.tableFooterView = UIView(frame: .zero)
-        }
-    }
-    
-    @IBOutlet weak var locationsShownButton: ShadowButton! {
-        didSet {
-            self.locationsShownButton.addShadow()
-        }
-    }
-    
-    @IBOutlet weak var menuButton: ShadowButton! {
-        didSet {
-            self.menuButton.addShadow()
         }
     }
     
@@ -107,70 +85,22 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         super.viewDidLoad()
         self.fromAdmin = false
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "viterbi"))
-        self.showMap()
-        self.showLocationsFromSegment()
         self.addSearch()
+        self.showMap()
+        self.showMarkers(forLocations: LocationData.shared.locations)
     }
     
     
-    // MARK: Segmented Control Methods
-    func segmentedControlValueChanged() {
-        self.mapView.clear()
-        var locations: [Location]? = nil
-        let segmentName = self.segmentedControl.titles[Int(self.segmentedControl.index)]
-        
-        if self.segmentedControl.index == 0 || self.segmentedControl.index == 2 {
-            self.locationsShownButton.setTitle("Showing \(segmentName) Locations", for: .normal)
-            locations = InterestsData.shared.interest(withName: segmentName)?.locations
-        } else if self.segmentedControl.index == 1 {
-            if User.current.exists {
-                self.locationsShownButton.setTitle("Showing \(User.current.interest!) Locations", for: .normal)
-                locations = InterestsData.shared.interest(withName: User.current.interest!)?.locations
-            } else {
-                self.locationsShownButton.setTitle("Login or Sign Up to Use Interests", for: .normal)
-            }
-        } else if self.segmentedControl.index == 3 {
-            self.showSearch()
-            do { try self.segmentedControl.set(0, animated: true) } catch { }
-        }
-        
-        if let locations = locations {
-            self.showMarkers(forLocations: locations)
-        }
-    }
-    
-    func showLocationsFromSegment() {
-        let interestName = self.segmentedControl.titles[Int(self.segmentedControl.index)]
-        let locations = InterestsData.shared.interest(withName: interestName)?.locations
-        if let locations = locations {
-            self.showMarkers(forLocations: locations)
-        }
-    }
-    
-    
-    // MARK: Map Methods
+    // MARK: Map View Methods
     func showMap() {
+        // configure the map view
         let camera = GMSCameraPosition.camera(withLatitude: 34.020496, longitude: -118.285317, zoom: 20.0, bearing: 30, viewingAngle: 90.0)
         self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
-        
-        do {
-           // set map style by passing JSON string
-            mapView.mapStyle = try GMSMapStyle(jsonString: customMapStyle)
-        } catch {
-            NSLog("\(error) The style definition could not be loaded.")
-        }
-        
+        self.mapView.mapStyle = try? GMSMapStyle(jsonString: self.customMapStyle)
         self.view.insertSubview(self.mapView, at: 0)
-    
-        // request authorization from the user
-        locationManager.requestAlwaysAuthorization()
-        locationManager.requestWhenInUseAuthorization()
         
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
+        // configure the location manager
+        self.configureLocationManager()
         
         let circleCenter = locationManager.location?.coordinate
         if let circleCenter = circleCenter {
@@ -181,28 +111,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             circ.map = mapView
         }
     }
-
-    func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation:CLLocation = locations[0]
-        //print("locations = \(userLocation.coordinate.latitude) \(userLocation.coordinate.longitude)")
-        
-        // nearby markers color change
-        //print("in location manager didUpdateLocations func")
-        var distance : CLLocationDistance?
-        let maxDist = CLLocationDistance(30)
-        for location in LocationData.shared.locations{
-            distance = userLocation.distance(from: location.location!)
-            if distance! < maxDist {
-                self.markers[location.name!]?.iconView?.tintColor = UIColor.blue
-            }
-            else {
-                self.markers[location.name!]?.iconView?.tintColor = UIColor(displayP3Red: 99.0/255.0, green: 00.0/255.0, blue: 00.0/255.0, alpha: 1.0)
-            }
-        }
-        
-        
-    }
-    
     
     func showMarkers(forLocations locations: [Location]) {
         //create custom marker icons
@@ -258,12 +166,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             
             self.markers[location.name!] = marker
         }
-       
-        
-        
     }
     
     func animate(toLocation location: Location) {
+        // animate the map view to the specified location
         let coordinate = location.location?.coordinate
         if let coordinate = coordinate {
             self.mapView.animate(toZoom: 20.0)
@@ -272,44 +178,68 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     func showInformation(forLocation location: Location) {
+        // show the information dialog for the specified location
         self.mapView.selectedMarker = self.markers[location.name!]
+    }
+    
+    
+    // MARK: CLLocationManagerDelegate Methods
+    func configureLocationManager() {
+        // request authorization from the user to access their location
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            self.locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // change the colors of markers near the location of the user
+        let userLocation = locations[0]
+        let maxDistance = CLLocationDistance(30)
+        for location in LocationData.shared.locations {
+            let distance = userLocation.distance(from: location.location!)
+            if distance < maxDistance {
+                self.markers[location.name!]?.iconView?.tintColor = UIColor.blue
+            } else {
+                self.markers[location.name!]?.iconView?.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
+            }
+        }
     }
     
     
     // MARK: Search Methods
     func addSearch() {
-        self.searchBar.isHidden = true
         self.searchTableView.isHidden = true
         self.view.bringSubview(toFront: self.searchTableView)
     }
     
-    func showSearch() {
-        // show the search bar and search results
-        self.searchBar.becomeFirstResponder()
-        self.searchBar.isHidden = false
+    func showSearchResults(forKeyword keyword: String) {
+        // show the search results table view
+        self.searchBar.showsCancelButton = true
         self.searchTableView.isHidden = false
-        // show the results for the current search text
-        self.searchResults = LocationData.shared.locations(withKeyword: self.searchBar.text!)
+        // show the search results for the search text
+        self.searchResults = LocationData.shared.locations(withKeyword: keyword)
         self.searchTableView.reloadData()
     }
     
-    func hideSearch() {
-        // hide the search bar and search results
+    func hideSearchResults() {
+        // hide the search results table view
         self.searchBar.resignFirstResponder()
-        self.searchBar.isHidden = true
+        self.searchBar.showsCancelButton = false
         self.searchTableView.isHidden = true
-        // reset the current search text
+        // reset the search text
         self.searchBar.text = ""
+        self.searchTableView.reloadData()
     }
     
     
     // MARK: Storyboard Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Show Menu" {
-            let NVC = segue.destination as! UINavigationController
-            NVC.transitioningDelegate = self
-            NVC.modalPresentationStyle = .custom
-        } else if segue.identifier == "Show Location" {
+        if segue.identifier == "Show Location" {
             let navVC = segue.destination as! UINavigationController
             let locationVC = navVC.viewControllers.first as! LocationTableViewController
             locationVC.name = currentMarker.title!
@@ -326,11 +256,11 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     
     // MARK: UISearchBarDelegate Methods
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        self.showSearch()
+        self.showSearchResults(forKeyword: self.searchBar.text!)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.showSearch()
+        self.showSearchResults(forKeyword: self.searchBar.text!)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -338,17 +268,17 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.hideSearch()
+        self.hideSearchResults()
     }
     
     
     // MARK: UITableViewDelegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.hideSearch()
+        self.searchTableView.deselectRow(at: indexPath, animated: true)
+        self.hideSearchResults()
         let location = self.searchResults[indexPath.row]
         self.animate(toLocation: location)
         self.showInformation(forLocation: location)
-        self.searchTableView.deselectRow(at: indexPath, animated: true)
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -380,24 +310,26 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
             return self.configureNoResultsFoundCell()
         }
         let location = self.searchResults[indexPath.row]
-        return self.configureSearchResultCell(withLocation: location)
+        return self.configureResultFoundCell(withLocation: location)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return SearchResultTableViewCell.defaultHeight
+        return ResultFoundTableViewCell.defaultHeight
     }
     
     func configureNoResultsFoundCell() -> UITableViewCell {
-        let noResultsFoundCell = self.searchTableView.dequeueReusableCell(withIdentifier: "No Results Found Cell") as! NoResultsFoundTableViewCell
+        let noResultsFoundID = "NoResultsFoundTableViewCell"
+        let noResultsFoundCell = self.searchTableView.dequeueReusableCell(withIdentifier: noResultsFoundID) as! NoResultsFoundTableViewCell
         return noResultsFoundCell
     }
     
-    func configureSearchResultCell(withLocation location: Location) -> UITableViewCell {
-        let searchResultCell = self.searchTableView.dequeueReusableCell(withIdentifier: "Search Result Cell") as! SearchResultTableViewCell
-        searchResultCell.nameLabel.text = location.name
-        searchResultCell.codeLabel.text = location.code
-        searchResultCell.interestsLabel.text = location.interests?.joined(separator: ", ")
-        return searchResultCell
+    func configureResultFoundCell(withLocation location: Location) -> UITableViewCell {
+        let resultFoundID = "ResultFoundTableViewCell"
+        let resultFoundCell = self.searchTableView.dequeueReusableCell(withIdentifier: resultFoundID) as! ResultFoundTableViewCell
+        resultFoundCell.nameLabel.text = location.name
+        resultFoundCell.codeLabel.text = location.code
+        resultFoundCell.interestsLabel.text = location.interests?.joined(separator: ", ")
+        return resultFoundCell
     }
 
     
@@ -419,30 +351,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         
     }
     
-    
-    // MARK: UIViewControllerTransitioningDelegate Methods
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        self.bubbleTransition.duration = 0.25
-        self.bubbleTransition.transitionMode = .present
-        self.bubbleTransition.startingPoint = self.menuButton.center
-        self.bubbleTransition.bubbleColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
-        return self.bubbleTransition
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        self.bubbleTransition.transitionMode = .dismiss
-        return self.bubbleTransition
-    }
-    
-    // MARK: IBAction Methods
-    @IBAction func locationButtonPressed(_ sender: UIButton) {
-        let location = mapView.myLocation
-        if (location != nil) {
-            mapView.animate(toLocation: (location?.coordinate)!)
-        }
-    }
-    
-    
     func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
         newMarker = true
         let new_marker = GMSMarker()
@@ -457,6 +365,15 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UIViewControllerT
         infoWindow.locationNameLabel.text = marker.title
         infoWindow.userInfoLabel.text = "User location info will go here."
         return infoWindow
+    }
+    
+    
+    // MARK: IBAction Methods
+    @IBAction func locationButtonPressed(_ sender: UIButton) {
+        let location = mapView.myLocation
+        if (location != nil) {
+            mapView.animate(toLocation: (location?.coordinate)!)
+        }
     }
 
 }

@@ -20,8 +20,6 @@
 		75EABC471D98BA1E0075E75E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC3E1D98BA1E0075E75E /* SettingsTableViewController.swift */; };
 		75EABC481D98BA1E0075E75E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC3F1D98BA1E0075E75E /* LoginViewController.swift */; };
 		75EABC491D98BA1E0075E75E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC401D98BA1E0075E75E /* AboutViewController.swift */; };
-		75EABC4A1D98BA1E0075E75E /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC411D98BA1E0075E75E /* LocationsViewController.swift */; };
-		75EABC4B1D98BA1E0075E75E /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC421D98BA1E0075E75E /* LocationViewController.swift */; };
 		75EABC4C1D98BA1E0075E75E /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC431D98BA1E0075E75E /* InterestsViewController.swift */; };
 		75EABC4E1D98BA1E0075E75E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EABC451D98BA1E0075E75E /* SignUpViewController.swift */; };
 		A1E1375FD19E64048101C8B3 /* Pods_USC_Visitor_Companion_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DB3DC7F7064736DF04206E /* Pods_USC_Visitor_Companion_App.framework */; };
@@ -39,8 +37,8 @@
 		AA536C4C1DB4822E009A608A /* MenuLoginTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA536C4A1DB4822E009A608A /* MenuLoginTableViewCell.xib */; };
 		AA5854A41DC32CEC002D2D60 /* MenuAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5854A21DC32CEC002D2D60 /* MenuAccountTableViewCell.swift */; };
 		AA5854A51DC32CEC002D2D60 /* MenuAccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA5854A31DC32CEC002D2D60 /* MenuAccountTableViewCell.xib */; };
-		AA7249DE1DA488B8009AED20 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7249DC1DA488B8009AED20 /* SearchResultTableViewCell.swift */; };
-		AA7249DF1DA488B8009AED20 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7249DD1DA488B8009AED20 /* SearchResultTableViewCell.xib */; };
+		AA7249DE1DA488B8009AED20 /* ResultFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7249DC1DA488B8009AED20 /* ResultFoundTableViewCell.swift */; };
+		AA7249DF1DA488B8009AED20 /* ResultFoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7249DD1DA488B8009AED20 /* ResultFoundTableViewCell.xib */; };
 		AA7E0F321D98D298005C9786 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7E0F311D98D298005C9786 /* User.swift */; };
 		AABBD1501DCED47C003B0F6C /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABBD14F1DCED47C003B0F6C /* ShadowButton.swift */; };
 		AACDE28F1DCACB6D00C9C625 /* BlankCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AACDE28E1DCACB6D00C9C625 /* BlankCellView.xib */; };
@@ -97,8 +95,6 @@
 		75EABC3E1D98BA1E0075E75E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		75EABC3F1D98BA1E0075E75E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		75EABC401D98BA1E0075E75E /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		75EABC411D98BA1E0075E75E /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
-		75EABC421D98BA1E0075E75E /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		75EABC431D98BA1E0075E75E /* InterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
 		75EABC451D98BA1E0075E75E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		AA06C9061DA18CCD00B753CF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -115,8 +111,8 @@
 		AA536C4A1DB4822E009A608A /* MenuLoginTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuLoginTableViewCell.xib; sourceTree = "<group>"; };
 		AA5854A21DC32CEC002D2D60 /* MenuAccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuAccountTableViewCell.swift; sourceTree = "<group>"; };
 		AA5854A31DC32CEC002D2D60 /* MenuAccountTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuAccountTableViewCell.xib; sourceTree = "<group>"; };
-		AA7249DC1DA488B8009AED20 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
-		AA7249DD1DA488B8009AED20 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
+		AA7249DC1DA488B8009AED20 /* ResultFoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultFoundTableViewCell.swift; sourceTree = "<group>"; };
+		AA7249DD1DA488B8009AED20 /* ResultFoundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultFoundTableViewCell.xib; sourceTree = "<group>"; };
 		AA7E0F311D98D298005C9786 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AABBD14F1DCED47C003B0F6C /* ShadowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
 		AACDE28E1DCACB6D00C9C625 /* BlankCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlankCellView.xib; sourceTree = "<group>"; };
@@ -222,11 +218,9 @@
 		AA272A671DCBD8ED0020746C /* Admin Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				75EABC411D98BA1E0075E75E /* LocationsViewController.swift */,
-				75EABC421D98BA1E0075E75E /* LocationViewController.swift */,
-				75EABC431D98BA1E0075E75E /* InterestsViewController.swift */,
-				75CDBD091DA1B9B300AC0E1C /* AdminTableViewController.swift */,
 				4ED64E701DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift */,
+				75CDBD091DA1B9B300AC0E1C /* AdminTableViewController.swift */,
+				75EABC431D98BA1E0075E75E /* InterestsViewController.swift */,
 			);
 			name = "Admin Controllers";
 			sourceTree = "<group>";
@@ -256,7 +250,7 @@
 		AA625C041DBD85E80097B51E /* Map Views */ = {
 			isa = PBXGroup;
 			children = (
-				AA7249DD1DA488B8009AED20 /* SearchResultTableViewCell.xib */,
+				AA7249DD1DA488B8009AED20 /* ResultFoundTableViewCell.xib */,
 				AA15CE351DA635B80025CBAA /* NoResultsFoundTableViewCell.xib */,
 				30D289A41DC00925003D578C /* InfoWindow.xib */,
 			);
@@ -377,7 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				AABBD14F1DCED47C003B0F6C /* ShadowButton.swift */,
-				AA7249DC1DA488B8009AED20 /* SearchResultTableViewCell.swift */,
+				AA7249DC1DA488B8009AED20 /* ResultFoundTableViewCell.swift */,
 				AA15CE341DA635B80025CBAA /* NoResultsFoundTableViewCell.swift */,
 				30D289A61DC00974003D578C /* InfoWindow.swift */,
 				AACDE29C1DCACCBE00C9C625 /* InterestsCell.swift */,
@@ -530,7 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAD38B921D971648004DD648 /* LaunchScreen.storyboard in Resources */,
-				AA7249DF1DA488B8009AED20 /* SearchResultTableViewCell.xib in Resources */,
+				AA7249DF1DA488B8009AED20 /* ResultFoundTableViewCell.xib in Resources */,
 				AA5854A51DC32CEC002D2D60 /* MenuAccountTableViewCell.xib in Resources */,
 				AACDE28F1DCACB6D00C9C625 /* BlankCellView.xib in Resources */,
 				AAD38B8F1D971648004DD648 /* Assets.xcassets in Resources */,
@@ -710,12 +704,10 @@
 				AAD38B851D971648004DD648 /* AppDelegate.swift in Sources */,
 				4ED64E711DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift in Sources */,
 				AACDE29D1DCACCBE00C9C625 /* InterestsCell.swift in Sources */,
-				75EABC4A1D98BA1E0075E75E /* LocationsViewController.swift in Sources */,
 				75EABC4C1D98BA1E0075E75E /* InterestsViewController.swift in Sources */,
 				AAE5237D1DD115E000EBC7F3 /* EditProfileViewController.swift in Sources */,
 				AA272A6E1DCBDC6B0020746C /* InterestSelectionViewController.swift in Sources */,
 				AACDE29F1DCACCDE00C9C625 /* UIImageViewModeScaleAspect.swift in Sources */,
-				75EABC4B1D98BA1E0075E75E /* LocationViewController.swift in Sources */,
 				AACDE2991DCACBAD00C9C625 /* LocationTableViewController.swift in Sources */,
 				AACDE2951DCACB8C00C9C625 /* DescriptionCell.swift in Sources */,
 				AA536C4B1DB4822E009A608A /* MenuLoginTableViewCell.swift in Sources */,
@@ -725,7 +717,7 @@
 				AA14ECCD1DCC41670086BC57 /* SignUpInfoViewController.swift in Sources */,
 				758F446C1DB2D3EC00138EB6 /* ChangePasswordTableViewController.swift in Sources */,
 				AA3B8A041DBF29BF0013580E /* MenuInterestTableViewCell.swift in Sources */,
-				AA7249DE1DA488B8009AED20 /* SearchResultTableViewCell.swift in Sources */,
+				AA7249DE1DA488B8009AED20 /* ResultFoundTableViewCell.swift in Sources */,
 				304290C51DA2074A00354AF9 /* InterestsData.swift in Sources */,
 				75EABC4E1D98BA1E0075E75E /* SignUpViewController.swift in Sources */,
 				75EABC491D98BA1E0075E75E /* AboutViewController.swift in Sources */,

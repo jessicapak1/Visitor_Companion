@@ -1,5 +1,5 @@
 //
-//  SearchResultTableViewCell.swift
+//  ResultFoundTableViewCell.swift
 //  USC Visitor Companion App
 //
 //  Created by Christian Villa on 10/4/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchResultTableViewCell: UITableViewCell {
+class ResultFoundTableViewCell: UITableViewCell {
     
     // MARK: Properties
     static let defaultHeight: CGFloat = 60.0
