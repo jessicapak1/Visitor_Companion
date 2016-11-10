@@ -61,6 +61,22 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     
     // MARK: IBOutlets
+    @IBOutlet weak var filterButton: UIButton! {
+        didSet {
+            // add borders to the filter button to match the borders on the search bar
+            let width = self.filterButton.frame.size.width
+            let height = self.filterButton.frame.size.height
+            
+            let topBorder = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 0.5))
+            topBorder.backgroundColor = .black
+            self.filterButton.addSubview(topBorder)
+            
+            let bottomBorder = UIView(frame: CGRect(x: 0, y: height - 0.5, width: width, height: 0.5))
+            bottomBorder.backgroundColor = .black
+            self.filterButton.addSubview(bottomBorder)
+        }
+    }
+    
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             self.searchBar.delegate = self
@@ -78,6 +94,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             self.searchTableView.tableFooterView = UIView(frame: .zero)
         }
     }
+    
+    @IBOutlet weak var currentLocationButton: UIButton!
     
     
     // MARK: View Controller Methods
@@ -351,15 +369,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         
     }
     
-    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
-        newMarker = true
-        let new_marker = GMSMarker()
-        print("long press")
-        new_marker.position = coordinate
-        new_marker.map = self.mapView
-        new_marker.title = "Click to save location"
-    }
-    
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         let infoWindow = Bundle.main.loadNibNamed("InfoWindow", owner: self, options: nil)?.first! as! InfoWindow
         infoWindow.locationNameLabel.text = marker.title
@@ -367,13 +376,27 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         return infoWindow
     }
     
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        if let currentLocation = self.mapView.myLocation {
+            let changedLocation = CLLocation(latitude: position.target.latitude, longitude: position.target.longitude)
+            if changedLocation.distance(from: currentLocation) > 5 {
+                self.currentLocationButton.setImage(#imageLiteral(resourceName: "CurrentLocationInactive"), for: .normal)
+            } else {
+                self.currentLocationButton.setImage(#imageLiteral(resourceName: "CurrentLocationActive"), for: .normal)
+            }
+        }
+    }
+    
     
     // MARK: IBAction Methods
-    @IBAction func locationButtonPressed(_ sender: UIButton) {
-        let location = mapView.myLocation
-        if (location != nil) {
-            mapView.animate(toLocation: (location?.coordinate)!)
+    @IBAction func currentLocationButtonPressed() {
+        if let currentLocation = self.mapView.myLocation {
+            self.mapView.animate(toLocation: currentLocation.coordinate)
         }
+    }
+    
+    @IBAction func filterButtonPressed() {
+        
     }
 
 }

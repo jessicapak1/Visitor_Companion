@@ -28,45 +28,63 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search USC" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGk-MM-YB2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="65" y="0.0" width="310" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.67157274484634399" green="0.082530014216899872" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MY9-Id-f3I">
                                 <rect key="frame" x="0.0" y="44" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goZ-18-kmO">
-                                <rect key="frame" x="314" y="529" width="45" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goZ-18-kmO" userLabel="Current Location Button">
+                                <rect key="frame" x="306" y="534" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="GHJ-Eb-9S6"/>
+                                    <constraint firstAttribute="height" constant="45" id="Ynt-mC-cqL"/>
                                 </constraints>
-                                <state key="normal" image="ic_my_location"/>
+                                <state key="normal" image="CurrentLocationInactive"/>
                                 <connections>
-                                    <action selector="locationButtonPressed:" destination="poS-Zl-lNF" eventType="touchUpInside" id="mmH-Gr-qxi"/>
+                                    <action selector="currentLocationButtonPressed" destination="poS-Zl-lNF" eventType="touchUpInside" id="hpb-zg-4mp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewp-Tl-tCJ">
+                                <rect key="frame" x="0.0" y="0.0" width="65" height="44"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="EVr-FS-lDq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Filter">
+                                    <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="filterButtonPressed" destination="poS-Zl-lNF" eventType="touchUpInside" id="0pa-Bk-HVr"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dGk-MM-YB2" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="4Zk-TL-19t"/>
+                            <constraint firstItem="dGk-MM-YB2" firstAttribute="leading" secondItem="ewp-Tl-tCJ" secondAttribute="trailing" id="35M-dF-uLW"/>
                             <constraint firstItem="MY9-Id-f3I" firstAttribute="top" secondItem="dGk-MM-YB2" secondAttribute="bottom" id="HyC-Ev-o58"/>
+                            <constraint firstItem="MY9-Id-f3I" firstAttribute="top" secondItem="ewp-Tl-tCJ" secondAttribute="bottom" id="Iom-ME-A3I"/>
                             <constraint firstItem="MY9-Id-f3I" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="KCw-MF-aKB"/>
                             <constraint firstAttribute="trailing" secondItem="dGk-MM-YB2" secondAttribute="trailing" id="NOY-lk-wyS"/>
+                            <constraint firstItem="ewp-Tl-tCJ" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="UAo-6L-kco"/>
                             <constraint firstItem="dGk-MM-YB2" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" id="aJ2-vG-OIk"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="MY9-Id-f3I" secondAttribute="bottom" id="dOI-sI-dlV"/>
+                            <constraint firstItem="ewp-Tl-tCJ" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" id="inL-sQ-NA9"/>
                             <constraint firstAttribute="trailing" secondItem="MY9-Id-f3I" secondAttribute="trailing" id="seG-oE-cSm"/>
-                            <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="goZ-18-kmO" secondAttribute="bottom" constant="50" id="xT6-JA-UkP"/>
-                            <constraint firstItem="goZ-18-kmO" firstAttribute="trailing" secondItem="5EB-oA-TVt" secondAttribute="trailingMargin" id="yY9-rd-Jzn"/>
+                            <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="goZ-18-kmO" secondAttribute="bottom" constant="24" id="xT6-JA-UkP"/>
+                            <constraint firstItem="goZ-18-kmO" firstAttribute="trailing" secondItem="5EB-oA-TVt" secondAttribute="trailingMargin" constant="-8" id="yY9-rd-Jzn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hHR-zk-ele">
-                        <barButtonItem key="leftBarButtonItem" title="Filter" id="LYy-Yk-ide">
-                            <connections>
-                                <segue destination="ZQ2-v3-Uek" kind="presentation" identifier="Show Filter" id="8eo-ds-kvj"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="WkI-2Q-sDW">
                             <connections>
                                 <segue destination="dDA-Be-9Lo" kind="presentation" identifier="Show Settings" id="4XP-yo-FOi"/>
@@ -74,6 +92,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="currentLocationButton" destination="goZ-18-kmO" id="H4R-Qa-TDx"/>
+                        <outlet property="filterButton" destination="ewp-Tl-tCJ" id="ZvP-Gm-NFb"/>
                         <outlet property="searchBar" destination="dGk-MM-YB2" id="P7P-vV-Waa"/>
                         <outlet property="searchTableView" destination="MY9-Id-f3I" id="0Vm-ht-vK1"/>
                         <segue destination="nEF-nh-8vb" kind="presentation" identifier="Show Location" id="HBg-eV-00v"/>
@@ -81,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVm-tf-BUo" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5113" y="-486"/>
+            <point key="canvasLocation" x="-5988" y="-488.00599700149928"/>
         </scene>
         <!--Login-->
         <scene sceneID="Er3-7l-XTg">
@@ -253,7 +273,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BeR-mO-lAM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2584" y="-488"/>
+            <point key="canvasLocation" x="-2226" y="-488"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="U0d-qP-4Xx">
@@ -436,7 +456,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpv-Nh-FD2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2583" y="344"/>
+            <point key="canvasLocation" x="-2226" y="343"/>
         </scene>
         <!--Sign Up Info View Controller-->
         <scene sceneID="3SS-9j-EBy">
@@ -625,7 +645,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uqc-Rf-aXJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1995" y="344"/>
+            <point key="canvasLocation" x="-1106" y="293"/>
         </scene>
         <!--Settings-->
         <scene sceneID="c1C-hY-bww">
@@ -807,7 +827,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MtE-za-bxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4006" y="-486"/>
+            <point key="canvasLocation" x="-4082" y="-487"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="O99-2G-kTd">
@@ -862,7 +882,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndo-79-sQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3170" y="1152"/>
+            <point key="canvasLocation" x="-3170" y="1142"/>
         </scene>
         <!--Location Table View Controller-->
         <scene sceneID="re0-ll-70h">
@@ -938,7 +958,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnM-bb-z1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5114" y="344"/>
+            <point key="canvasLocation" x="-5988" y="342"/>
         </scene>
         <!--Filter-->
         <scene sceneID="P9x-yN-kTR">
@@ -999,7 +1019,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lC8-TD-kK4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4007" y="344"/>
+            <point key="canvasLocation" x="-4081" y="343"/>
         </scene>
         <!--Interests View Controller-->
         <scene sceneID="cC8-5i-4Sw">
@@ -1044,7 +1064,7 @@ Christian Villa – Computer Science Major    </string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bts-dx-sbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2585" y="-3109"/>
+            <point key="canvasLocation" x="-2226" y="-3110"/>
         </scene>
         <!--Interests Navigation Controller-->
         <scene sceneID="seM-1t-oHs">
@@ -1060,7 +1080,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gd8-NU-OSj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3200" y="-3110"/>
+            <point key="canvasLocation" x="-3170" y="-3109"/>
         </scene>
         <!--Admin Add Loc View Controller-->
         <scene sceneID="EOR-wf-Xpc">
@@ -1151,7 +1171,7 @@ Christian Villa – Computer Science Major    </string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-8G-QNj">
-                                                    <rect key="frame" x="-4" y="0.0" width="376" height="149"/>
+                                                    <rect key="frame" x="-5" y="0.0" width="374" height="149"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 </pickerView>
                                             </subviews>
@@ -1249,7 +1269,7 @@ Christian Villa – Computer Science Major    </string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nK-x6-eMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4008" y="-3109"/>
+            <point key="canvasLocation" x="-4082" y="-3109"/>
         </scene>
         <!--Admin View Controller-->
         <scene sceneID="wSR-WG-udf">
@@ -1324,7 +1344,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4P-Pu-k7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5115" y="-3108"/>
+            <point key="canvasLocation" x="-5988" y="-3109"/>
         </scene>
         <!--Admin Add Loc Navigation Controller-->
         <scene sceneID="iUw-MA-aq8">
@@ -1340,7 +1360,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1PT-7j-I5v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4557" y="-3109"/>
+            <point key="canvasLocation" x="-5047" y="-3109"/>
         </scene>
         <!--App Preferences Navigation Controller-->
         <scene sceneID="Bjm-Zs-adQ">
@@ -1363,7 +1383,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Q6-og-JYs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4555" y="-486"/>
+            <point key="canvasLocation" x="-5047" y="-488"/>
         </scene>
         <!--Admin Navigation Controller-->
         <scene sceneID="3BU-zV-UAo">
@@ -1381,7 +1401,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Kw-zE-DjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5672" y="-3108"/>
+            <point key="canvasLocation" x="-6935" y="-3109"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JaM-gc-rNQ">
@@ -1401,7 +1421,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s1r-PO-HFF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5670" y="-485"/>
+            <point key="canvasLocation" x="-6935" y="-488"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ocz-Op-KBc">
@@ -1423,7 +1443,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccL-vs-CcD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5671" y="344"/>
+            <point key="canvasLocation" x="-6935" y="343"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="d4T-lv-KQG">
@@ -1492,7 +1512,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BaY-hB-yJ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4556" y="344"/>
+            <point key="canvasLocation" x="-5046" y="341"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="qhz-eL-QYJ">
@@ -1622,7 +1642,7 @@ Christian Villa – Computer Science Major    </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8v-vz-ntG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2550" y="-1301"/>
+            <point key="canvasLocation" x="-2226" y="-1314"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eWF-3R-TLy">
@@ -1649,8 +1669,8 @@ Christian Villa – Computer Science Major    </string>
         </scene>
     </scenes>
     <resources>
+        <image name="CurrentLocationInactive" width="45" height="45"/>
         <image name="fadeBlackBar" width="375" height="30"/>
-        <image name="ic_my_location" width="24" height="24"/>
         <image name="shieldmono-white" width="300" height="100"/>
     </resources>
 </document>
