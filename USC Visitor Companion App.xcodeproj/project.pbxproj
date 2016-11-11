@@ -14,6 +14,8 @@
 		4B1C25F0B5A8148675F75AA0 /* Pods_USC_Visitor_Companion_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */; };
 		4EA0B4211DD65D9F008EBD7F /* TitleCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0B4201DD65D9F008EBD7F /* TitleCellView.xib */; };
 		4EA0B4231DD65DF6008EBD7F /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA0B4221DD65DF6008EBD7F /* TitleCell.swift */; };
+		4EA0B4251DD66469008EBD7F /* VideoCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0B4241DD66469008EBD7F /* VideoCellView.xib */; };
+		4EA0B4271DD664C4008EBD7F /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA0B4261DD664C4008EBD7F /* VideoCell.swift */; };
 		4ED64E711DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED64E701DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift */; };
 		755993EE1D98D5EC0090717C /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755993ED1D98D5EC0090717C /* ForgotPasswordViewController.swift */; };
 		758F446C1DB2D3EC00138EB6 /* ChangePasswordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758F446B1DB2D3EC00138EB6 /* ChangePasswordTableViewController.swift */; };
@@ -90,6 +92,8 @@
 		44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USC_Visitor_Companion_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA0B4201DD65D9F008EBD7F /* TitleCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCellView.xib; sourceTree = "<group>"; };
 		4EA0B4221DD65DF6008EBD7F /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		4EA0B4241DD66469008EBD7F /* VideoCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCellView.xib; sourceTree = "<group>"; };
+		4EA0B4261DD664C4008EBD7F /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		4ED64E701DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminSegmentedViewControoler.swift; sourceTree = "<group>"; };
 		755993ED1D98D5EC0090717C /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		758F446B1DB2D3EC00138EB6 /* ChangePasswordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordTableViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +270,7 @@
 				AACDE2921DCACB7A00C9C625 /* MediaCellView.xib */,
 				AACDE29A1DCACCA700C9C625 /* InterestsCellView.xib */,
 				4EA0B4201DD65D9F008EBD7F /* TitleCellView.xib */,
+				4EA0B4241DD66469008EBD7F /* VideoCellView.xib */,
 			);
 			name = "Location Views";
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 				AA5854A21DC32CEC002D2D60 /* MenuAccountTableViewCell.swift */,
 				4EA0B4221DD65DF6008EBD7F /* TitleCell.swift */,
 				AAD38B8E1D971648004DD648 /* Assets.xcassets */,
+				4EA0B4261DD664C4008EBD7F /* VideoCell.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -537,6 +543,7 @@
 				AA536C4C1DB4822E009A608A /* MenuLoginTableViewCell.xib in Resources */,
 				AACDE2931DCACB7A00C9C625 /* MediaCellView.xib in Resources */,
 				30D289A51DC00925003D578C /* InfoWindow.xib in Resources */,
+				4EA0B4251DD66469008EBD7F /* VideoCellView.xib in Resources */,
 				4EA0B4211DD65D9F008EBD7F /* TitleCellView.xib in Resources */,
 				AA15CE371DA635B80025CBAA /* NoResultsFoundTableViewCell.xib in Resources */,
 				AACDE29B1DCACCA700C9C625 /* InterestsCellView.xib in Resources */,
@@ -727,6 +734,7 @@
 				75EABC491D98BA1E0075E75E /* AboutViewController.swift in Sources */,
 				AA15CE361DA635B80025CBAA /* NoResultsFoundTableViewCell.swift in Sources */,
 				AABBD1501DCED47C003B0F6C /* ShadowButton.swift in Sources */,
+				4EA0B4271DD664C4008EBD7F /* VideoCell.swift in Sources */,
 				AACDE2971DCACB9600C9C625 /* MediaCell.swift in Sources */,
 				AA38AD3F1D9C9F150067E1C9 /* Interest.swift in Sources */,
 				AAD38B8D1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld in Sources */,
