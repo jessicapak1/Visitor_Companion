@@ -17,9 +17,11 @@ class InterestsData : NSObject {
     var namesToInterests: [String: Interest] = [String: Interest]()
     
     override init() {
-        // call super?
-        //super.init()
-        
+        super.init()
+        self.fetchInterests()
+    }
+    
+    func fetchInterests() {
         let query = PFQuery(className: "Interest")
         query.order(byAscending: "name")
         

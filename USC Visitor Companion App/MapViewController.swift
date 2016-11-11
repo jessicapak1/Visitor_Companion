@@ -32,6 +32,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     var currentMarker = GMSMarker()
     let locationManager = CLLocationManager()
     var newMarker: Bool = false
+    var filters: [String] = InterestsData.shared.interestNames()
     
     let customMapStyle = "[" +
         "  {" +
@@ -77,6 +78,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         }
     }
     
+    @IBOutlet weak var filterTableView: UITableView! {
+        didSet {
+            self.filterTableView.delegate = self
+            self.filterTableView.dataSource = self
+            self.filterTableView.tableFooterView = UIView(frame: .zero)
+        }
+    }
+    
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             self.searchBar.delegate = self
@@ -103,6 +112,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         super.viewDidLoad()
         self.fromAdmin = false
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "viterbi"))
+        self.addFilters()
         self.addSearch()
         self.showMap()
         self.showMarkers(forLocations: LocationData.shared.locations)
@@ -131,22 +141,24 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     }
     
     func showMarkers(forLocations locations: [Location]) {
+        self.mapView.clear()
+        
         //create custom marker icons
         let foodImage = UIImage(named: "food")!.withRenderingMode(.alwaysTemplate)
         let foodView = UIImageView(image: foodImage)
-        foodView.tintColor = UIColor(displayP3Red: 99.0/255.0, green: 00.0/255.0, blue: 00.0/255.0, alpha: 1.0)
+        foodView.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
         let libraryImage = UIImage(named: "library")!.withRenderingMode(.alwaysTemplate)
         let libraryView = UIImageView(image: libraryImage)
-        libraryView.tintColor = UIColor(displayP3Red: 99.0/255.0, green: 00.0/255.0, blue: 00.0/255.0, alpha: 1.0)
+        libraryView.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
         let buildingImage = UIImage(named: "building")!.withRenderingMode(.alwaysTemplate)
         let buildingView = UIImageView(image: buildingImage)
-        buildingView.tintColor = UIColor(displayP3Red: 99.0/255.0, green: 00.0/255.0, blue: 00.0/255.0, alpha: 1.0)
+        buildingView.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
         let fountainImage = UIImage(named: "fountain")!.withRenderingMode(.alwaysTemplate)
         let fountainView = UIImageView(image: fountainImage)
-        fountainView.tintColor = UIColor(displayP3Red: 99.0/255.0, green: 00.0/255.0, blue: 00.0/255.0, alpha: 1.0)
+        fountainView.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
         let fieldImage = UIImage(named: "field")!.withRenderingMode(.alwaysTemplate)
         let fieldView = UIImageView(image: fieldImage)
-        fieldView.tintColor = UIColor(displayP3Red: 99.0/255.0, green: 00.0/255.0, blue: 00.0/255.0, alpha: 1.0)
+        fieldView.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
         
         // create each marker
         for location in locations {
@@ -179,7 +191,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
                 break
                 
             default:
-                marker.icon = GMSMarker.markerImage(with: UIColor(red: 153.0, green: 0.0, blue: 0.0, alpha: 1.0))
+                marker.icon = GMSMarker.markerImage(with: UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0))
             }
             
             self.markers[location.name!] = marker
@@ -232,13 +244,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     // MARK: Search Methods
     func addSearch() {
         self.searchTableView.isHidden = true
-        self.view.bringSubview(toFront: self.searchTableView)
     }
     
     func showSearchResults(forKeyword keyword: String) {
+        self.hideFilters()
         // show the search results table view
         self.searchBar.showsCancelButton = true
         self.searchTableView.isHidden = false
+        self.view.bringSubview(toFront: self.searchTableView)
         // show the search results for the search text
         self.searchResults = LocationData.shared.locations(withKeyword: keyword)
         self.searchTableView.reloadData()
@@ -272,6 +285,26 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     }
     
     
+    // MARK: Filter Methods
+    func addFilters() {
+        self.filterTableView.isHidden = true
+        if self.filters.count == 0 {
+            InterestsData.shared.fetchInterests()
+            self.filters = InterestsData.shared.interestNames()
+        }
+    }
+    
+    func showFilters() {
+        self.hideSearchResults()
+        self.filterTableView.isHidden = false
+        self.view.bringSubview(toFront: self.filterTableView)
+    }
+    
+    func hideFilters() {
+        self.filterTableView.isHidden = true
+    }
+    
+    
     // MARK: UISearchBarDelegate Methods
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.showSearchResults(forKeyword: self.searchBar.text!)
@@ -292,11 +325,22 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     // MARK: UITableViewDelegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.searchTableView.deselectRow(at: indexPath, animated: true)
-        self.hideSearchResults()
-        let location = self.searchResults[indexPath.row]
-        self.animate(toLocation: location)
-        self.showInformation(forLocation: location)
+        tableView.deselectRow(at: indexPath, animated: true)
+        if tableView == self.searchTableView {
+            self.hideSearchResults()
+            let location = self.searchResults[indexPath.row]
+            self.animate(toLocation: location)
+            self.showInformation(forLocation: location)
+        } else if tableView == self.filterTableView {
+            let locations = InterestsData.shared.interest(withName: self.filters[indexPath.row])?.locations
+            if let locations = locations {
+                self.showMarkers(forLocations: locations)
+            }
+            User.current.interest = self.filters[indexPath.row]
+            self.filterTableView.reloadData()
+            // ANIMATE THE FILTERS OUT OF THE VIEW --------------------------------------------------------------------------------
+            self.hideFilters()
+        }
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -317,22 +361,36 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     // MARK: UITableViewDataSourceMethods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.searchResults.count == 0 {
-            return 1 // no results found table view cell
+        if tableView == self.filterTableView {
+            return self.filters.count
+        } else if tableView == self.searchTableView {
+            return self.searchResults.count == 0 ? 1 : self.searchResults.count
         }
-        return self.searchResults.count
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if self.searchResults.count == 0 {
-            return self.configureNoResultsFoundCell()
+        if tableView == self.searchTableView {
+            if self.searchResults.count == 0 {
+                return self.configureNoResultsFoundCell()
+            }
+            return self.configureResultFoundCell(withLocation: self.searchResults[indexPath.row])
+        } else if tableView == self.filterTableView {
+            return self.configureFilterCell(withFilter: self.filters[indexPath.row])
         }
-        let location = self.searchResults[indexPath.row]
-        return self.configureResultFoundCell(withLocation: location)
+        
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return ResultFoundTableViewCell.defaultHeight
+        if tableView == self.searchTableView {
+            return ResultFoundTableViewCell.defaultHeight
+        } else if tableView == self.filterTableView {
+            return 45.0
+        }
+        
+        return 0.0
     }
     
     func configureNoResultsFoundCell() -> UITableViewCell {
@@ -349,10 +407,20 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         resultFoundCell.interestsLabel.text = location.interests?.joined(separator: ", ")
         return resultFoundCell
     }
+    
+    func configureFilterCell(withFilter filter: String) -> UITableViewCell {
+        let filterID = "Filter Cell"
+        let filterCell = self.filterTableView.dequeueReusableCell(withIdentifier: filterID)
+        filterCell?.textLabel?.text = filter
+        filterCell?.accessoryType = filter == User.current.interest ? .checkmark : .none
+        return filterCell!
+    }
 
     
     // MARK: GMSMapViewDelegate Methods
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        self.hideFilters()
+        
         if newMarker == true {
             added_marker = marker;
             newLocation = CLLocation(latitude: marker.position.latitude, longitude: marker.position.longitude)
@@ -366,7 +434,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             currentMarker = marker
             self.performSegue(withIdentifier: "Show Location", sender: self)
         }
-        
     }
     
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
@@ -387,6 +454,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         }
     }
     
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        self.hideFilters()
+    }
+    
     
     // MARK: IBAction Methods
     @IBAction func currentLocationButtonPressed() {
@@ -396,7 +467,11 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     }
     
     @IBAction func filterButtonPressed() {
-        
+        if self.filterTableView.isHidden {
+            self.showFilters()
+        } else {
+            self.hideFilters()
+        }
     }
 
 }
