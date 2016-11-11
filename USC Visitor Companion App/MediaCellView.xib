@@ -41,9 +41,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="359" height="26"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
-                                        <vibrancyEffect>
-                                            <blurEffect style="extraLight"/>
-                                        </vibrancyEffect>
+                                        <blurEffect style="light"/>
                                     </visualEffectView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Media" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kht-3b-x3q">
                                         <rect key="frame" x="30" y="0.0" width="88" height="26"/>
@@ -51,11 +49,10 @@
                                             <constraint firstAttribute="width" constant="88" id="3PD-h0-SHG"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Kht-3b-x3q" firstAttribute="leading" secondItem="0yl-qy-H2q" secondAttribute="leading" constant="30" id="1VM-H8-Gxn"/>
                                     <constraint firstItem="Kht-3b-x3q" firstAttribute="centerY" secondItem="0yl-qy-H2q" secondAttribute="centerY" id="FbY-em-UXE"/>
