@@ -62,22 +62,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     
     // MARK: IBOutlets
-    @IBOutlet weak var filterButton: UIButton! {
-        didSet {
-            // add borders to the filter button to match the borders on the search bar
-            let width = self.filterButton.frame.size.width
-            let height = self.filterButton.frame.size.height
-            
-            let topBorder = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 0.5))
-            topBorder.backgroundColor = .black
-            self.filterButton.addSubview(topBorder)
-            
-            let bottomBorder = UIView(frame: CGRect(x: 0, y: height - 0.5, width: width, height: 0.5))
-            bottomBorder.backgroundColor = .black
-            self.filterButton.addSubview(bottomBorder)
-        }
-    }
-    
     @IBOutlet weak var filterTableView: UITableView! {
         didSet {
             self.filterTableView.delegate = self
@@ -287,7 +271,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     // MARK: Filter Methods
     func addFilters() {
-        self.filterTableView.isHidden = true
         if self.filters.count == 0 {
             InterestsData.shared.fetchInterests()
             self.filters = InterestsData.shared.interestNames()
@@ -296,12 +279,16 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     func showFilters() {
         self.hideSearchResults()
-        self.filterTableView.isHidden = false
         self.view.bringSubview(toFront: self.filterTableView)
+        UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseOut, animations: {
+            self.filterTableView.frame.origin.x += 175
+        }, completion: nil)
     }
     
     func hideFilters() {
-        self.filterTableView.isHidden = true
+        UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseOut, animations: {
+            self.filterTableView.frame.origin.x -= 175
+        }, completion: nil)
     }
     
     
@@ -325,8 +312,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     // MARK: UITableViewDelegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         if tableView == self.searchTableView {
+            self.searchTableView.deselectRow(at: indexPath, animated: true)
             self.hideSearchResults()
             let location = self.searchResults[indexPath.row]
             self.animate(toLocation: location)
@@ -338,7 +325,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             }
             User.current.interest = self.filters[indexPath.row]
             self.filterTableView.reloadData()
-            // ANIMATE THE FILTERS OUT OF THE VIEW --------------------------------------------------------------------------------
             self.hideFilters()
         }
     }
@@ -377,7 +363,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             }
             return self.configureResultFoundCell(withLocation: self.searchResults[indexPath.row])
         } else if tableView == self.filterTableView {
-            return self.configureFilterCell(withFilter: self.filters[indexPath.row])
+            return self.configureFilterCell(withFilter: self.filters[indexPath.row], indexPath: indexPath)
         }
         
         return UITableViewCell()
@@ -408,11 +394,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         return resultFoundCell
     }
     
-    func configureFilterCell(withFilter filter: String) -> UITableViewCell {
+    func configureFilterCell(withFilter filter: String, indexPath: IndexPath) -> UITableViewCell {
         let filterID = "Filter Cell"
         let filterCell = self.filterTableView.dequeueReusableCell(withIdentifier: filterID)
         filterCell?.textLabel?.text = filter
-        filterCell?.accessoryType = filter == User.current.interest ? .checkmark : .none
+        if filter == User.current.interest {
+            self.filterTableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+        }
         return filterCell!
     }
 
@@ -467,7 +455,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     }
     
     @IBAction func filterButtonPressed() {
-        if self.filterTableView.isHidden {
+        // show the filters if they are not visible on the screen
+        if self.filterTableView.frame.origin.x < 0 {
             self.showFilters()
         } else {
             self.hideFilters()

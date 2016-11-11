@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search USC" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGk-MM-YB2">
-                                <rect key="frame" x="65" y="0.0" width="310" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.67157274484634399" green="0.082530014216899872" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -54,8 +54,8 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dcw-gV-0jA">
-                                <rect key="frame" x="0.0" y="44" width="175" height="559"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="-175" y="44" width="175" height="559"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90443582214765095" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="175" id="Hj1-qQ-iTM"/>
                                 </constraints>
@@ -81,42 +81,30 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewp-Tl-tCJ">
-                                <rect key="frame" x="0.0" y="0.0" width="65" height="44"/>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="65" id="EVr-FS-lDq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Filter">
-                                    <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="filterButtonPressed" destination="poS-Zl-lNF" eventType="touchUpInside" id="0pa-Bk-HVr"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dGk-MM-YB2" firstAttribute="leading" secondItem="ewp-Tl-tCJ" secondAttribute="trailing" id="35M-dF-uLW"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="dcw-gV-0jA" secondAttribute="bottom" id="Cth-uS-aO4"/>
+                            <constraint firstItem="dcw-gV-0jA" firstAttribute="top" secondItem="dGk-MM-YB2" secondAttribute="bottom" id="FqY-jw-6Hf"/>
                             <constraint firstItem="MY9-Id-f3I" firstAttribute="top" secondItem="dGk-MM-YB2" secondAttribute="bottom" id="HyC-Ev-o58"/>
-                            <constraint firstItem="MY9-Id-f3I" firstAttribute="top" secondItem="ewp-Tl-tCJ" secondAttribute="bottom" id="Iom-ME-A3I"/>
                             <constraint firstItem="MY9-Id-f3I" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="KCw-MF-aKB"/>
                             <constraint firstAttribute="trailing" secondItem="dGk-MM-YB2" secondAttribute="trailing" id="NOY-lk-wyS"/>
-                            <constraint firstItem="dcw-gV-0jA" firstAttribute="top" secondItem="ewp-Tl-tCJ" secondAttribute="bottom" id="P91-0a-eqk"/>
-                            <constraint firstItem="ewp-Tl-tCJ" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="UAo-6L-kco"/>
+                            <constraint firstItem="dGk-MM-YB2" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="Zun-Xi-NOA"/>
                             <constraint firstItem="dGk-MM-YB2" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" id="aJ2-vG-OIk"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="MY9-Id-f3I" secondAttribute="bottom" id="dOI-sI-dlV"/>
-                            <constraint firstItem="ewp-Tl-tCJ" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" id="inL-sQ-NA9"/>
-                            <constraint firstItem="dcw-gV-0jA" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="sAs-Ro-Fg4"/>
+                            <constraint firstItem="dcw-gV-0jA" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" constant="-175" id="sAs-Ro-Fg4"/>
                             <constraint firstAttribute="trailing" secondItem="MY9-Id-f3I" secondAttribute="trailing" id="seG-oE-cSm"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="goZ-18-kmO" secondAttribute="bottom" constant="24" id="xT6-JA-UkP"/>
                             <constraint firstItem="goZ-18-kmO" firstAttribute="trailing" secondItem="5EB-oA-TVt" secondAttribute="trailingMargin" constant="-8" id="yY9-rd-Jzn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hHR-zk-ele">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="WkI-2Q-sDW">
+                        <barButtonItem key="leftBarButtonItem" image="Filter" id="hIf-zE-QrC">
+                            <connections>
+                                <action selector="filterButtonPressed" destination="poS-Zl-lNF" id="Pt6-aP-3cK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="Gear" id="WkI-2Q-sDW">
                             <connections>
                                 <segue destination="dDA-Be-9Lo" kind="presentation" identifier="Show Settings" id="4XP-yo-FOi"/>
                             </connections>
@@ -124,7 +112,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="currentLocationButton" destination="goZ-18-kmO" id="H4R-Qa-TDx"/>
-                        <outlet property="filterButton" destination="ewp-Tl-tCJ" id="ZvP-Gm-NFb"/>
                         <outlet property="filterTableView" destination="dcw-gV-0jA" id="xlw-N9-3ty"/>
                         <outlet property="searchBar" destination="dGk-MM-YB2" id="P7P-vV-Waa"/>
                         <outlet property="searchTableView" destination="MY9-Id-f3I" id="0Vm-ht-vK1"/>
@@ -1203,7 +1190,7 @@ Christian Villa – Computer Science Major    </string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-8G-QNj">
-                                                    <rect key="frame" x="-5" y="0.0" width="374" height="149"/>
+                                                    <rect key="frame" x="-7" y="0.0" width="375" height="149"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 </pickerView>
                                             </subviews>
@@ -1702,6 +1689,8 @@ Christian Villa – Computer Science Major    </string>
     </scenes>
     <resources>
         <image name="CurrentLocationInactive" width="45" height="45"/>
+        <image name="Filter" width="30" height="22"/>
+        <image name="Gear" width="22" height="22"/>
         <image name="fadeBlackBar" width="375" height="30"/>
         <image name="shieldmono-white" width="300" height="100"/>
     </resources>
