@@ -10,10 +10,25 @@ import UIKit
 
 class VideoCell: UITableViewCell {
 
-    @IBOutlet weak var videoView: UIView!
+    @IBOutlet weak var myBlurView: UIVisualEffectView!
+    
+    @IBOutlet weak var myBackgroundView: UIView!
+
+    @IBOutlet weak var webView: UIWebView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        let youtubeUrl = "https://www.youtube.com/embed/dEWEwpJCHc0"
+        
+        myBlurView.layer.cornerRadius = 15
+        myBlurView.layer.masksToBounds = true
+        myBackgroundView.layer.cornerRadius = 15
+        myBackgroundView.layer.masksToBounds = true
+
+        let webString = "<iframe id=\"player\" type=\"text/html\" width=\"\(self.webView.frame.width-15)\" height=\"\(self.webView.frame.height-15)\" src=\"\(youtubeUrl)?wmode=opaque&amp;rel=0&amp;autohide=1&amp;showinfo=0&amp;wmode=transparent\" frameborder=\"0\" scrolling=\"no\"></iframe>"
+        self.webView.loadHTMLString(webString, baseURL: nil)
+        self.webView.scrollView.isScrollEnabled = false
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

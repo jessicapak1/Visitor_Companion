@@ -17,6 +17,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             self.tableView.register(UINib(nibName: "MediaCellView", bundle: nil), forCellReuseIdentifier: "mediaCellView")
             self.tableView.register(UINib(nibName: "InterestsCellView", bundle: nil), forCellReuseIdentifier: "interestsCellView")
             self.tableView.register(UINib(nibName: "TitleCellView", bundle: nil), forCellReuseIdentifier: "titleCellView")
+            self.tableView.register(UINib(nibName: "VideoCellView", bundle: nil), forCellReuseIdentifier: "videoCellView")
         }
     }
     @IBOutlet weak var imageView: UIImageView!
@@ -87,6 +88,9 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             let cell = tableView.dequeueReusableCell(withIdentifier: "interestsCellView", for: indexPath) as! InterestsCell
             let stringRepresentation = current?.interests?.joined(separator: ", ")
             cell.interestsLabel.text = stringRepresentation
+            return cell
+        } else if indexPath.row == 5 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "videoCellView", for: indexPath) as! VideoCell
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "mediaCellView")!

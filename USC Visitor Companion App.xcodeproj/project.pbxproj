@@ -388,8 +388,8 @@
 				AA536C491DB4822E009A608A /* MenuLoginTableViewCell.swift */,
 				AA5854A21DC32CEC002D2D60 /* MenuAccountTableViewCell.swift */,
 				4EA0B4221DD65DF6008EBD7F /* TitleCell.swift */,
-				AAD38B8E1D971648004DD648 /* Assets.xcassets */,
 				4EA0B4261DD664C4008EBD7F /* VideoCell.swift */,
+				AAD38B8E1D971648004DD648 /* Assets.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
