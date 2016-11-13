@@ -111,7 +111,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.configureLocationManager()
         
         // configure the map view
-        let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 20.0, bearing: 30, viewingAngle: 0)
+        let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 17.0, bearing: 30, viewingAngle: 0)
         self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         self.mapView.mapStyle = try? GMSMapStyle(jsonString: self.customMapStyle)
         self.view.insertSubview(self.mapView, at: 0)
