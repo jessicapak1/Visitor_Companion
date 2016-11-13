@@ -100,6 +100,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.addFilters()
         self.addSearch()
         self.showMap()
+        self.showUSC()
         self.showMarkers(forLocations: LocationData.shared.locations)
     }
     
@@ -115,7 +116,21 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         self.mapView.mapStyle = try? GMSMapStyle(jsonString: self.customMapStyle)
         self.view.insertSubview(self.mapView, at: 0)
+        
+    }
     
+    func showUSC(){
+        
+        let usc = GMSCoordinateBounds(coordinate: CLLocationCoordinate2D(latitude: 34.017707, longitude: -118.292653), coordinate: CLLocationCoordinate2D(latitude: 34.033343, longitude: -118.275356))
+        if !usc.contains((locationManager.location?.coordinate)!) {
+            let alert = UIAlertController(title: "Not at USC", message: "It looks like you are not near USC. Would you like to see USC's campus?", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler:{ action in
+                self.mapView.animate(toLocation: CLLocationCoordinate2D(latitude: 34.021776, longitude: -118.286342))
+                self.mapView.animate(toZoom: 15.2)
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler:nil))
+            self.present(alert, animated: true, completion: nil)        }
+        
     }
     
     func showMarkers(forLocations locations: [Location]) {
