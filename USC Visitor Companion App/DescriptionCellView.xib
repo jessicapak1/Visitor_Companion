@@ -41,9 +41,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="359" height="26"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
-                                        <vibrancyEffect>
-                                            <blurEffect style="extraLight"/>
-                                        </vibrancyEffect>
+                                        <blurEffect style="light"/>
                                     </visualEffectView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpZ-iO-XSl">
                                         <rect key="frame" x="30" y="2" width="98" height="22"/>
@@ -51,11 +49,10 @@
                                             <constraint firstAttribute="width" constant="98" id="6SG-z5-C0P"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="HpZ-iO-XSl" firstAttribute="top" secondItem="tKe-HU-6fv" secondAttribute="top" constant="2" id="DDL-0R-Bca"/>
                                     <constraint firstItem="HpZ-iO-XSl" firstAttribute="centerY" secondItem="tKe-HU-6fv" secondAttribute="centerY" id="RN3-zM-0WO"/>

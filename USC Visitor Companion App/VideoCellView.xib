@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="videoCellView" rowHeight="149" id="saT-pF-01z" customClass="VideoCell" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="saT-pF-01z" id="474-GD-Wl4">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="148"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEt-bO-bhr">
+                        <rect key="frame" x="8" y="4" width="359" height="141"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="H3O-2V-b7B">
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="141"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                        <blurEffect style="extraLight"/>
+                    </visualEffectView>
+                    <view clipsSubviews="YES" alpha="0.94999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLf-X7-LpW">
+                        <rect key="frame" x="8" y="4" width="359" height="141"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKD-39-mrU">
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="26"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBI-S2-Jys">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="26"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="X3x-CZ-Uk6">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="light"/>
+                                    </visualEffectView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYx-qt-tb2">
+                                        <rect key="frame" x="30" y="0.0" width="88" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="88" id="Sz8-xh-1Ya"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="UBI-S2-Jys" secondAttribute="bottom" id="7pN-mT-K7B"/>
+                                    <constraint firstAttribute="trailing" secondItem="UBI-S2-Jys" secondAttribute="trailing" id="B3O-Is-XeO"/>
+                                    <constraint firstItem="UBI-S2-Jys" firstAttribute="top" secondItem="LYx-qt-tb2" secondAttribute="top" id="BpA-ui-dVy"/>
+                                    <constraint firstItem="UBI-S2-Jys" firstAttribute="leading" secondItem="KKD-39-mrU" secondAttribute="leading" id="QQb-yF-aYL"/>
+                                    <constraint firstItem="UBI-S2-Jys" firstAttribute="top" secondItem="KKD-39-mrU" secondAttribute="top" id="RgW-qg-Jss"/>
+                                    <constraint firstItem="LYx-qt-tb2" firstAttribute="leading" secondItem="KKD-39-mrU" secondAttribute="leading" constant="30" id="Xzr-yn-MLx"/>
+                                    <constraint firstItem="UBI-S2-Jys" firstAttribute="bottom" secondItem="LYx-qt-tb2" secondAttribute="bottom" id="tKF-aj-K1q"/>
+                                </constraints>
+                            </view>
+                            <webView clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="OTh-6p-hMN">
+                                <rect key="frame" x="0.0" y="24" width="359" height="117"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KKD-39-mrU" firstAttribute="leading" secondItem="zLf-X7-LpW" secondAttribute="leading" id="61Q-We-icv"/>
+                            <constraint firstItem="OTh-6p-hMN" firstAttribute="top" secondItem="zLf-X7-LpW" secondAttribute="top" constant="24" id="9Ef-d9-c24"/>
+                            <constraint firstAttribute="trailing" secondItem="KKD-39-mrU" secondAttribute="trailing" id="LiI-5y-7h9"/>
+                            <constraint firstAttribute="bottom" secondItem="OTh-6p-hMN" secondAttribute="bottom" id="R3N-f8-T6g"/>
+                            <constraint firstAttribute="bottom" secondItem="KKD-39-mrU" secondAttribute="bottom" constant="115" id="djt-vl-Zzc"/>
+                            <constraint firstItem="KKD-39-mrU" firstAttribute="leading" secondItem="OTh-6p-hMN" secondAttribute="leading" id="fKZ-Tc-jyJ"/>
+                            <constraint firstItem="KKD-39-mrU" firstAttribute="trailing" secondItem="OTh-6p-hMN" secondAttribute="trailing" id="qA3-CQ-AZT"/>
+                            <constraint firstItem="KKD-39-mrU" firstAttribute="top" secondItem="zLf-X7-LpW" secondAttribute="top" id="qV2-Xm-aO2"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="zLf-X7-LpW" firstAttribute="leading" secondItem="474-GD-Wl4" secondAttribute="leadingMargin" id="2Xp-yu-O5t"/>
+                    <constraint firstItem="zLf-X7-LpW" firstAttribute="leading" secondItem="uEt-bO-bhr" secondAttribute="leading" id="7W7-jD-4Sb"/>
+                    <constraint firstItem="uEt-bO-bhr" firstAttribute="centerY" secondItem="474-GD-Wl4" secondAttribute="centerY" id="GgK-yP-yJt"/>
+                    <constraint firstItem="zLf-X7-LpW" firstAttribute="trailing" secondItem="uEt-bO-bhr" secondAttribute="trailing" id="KXd-nO-wq4"/>
+                    <constraint firstItem="uEt-bO-bhr" firstAttribute="bottom" secondItem="zLf-X7-LpW" secondAttribute="bottom" id="LjL-aL-hIR"/>
+                    <constraint firstItem="zLf-X7-LpW" firstAttribute="top" secondItem="474-GD-Wl4" secondAttribute="topMargin" constant="-4" id="WAM-ro-haa"/>
+                    <constraint firstItem="uEt-bO-bhr" firstAttribute="trailing" secondItem="474-GD-Wl4" secondAttribute="trailingMargin" id="h4G-1M-owl"/>
+                    <constraint firstItem="zLf-X7-LpW" firstAttribute="top" secondItem="uEt-bO-bhr" secondAttribute="top" id="vqU-w7-S5I"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="myBackgroundView" destination="zLf-X7-LpW" id="oHT-f2-4O1"/>
+                <outlet property="myBlurView" destination="uEt-bO-bhr" id="IkJ-pw-5Ff"/>
+                <outlet property="webView" destination="OTh-6p-hMN" id="4F1-Hg-S4I"/>
+            </connections>
+            <point key="canvasLocation" x="11.5" y="99.5"/>
+        </tableViewCell>
+    </objects>
+</document>

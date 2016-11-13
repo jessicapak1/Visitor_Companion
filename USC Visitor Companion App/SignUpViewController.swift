@@ -11,10 +11,6 @@ import Parse
 import BetterSegmentedControl
 import FacebookLogin
 
-protocol SignUpViewControllerDelegate {
-    func userDidSignUp()
-}
-
 class SignUpViewController: UIViewController, SignUpInfoViewControllerDelegate {
 
     // MARK: IBOutlets
@@ -39,9 +35,7 @@ class SignUpViewController: UIViewController, SignUpInfoViewControllerDelegate {
     }
     
     
-    // MARK: Properties
-    var delegate: SignUpViewControllerDelegate?
-    
+    // MARK: Properties    
     var whiteSpinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .white)
     
     
@@ -65,8 +59,7 @@ class SignUpViewController: UIViewController, SignUpInfoViewControllerDelegate {
     func userDidSaveInfo() {
         if User.current.exists && User.current.name == "" {
             User.current.delete()
-        } else if let delegate = self.delegate {
-            delegate.userDidSignUp()
+        } else {
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -134,7 +127,7 @@ class SignUpViewController: UIViewController, SignUpInfoViewControllerDelegate {
         self.signUpButton.isEnabled = false
     }
     
-    func resetSignUpButtons() {
+    func removeSpinnersFromSignUpButtons() {
         self.signUpButton.setTitle("Sign Up", for: .normal)
         self.facebookSignUpButton.setTitle("Sign Up with Facebook", for: .normal)
         self.whiteSpinner.removeFromSuperview()
@@ -143,7 +136,7 @@ class SignUpViewController: UIViewController, SignUpInfoViewControllerDelegate {
     }
     
     func checkSignUpDetails() {
-        self.resetSignUpButtons()
+        self.removeSpinnersFromSignUpButtons()
         if User.current.exists {
             self.performSegue(withIdentifier: "Show Sign Up Info", sender: nil)
         } else {

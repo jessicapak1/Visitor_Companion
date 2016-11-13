@@ -10,10 +10,6 @@ import UIKit
 import Parse
 import FacebookLogin
 
-protocol LoginViewControllerDelegate {
-    func userDidLogin()
-}
-
 class LoginViewController: UIViewController {
     
     // MARK: IBOutlets
@@ -37,8 +33,6 @@ class LoginViewController: UIViewController {
     
     
     // MARK: Properties
-    var delegate: LoginViewControllerDelegate?
-    
     var whiteSpinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .white)
     
     
@@ -63,7 +57,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func forgotLoginDetailsButtonPressed() {
+    @IBAction func forgotPasswordButtonPressed() {
         
     }
     
@@ -107,7 +101,7 @@ class LoginViewController: UIViewController {
         self.loginButton.isEnabled = false
     }
     
-    func resetLoginButtons() {
+    func removeSpinnersFromLoginButtons() {
         self.loginButton.setTitle("Login", for: .normal)
         self.facebookLoginButton.setTitle("Login with Facebook", for: .normal)
         self.whiteSpinner.removeFromSuperview()
@@ -116,13 +110,10 @@ class LoginViewController: UIViewController {
     }
     
     func checkLoginDetails() {
+        self.removeSpinnersFromLoginButtons()
         if User.current.exists {
-            if let delegate = self.delegate {
-                delegate.userDidLogin()
-                self.dismiss(animated: true, completion: nil)
-            }
+            self.dismiss(animated: true, completion: nil)
         } else {
-            self.resetLoginButtons()
             User.logout() // remove token in case Facebook login was correct but information was changed
             self.showAlert(withTitle: "Login Failed", message: "The username or password you entered was incorrect", action: "Try Again")
         }

@@ -15,7 +15,7 @@ enum MenuCell: String {
     case account = "Account Cell"
 }
 
-class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MenuLoginTableViewCellDelegate, LoginViewControllerDelegate, SignUpViewControllerDelegate, MenuInterestTableViewCellDelegate {
+class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MenuLoginTableViewCellDelegate,MenuInterestTableViewCellDelegate {
     
     @IBOutlet weak var adminButton: UIBarButtonItem!
     // MARK: IBOutlets
@@ -71,12 +71,10 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             let NVC = segue.destination as! UINavigationController
             let LVC = NVC.viewControllers.first as! LoginViewController
             LVC.navigationItem.title = "Login"
-            LVC.delegate = self
         } else if segue.identifier == "Show Sign Up" {
             let NVC = segue.destination as! UINavigationController
             let SUVC = NVC.viewControllers.first as! SignUpViewController
             SUVC.navigationItem.title = "Sign Up"
-            SUVC.delegate = self
         }
     }
     

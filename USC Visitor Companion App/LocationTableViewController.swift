@@ -16,12 +16,13 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             self.tableView.register(UINib(nibName: "DescriptionCellView", bundle: nil), forCellReuseIdentifier: "descriptionCellView")
             self.tableView.register(UINib(nibName: "MediaCellView", bundle: nil), forCellReuseIdentifier: "mediaCellView")
             self.tableView.register(UINib(nibName: "InterestsCellView", bundle: nil), forCellReuseIdentifier: "interestsCellView")
+            self.tableView.register(UINib(nibName: "TitleCellView", bundle: nil), forCellReuseIdentifier: "titleCellView")
+            self.tableView.register(UINib(nibName: "VideoCellView", bundle: nil), forCellReuseIdentifier: "videoCellView")
         }
     }
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var directionsButton: UIBarButtonItem!
     @IBOutlet weak var shadowImage: UIImageView!
-    @IBOutlet weak var mainImage: UIImageViewModeScaleAspect!
     
     //let mainImage = UIImageViewModeScaleAspect(frame: CGRect(x: 0, y: 0, width: 375, height: 170))
     var name : String = ""
@@ -33,7 +34,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationItem.title = name
+        //self.navigationItem.title = name
 
         current = LocationData.shared.getLocation(withName: name)
 
@@ -42,32 +43,12 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        //mainImage.image = UIImage(named: "Tommy Trojan")
-        mainImage.contentMode = .scaleAspectFill
-        mainImage.backgroundColor = UIColor.clear
-        //let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LocationTableViewController.animateImage))
-        //mainImage.addGestureRecognizer(tapGesture)
         imageView.image = UIImage(named: "tommy_trojan_2")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func animateImage() {
-        
-        if mainImage.contentMode == .scaleAspectFill {
-            self.view.bringSubview(toFront: mainImage)
-            mainImage.animate( .fit, frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height), duration: 0.4)
-        } else {
-            mainImage.animate( .fill, frame: CGRect(x: 0, y: 0, width: 375, height: 200), duration: 0.4)
-            //sleep(4)
-            self.view.bringSubview(toFront: tableView)
-            self.view.bringSubview(toFront: shadowImage)
-        }
-        
     }
     
     // TABLE VIEW CODE
@@ -84,7 +65,8 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "blankCellView")!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "titleCellView") as! TitleCell
+            cell.title.text = self.name
             //let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LocationTableViewController.animateImage))
             //cell.addGestureRecognizer(tapGesture)
             return cell
@@ -106,6 +88,9 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             let cell = tableView.dequeueReusableCell(withIdentifier: "interestsCellView", for: indexPath) as! InterestsCell
             let stringRepresentation = current?.interests?.joined(separator: ", ")
             cell.interestsLabel.text = stringRepresentation
+            return cell
+        } else if indexPath.row == 5 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "videoCellView", for: indexPath) as! VideoCell
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "mediaCellView")!

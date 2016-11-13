@@ -31,29 +31,26 @@
                         <rect key="frame" x="8" y="4" width="359" height="141"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ej-Wv-jJ2">
-                                <rect key="frame" x="0.0" y="0.0" width="359" height="26.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="26"/>
                                 <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTA-kG-6dW">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="26"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Lia-bU-kjz">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="light"/>
+                                    </visualEffectView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFP-5z-9ci">
-                                        <rect key="frame" x="30" y="0.0" width="105" height="26.5"/>
+                                        <rect key="frame" x="30" y="0.0" width="105" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="105" id="wKC-0Y-HkI"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTA-kG-6dW">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="26.5"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Lia-bU-kjz">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="26.5"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </view>
-                                        <vibrancyEffect>
-                                            <blurEffect style="extraLight"/>
-                                        </vibrancyEffect>
-                                    </visualEffectView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="KTA-kG-6dW" firstAttribute="leading" secondItem="3ej-Wv-jJ2" secondAttribute="leading" id="1ta-ke-DHz"/>
                                     <constraint firstItem="KTA-kG-6dW" firstAttribute="top" secondItem="3ej-Wv-jJ2" secondAttribute="top" id="2Y0-eM-Pua"/>
@@ -65,7 +62,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6M-q4-sDW">
-                                <rect key="frame" x="30" y="30.5" width="299" height="95"/>
+                                <rect key="frame" x="30" y="30" width="299" height="95"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="95" id="x8B-1g-R6R"/>
                                 </constraints>

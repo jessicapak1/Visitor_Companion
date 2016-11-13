@@ -83,7 +83,7 @@ class LocationData: NSObject {
                 nameMatches.append(location)
             } else if (location.code?.uppercased().hasPrefix(keyword.uppercased()))! {
                 codeMatches.append(location)
-            } else if (location.name?.uppercased().contains(keyword.uppercased()))! && keyword.characters.count >= 3 {
+            } else if (location.name?.uppercased().contains(keyword.uppercased()))! && keyword.characters.count >= 2 {
                 wordMatches.append(location)
             }
         }

@@ -10,7 +10,8 @@ import UIKit
 
 class InfoWindow: UIView {
     @IBOutlet weak var locationNameLabel: UILabel!
-    @IBOutlet weak var userInfoLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var seeMoreButton: UIButton!
     
     
 }
