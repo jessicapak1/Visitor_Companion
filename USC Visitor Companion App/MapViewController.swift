@@ -106,23 +106,16 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     // MARK: Map View Methods
     func showMap() {
-        // configure the map view
-        let camera = GMSCameraPosition.camera(withLatitude: 34.020496, longitude: -118.285317, zoom: 20.0, bearing: 30, viewingAngle: 90.0)
-        self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
-        self.mapView.mapStyle = try? GMSMapStyle(jsonString: self.customMapStyle)
-        self.view.insertSubview(self.mapView, at: 0)
         
         // configure the location manager
         self.configureLocationManager()
         
-        let circleCenter = locationManager.location?.coordinate
-        if let circleCenter = circleCenter {
-            let circ = GMSCircle(position: circleCenter, radius: 10)
-            circ.fillColor = UIColor(red: 0.35, green: 0, blue: 0, alpha: 0.05)
-            circ.strokeColor = UIColor.red
-            circ.strokeWidth = 2
-            circ.map = mapView
-        }
+        // configure the map view
+        let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 20.0, bearing: 30, viewingAngle: 0)
+        self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
+        self.mapView.mapStyle = try? GMSMapStyle(jsonString: self.customMapStyle)
+        self.view.insertSubview(self.mapView, at: 0)
+    
     }
     
     func showMarkers(forLocations locations: [Location]) {
