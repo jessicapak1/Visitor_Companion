@@ -98,6 +98,7 @@
                             <constraint firstItem="goZ-18-kmO" firstAttribute="trailing" secondItem="5EB-oA-TVt" secondAttribute="trailingMargin" constant="-8" id="yY9-rd-Jzn"/>
                         </constraints>
                     </view>
+<<<<<<< HEAD
                     <navigationItem key="navigationItem" id="hHR-zk-ele"/>
                     <connections>
                         <outlet property="locationsShownButton" destination="3tb-ud-2jw" id="TRb-by-RdQ"/>
@@ -184,6 +185,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Menu" id="nc0-eW-PQ3">
                         <barButtonItem key="leftBarButtonItem" title="Admin" id="WJy-MX-BIq">
+=======
+                    <navigationItem key="navigationItem" id="hHR-zk-ele">
+                        <barButtonItem key="leftBarButtonItem" image="Filter" id="hIf-zE-QrC">
+>>>>>>> 81465b6cbbfd53a41891da400e4c3ec14282fb34
                             <connections>
                                 <action selector="filterButtonPressed" destination="poS-Zl-lNF" id="Pt6-aP-3cK"/>
                             </connections>
@@ -1480,6 +1485,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Q6-og-JYs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="-1103" y="-1236"/>
         </scene>
         <!--Locations Navigation Controller-->
@@ -1516,6 +1522,7 @@ Christian Villa – Computer Science Major    </string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Kw-zE-DjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="-4414" y="-2603"/>
         </scene>
         <!--Edit Profile Table View Controller-->
