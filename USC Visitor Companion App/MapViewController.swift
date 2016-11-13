@@ -428,6 +428,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         let infoWindow = Bundle.main.loadNibNamed("InfoWindow", owner: self, options: nil)?.first! as! InfoWindow
         infoWindow.locationNameLabel.text = marker.title
         infoWindow.descriptionLabel.text = marker.snippet
+        infoWindow.seeMoreButton.setTitle("See More", for: UIControlState.normal)
         return infoWindow
     }
     

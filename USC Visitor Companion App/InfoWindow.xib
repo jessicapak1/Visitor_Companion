@@ -45,6 +45,7 @@
             <connections>
                 <outlet property="descriptionLabel" destination="mT9-Gk-pD3" id="5Bk-ke-NHU"/>
                 <outlet property="locationNameLabel" destination="da8-gH-uh0" id="ehe-e7-Ddr"/>
+                <outlet property="seeMoreButton" destination="bRO-vK-OYA" id="YJ8-gv-0Eu"/>
             </connections>
             <point key="canvasLocation" x="34" y="136.5"/>
         </view>
