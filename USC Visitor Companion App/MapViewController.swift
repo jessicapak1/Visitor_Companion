@@ -427,7 +427,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         let infoWindow = Bundle.main.loadNibNamed("InfoWindow", owner: self, options: nil)?.first! as! InfoWindow
         infoWindow.locationNameLabel.text = marker.title
-        infoWindow.userInfoLabel.text = "User location info will go here."
+        infoWindow.descriptionLabel.text = marker.snippet
         return infoWindow
     }
     
