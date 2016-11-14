@@ -39,7 +39,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         self.navigationController?.navigationBar.isTranslucent = true
 
         current = LocationData.shared.getLocation(withName: name)
-        
+        // call to populate self.photos which is an array of our FlickrPhoto objects that wrap the necessary info to form the NSURL (see FlickrPhoto.swift to understand this)
         populatePhotosArray(locationName: name)
     }
     
@@ -126,27 +126,13 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
                 }
             }
             DispatchQueue.main.async(execute: { () -> Void in
-//                self.title = searchText
-//                self.tableView.reloadData()
+                // This thread was initially used to change some basic data contained within the enclosing table. Ultimately this thread is probably completely unnecessary (obviously I've just used it in order to print out the results of our query)
                 
-                print("PHOTOS")
-                print("PHOTOS")
-                print("PHOTOS")
-                print("PHOTOS")
-                print("PHOTOS")
-                print("PHOTOS")
-                print("PHOTOS")
-                print("PHOTOS")
-                print("PHOTOS")
-                print("PHOTOS")
-                print("PHOTOS")
-                print("PHOTOS")
-                print("PHOTOS")
-                print("PHOTOS")
-                print("PHOTOS")
-                print("PHOTOS")
-                print("PHOTOS")
+                print("\n")
+                print("Raw photo data acquired through the FlickrProvider: ")
+                print("\n")
                 print(self.photos)
+                print("\n")
             })
         })
     }
