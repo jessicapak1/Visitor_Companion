@@ -62,9 +62,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     
     // MARK: IBOutlets
-    @IBOutlet weak var filterButton: ShadowButton! {
+    @IBOutlet weak var filterButton: UIButton! {
         didSet {
-            self.filterButton.addShadow()
+            self.filterButton.layer.shadowColor = UIColor.gray.cgColor
+            self.filterButton.layer.shadowOffset = CGSize(width: -1.0, height: 1.5)
+            self.filterButton.layer.shadowOpacity = 1.0
+            self.filterButton.layer.shadowRadius = 2.0
         }
     }
     
@@ -210,7 +213,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         // animate the map view to the specified location
         let coordinate = location.location?.coordinate
         if let coordinate = coordinate {
-            self.mapView.animate(toZoom: 20.0)
+            self.mapView.animate(toZoom: 18.0)
             self.mapView.animate(toLocation: coordinate)
         }
     }

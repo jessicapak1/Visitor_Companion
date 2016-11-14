@@ -106,7 +106,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9y-xd-oi6" customClass="ShadowButton" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
-                                <rect key="frame" x="179.5" y="0.0" width="195.5" height="44"/>
+                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="44"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="hl4-0y-cnX"/>
@@ -119,8 +119,8 @@
                                     <action selector="searchButtonPressed" destination="poS-Zl-lNF" eventType="touchUpInside" id="A0a-Ht-lk2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btO-Xg-bPH" customClass="ShadowButton" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="179.5" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btO-Xg-bPH">
+                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="44"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ReT-i7-tt3"/>
@@ -138,10 +138,10 @@
                         <constraints>
                             <constraint firstItem="MY9-Id-f3I" firstAttribute="top" secondItem="btO-Xg-bPH" secondAttribute="bottom" id="0UZ-09-26o"/>
                             <constraint firstItem="KUn-Jv-W2F" firstAttribute="top" secondItem="A9y-xd-oi6" secondAttribute="bottom" id="2XA-0s-v7F"/>
+                            <constraint firstItem="A9y-xd-oi6" firstAttribute="width" secondItem="btO-Xg-bPH" secondAttribute="width" id="4WI-nt-aBr"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="KUn-Jv-W2F" secondAttribute="bottom" id="6je-Q7-veX"/>
                             <constraint firstItem="RRO-zQ-iy9" firstAttribute="top" secondItem="A9y-xd-oi6" secondAttribute="bottom" id="75L-SK-OV7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="A9y-xd-oi6" secondAttribute="trailing" constant="-16" id="7HL-U2-aUV"/>
-                            <constraint firstItem="A9y-xd-oi6" firstAttribute="width" secondItem="btO-Xg-bPH" secondAttribute="width" constant="16.5" id="A0w-u0-2Fe"/>
                             <constraint firstItem="btO-Xg-bPH" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" id="AIt-Mb-jJm"/>
                             <constraint firstItem="KUn-Jv-W2F" firstAttribute="width" secondItem="dcw-gV-0jA" secondAttribute="width" id="BVZ-Vf-K2a"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="dcw-gV-0jA" secondAttribute="bottom" id="Cth-uS-aO4"/>
