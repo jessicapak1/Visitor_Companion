@@ -19,6 +19,7 @@
 		4ED64E711DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED64E701DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift */; };
 		4EE470D21DD97F7C00AFA6B1 /* PhotosCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE470D11DD97F7C00AFA6B1 /* PhotosCellView.xib */; };
 		4EE470D41DD9806F00AFA6B1 /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE470D31DD9806F00AFA6B1 /* PhotosCell.swift */; };
+		4EE470D71DD9941F00AFA6B1 /* AnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE470D61DD9941F00AFA6B1 /* AnnotationViewController.swift */; };
 		755993EE1D98D5EC0090717C /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755993ED1D98D5EC0090717C /* ForgotPasswordViewController.swift */; };
 		758F446C1DB2D3EC00138EB6 /* ChangePasswordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758F446B1DB2D3EC00138EB6 /* ChangePasswordTableViewController.swift */; };
 		75CDBD0A1DA1B9B300AC0E1C /* AdminTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CDBD091DA1B9B300AC0E1C /* AdminTableViewController.swift */; };
@@ -99,6 +100,7 @@
 		4ED64E701DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminSegmentedViewControoler.swift; sourceTree = "<group>"; };
 		4EE470D11DD97F7C00AFA6B1 /* PhotosCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotosCellView.xib; sourceTree = "<group>"; };
 		4EE470D31DD9806F00AFA6B1 /* PhotosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
+		4EE470D61DD9941F00AFA6B1 /* AnnotationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewController.swift; sourceTree = "<group>"; };
 		755993ED1D98D5EC0090717C /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		758F446B1DB2D3EC00138EB6 /* ChangePasswordTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordTableViewController.swift; sourceTree = "<group>"; };
 		75CDBD091DA1B9B300AC0E1C /* AdminTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminTableViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,14 @@
 				F76203F56CA56F4183C9D94C /* Pods_USC_Visitor_Companion_AppUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4EE470D51DD993AC00AFA6B1 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				4EE470D61DD9941F00AFA6B1 /* AnnotationViewController.swift */,
+			);
+			name = Tutorial;
 			sourceTree = "<group>";
 		};
 		75F7E5FB1DD11CA900CC8867 /* Resources */ = {
@@ -361,6 +371,7 @@
 		AAD38BBC1D972E23004DD648 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4EE470D51DD993AC00AFA6B1 /* Tutorial */,
 				AA272A651DCBD8B00020746C /* Map Controllers */,
 				AA272A661DCBD8CE0020746C /* Menu Controllers */,
 				AA272A681DCBD91C0020746C /* Settings Controllers */,
@@ -731,6 +742,7 @@
 				AA536C4B1DB4822E009A608A /* MenuLoginTableViewCell.swift in Sources */,
 				AAF9A9EF1D9B457F00CB57AF /* Location.swift in Sources */,
 				4EA0B4231DD65DF6008EBD7F /* TitleCell.swift in Sources */,
+				4EE470D71DD9941F00AFA6B1 /* AnnotationViewController.swift in Sources */,
 				AA06C9071DA18CCD00B753CF /* MenuViewController.swift in Sources */,
 				75CDBD0A1DA1B9B300AC0E1C /* AdminTableViewController.swift in Sources */,
 				AA14ECCD1DCC41670086BC57 /* SignUpInfoViewController.swift in Sources */,

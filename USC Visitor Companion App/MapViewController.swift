@@ -113,7 +113,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             print("App launched first time")
         }
          */
-        
+    
     }
     
     
@@ -466,6 +466,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         if let currentLocation = self.mapView.myLocation {
             self.mapView.animate(toLocation: currentLocation.coordinate)
         }
+        let tutorialViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Annotation") as! AnnotationViewController
+        tutorialViewController.alpha = 0.5
+        present(tutorialViewController, animated: true, completion: nil)
     }
     
     @IBAction func filterButtonPressed() {
