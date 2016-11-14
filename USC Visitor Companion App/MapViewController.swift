@@ -13,6 +13,7 @@ import BubbleTransition
 import CoreLocation
 import BetterSegmentedControl
 import ImageIO
+import MapKit
 
 protocol MapViewDelegates {
     func userDidSaveMap(newLocation: CLLocation)
@@ -421,14 +422,16 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         }
         else{
             currentMarker = marker
-            self.performSegue(withIdentifier: "Show Location", sender: self)
+            openMapWithDirections(location: marker.position, name: marker.title!)
+            //self.performSegue(withIdentifier: "Show Location", sender: self)
         }
     }
     
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         let infoWindow = Bundle.main.loadNibNamed("InfoWindow", owner: self, options: nil)?.first! as! InfoWindow
         infoWindow.locationNameLabel.text = marker.title
-        infoWindow.userInfoLabel.text = "User location info will go here."
+        infoWindow.descriptionLabel.text = marker.snippet
+        infoWindow.seeMoreButton.setTitle("See More", for: UIControlState.normal)
         return infoWindow
     }
     
@@ -445,6 +448,20 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         self.hideFilters()
+    }
+    
+    func openMapWithDirections(location: CLLocationCoordinate2D, name: String){
+        let regionDistance:CLLocationDistance = 100
+        let coordinates = CLLocationCoordinate2DMake(location.latitude, location.longitude)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = name
+        mapItem.openInMaps(launchOptions: options)
     }
     
     
