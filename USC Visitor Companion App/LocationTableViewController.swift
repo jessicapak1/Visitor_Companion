@@ -29,6 +29,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     //let mainImage = UIImageViewModeScaleAspect(frame: CGRect(x: 0, y: 0, width: 375, height: 170))
     var name : String = ""
     var current : Location? = nil
+    var photos: [FlickrPhoto] = []
     
     //make navbar transparent
     override func viewWillAppear(_ animated: Bool) {
@@ -38,7 +39,8 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         self.navigationController?.navigationBar.isTranslucent = true
 
         current = LocationData.shared.getLocation(withName: name)
-
+        
+        populatePhotosArray(locationName: name)
     }
     
     override func viewDidLoad() {
@@ -61,7 +63,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        //descriptioin
+        //description
         if indexPath.row == 4 { // interests
             return 100
         } else if indexPath.row == 5 { // video
@@ -108,6 +110,54 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             return cell
         }
     }
+    
+    private func populatePhotosArray(locationName: String) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        FlickrProvider.fetchPhotosForLocationName(locationName: locationName, onCompletion: { (error: NSError?, flickrPhotos: [FlickrPhoto]?) -> Void in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            if error == nil {
+                self.photos = flickrPhotos!
+            } else {
+                self.photos = []
+                if (error!.code == FlickrProvider.Errors.invalidAccessErrorCode) {
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        self.showErrorAlert()
+                    })
+                }
+            }
+            DispatchQueue.main.async(execute: { () -> Void in
+//                self.title = searchText
+//                self.tableView.reloadData()
+                
+                print("PHOTOS")
+                print("PHOTOS")
+                print("PHOTOS")
+                print("PHOTOS")
+                print("PHOTOS")
+                print("PHOTOS")
+                print("PHOTOS")
+                print("PHOTOS")
+                print("PHOTOS")
+                print("PHOTOS")
+                print("PHOTOS")
+                print("PHOTOS")
+                print("PHOTOS")
+                print("PHOTOS")
+                print("PHOTOS")
+                print("PHOTOS")
+                print("PHOTOS")
+                print(self.photos)
+            })
+        })
+    }
+    
+    private func showErrorAlert() {
+        let alertController = UIAlertController(title: "Search Error", message: "Invalid API Key", preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alertController.addAction(dismissAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+
     
     //NAVIGATION BAR ITEMS CODE
     

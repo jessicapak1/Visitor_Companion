@@ -22,7 +22,7 @@ class FlickrProvider {
     
     class func fetchPhotosForLocationName(locationName: String, onCompletion: @escaping FlickrResponse) -> Void {
         let escapedSearchText: String = locationName.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
-        let urlString: String = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(Keys.flickrKey)&tags=\(escapedSearchText)&per_page=25&format=json&nojsoncallback=1"
+        let urlString: String = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(Keys.flickrKey)&text=\(escapedSearchText)&sort=relevance&per_page=25&format=json&nojsoncallback=1"
         let url: NSURL = NSURL(string: urlString)!
         let searchTask = URLSession.shared.dataTask(with: url as URL, completionHandler: {data, response, error -> Void in
             
