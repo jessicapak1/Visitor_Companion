@@ -12,6 +12,7 @@ import Parse
 import BubbleTransition
 import CoreLocation
 import BetterSegmentedControl
+import ImageIO
 
 protocol MapViewDelegates {
     func userDidSaveMap(newLocation: CLLocation)

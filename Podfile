@@ -13,6 +13,7 @@ target 'USC Visitor Companion App' do
   pod 'FacebookLogin'
   pod 'FacebookShare'
   pod 'TextFieldEffects'
+  pod 'SDWebImage', '~>3.8'
 
   target 'USC Visitor Companion AppTests' do
     inherit! :search_paths

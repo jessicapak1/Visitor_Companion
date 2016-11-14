@@ -35,6 +35,9 @@ PODS:
     - GoogleMaps/Base (= 2.1.1)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - TextFieldEffects (1.3.0)
 
 DEPENDENCIES:
@@ -46,6 +49,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - Parse
+  - SDWebImage (~> 3.8)
   - TextFieldEffects
 
 SPEC CHECKSUMS:
@@ -61,8 +65,9 @@ SPEC CHECKSUMS:
   GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
   GooglePlaces: 35636d86e5020cba3856eb988c09a5491de0a65a
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   TextFieldEffects: ef594746f17997c813e07633f8ae5acaf9b04f27
 
-PODFILE CHECKSUM: 5698cca93eafdde09801aa475f56e00f275ecc97
+PODFILE CHECKSUM: ceead99002f6db81ee9a85125ea5cdb4fc2245ad
 
 COCOAPODS: 1.0.1
