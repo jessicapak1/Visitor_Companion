@@ -100,7 +100,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.addFilters()
         self.addSearch()
         self.showMap()
-        self.showUSC()
         self.showMarkers(forLocations: LocationData.shared.locations)
     }
     
@@ -112,24 +111,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.configureLocationManager()
         
         // configure the map view
-        let camera = GMSCameraPosition.camera(withLatitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 17.0, bearing: 30, viewingAngle: 0)
+        let camera = GMSCameraPosition.camera(withLatitude: 34.021776, longitude: -118.286342, zoom: 15.2, bearing: 30, viewingAngle: 0)
         self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         self.mapView.mapStyle = try? GMSMapStyle(jsonString: self.customMapStyle)
         self.view.insertSubview(self.mapView, at: 0)
-        
-    }
-    
-    func showUSC(){
-        
-        let usc = GMSCoordinateBounds(coordinate: CLLocationCoordinate2D(latitude: 34.017707, longitude: -118.292653), coordinate: CLLocationCoordinate2D(latitude: 34.033343, longitude: -118.275356))
-        if !usc.contains((locationManager.location?.coordinate)!) {
-            let alert = UIAlertController(title: "Not at USC", message: "It looks like you are not near USC. Would you like to see USC's campus?", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler:{ action in
-                self.mapView.animate(toLocation: CLLocationCoordinate2D(latitude: 34.021776, longitude: -118.286342))
-                self.mapView.animate(toZoom: 15.2)
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler:nil))
-            self.present(alert, animated: true, completion: nil)        }
         
     }
     
@@ -221,18 +206,45 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // change the colors of markers near the location of the user
-        let userLocation = locations[0]
+        
+        if let location = locations.first {
+            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 17, bearing: 0, viewingAngle: 0)
+            
+            showUSC(userLocation: location.coordinate)
+            
+            locationManager.stopUpdatingLocation()
+        }
+        
+        
+        let userLocation = locations.last
         let maxDistance = CLLocationDistance(30)
+        /*
         for location in LocationData.shared.locations {
-            let distance = userLocation.distance(from: location.location!)
+            let distance = userLocation?.distance(from: location.location!)
             if distance < maxDistance {
                 self.markers[location.name!]?.iconView?.tintColor = UIColor.blue
             } else {
                 self.markers[location.name!]?.iconView?.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
             }
         }
+ */
     }
     
+    func showUSC(userLocation: CLLocationCoordinate2D){
+        
+        let usc = GMSCoordinateBounds(coordinate: CLLocationCoordinate2D(latitude: 34.017707, longitude: -118.292653), coordinate: CLLocationCoordinate2D(latitude: 34.033343, longitude: -118.275356))
+        if !usc.contains(userLocation) {
+            let alert = UIAlertController(title: "Not at USC", message: "It looks like you are not near USC. Would you like to see USC's campus?", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler:{ action in
+                self.mapView.animate(toLocation: CLLocationCoordinate2D(latitude: 34.021776, longitude: -118.286342))
+                self.mapView.animate(toZoom: 15.2)
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler:nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    
+        
+    }
     
     // MARK: Search Methods
     func addSearch() {
