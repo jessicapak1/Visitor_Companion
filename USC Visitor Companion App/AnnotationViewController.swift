@@ -31,10 +31,10 @@ class AnnotationViewController: SpotlightViewController {
             spotlightView.appear(Spotlight.Oval(center: CGPoint(x: screenSize.width - 27, y: 42), diameter: 50))
         case 1:
             //filter
-            spotlightView.move(Spotlight.Oval(center: CGPoint(x: 30, y: 42), diameter: 50), moveType: .disappear)
+            spotlightView.move(Spotlight.RoundedRect(center: CGPoint(x: screenSize.width / 4, y: 86), size: CGSize(width: screenSize.width/2, height: 48), cornerRadius: 6), moveType: .disappear)
         case 2:
             //search bar
-            spotlightView.move(Spotlight.RoundedRect(center: CGPoint(x: screenSize.width / 2, y: 86), size: CGSize(width: screenSize.width, height: 48), cornerRadius: 6), moveType: .disappear)
+            spotlightView.move(Spotlight.RoundedRect(center: CGPoint(x: (screenSize.width/2)+(screenSize.width/4), y: 86), size: CGSize(width: screenSize.width/2, height: 48), cornerRadius: 6), moveType: .disappear)
         case 3:
             //current location button
             spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width - 47, y: screenSize.height - 47), diameter: 76), moveType: .disappear)

@@ -1770,7 +1770,7 @@ Christian Villa – Computer Science Major    </string>
                                     <constraint firstAttribute="height" constant="126" id="2R3-hT-BSO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="44"/>
-                                <color key="textColor" red="1" green="0.77681993130000004" blue="0.001346542883" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap here to access app settings." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1L-gJ-KZp" userLabel="SettingsLabel">
