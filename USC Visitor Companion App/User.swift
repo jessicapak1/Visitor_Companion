@@ -44,7 +44,7 @@ class User: NSObject {
     
     var email: String? { willSet { User.current.update(value: newValue, forKey: UserKey.email.rawValue) } }
     
-    var interest: String? { willSet { User.current.update(value: newValue, forKey: UserKey.interest.rawValue) } }
+    var interest: String?
     
     var type: UserType = .none { willSet { User.current.update(value: newValue.rawValue, forKey: UserKey.type.rawValue) } }
     
