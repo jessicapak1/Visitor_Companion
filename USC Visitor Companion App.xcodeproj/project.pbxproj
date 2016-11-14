@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		300729771DAC08D600D39C80 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300729761DAC08D600D39C80 /* CoreLocation.framework */; };
 		304290C51DA2074A00354AF9 /* InterestsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304290C41DA2074A00354AF9 /* InterestsData.swift */; };
+		3081AA481DDA39A500B74C59 /* FlickrProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081AA471DDA39A500B74C59 /* FlickrProvider.swift */; };
+		3081AA4A1DDA39E800B74C59 /* FlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081AA491DDA39E800B74C59 /* FlickrPhoto.swift */; };
 		30D289A51DC00925003D578C /* InfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D289A41DC00925003D578C /* InfoWindow.xib */; };
 		30D289A71DC00974003D578C /* InfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D289A61DC00974003D578C /* InfoWindow.swift */; };
 		4B1C25F0B5A8148675F75AA0 /* Pods_USC_Visitor_Companion_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */; };
@@ -87,6 +89,8 @@
 		19CDA2698EBF75BEA9EEC20F /* Pods-USC Visitor Companion AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USC Visitor Companion AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-USC Visitor Companion AppUITests/Pods-USC Visitor Companion AppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		300729761DAC08D600D39C80 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		304290C41DA2074A00354AF9 /* InterestsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsData.swift; sourceTree = "<group>"; };
+		3081AA471DDA39A500B74C59 /* FlickrProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrProvider.swift; sourceTree = "<group>"; };
+		3081AA491DDA39E800B74C59 /* FlickrPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrPhoto.swift; sourceTree = "<group>"; };
 		30D289A41DC00925003D578C /* InfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoWindow.xib; sourceTree = "<group>"; };
 		30D289A61DC00974003D578C /* InfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoWindow.swift; sourceTree = "<group>"; };
 		44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USC_Visitor_Companion_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -336,6 +340,8 @@
 				AA38AD3E1D9C9F150067E1C9 /* Interest.swift */,
 				304290C41DA2074A00354AF9 /* InterestsData.swift */,
 				AAD38B8B1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld */,
+				3081AA471DDA39A500B74C59 /* FlickrProvider.swift */,
+				3081AA491DDA39E800B74C59 /* FlickrPhoto.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -721,6 +727,8 @@
 				AACDE2991DCACBAD00C9C625 /* LocationTableViewController.swift in Sources */,
 				AACDE2951DCACB8C00C9C625 /* DescriptionCell.swift in Sources */,
 				AA536C4B1DB4822E009A608A /* MenuLoginTableViewCell.swift in Sources */,
+				3081AA481DDA39A500B74C59 /* FlickrProvider.swift in Sources */,
+				3081AA4A1DDA39E800B74C59 /* FlickrPhoto.swift in Sources */,
 				AAF9A9EF1D9B457F00CB57AF /* Location.swift in Sources */,
 				4EA0B4231DD65DF6008EBD7F /* TitleCell.swift in Sources */,
 				AA06C9071DA18CCD00B753CF /* MenuViewController.swift in Sources */,
