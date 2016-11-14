@@ -267,6 +267,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             let navVC = segue.destination as! UINavigationController
             let locationVC = navVC.viewControllers.first as! LocationTableViewController
             locationVC.name = currentMarker.title!
+            let maxDistance = CLLocationDistance(30)
+            if (self.mapView.myLocation?.distance(from: CLLocation(latitude: currentMarker.position.latitude, longitude: currentMarker.position.longitude)))! < maxDistance {
+                locationVC.closeProximity = true
+            }
         }
         
         if fromAdmin! {
@@ -429,8 +433,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         }
         else{
             currentMarker = marker
-            openMapWithDirections(location: marker.position, name: marker.title!)
-            //self.performSegue(withIdentifier: "Show Location", sender: self)
+            self.performSegue(withIdentifier: "Show Location", sender: self)
         }
     }
     
@@ -456,21 +459,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         self.hideFilters()
     }
-    
-    func openMapWithDirections(location: CLLocationCoordinate2D, name: String){
-        let regionDistance:CLLocationDistance = 100
-        let coordinates = CLLocationCoordinate2DMake(location.latitude, location.longitude)
-        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-        ]
-        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = name
-        mapItem.openInMaps(launchOptions: options)
-    }
-    
+       
     
     // MARK: IBAction Methods
     @IBAction func currentLocationButtonPressed() {
