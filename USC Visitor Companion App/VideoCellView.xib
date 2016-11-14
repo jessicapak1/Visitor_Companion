@@ -12,37 +12,37 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="videoCellView" rowHeight="149" id="saT-pF-01z" customClass="VideoCell" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="videoCellView" rowHeight="200" id="saT-pF-01z" customClass="VideoCell" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="saT-pF-01z" id="474-GD-Wl4">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="148"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEt-bO-bhr">
-                        <rect key="frame" x="8" y="4" width="359" height="141"/>
+                        <rect key="frame" x="8" y="4" width="359" height="192"/>
                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="H3O-2V-b7B">
-                            <rect key="frame" x="0.0" y="0.0" width="359" height="141"/>
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="192"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </view>
                         <blurEffect style="extraLight"/>
                     </visualEffectView>
                     <view clipsSubviews="YES" alpha="0.94999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLf-X7-LpW">
-                        <rect key="frame" x="8" y="4" width="359" height="141"/>
+                        <rect key="frame" x="8" y="4" width="359" height="192"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KKD-39-mrU">
-                                <rect key="frame" x="0.0" y="0.0" width="359" height="26"/>
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="25"/>
                                 <subviews>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UBI-S2-Jys">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="26"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="25"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="X3x-CZ-Uk6">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="26"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="25"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                         <blurEffect style="light"/>
                                     </visualEffectView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYx-qt-tb2">
-                                        <rect key="frame" x="30" y="0.0" width="88" height="26"/>
+                                        <rect key="frame" x="30" y="0.0" width="88" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="88" id="Sz8-xh-1Ya"/>
                                         </constraints>
@@ -62,7 +62,7 @@
                                 </constraints>
                             </view>
                             <webView clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="OTh-6p-hMN">
-                                <rect key="frame" x="0.0" y="24" width="359" height="117"/>
+                                <rect key="frame" x="0.0" y="24" width="359" height="168"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
@@ -73,7 +73,7 @@
                             <constraint firstItem="OTh-6p-hMN" firstAttribute="top" secondItem="zLf-X7-LpW" secondAttribute="top" constant="24" id="9Ef-d9-c24"/>
                             <constraint firstAttribute="trailing" secondItem="KKD-39-mrU" secondAttribute="trailing" id="LiI-5y-7h9"/>
                             <constraint firstAttribute="bottom" secondItem="OTh-6p-hMN" secondAttribute="bottom" id="R3N-f8-T6g"/>
-                            <constraint firstAttribute="bottom" secondItem="KKD-39-mrU" secondAttribute="bottom" constant="115" id="djt-vl-Zzc"/>
+                            <constraint firstAttribute="bottom" secondItem="KKD-39-mrU" secondAttribute="bottom" constant="166.5" id="djt-vl-Zzc"/>
                             <constraint firstItem="KKD-39-mrU" firstAttribute="leading" secondItem="OTh-6p-hMN" secondAttribute="leading" id="fKZ-Tc-jyJ"/>
                             <constraint firstItem="KKD-39-mrU" firstAttribute="trailing" secondItem="OTh-6p-hMN" secondAttribute="trailing" id="qA3-CQ-AZT"/>
                             <constraint firstItem="KKD-39-mrU" firstAttribute="top" secondItem="zLf-X7-LpW" secondAttribute="top" id="qV2-Xm-aO2"/>
@@ -98,7 +98,7 @@
                 <outlet property="myBlurView" destination="uEt-bO-bhr" id="IkJ-pw-5Ff"/>
                 <outlet property="webView" destination="OTh-6p-hMN" id="4F1-Hg-S4I"/>
             </connections>
-            <point key="canvasLocation" x="11.5" y="99.5"/>
+            <point key="canvasLocation" x="11.5" y="125"/>
         </tableViewCell>
     </objects>
 </document>

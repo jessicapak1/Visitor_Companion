@@ -117,6 +117,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         }
     }
     
+    @IBOutlet weak var settingsButtonItem: UIBarButtonItem!
     
     // MARK: View Controller Methods
     override func viewDidLoad() {
@@ -127,6 +128,19 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.addSearch()
         self.showMap()
         self.showMarkers(forLocations: LocationData.shared.locations)
+        
+        /*
+        // MARK: tutorial code goes here
+        let defaults = UserDefaults.standard
+        if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
+            print("App already launched : \(isAppAlreadyLaunchedOnce)")
+            
+        }else{
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+        }
+         */
+    
     }
     
     
@@ -502,6 +516,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         if let currentLocation = self.mapView.myLocation {
             self.mapView.animate(toLocation: currentLocation.coordinate)
         }
+        let tutorialViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Annotation") as! AnnotationViewController
+        tutorialViewController.alpha = 0.5
+        present(tutorialViewController, animated: true, completion: nil)
     }
     
     @IBAction func filterButtonPressed() {
