@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search USC" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGk-MM-YB2">
+                            <searchBar contentMode="redraw" placeholder="Search USC" showsCancelButton="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGk-MM-YB2">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -39,37 +39,36 @@
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRO-zQ-iy9">
+                                <rect key="frame" x="0.0" y="44" width="375" height="559"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.50471895973154357" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="shadowButtonPressed" destination="poS-Zl-lNF" eventType="touchUpInside" id="xGo-fi-xFD"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MY9-Id-f3I">
                                 <rect key="frame" x="0.0" y="44" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goZ-18-kmO" userLabel="Current Location Button">
-                                <rect key="frame" x="306" y="534" width="45" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="GHJ-Eb-9S6"/>
-                                    <constraint firstAttribute="height" constant="45" id="Ynt-mC-cqL"/>
-                                </constraints>
-                                <state key="normal" image="CurrentLocationInactive"/>
-                                <connections>
-                                    <action selector="currentLocationButtonPressed" destination="poS-Zl-lNF" eventType="touchUpInside" id="hpb-zg-4mp"/>
-                                </connections>
-                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUn-Jv-W2F">
+                                <rect key="frame" x="187.5" y="44" width="187.5" height="559"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dcw-gV-0jA">
-                                <rect key="frame" x="-175" y="44" width="175" height="559"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90443582214765095" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="Hj1-qQ-iTM"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="44" width="187.5" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Filter Cell" textLabel="z32-zS-Fnb" style="IBUITableViewCellStyleDefault" id="4hc-79-xIy">
-                                        <rect key="frame" x="0.0" y="28" width="175" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="187.5" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4hc-79-xIy" id="jDC-dS-hyI">
-                                            <rect key="frame" x="0.0" y="0.0" width="175" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z32-zS-Fnb">
-                                                    <rect key="frame" x="15" y="0.0" width="145" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="157.5" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -82,29 +81,97 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goZ-18-kmO" userLabel="Current Location Button" customClass="ShadowButton" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
+                                <rect key="frame" x="306" y="534" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="GHJ-Eb-9S6"/>
+                                    <constraint firstAttribute="height" constant="45" id="Ynt-mC-cqL"/>
+                                </constraints>
+                                <state key="normal" image="CurrentLocationInactive"/>
+                                <connections>
+                                    <action selector="currentLocationButtonPressed" destination="poS-Zl-lNF" eventType="touchUpInside" id="hpb-zg-4mp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iY-tG-yWv" userLabel="USC Campus Button" customClass="ShadowButton" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
+                                <rect key="frame" x="306" y="465" width="45" height="45"/>
+                                <color key="backgroundColor" red="0.60050636529922485" green="0.071020282804965973" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="HvZ-zT-hgK"/>
+                                    <constraint firstAttribute="height" constant="45" id="T8L-1E-UC1"/>
+                                </constraints>
+                                <state key="normal" title="USC">
+                                    <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="campusLocationButtonPressed" destination="poS-Zl-lNF" eventType="touchUpInside" id="Z3p-F4-ZNY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9y-xd-oi6" customClass="ShadowButton" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
+                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="44"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="hl4-0y-cnX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchButtonPressed" destination="poS-Zl-lNF" eventType="touchUpInside" id="A0a-Ht-lk2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btO-Xg-bPH">
+                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="44"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ReT-i7-tt3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Filter">
+                                    <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="filterButtonPressed" destination="poS-Zl-lNF" eventType="touchUpInside" id="N9t-cj-QUO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="MY9-Id-f3I" firstAttribute="top" secondItem="btO-Xg-bPH" secondAttribute="bottom" id="0UZ-09-26o"/>
+                            <constraint firstItem="KUn-Jv-W2F" firstAttribute="top" secondItem="A9y-xd-oi6" secondAttribute="bottom" id="2XA-0s-v7F"/>
+                            <constraint firstItem="A9y-xd-oi6" firstAttribute="width" secondItem="btO-Xg-bPH" secondAttribute="width" id="4WI-nt-aBr"/>
+                            <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="KUn-Jv-W2F" secondAttribute="bottom" id="6je-Q7-veX"/>
+                            <constraint firstItem="RRO-zQ-iy9" firstAttribute="top" secondItem="A9y-xd-oi6" secondAttribute="bottom" id="75L-SK-OV7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="A9y-xd-oi6" secondAttribute="trailing" constant="-16" id="7HL-U2-aUV"/>
+                            <constraint firstItem="btO-Xg-bPH" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" id="AIt-Mb-jJm"/>
+                            <constraint firstItem="KUn-Jv-W2F" firstAttribute="width" secondItem="dcw-gV-0jA" secondAttribute="width" id="BVZ-Vf-K2a"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="dcw-gV-0jA" secondAttribute="bottom" id="Cth-uS-aO4"/>
+                            <constraint firstItem="8iY-tG-yWv" firstAttribute="trailing" secondItem="5EB-oA-TVt" secondAttribute="trailingMargin" constant="-8" id="Ffz-WT-zr5"/>
                             <constraint firstItem="dcw-gV-0jA" firstAttribute="top" secondItem="dGk-MM-YB2" secondAttribute="bottom" id="FqY-jw-6Hf"/>
                             <constraint firstItem="MY9-Id-f3I" firstAttribute="top" secondItem="dGk-MM-YB2" secondAttribute="bottom" id="HyC-Ev-o58"/>
                             <constraint firstItem="MY9-Id-f3I" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="KCw-MF-aKB"/>
+                            <constraint firstItem="A9y-xd-oi6" firstAttribute="leading" secondItem="btO-Xg-bPH" secondAttribute="trailing" id="Mng-9B-7SW"/>
                             <constraint firstAttribute="trailing" secondItem="dGk-MM-YB2" secondAttribute="trailing" id="NOY-lk-wyS"/>
+                            <constraint firstItem="goZ-18-kmO" firstAttribute="top" secondItem="8iY-tG-yWv" secondAttribute="bottom" constant="24" id="OD4-Fy-ure"/>
                             <constraint firstItem="dGk-MM-YB2" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="Zun-Xi-NOA"/>
                             <constraint firstItem="dGk-MM-YB2" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" id="aJ2-vG-OIk"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="MY9-Id-f3I" secondAttribute="bottom" id="dOI-sI-dlV"/>
-                            <constraint firstItem="dcw-gV-0jA" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" constant="-175" id="sAs-Ro-Fg4"/>
+                            <constraint firstItem="A9y-xd-oi6" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" id="dmH-HK-oGD"/>
+                            <constraint firstItem="btO-Xg-bPH" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leadingMargin" constant="-16" id="dyT-4F-nC2"/>
+                            <constraint firstItem="dcw-gV-0jA" firstAttribute="width" secondItem="btO-Xg-bPH" secondAttribute="width" id="e52-HR-9v8"/>
+                            <constraint firstItem="KUn-Jv-W2F" firstAttribute="leading" secondItem="dcw-gV-0jA" secondAttribute="trailing" id="eX4-7a-M1w"/>
+                            <constraint firstAttribute="trailing" secondItem="KUn-Jv-W2F" secondAttribute="trailing" id="imU-ij-DLB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RRO-zQ-iy9" secondAttribute="trailing" constant="-16" id="ntp-rY-3ak"/>
+                            <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="RRO-zQ-iy9" secondAttribute="bottom" id="s0i-6h-5VY"/>
+                            <constraint firstItem="dcw-gV-0jA" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="sAs-Ro-Fg4"/>
                             <constraint firstAttribute="trailing" secondItem="MY9-Id-f3I" secondAttribute="trailing" id="seG-oE-cSm"/>
+                            <constraint firstItem="RRO-zQ-iy9" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leadingMargin" constant="-16" id="vqy-6v-GZd"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="goZ-18-kmO" secondAttribute="bottom" constant="24" id="xT6-JA-UkP"/>
                             <constraint firstItem="goZ-18-kmO" firstAttribute="trailing" secondItem="5EB-oA-TVt" secondAttribute="trailingMargin" constant="-8" id="yY9-rd-Jzn"/>
+                            <constraint firstItem="MY9-Id-f3I" firstAttribute="top" secondItem="A9y-xd-oi6" secondAttribute="bottom" id="yat-fN-Sds"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hHR-zk-ele">
-                        <barButtonItem key="leftBarButtonItem" image="Filter" id="hIf-zE-QrC">
-                            <connections>
-                                <action selector="filterButtonPressed" destination="poS-Zl-lNF" id="Pt6-aP-3cK"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Gear" id="WkI-2Q-sDW">
                             <connections>
                                 <segue destination="dDA-Be-9Lo" kind="presentation" identifier="Show Settings" id="4XP-yo-FOi"/>
@@ -112,11 +179,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="campusLocationButton" destination="8iY-tG-yWv" id="CGH-xr-6FN"/>
                         <outlet property="currentLocationButton" destination="goZ-18-kmO" id="H4R-Qa-TDx"/>
+                        <outlet property="filterButton" destination="btO-Xg-bPH" id="rT8-5g-UJk"/>
                         <outlet property="filterTableView" destination="dcw-gV-0jA" id="xlw-N9-3ty"/>
                         <outlet property="searchBar" destination="dGk-MM-YB2" id="P7P-vV-Waa"/>
+                        <outlet property="searchButton" destination="A9y-xd-oi6" id="aCw-V6-15C"/>
                         <outlet property="searchTableView" destination="MY9-Id-f3I" id="0Vm-ht-vK1"/>
-                        <outlet property="settingsButtonItem" destination="WkI-2Q-sDW" id="aus-KL-7h7"/>
+                        <outlet property="shadowButton" destination="RRO-zQ-iy9" id="e92-zt-1Uy"/>
                         <segue destination="nEF-nh-8vb" kind="presentation" identifier="Show Location" id="HBg-eV-00v"/>
                     </connections>
                 </viewController>
@@ -680,14 +750,14 @@
                             <tableViewSection headerTitle="Account" id="MBk-Vq-tjR">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="M1e-rG-DFc" style="IBUITableViewCellStyleDefault" id="n0a-Oz-Cdr">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n0a-Oz-Cdr" id="OAi-hM-PHJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Edit Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M1e-rG-DFc">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -697,14 +767,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="l9o-kz-GZ8" style="IBUITableViewCellStyleDefault" id="kgR-2B-dXA">
-                                        <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kgR-2B-dXA" id="b83-Tq-4fg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Connect with Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l9o-kz-GZ8">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -714,14 +784,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="bEY-wQ-fZd" style="IBUITableViewCellStyleDefault" id="9rt-BL-emj">
-                                        <rect key="frame" x="0.0" y="144" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9rt-BL-emj" id="sYr-Kv-pkT">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bEY-wQ-fZd">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -731,14 +801,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="yGa-Cs-t0Q" style="IBUITableViewCellStyleDefault" id="uDo-zK-6W7">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="187.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uDo-zK-6W7" id="Ppb-VV-Lpa">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yGa-Cs-t0Q">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -751,14 +821,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="UTh-R3-aiY" style="IBUITableViewCellStyleDefault" id="eQT-CL-HLA">
-                                        <rect key="frame" x="0.0" y="232" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="231.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eQT-CL-HLA" id="QvF-lL-bIk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UTh-R3-aiY">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -775,14 +845,14 @@
                             <tableViewSection headerTitle="About" id="kf2-vY-9CH">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="F3y-TS-Zkz" style="IBUITableViewCellStyleDefault" id="e0J-XG-LV9">
-                                        <rect key="frame" x="0.0" y="333" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="331.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e0J-XG-LV9" id="2je-gK-Gq4">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F3y-TS-Zkz">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -795,14 +865,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="OvF-1o-JM6" style="IBUITableViewCellStyleDefault" id="jrH-DQ-gn6">
-                                        <rect key="frame" x="0.0" y="377" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="375.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jrH-DQ-gn6" id="GqO-b8-nmn">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Terms and Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OvF-1o-JM6">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -812,14 +882,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="U7Y-yG-ISb" style="IBUITableViewCellStyleDefault" id="wqC-Yz-MDp">
-                                        <rect key="frame" x="0.0" y="421" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="419.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wqC-Yz-MDp" id="KQq-n8-YMb">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U7Y-yG-ISb">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -995,11 +1065,11 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KiE-lx-fsx" id="JhD-Px-cgi">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Interest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7td-Bg-tHM">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="National-Regular" family="National" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -1049,7 +1119,7 @@ Christian Villa – Computer Science Major    </string>
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5XM-sg-Ovs" id="F8g-0o-qeG">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1112,7 +1182,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jn6-lc-2bt" id="0MX-Qy-aex">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="czd-0b-yX0">
@@ -1133,7 +1203,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="50" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Si-Vy-JoI" id="TU2-uc-RbH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAT-ac-Bf4">
@@ -1154,7 +1224,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="100" width="375" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DR5-E5-cd8" id="Bu3-Qf-eml">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flf-iW-kac">
@@ -1182,11 +1252,11 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="199" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1eu-g6-ald" id="W4Q-eA-KWG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-8G-QNj">
-                                                    <rect key="frame" x="-7" y="0.0" width="375" height="149"/>
+                                                    <rect key="frame" x="-8.5" y="0.0" width="376" height="149"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 </pickerView>
                                             </subviews>
@@ -1196,7 +1266,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="349" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bsV-dh-ddc" id="hwU-Rl-hOH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter a description about the location" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dfy-B0-obq">
@@ -1226,7 +1296,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="499" width="375" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HKq-Kx-ff8" id="mIe-mE-9yb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZz-jz-UKT">
@@ -1316,7 +1386,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="44c-jO-FxW" id="65v-CS-xSA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1783,7 +1853,6 @@ Christian Villa – Computer Science Major    </string>
     </scenes>
     <resources>
         <image name="CurrentLocationInactive" width="45" height="45"/>
-        <image name="Filter" width="30" height="20"/>
         <image name="Gear" width="22" height="22"/>
         <image name="fadeBlackBar" width="375" height="30"/>
         <image name="shieldmono-white" width="300" height="100"/>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FacebookShare
 
 class LocationTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -115,18 +116,15 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction func directionsButtonPressed(_ sender: AnyObject) {
-        
-        //get direcitons and dismiss
+        let content = LinkShareContent(url: URL(string: "http://viterbi.usc.edu")!)
+        let shareDialog = ShareDialog(content: content)
+        shareDialog.mode = .web
+        shareDialog.failsOnInvalidData = true
+        shareDialog.completion =  {
+            result in
+            print("Shared to Facebook")
+        }
+        try? shareDialog.show()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

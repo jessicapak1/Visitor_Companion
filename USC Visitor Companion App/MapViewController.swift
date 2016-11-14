@@ -62,6 +62,21 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     
     // MARK: IBOutlets
+    @IBOutlet weak var filterButton: UIButton! {
+        didSet {
+            self.filterButton.layer.shadowColor = UIColor.gray.cgColor
+            self.filterButton.layer.shadowOffset = CGSize(width: -1.0, height: 1.5)
+            self.filterButton.layer.shadowOpacity = 1.0
+            self.filterButton.layer.shadowRadius = 2.0
+        }
+    }
+    
+    @IBOutlet weak var searchButton: ShadowButton! {
+        didSet {
+            self.searchButton.addShadow()
+        }
+    }
+    
     @IBOutlet weak var filterTableView: UITableView! {
         didSet {
             self.filterTableView.delegate = self
@@ -69,6 +84,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             self.filterTableView.tableFooterView = UIView(frame: .zero)
         }
     }
+    
+    @IBOutlet weak var shadowButton: UIButton!
     
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
@@ -88,7 +105,17 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         }
     }
     
-    @IBOutlet weak var currentLocationButton: UIButton!
+    @IBOutlet weak var campusLocationButton: ShadowButton! {
+        didSet {
+            self.campusLocationButton.addShadow()
+        }
+    }
+    
+    @IBOutlet weak var currentLocationButton: ShadowButton! {
+        didSet {
+            self.currentLocationButton.addShadow()
+        }
+    }
     
     @IBOutlet weak var settingsButtonItem: UIBarButtonItem!
     
@@ -120,7 +147,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     // MARK: Map View Methods
     func showMap() {
         // configure the map view
-        let camera = GMSCameraPosition.camera(withLatitude: 34.020496, longitude: -118.285317, zoom: 20.0, bearing: 30, viewingAngle: 90.0)
+        let camera = GMSCameraPosition.camera(withLatitude: 34.02114, longitude: -118.286031, zoom: 15.35)
         self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         self.mapView.mapStyle = try? GMSMapStyle(jsonString: self.customMapStyle)
         self.view.insertSubview(self.mapView, at: 0)
@@ -200,7 +227,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         // animate the map view to the specified location
         let coordinate = location.location?.coordinate
         if let coordinate = coordinate {
-            self.mapView.animate(toZoom: 20.0)
+            self.mapView.animate(toZoom: 18.0)
             self.mapView.animate(toLocation: coordinate)
         }
     }
@@ -242,25 +269,25 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     // MARK: Search Methods
     func addSearch() {
         self.searchTableView.isHidden = true
+        self.view.bringSubview(toFront: self.searchTableView)
     }
     
     func showSearchResults(forKeyword keyword: String) {
         self.hideFilters()
-        // show the search results table view
-        self.searchBar.showsCancelButton = true
+        
         self.searchTableView.isHidden = false
-        self.view.bringSubview(toFront: self.searchTableView)
-        // show the search results for the search text
+        self.searchBar.becomeFirstResponder()
+        self.view.bringSubview(toFront: self.searchBar)
+
         self.searchResults = LocationData.shared.locations(withKeyword: keyword)
         self.searchTableView.reloadData()
     }
     
     func hideSearchResults() {
-        // hide the search results table view
-        self.searchBar.resignFirstResponder()
-        self.searchBar.showsCancelButton = false
         self.searchTableView.isHidden = true
-        // reset the search text
+        self.searchBar.resignFirstResponder()
+        self.view.sendSubview(toBack: self.searchBar)
+        
         self.searchBar.text = ""
         self.searchTableView.reloadData()
     }
@@ -285,6 +312,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     // MARK: Filter Methods
     func addFilters() {
+        self.shadowButton.alpha = 0.0
+        self.shadowButton.isHidden = true
+        self.view.bringSubview(toFront: self.shadowButton)
+        
+        self.filterTableView.frame.origin.x -= self.view.frame.size.width / 2
+        self.filterTableView.isHidden = true
+        self.view.bringSubview(toFront: self.filterTableView)
+        
         if self.filters.count == 0 {
             InterestsData.shared.fetchInterests()
             self.filters = InterestsData.shared.interestNames()
@@ -293,16 +328,28 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     func showFilters() {
         self.hideSearchResults()
-        self.view.bringSubview(toFront: self.filterTableView)
-        UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseOut, animations: {
-            self.filterTableView.frame.origin.x += 175
+        
+        if self.filterTableView.frame.origin.x >= 0 {
+            self.filterTableView.frame.origin.x = -self.view.frame.size.width / 2
+        }
+        
+        self.filterTableView.isHidden = false
+        self.shadowButton.isHidden = false
+        UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseIn, animations: {
+            self.filterTableView.frame.origin.x += self.view.frame.size.width / 2
+            self.shadowButton.alpha = 1.0
         }, completion: nil)
     }
     
     func hideFilters() {
         UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseOut, animations: {
-            self.filterTableView.frame.origin.x -= 175
-        }, completion: nil)
+            self.filterTableView.frame.origin.x -= self.view.frame.size.width / 2
+            self.shadowButton.alpha = 0.0
+        }, completion: {
+            (succeeded) in
+            self.filterTableView.isHidden = true
+            self.shadowButton.isHidden = true
+        })
     }
     
     
@@ -335,6 +382,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         } else if tableView == self.filterTableView {
             let locations = InterestsData.shared.interest(withName: self.filters[indexPath.row])?.locations
             if let locations = locations {
+                self.campusLocationButtonPressed()
                 self.showMarkers(forLocations: locations)
             }
             User.current.interest = self.filters[indexPath.row]
@@ -456,12 +504,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         }
     }
     
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        self.hideFilters()
-    }
-    
     
     // MARK: IBAction Methods
+    @IBAction func campusLocationButtonPressed() {
+        let location = CLLocation(latitude: 34.02114, longitude: -118.286031)
+        self.mapView.animate(toLocation: location.coordinate)
+        self.mapView.animate(toZoom: 15.35)
+    }
+    
     @IBAction func currentLocationButtonPressed() {
         if let currentLocation = self.mapView.myLocation {
             self.mapView.animate(toLocation: currentLocation.coordinate)
@@ -472,12 +522,19 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     }
     
     @IBAction func filterButtonPressed() {
-        // show the filters if they are not visible on the screen
-        if self.filterTableView.frame.origin.x < 0 {
+        if self.filterTableView.isHidden {
             self.showFilters()
         } else {
             self.hideFilters()
         }
+    }
+    
+    @IBAction func searchButtonPressed() {
+        self.showSearchResults(forKeyword: self.searchBar.text!)
+    }
+    
+    @IBAction func shadowButtonPressed() {
+        self.hideFilters()
     }
 
 }
