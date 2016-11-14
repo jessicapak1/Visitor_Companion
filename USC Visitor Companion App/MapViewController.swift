@@ -62,6 +62,18 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     
     // MARK: IBOutlets
+    @IBOutlet weak var filterButton: ShadowButton! {
+        didSet {
+            self.filterButton.addShadow()
+        }
+    }
+    
+    @IBOutlet weak var searchButton: ShadowButton! {
+        didSet {
+            self.searchButton.addShadow()
+        }
+    }
+    
     @IBOutlet weak var filterTableView: UITableView! {
         didSet {
             self.filterTableView.delegate = self
@@ -90,7 +102,17 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         }
     }
     
-    @IBOutlet weak var currentLocationButton: UIButton!
+    @IBOutlet weak var campusLocationButton: ShadowButton! {
+        didSet {
+            self.campusLocationButton.addShadow()
+        }
+    }
+    
+    @IBOutlet weak var currentLocationButton: ShadowButton! {
+        didSet {
+            self.currentLocationButton.addShadow()
+        }
+    }
     
     
     // MARK: View Controller Methods
@@ -108,7 +130,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     // MARK: Map View Methods
     func showMap() {
         // configure the map view
-        let camera = GMSCameraPosition.camera(withLatitude: 34.020496, longitude: -118.285317, zoom: 20.0, bearing: 30, viewingAngle: 90.0)
+        let camera = GMSCameraPosition.camera(withLatitude: 34.02114, longitude: -118.286031, zoom: 15.35)
         self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         self.mapView.mapStyle = try? GMSMapStyle(jsonString: self.customMapStyle)
         self.view.insertSubview(self.mapView, at: 0)
@@ -343,6 +365,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         } else if tableView == self.filterTableView {
             let locations = InterestsData.shared.interest(withName: self.filters[indexPath.row])?.locations
             if let locations = locations {
+                self.campusLocationButtonPressed()
                 self.showMarkers(forLocations: locations)
             }
             User.current.interest = self.filters[indexPath.row]
@@ -466,6 +489,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     
     // MARK: IBAction Methods
+    @IBAction func campusLocationButtonPressed() {
+        let location = CLLocation(latitude: 34.02114, longitude: -118.286031)
+        self.mapView.animate(toLocation: location.coordinate)
+        self.mapView.animate(toZoom: 15.35)
+    }
+    
     @IBAction func currentLocationButtonPressed() {
         if let currentLocation = self.mapView.myLocation {
             self.mapView.animate(toLocation: currentLocation.coordinate)
