@@ -228,14 +228,16 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     // MARK: Search Methods
     func addSearch() {
         self.searchTableView.isHidden = true
+        self.searchBar.showsCancelButton = true
+        self.view.bringSubview(toFront: self.searchTableView)
     }
     
     func showSearchResults(forKeyword keyword: String) {
         self.hideFilters()
         // show the search results table view
-        self.searchBar.showsCancelButton = true
+        self.searchBar.becomeFirstResponder()
         self.searchTableView.isHidden = false
-        self.view.bringSubview(toFront: self.searchTableView)
+        self.view.bringSubview(toFront: self.searchBar)
         // show the search results for the search text
         self.searchResults = LocationData.shared.locations(withKeyword: keyword)
         self.searchTableView.reloadData()
@@ -244,8 +246,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     func hideSearchResults() {
         // hide the search results table view
         self.searchBar.resignFirstResponder()
-        self.searchBar.showsCancelButton = false
         self.searchTableView.isHidden = true
+        self.view.sendSubview(toBack: self.searchBar)
         // reset the search text
         self.searchBar.text = ""
         self.searchTableView.reloadData()
@@ -271,6 +273,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     // MARK: Filter Methods
     func addFilters() {
+        self.filterTableView.isHidden = true
         if self.filters.count == 0 {
             InterestsData.shared.fetchInterests()
             self.filters = InterestsData.shared.interestNames()
@@ -279,8 +282,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     func showFilters() {
         self.hideSearchResults()
-        self.view.bringSubview(toFront: self.filterTableView)
-        UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseOut, animations: {
+        self.filterTableView.isHidden = false
+        UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseIn, animations: {
             self.filterTableView.frame.origin.x += 175
         }, completion: nil)
     }
@@ -288,7 +291,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     func hideFilters() {
         UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseOut, animations: {
             self.filterTableView.frame.origin.x -= 175
-        }, completion: nil)
+        }, completion: {
+            (succeeded) in
+            self.filterTableView.isHidden = true
+        })
     }
     
     
@@ -456,11 +462,15 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     @IBAction func filterButtonPressed() {
         // show the filters if they are not visible on the screen
-        if self.filterTableView.frame.origin.x < 0 {
+        if self.filterTableView.isHidden {
             self.showFilters()
         } else {
             self.hideFilters()
         }
+    }
+    
+    @IBAction func searchButtonPressed() {
+        self.showSearchResults(forKeyword: self.searchBar.text!)
     }
 
 }
