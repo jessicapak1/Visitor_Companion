@@ -90,6 +90,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     @IBOutlet weak var currentLocationButton: UIButton!
     
+    @IBOutlet weak var settingsButtonItem: UIBarButtonItem!
     
     // MARK: View Controller Methods
     override func viewDidLoad() {
@@ -100,6 +101,19 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.addSearch()
         self.showMap()
         self.showMarkers(forLocations: LocationData.shared.locations)
+        
+        /*
+        // MARK: tutorial code goes here
+        let defaults = UserDefaults.standard
+        if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
+            print("App already launched : \(isAppAlreadyLaunchedOnce)")
+            
+        }else{
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+        }
+         */
+        
     }
     
     
