@@ -29,6 +29,38 @@ class Location: NSObject {
     
     var locType: String? { willSet {self.update(value: newValue, forKey: "locType") } }
     
+    var video: [String]? { willSet { self.update(value: newValue, forKey: "video") } }
+    
+    var image: UIImage? {
+        
+        var mainImage = UIImage()
+        do {
+            let imageFile = self.object?["image"] as! PFFile?
+            if (imageFile != nil) {
+                let data = try imageFile?.getData()
+                mainImage = UIImage(data: data!)!
+            } else {
+                return nil
+            }
+            //        imageFile?.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
+            //            let image = UIImage(data: imageData!)
+            //            if image != nil {
+            //                print("FOUND IMAGE")
+            //                mainImage = image!
+            //            } else {
+            //
+            //                print("DID NOT FIND IMAGE")
+            //            }
+            //
+            //        })
+        } catch {
+            
+            print ("Error: Problem acquiring location image from database (Location)")
+            return nil
+        }
+        return mainImage
+    }
+    
     
     // MARK: Constructor
     init(object: PFObject) {
@@ -41,6 +73,7 @@ class Location: NSObject {
         self.location = CLLocation(latitude: (coordinate?.latitude)!, longitude: (coordinate?.longitude)!)
         self.interests = object["interests"] as! [String]?
         self.locType = object["locType"] as! String?
+        self.video = object["video"] as! [String]?
     }
     
     
@@ -69,6 +102,8 @@ class Location: NSObject {
         self.object?.saveInBackground()
         
     }
+    
+
     
     // DO NOT CALL THIS FUNCTION. Only for use by LocationData
     func addInterestTags(interestNames: [String]) {
@@ -126,6 +161,7 @@ class Location: NSObject {
         self.object?.saveInBackground()
     }
     
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
     func changeName(newName: String) {
         self.name = newName
         

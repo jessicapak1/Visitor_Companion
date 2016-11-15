@@ -38,13 +38,21 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         self.navigationController?.navigationBar.isTranslucent = true
 
         current = LocationData.shared.getLocation(withName: name)
-
+        
+        DispatchQueue.main.async {
+            self.imageView.image = self.current?.image
+            if (self.imageView.image == nil) {
+                self.imageView.image = UIImage(named: "tommy_trojan_2")
+                print("Error: did not find image in database, loading default (LocationTableViewController)")
+            }
+            self.tableView.setNeedsDisplay()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        imageView.image = UIImage(named: "tommy_trojan_2")
+        
+        //imageView.image = UIImage(named: "tommy_trojan_2")
     }
 
     override func didReceiveMemoryWarning() {
