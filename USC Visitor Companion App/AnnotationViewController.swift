@@ -2,8 +2,9 @@
 //  AnnotationViewController.swift
 //  USC Visitor Companion App
 //
-//  Created by Edgar Lugo on 11/13/16.
-//  Copyright © 2016 University of Southern California. All rights reserved.
+//  Created by yukiasai on 2016/01/19.
+//  Copyright (c) 2016 yukiasai. All rights reserved.
+//  Edited by Edgar Lugo on 11/13/16.
 //
 
 import UIKit

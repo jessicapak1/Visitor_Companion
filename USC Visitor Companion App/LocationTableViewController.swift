@@ -11,6 +11,7 @@ import FacebookShare
 
 class LocationTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    //Register all of the nib files used for our custom cells
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             self.tableView.register(UINib(nibName: "BlankCellView", bundle: nil), forCellReuseIdentifier: "blankCellView")
@@ -26,45 +27,37 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var directionsButton: UIBarButtonItem!
     @IBOutlet weak var shadowImage: UIImageView!
     
-    //let mainImage = UIImageViewModeScaleAspect(frame: CGRect(x: 0, y: 0, width: 375, height: 170))
-    var name : String = ""
+    var name : String = "" //this value will be provided in the prepareforsegue in the MapView.
     var current : Location? = nil
     
-    //make navbar transparent
     override func viewWillAppear(_ animated: Bool) {
-        
+        //make navbar transparent
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
 
+        //get current location from the database acording to the name provided in the prepareforsegue
         current = LocationData.shared.getLocation(withName: name)
 
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //load image
         imageView.image = UIImage(named: "tommy_trojan_2")
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    // TABLE VIEW CODE
+    /////////////  TABLE VIEW CODE  \\\\\\\\\\\\\\
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //this will change acording to the data available for current location
         return 7
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        //descriptioin
-        if indexPath.row == 4 { // interests
-            return 100
-        } else if indexPath.row == 5 { // video
+
+        if indexPath.row == 5 { // video
             return 200
         } else if indexPath.row == 6 { // photos
             return 200
@@ -75,41 +68,33 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        if indexPath.row == 0 {
+        if indexPath.row == 0 { //title
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCellView") as! TitleCell
             cell.title.text = self.name
-            //let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LocationTableViewController.animateImage))
-            //cell.addGestureRecognizer(tapGesture)
             return cell
-        } else if indexPath.row == 1 {
+        } else if indexPath.row == 1 { // blank
             let cell = tableView.dequeueReusableCell(withIdentifier: "blankCellView")!
-            //let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LocationTableViewController.animateImage))
-            //cell.addGestureRecognizer(tapGesture)
             return cell
-        } else if indexPath.row == 2 {
+        } else if indexPath.row == 2 { // blank
             let cell = tableView.dequeueReusableCell(withIdentifier: "blankCellView")!
-            //let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LocationTableViewController.animateImage))
-            //cell.addGestureRecognizer(tapGesture)
             return cell
-        } else if indexPath.row == 3 {
+        } else if indexPath.row == 3 { // description
             let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCellView") as! DescriptionCell
             cell.descriptionLabel.text = current?.details!
             return cell
-        } else if indexPath.row == 4 {
+        } else if indexPath.row == 4 { // interests, this will change to checkin, share, and camera
             let cell = tableView.dequeueReusableCell(withIdentifier: "interestsCellView", for: indexPath) as! InterestsCell
-            let stringRepresentation = current?.interests?.joined(separator: ", ")
-            cell.interestsLabel.text = stringRepresentation
             return cell
-        } else if indexPath.row == 5 {
+        } else if indexPath.row == 5 { // video
             let cell = tableView.dequeueReusableCell(withIdentifier: "videoCellView", for: indexPath) as! VideoCell
             return cell
-        } else {
+        } else { // photos
             let cell = tableView.dequeueReusableCell(withIdentifier: "photosCellView")!
             return cell
         }
     }
     
-    //NAVIGATION BAR ITEMS CODE
+    /////////  NAVIGATION BAR ITEMS CODE  \\\\\\\\\
     
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
