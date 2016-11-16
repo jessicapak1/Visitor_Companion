@@ -393,6 +393,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             
             // reset the interest of the current user so that locations from the filter table view aren't shown
             User.current.interest = ""
+            self.filterTableView.reloadData()
         } else if tableView == self.filterTableView {
             // fetch the locations tagged with the selected filter
             let locations = InterestsData.shared.interest(withName: self.filters[indexPath.row])?.locations
