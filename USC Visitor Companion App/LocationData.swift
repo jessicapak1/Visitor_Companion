@@ -50,7 +50,7 @@ class LocationData: NSObject {
 
     
     // MARK: Instance Methods
-    func create(name: String, code: String, details: String, location: CLLocation, interests: [String], locType: String, callback: @escaping (Bool) -> Void) {
+    func create(name: String, code: String, details: String, location: CLLocation, interests: [String], locType: String, video: [String], callback: @escaping (Bool) -> Void) {
         let object = PFObject(className: "Location")
         object["name"] = name
         object["code"] = code
@@ -58,6 +58,7 @@ class LocationData: NSObject {
         object["location"] = PFGeoPoint(location: location)
         object["interests"] = interests
         object["locType"] = locType
+        object["video"] = video
         object.saveInBackground(block: {
             (succeeded, error) -> Void in
             if succeeded {
@@ -202,5 +203,27 @@ class LocationData: NSObject {
         }
         return nil
     }
+    
+    // change geo location of Location with name
+    func changeLocationImage(forLocationName name: String, withImage image: UIImage) -> () {
+        if let locationOb = self.namesToLocations[name] {
+            locationOb.changeImage(newImage: image)
+        }
+    }
+    
+    // add these video links to Location wtih name
+    func addVideoLinks(forLocationName name: String, withLinks links: [String]) -> () {
+        if let locationOb = self.namesToLocations[name] {
+            locationOb.addVideoLinks(newLinks: links)
+        }
+    }
+    
+    func deleteVideoLinks(forLocationName name: String, withLinks links: [String]) -> () {
+        if let locationOb = self.namesToLocations[name] {
+            locationOb.deleteVideoLinks(links: links)
+        }
+    }
+
+    
 
 }
