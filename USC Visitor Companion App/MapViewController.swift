@@ -34,6 +34,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     let locationManager = CLLocationManager()
     var newMarker: Bool = false
     var filters: [String] = InterestsData.shared.interestNames()
+    var firstOpen: Bool = true
     
     let customMapStyle = "[" +
         "  {" +
@@ -207,27 +208,29 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // change the colors of markers near the location of the user
         
-        if let location = locations.first {
-            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 17, bearing: 0, viewingAngle: 0)
+        if firstOpen {
+            if let location = locations.first {
+                mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 17, bearing: 0, viewingAngle: 0)
+                
+                showUSC(userLocation: location.coordinate)
+                
+            }
             
-            showUSC(userLocation: location.coordinate)
-            
-            locationManager.stopUpdatingLocation()
+            firstOpen = false
         }
-        
         
         let userLocation = locations.last
         let maxDistance = CLLocationDistance(30)
-        /*
         for location in LocationData.shared.locations {
             let distance = userLocation?.distance(from: location.location!)
-            if distance < maxDistance {
+           /* if distance <= maxDistance {
                 self.markers[location.name!]?.iconView?.tintColor = UIColor.blue
             } else {
                 self.markers[location.name!]?.iconView?.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
             }
+             */
         }
- */
+        
     }
     
     func showUSC(userLocation: CLLocationCoordinate2D){
