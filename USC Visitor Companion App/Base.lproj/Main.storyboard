@@ -64,11 +64,11 @@
                                         <rect key="frame" x="0.0" y="28" width="187.5" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4hc-79-xIy" id="jDC-dS-hyI">
-                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z32-zS-Fnb">
-                                                    <rect key="frame" x="15" y="0.0" width="157.5" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="157.5" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -112,7 +112,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="hl4-0y-cnX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Search">
                                     <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -126,7 +126,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ReT-i7-tt3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Filter">
                                     <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -745,16 +745,97 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Nny-iA-qZV">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.98117187500000003" green="0.98117187500000003" blue="0.98117187500000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.97343749999999996" green="0.97343749999999996" blue="0.97343749999999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="Account" id="5XO-t9-Nfr">
+                            <tableViewSection headerTitle="Account" footerTitle="Connect with your Facebook account to easily share the locations you visit while on campus" id="5XO-t9-Nfr">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cBa-Fw-4Xt">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Uko-cC-Leo" imageView="m5S-Iw-rb7" style="IBUITableViewCellStyleDefault" id="cBa-Fw-4Xt">
+                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cBa-Fw-4Xt" id="hF6-Sc-JyK">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Connect with Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Uko-cC-Leo">
+                                                    <rect key="frame" x="45" y="0.0" width="295" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Facebook" id="m5S-Iw-rb7">
+                                                    <rect key="frame" x="15" y="14" width="15" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Map" id="6Gq-h7-uQc">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="QuZ-bH-2Lh">
+                                        <rect key="frame" x="0.0" y="185" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QuZ-bH-2Lh" id="Rnb-bu-BkS">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable 3D Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOI-F1-bIE">
+                                                    <rect key="frame" x="16" y="11" width="127" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wmC-m2-5kN">
+                                                    <rect key="frame" x="310" y="6" width="51" height="31"/>
+                                                    <color key="onTintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="wmC-m2-5kN" secondAttribute="trailing" constant="16" id="C9V-eK-5Bi"/>
+                                                <constraint firstItem="wmC-m2-5kN" firstAttribute="centerY" secondItem="Rnb-bu-BkS" secondAttribute="centerY" id="LiF-ss-cYq"/>
+                                                <constraint firstItem="vOI-F1-bIE" firstAttribute="centerY" secondItem="Rnb-bu-BkS" secondAttribute="centerY" id="NP5-AO-Bdj"/>
+                                                <constraint firstItem="vOI-F1-bIE" firstAttribute="leading" secondItem="Rnb-bu-BkS" secondAttribute="leadingMargin" constant="8" id="u42-3N-KhW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="About" id="8SY-kp-4ZY">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="vTX-4T-M7e" style="IBUITableViewCellStyleDefault" id="upd-ek-hDr">
+                                        <rect key="frame" x="0.0" y="286" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="upd-ek-hDr" id="4lh-r9-3lC">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vTX-4T-M7e">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="di3-El-iQ7" style="IBUITableViewCellStyleDefault" id="zfB-Zf-Ugy">
+                                        <rect key="frame" x="0.0" y="330" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zfB-Zf-Ugy" id="w3b-05-ckG">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open Source Libraries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="di3-El-iQ7">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -917,7 +998,7 @@ Christian Villa – Computer Science Major    </string>
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5XM-sg-Ovs" id="F8g-0o-qeG">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -953,7 +1034,7 @@ Christian Villa – Computer Science Major    </string>
         <scene sceneID="seM-1t-oHs">
             <objects>
                 <navigationController storyboardIdentifier="interests" id="EQN-An-L1s" userLabel="Interests Navigation Controller" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jbP-BK-rHc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jbP-BK-rHc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -980,7 +1061,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jn6-lc-2bt" id="0MX-Qy-aex">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="czd-0b-yX0">
@@ -1001,7 +1082,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="50" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Si-Vy-JoI" id="TU2-uc-RbH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAT-ac-Bf4">
@@ -1022,7 +1103,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="100" width="375" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DR5-E5-cd8" id="Bu3-Qf-eml">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flf-iW-kac">
@@ -1050,7 +1131,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="199" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1eu-g6-ald" id="W4Q-eA-KWG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-8G-QNj">
@@ -1064,7 +1145,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="349" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bsV-dh-ddc" id="hwU-Rl-hOH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter a description about the location" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dfy-B0-obq">
@@ -1094,7 +1175,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="499" width="375" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HKq-Kx-ff8" id="mIe-mE-9yb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZz-jz-UKT">
@@ -1184,7 +1265,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="44c-jO-FxW" id="65v-CS-xSA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1273,7 +1354,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController storyboardIdentifier="admin" automaticallyAdjustsScrollViewInsets="NO" id="Ked-3e-tgT" userLabel="Admin Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E9I-I5-QiM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="E9I-I5-QiM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1291,7 +1372,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nft-j1-Vc1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3Z1-Di-7Ym">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="3Z1-Di-7Ym">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1311,7 +1392,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nEF-nh-8vb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W93-Lh-BAu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="W93-Lh-BAu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1628,6 +1709,7 @@ Christian Villa – Computer Science Major    </string>
     </scenes>
     <resources>
         <image name="CurrentLocationInactive" width="45" height="45"/>
+        <image name="Facebook" width="15" height="15"/>
         <image name="Gear" width="22" height="22"/>
         <image name="fadeBlackBar" width="375" height="30"/>
         <image name="shieldmono-white" width="300" height="100"/>
