@@ -16,19 +16,19 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G2a-Gn-zhB" id="Onf-Jl-24J">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COO-eV-5a7">
-                        <rect key="frame" x="8" y="4" width="359" height="191.5"/>
+                        <rect key="frame" x="8" y="4" width="359" height="192"/>
                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="YsH-XN-vFV">
-                            <rect key="frame" x="0.0" y="0.0" width="359" height="191.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="192"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </view>
                         <blurEffect style="extraLight"/>
                     </visualEffectView>
                     <view clipsSubviews="YES" alpha="0.94999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BcZ-lc-igX">
-                        <rect key="frame" x="8" y="4" width="359" height="191.5"/>
+                        <rect key="frame" x="8" y="4" width="359" height="192"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qQI-0M-n6Q">
                                 <rect key="frame" x="0.0" y="0.0" width="359" height="26"/>
@@ -61,6 +61,17 @@
                                     <constraint firstItem="zql-R7-WSp" firstAttribute="bottom" secondItem="yLg-pW-4Ug" secondAttribute="bottom" id="kmj-qR-j46"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hNa-ea-aJx">
+                                <rect key="frame" x="0.0" y="27" width="359" height="165"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aYm-2c-Ppl">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -86,6 +97,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="blurBackground" destination="COO-eV-5a7" id="4hw-ZK-n2Q"/>
+                <outlet property="collectionView" destination="hNa-ea-aJx" id="Rxn-yV-L0F"/>
                 <outlet property="myBackgroundView" destination="BcZ-lc-igX" id="Svm-u3-kmr"/>
             </connections>
             <point key="canvasLocation" x="11.5" y="99"/>

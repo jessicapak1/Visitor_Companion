@@ -29,7 +29,6 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     //let mainImage = UIImageViewModeScaleAspect(frame: CGRect(x: 0, y: 0, width: 375, height: 170))
     var name : String = ""
     var current : Location? = nil
-    var photos: [FlickrPhoto] = []
     
     //make navbar transparent
     override func viewWillAppear(_ animated: Bool) {
@@ -40,13 +39,14 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
 
         current = LocationData.shared.getLocation(withName: name)
         // call to populate self.photos which is an array of our FlickrPhoto objects that wrap the necessary info to form the NSURL (see FlickrPhoto.swift to understand this)
-        populatePhotosArray(locationName: name)
+        //populatePhotosArray(locationName: name)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         imageView.image = UIImage(named: "tommy_trojan_2")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -106,44 +106,12 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             let cell = tableView.dequeueReusableCell(withIdentifier: "videoCellView", for: indexPath) as! VideoCell
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "photosCellView")!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "photosCellView") as! PhotosCell
+            //set up collection view
+            cell.populatePhotosArray(locationName: name)
             return cell
         }
     }
-    
-    private func populatePhotosArray(locationName: String) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        FlickrProvider.fetchPhotosForLocationName(locationName: locationName, onCompletion: { (error: NSError?, flickrPhotos: [FlickrPhoto]?) -> Void in
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            if error == nil {
-                self.photos = flickrPhotos!
-            } else {
-                self.photos = []
-                if (error!.code == FlickrProvider.Errors.invalidAccessErrorCode) {
-                    DispatchQueue.main.async(execute: { () -> Void in
-                        self.showErrorAlert()
-                    })
-                }
-            }
-            DispatchQueue.main.async(execute: { () -> Void in
-                // This thread was initially used to change some basic data contained within the enclosing table. Ultimately this thread is probably completely unnecessary (obviously I've just used it in order to print out the results of our query)
-                
-                print("\n")
-                print("Raw photo data acquired through the FlickrProvider: ")
-                print("\n")
-                print(self.photos)
-                print("\n")
-            })
-        })
-    }
-    
-    private func showErrorAlert() {
-        let alertController = UIAlertController(title: "Search Error", message: "Invalid API Key", preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-        alertController.addAction(dismissAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
-
     
     //NAVIGATION BAR ITEMS CODE
     
