@@ -169,19 +169,41 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         //create custom marker icons
         let foodImage = UIImage(named: "food")!.withRenderingMode(.alwaysTemplate)
         let foodView = UIImageView(image: foodImage)
-        foodView.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
+        
         let libraryImage = UIImage(named: "library")!.withRenderingMode(.alwaysTemplate)
         let libraryView = UIImageView(image: libraryImage)
-        libraryView.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
+        
         let buildingImage = UIImage(named: "building")!.withRenderingMode(.alwaysTemplate)
         let buildingView = UIImageView(image: buildingImage)
-        buildingView.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
+       
         let fountainImage = UIImage(named: "fountain")!.withRenderingMode(.alwaysTemplate)
         let fountainView = UIImageView(image: fountainImage)
         fountainView.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
+        
         let fieldImage = UIImage(named: "field")!.withRenderingMode(.alwaysTemplate)
         let fieldView = UIImageView(image: fieldImage)
-        fieldView.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
+       
+        let athleticsImage = UIImage(named: "athletics")!.withRenderingMode(.alwaysTemplate)
+        let athleticsView = UIImageView(image: athleticsImage)
+        
+        let commercialImage = UIImage(named: "commercial")!.withRenderingMode(.alwaysTemplate)
+        let commercialView = UIImageView(image: commercialImage)
+        
+        let otherImage = UIImage(named: "other")!.withRenderingMode(.alwaysTemplate)
+        let otherView = UIImageView(image: otherImage)
+        
+        let parkingImage = UIImage(named: "parking")!.withRenderingMode(.alwaysTemplate)
+        let parkingView = UIImageView(image: parkingImage)
+        
+        let residentialImage = UIImage(named: "residential")!.withRenderingMode(.alwaysTemplate)
+        let residentialView = UIImageView(image: residentialImage)
+        
+        // let computerlabImage = UIImage(named: "computerlab")!.withRenderingMode(.alwaysTemplate)
+        // let computerlabView = UIImageView(image: computerlabImage)
+        /*case "computerlab"?:
+         marker.iconView = computerlabView
+         break*/
+     
         
         // create each marker
         for location in locations {
@@ -213,6 +235,26 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
                 marker.iconView = fieldView
                 break
                 
+            case "athletics"?:
+                marker.iconView = athleticsView
+                break
+                
+            case "commercial"?:
+                marker.iconView = commercialView
+                break
+                
+            case "other"?:
+                marker.iconView = otherView
+                break
+                
+            case "parking"?:
+                marker.iconView = parkingView
+                break
+                
+            case "residential"?:
+                marker.iconView = residentialView
+                break
+
             default:
                 marker.icon = GMSMarker.markerImage(with: UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0))
             }
