@@ -8,6 +8,7 @@
 
 import UIKit
 import FacebookShare
+import MapKit
 
 class LocationTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -26,13 +27,17 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var directionsButton: UIBarButtonItem!
     @IBOutlet weak var shadowImage: UIImageView!
     
-    //let mainImage = UIImageViewModeScaleAspect(frame: CGRect(x: 0, y: 0, width: 375, height: 170))
-    var name : String = ""
+    var name : String = "" //this value will be provided in the prepareforsegue in the MapView.
     var current : Location? = nil
+    var closeProximity : Bool = false
     
-    //make navbar transparent
+    // will change according to number of videos
+    var cellCount = 5
+    
+    var pictureIndex = 4
+    
     override func viewWillAppear(_ animated: Bool) {
-        
+        //make navbar transparent
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
@@ -47,35 +52,52 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             }
             self.tableView.setNeedsDisplay()
         }
+        
+        self.cellCount += (self.current?.video?.count)!
+        
+        self.pictureIndex = cellCount
+        self.cellCount += 1;
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // determine which button
+        switch closeProximity {
+        case true:
+            directionsButton.title = "Check in"
+            break
+            
+        case false:
+            directionsButton.title = "Directions"
+            break
+        }
+        
+        //set image
         //imageView.image = UIImage(named: "tommy_trojan_2")
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    // TABLE VIEW CODE
+    /////////////  TABLE VIEW CODE  \\\\\\\\\\\\\\
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //this will change acording to the data available for current location
+        //return self.cellCount
         return 7
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        //descriptioin
-        if indexPath.row == 4 { // interests
-            return 100
-        } else if indexPath.row == 5 { // video
+        if indexPath.row == 5 { // video
             return 200
         } else if indexPath.row == 6 { // photos
-            return 200
+            return 215
         }
         
         return 150
@@ -83,37 +105,67 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        if indexPath.row == 0 {
+        if indexPath.row == 0 { //title
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCellView") as! TitleCell
             cell.title.text = self.name
-            //let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LocationTableViewController.animateImage))
-            //cell.addGestureRecognizer(tapGesture)
             return cell
-        } else if indexPath.row == 1 {
+        } else if indexPath.row == 1 { // blank
             let cell = tableView.dequeueReusableCell(withIdentifier: "blankCellView")!
-            //let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LocationTableViewController.animateImage))
-            //cell.addGestureRecognizer(tapGesture)
             return cell
-        } else if indexPath.row == 2 {
+        } else if indexPath.row == 2 { // blank
             let cell = tableView.dequeueReusableCell(withIdentifier: "blankCellView")!
-            //let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LocationTableViewController.animateImage))
-            //cell.addGestureRecognizer(tapGesture)
             return cell
-        } else if indexPath.row == 3 {
+        } else if indexPath.row == 3 { // description
             let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCellView") as! DescriptionCell
             cell.descriptionLabel.text = current?.details!
             return cell
-        } else if indexPath.row == 4 {
+        } else if indexPath.row == 4 { // interests, this will change to checkin, share, and camera
             let cell = tableView.dequeueReusableCell(withIdentifier: "interestsCellView", for: indexPath) as! InterestsCell
-            let stringRepresentation = current?.interests?.joined(separator: ", ")
-            cell.interestsLabel.text = stringRepresentation
             return cell
-        } else if indexPath.row == 5 {
+        } else if indexPath.row == 5 {// < pictureIndex { // video
             let cell = tableView.dequeueReusableCell(withIdentifier: "videoCellView", for: indexPath) as! VideoCell
+            
+            //var num = indexPath.row
+            //num -= 5
+            // set the appropriate video for
+            //let str = (self.current?.video?[0])!
+            //cell.selectVideo(withUrl: str)
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "photosCellView")!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "photosCellView") as! PhotosCell
+            //set up collection view
+            print("\n called form deque in table view")
+            //cell.photos.removeAll()
+            //cell.images.removeAll()
+            cell.populatePhotosArray(locationName: name)
             return cell
+        }
+    }
+    
+    func openMapWithDirections(location: CLLocation, name: String){
+        let regionDistance:CLLocationDistance = 100
+        let coordinates = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = name
+        mapItem.openInMaps(launchOptions: options)
+    }
+    
+    func openDirections(){
+        switch closeProximity {
+            
+        case true:
+            break
+            
+        case false:
+            openMapWithDirections(location: (current?.location)!, name: (current?.name!)!)
+            break
+            
         }
     }
     

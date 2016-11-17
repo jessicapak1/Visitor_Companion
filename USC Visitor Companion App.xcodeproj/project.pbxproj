@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		300729771DAC08D600D39C80 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300729761DAC08D600D39C80 /* CoreLocation.framework */; };
 		304290C51DA2074A00354AF9 /* InterestsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304290C41DA2074A00354AF9 /* InterestsData.swift */; };
+		3081AA481DDA39A500B74C59 /* FlickrProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081AA471DDA39A500B74C59 /* FlickrProvider.swift */; };
+		3081AA4A1DDA39E800B74C59 /* FlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081AA491DDA39E800B74C59 /* FlickrPhoto.swift */; };
 		30D289A51DC00925003D578C /* InfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D289A41DC00925003D578C /* InfoWindow.xib */; };
 		30D289A71DC00974003D578C /* InfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D289A61DC00974003D578C /* InfoWindow.swift */; };
 		4B1C25F0B5A8148675F75AA0 /* Pods_USC_Visitor_Companion_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */; };
@@ -16,6 +18,8 @@
 		4EA0B4231DD65DF6008EBD7F /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA0B4221DD65DF6008EBD7F /* TitleCell.swift */; };
 		4EA0B4251DD66469008EBD7F /* VideoCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0B4241DD66469008EBD7F /* VideoCellView.xib */; };
 		4EA0B4271DD664C4008EBD7F /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA0B4261DD664C4008EBD7F /* VideoCell.swift */; };
+		4EC09F831DDB99E700993584 /* PhotosCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC09F821DDB99E700993584 /* PhotosCollectionViewCell.xib */; };
+		4EC09F851DDB9AE800993584 /* PhotosCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC09F841DDB9AE800993584 /* PhotosCollectionCell.swift */; };
 		4ED64E711DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED64E701DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift */; };
 		4EE470D21DD97F7C00AFA6B1 /* PhotosCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE470D11DD97F7C00AFA6B1 /* PhotosCellView.xib */; };
 		4EE470D41DD9806F00AFA6B1 /* PhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE470D31DD9806F00AFA6B1 /* PhotosCell.swift */; };
@@ -89,6 +93,8 @@
 		19CDA2698EBF75BEA9EEC20F /* Pods-USC Visitor Companion AppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-USC Visitor Companion AppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-USC Visitor Companion AppUITests/Pods-USC Visitor Companion AppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		300729761DAC08D600D39C80 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		304290C41DA2074A00354AF9 /* InterestsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsData.swift; sourceTree = "<group>"; };
+		3081AA471DDA39A500B74C59 /* FlickrProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrProvider.swift; sourceTree = "<group>"; };
+		3081AA491DDA39E800B74C59 /* FlickrPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrPhoto.swift; sourceTree = "<group>"; };
 		30D289A41DC00925003D578C /* InfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoWindow.xib; sourceTree = "<group>"; };
 		30D289A61DC00974003D578C /* InfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoWindow.swift; sourceTree = "<group>"; };
 		44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USC_Visitor_Companion_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +102,8 @@
 		4EA0B4221DD65DF6008EBD7F /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 		4EA0B4241DD66469008EBD7F /* VideoCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCellView.xib; sourceTree = "<group>"; };
 		4EA0B4261DD664C4008EBD7F /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		4EC09F821DDB99E700993584 /* PhotosCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotosCollectionViewCell.xib; sourceTree = "<group>"; };
+		4EC09F841DDB9AE800993584 /* PhotosCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionCell.swift; sourceTree = "<group>"; };
 		4ED64E701DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminSegmentedViewControoler.swift; sourceTree = "<group>"; };
 		4EE470D11DD97F7C00AFA6B1 /* PhotosCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotosCellView.xib; sourceTree = "<group>"; };
 		4EE470D31DD9806F00AFA6B1 /* PhotosCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCell.swift; sourceTree = "<group>"; };
@@ -283,6 +291,7 @@
 				4EA0B4201DD65D9F008EBD7F /* TitleCellView.xib */,
 				4EA0B4241DD66469008EBD7F /* VideoCellView.xib */,
 				4EE470D11DD97F7C00AFA6B1 /* PhotosCellView.xib */,
+				4EC09F821DDB99E700993584 /* PhotosCollectionViewCell.xib */,
 			);
 			name = "Location Views";
 			sourceTree = "<group>";
@@ -348,6 +357,8 @@
 				AA38AD3E1D9C9F150067E1C9 /* Interest.swift */,
 				304290C41DA2074A00354AF9 /* InterestsData.swift */,
 				AAD38B8B1D971648004DD648 /* USC_Visitor_Companion_App.xcdatamodeld */,
+				3081AA471DDA39A500B74C59 /* FlickrProvider.swift */,
+				3081AA491DDA39E800B74C59 /* FlickrPhoto.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -404,6 +415,7 @@
 				4EA0B4261DD664C4008EBD7F /* VideoCell.swift */,
 				4EE470D31DD9806F00AFA6B1 /* PhotosCell.swift */,
 				AAD38B8E1D971648004DD648 /* Assets.xcassets */,
+				4EC09F841DDB9AE800993584 /* PhotosCollectionCell.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -498,7 +510,7 @@
 				TargetAttributes = {
 					AAD38B801D971648004DD648 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 52NMKETQZ4;
+						DevelopmentTeam = LE9MW95T43;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -557,6 +569,7 @@
 				AA536C4C1DB4822E009A608A /* MenuLoginTableViewCell.xib in Resources */,
 				AACDE2931DCACB7A00C9C625 /* MediaCellView.xib in Resources */,
 				30D289A51DC00925003D578C /* InfoWindow.xib in Resources */,
+				4EC09F831DDB99E700993584 /* PhotosCollectionViewCell.xib in Resources */,
 				4EE470D21DD97F7C00AFA6B1 /* PhotosCellView.xib in Resources */,
 				4EA0B4251DD66469008EBD7F /* VideoCellView.xib in Resources */,
 				4EA0B4211DD65D9F008EBD7F /* TitleCellView.xib in Resources */,
@@ -736,6 +749,8 @@
 				AACDE2991DCACBAD00C9C625 /* LocationTableViewController.swift in Sources */,
 				AACDE2951DCACB8C00C9C625 /* DescriptionCell.swift in Sources */,
 				AA536C4B1DB4822E009A608A /* MenuLoginTableViewCell.swift in Sources */,
+				3081AA481DDA39A500B74C59 /* FlickrProvider.swift in Sources */,
+				3081AA4A1DDA39E800B74C59 /* FlickrPhoto.swift in Sources */,
 				AAF9A9EF1D9B457F00CB57AF /* Location.swift in Sources */,
 				4EA0B4231DD65DF6008EBD7F /* TitleCell.swift in Sources */,
 				4EE470D71DD9941F00AFA6B1 /* AnnotationViewController.swift in Sources */,
@@ -759,6 +774,7 @@
 				AA5854A41DC32CEC002D2D60 /* MenuAccountTableViewCell.swift in Sources */,
 				75EABC461D98BA1E0075E75E /* MapViewController.swift in Sources */,
 				30D289A71DC00974003D578C /* InfoWindow.swift in Sources */,
+				4EC09F851DDB9AE800993584 /* PhotosCollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -916,11 +932,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "USC Visitor Companion App/USC Visitor Companion App.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 52NMKETQZ4;
+				DEVELOPMENT_TEAM = LE9MW95T43;
 				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App9";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -934,11 +950,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "USC Visitor Companion App/USC Visitor Companion App.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 52NMKETQZ4;
+				DEVELOPMENT_TEAM = LE9MW95T43;
 				INFOPLIST_FILE = "USC Visitor Companion App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.usc.USC-Visitor-Companion-App9";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -33,6 +33,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     let locationManager = CLLocationManager()
     var newMarker: Bool = false
     var filters: [String] = InterestsData.shared.interestNames()
+    var firstOpen: Bool = true
     
     let customMapStyle = "[" +
         "  {" +
@@ -84,15 +85,19 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         }
     }
     
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    
     @IBOutlet weak var filterTableView: UITableView! {
         didSet {
+            let blurEffect = UIBlurEffect(style: .light)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            self.filterTableView.backgroundView = blurEffectView
+            
             self.filterTableView.delegate = self
             self.filterTableView.dataSource = self
             self.filterTableView.tableFooterView = UIView(frame: .zero)
         }
     }
-    
-    @IBOutlet weak var shadowButton: UIButton!
     
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
@@ -102,6 +107,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     @IBOutlet weak var searchTableView: UITableView! {
         didSet {
+            let blurEffect = UIBlurEffect(style: .light)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            self.searchTableView.backgroundView = blurEffectView
+            
             self.searchTableView.delegate = self
             self.searchTableView.dataSource = self
             let resultFoundID = "ResultFoundTableViewCell"
@@ -124,7 +133,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         }
     }
     
+    @IBOutlet weak var dimensionButton: ShadowButton! {
+        didSet {
+            self.dimensionButton.addShadow()
+        }
+    }
+    
     @IBOutlet weak var settingsButtonItem: UIBarButtonItem!
+    
     
     // MARK: View Controller Methods
     override func viewDidLoad() {
@@ -153,14 +169,16 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     // MARK: Map View Methods
     func showMap() {
+        
+        // configure the location manager
+        self.configureLocationManager()
+        
         // configure the map view
         let camera = GMSCameraPosition.camera(withLatitude: 34.021044, longitude: -118.285798, zoom: 15.35)
         self.mapView = GMSMapView.map(withFrame: self.view.bounds, camera: camera)
         self.mapView.mapStyle = try? GMSMapStyle(jsonString: self.customMapStyle)
         self.view.insertSubview(self.mapView, at: 0)
         
-        // configure the location manager
-        self.configureLocationManager()
     }
     
     func showMarkers(forLocations locations: [Location]) {
@@ -288,24 +306,58 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation // higher accuracy = more battery usage
+            self.locationManager.distanceFilter = 5
             self.locationManager.startUpdatingLocation()
         }
+        
     }
     
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // change the colors of markers near the location of the user
-        let userLocation = locations[0]
-        let maxDistance = CLLocationDistance(30)
+        
+        if firstOpen {
+            if let location = locations.first {
+                mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 17, bearing: 0, viewingAngle: 0)
+                
+                showUSC(userLocation: location.coordinate)
+                
+            }
+            
+            firstOpen = false
+        }
+        
         for location in LocationData.shared.locations {
-            let distance = userLocation.distance(from: location.location!)
-            if distance < maxDistance {
-                self.markers[location.name!]?.iconView?.tintColor = UIColor.blue
-            } else {
-                self.markers[location.name!]?.iconView?.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
+            if let userLocation = locations.last, let currentLocation = location.location {
+                if userLocation.distance(from: currentLocation) < 30 {
+                    let newImage = UIImage(named: location.locType!)!.withRenderingMode(.alwaysTemplate)
+                    let newView = UIImageView(image: newImage)
+                    newView.tintColor = UIColor.blue
+                    self.markers[location.name!]?.iconView = newView
+                } else {
+                    let oldImage = UIImage(named: location.locType!)!.withRenderingMode(.alwaysTemplate)
+                    let oldView = UIImageView(image: oldImage)
+                    oldView.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
+                    self.markers[location.name!]?.iconView = oldView
+                }
             }
         }
     }
     
+    func showUSC(userLocation: CLLocationCoordinate2D){
+        
+        let usc = GMSCoordinateBounds(coordinate: CLLocationCoordinate2D(latitude: 34.017707, longitude: -118.292653), coordinate: CLLocationCoordinate2D(latitude: 34.033343, longitude: -118.275356))
+        if !usc.contains(userLocation) {
+            let alert = UIAlertController(title: "Not at USC", message: "It looks like you are not near USC. Would you like to see USC's campus?", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler:{ action in
+                self.mapView.animate(toLocation: CLLocationCoordinate2D(latitude: 34.021776, longitude: -118.286342))
+                self.mapView.animate(toZoom: 15.2)
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler:nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    
+        
+    }
     
     // MARK: Search Methods
     func addSearch() {
@@ -344,6 +396,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             let navVC = segue.destination as! UINavigationController
             let locationVC = navVC.viewControllers.first as! LocationTableViewController
             locationVC.name = currentMarker.title!
+            let maxDistance = CLLocationDistance(30)
+            if (self.mapView.myLocation?.distance(from: CLLocation(latitude: currentMarker.position.latitude, longitude: currentMarker.position.longitude)))! < maxDistance {
+                locationVC.closeProximity = true
+            }
         }
         
         if fromAdmin! {
@@ -357,11 +413,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     // MARK: Filter Methods
     func addFilters() {
-        // configure the background shadow
-        self.shadowButton.alpha = 0.0
-        self.shadowButton.isHidden = true
-        self.view.bringSubview(toFront: self.shadowButton)
-        
         // configure the filter table view
         self.filterTableView.isHidden = true
         self.view.bringSubview(toFront: self.filterTableView)
@@ -377,25 +428,23 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.hideSearchResults()
         
         self.filterTableView.isHidden = false
-        self.shadowButton.isHidden = false
         self.filterTableView.frame.origin.x = -(self.view.frame.size.width / 2)
 
-        UIView.animate(withDuration: 0.18, delay: 0.0, options: .curveEaseIn, animations: {
-            // animate the filter table view to fill up half of the screen and to slowly darken the background shadow
-            self.filterTableView.frame.origin.x += self.view.frame.size.width / 2
-            self.shadowButton.alpha = 1.0
+        UIView.animate(withDuration: 0.20, delay: 0.0, options: .curveEaseIn, animations: {
+            // animate the filter table view to fill up half of the screen
+            self.filterTableView.frame.origin.x += (self.view.frame.size.width / 2)
         }, completion: nil)
     }
     
     func hideFilters() {
-        UIView.animate(withDuration: 0.18, delay: 0.0, options: .curveEaseOut, animations: {
-            // animate the filter table view to hide and the background shadow to clear up
-            self.filterTableView.frame.origin.x -= self.view.frame.size.width / 2
-            self.shadowButton.alpha = 0.0
+        self.filterTableView.frame.origin.x = 0.0
+        
+        UIView.animate(withDuration: 0.20, delay: 0.0, options: .curveEaseOut, animations: {
+            // animate the filter table view to hide
+            self.filterTableView.frame.origin.x -= (self.view.frame.size.width / 2)
         }, completion: {
             (succeeded) in
             self.filterTableView.isHidden = true
-            self.shadowButton.isHidden = true
         })
     }
     
@@ -554,7 +603,11 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         let infoWindow = Bundle.main.loadNibNamed("InfoWindow", owner: self, options: nil)?.first! as! InfoWindow
         infoWindow.locationNameLabel.text = marker.title
-        infoWindow.userInfoLabel.text = "User location info will go here."
+        infoWindow.seeMoreButton.setTitle("See More", for: UIControlState.normal)
+        infoWindow.layer.shadowColor = UIColor.lightGray.cgColor
+        infoWindow.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        infoWindow.layer.shadowOpacity = 1.0
+        infoWindow.layer.shadowRadius = 2.0
         return infoWindow
     }
     
@@ -600,6 +653,16 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     @IBAction func shadowButtonPressed() {
         self.hideFilters()
+    }
+    
+    @IBAction func dimensionButtonPressed() {
+        if self.dimensionButton.currentTitle == "3D" {
+            self.mapView.animate(toViewingAngle: 90.0)
+            self.dimensionButton.setTitle("2D", for: .normal)
+        } else if self.dimensionButton.currentTitle == "2D" {
+            self.mapView.animate(toViewingAngle: 0.0)
+            self.dimensionButton.setTitle("3D", for: .normal)
+        }
     }
 
 }
