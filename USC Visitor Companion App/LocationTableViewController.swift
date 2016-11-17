@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FacebookShare
 import MapKit
 
 class LocationTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -19,6 +20,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             self.tableView.register(UINib(nibName: "InterestsCellView", bundle: nil), forCellReuseIdentifier: "interestsCellView")
             self.tableView.register(UINib(nibName: "TitleCellView", bundle: nil), forCellReuseIdentifier: "titleCellView")
             self.tableView.register(UINib(nibName: "VideoCellView", bundle: nil), forCellReuseIdentifier: "videoCellView")
+            self.tableView.register(UINib(nibName: "PhotosCellView", bundle: nil), forCellReuseIdentifier: "photosCellView")
         }
     }
     @IBOutlet weak var imageView: UIImageView!
@@ -36,10 +38,17 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-        //self.navigationItem.title = name
 
         current = LocationData.shared.getLocation(withName: name)
-
+        
+        DispatchQueue.main.async {
+            self.imageView.image = self.current?.image
+            if (self.imageView.image == nil) {
+                self.imageView.image = UIImage(named: "tommy_trojan_2")
+                print("Error: did not find image in database, loading default (LocationTableViewController)")
+            }
+            self.tableView.setNeedsDisplay()
+        }
     }
     
     override func viewDidLoad() {
@@ -73,7 +82,17 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 149.0
+        
+        //descriptioin
+        if indexPath.row == 4 { // interests
+            return 100
+        } else if indexPath.row == 5 { // video
+            return 200
+        } else if indexPath.row == 6 { // photos
+            return 200
+        }
+        
+        return 150
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,7 +126,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             let cell = tableView.dequeueReusableCell(withIdentifier: "videoCellView", for: indexPath) as! VideoCell
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "mediaCellView")!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "photosCellView")!
             return cell
         }
     }
@@ -133,29 +152,15 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction func directionsButtonPressed(_ sender: AnyObject) {
-        
-        switch closeProximity {
-            
-        case true:
-            break
-            
-        case false:
-            openMapWithDirections(location: (current?.location)!, name: (current?.name!)!)
-            break
-            
+        let content = LinkShareContent(url: URL(string: "http://viterbi.usc.edu")!)
+        let shareDialog = ShareDialog(content: content)
+        shareDialog.mode = .web
+        shareDialog.failsOnInvalidData = true
+        shareDialog.completion =  {
+            result in
+            print("Shared to Facebook")
         }
-        
+        try? shareDialog.show()
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
