@@ -8,6 +8,7 @@
 
 import UIKit
 import FacebookShare
+import MapKit
 
 class LocationTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -28,6 +29,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     var name : String = "" //this value will be provided in the prepareforsegue in the MapView.
     var current : Location? = nil
+    var closeProximity : Bool = false
     
     // will change according to number of videos
     var cellCount = 5
@@ -40,7 +42,6 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
 
-        //get current location from the database acording to the name provided in the prepareforsegue
         current = LocationData.shared.getLocation(withName: name)
         
         DispatchQueue.main.async {
@@ -62,7 +63,24 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //imageView.image = UIImage(named: "tommy_trojan_2")
+        // determine which button
+        switch closeProximity {
+        case true:
+            directionsButton.title = "Check in"
+            break
+            
+        case false:
+            directionsButton.title = "Directions"
+            break
+        }
+        
+        //set image
+        imageView.image = UIImage(named: "tommy_trojan_2")
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     /////////////  TABLE VIEW CODE  \\\\\\\\\\\\\\
@@ -74,11 +92,14 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
-        if indexPath.row == 5 { // video
+        
+        //description
+        if indexPath.row == 4 { // interests
+            return 100
+        } else if indexPath.row == 5 { // video
             return 200
         } else if indexPath.row == 6 { // photos
-            return 200
+            return 215
         }
         
         return 150
@@ -112,13 +133,45 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             let str = (self.current?.video?[num])!
             cell.selectVideo(withUrl: str)
             return cell
-        } else { // photos
-            let cell = tableView.dequeueReusableCell(withIdentifier: "photosCellView")!
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "photosCellView") as! PhotosCell
+            //set up collection view
+            print("\n called form deque in table view")
+            //cell.photos.removeAll()
+            //cell.images.removeAll()
+            cell.populatePhotosArray(locationName: name)
             return cell
         }
     }
     
-    /////////  NAVIGATION BAR ITEMS CODE  \\\\\\\\\
+    func openMapWithDirections(location: CLLocation, name: String){
+        let regionDistance:CLLocationDistance = 100
+        let coordinates = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = name
+        mapItem.openInMaps(launchOptions: options)
+    }
+    
+    func openDirections(){
+        switch closeProximity {
+            
+        case true:
+            break
+            
+        case false:
+            openMapWithDirections(location: (current?.location)!, name: (current?.name!)!)
+            break
+            
+        }
+    }
+    
+    //NAVIGATION BAR ITEMS CODE
     
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
