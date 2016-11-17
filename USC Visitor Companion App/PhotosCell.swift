@@ -20,6 +20,7 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
     @IBOutlet weak var myBackgroundView: UIView!
     @IBOutlet weak var blurBackground: UIVisualEffectView!
     var photos: [FlickrPhoto] = []
+    var images : [UIImage] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,6 +32,8 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        
 
     }
 
@@ -41,11 +44,27 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+//        if images.count > 5 {
+//            return 2
+//        }
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+//        if section == 0 {
+//            if images.count >= 5 {
+//                return 5
+//            } else {
+//                return images.count
+//            }
+//        } else {
+//            if images.count >= 10 {
+//                return 5
+//            } else {
+//                return images.count - 5
+//            }
+//        }
+        return self.images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -54,15 +73,20 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
         /* Change it to asynchronus background */
         
         //let url = URL(photos[indexPath.row].photoUrl)
-        if photos.isEmpty {
+        print("called form deque in collection view")
+        if self.images.isEmpty {
             return cell
         }
-        let data = try? Data(contentsOf: photos[indexPath.row].photoUrl as URL)
-        cell.imageView.image = UIImage(data: data!)
+        //let data = try? Data(contentsOf: photos[indexPath.item].photoUrl as URL)
+        cell.imageView.image = images[indexPath.row]
         return cell
     }
     
     func populatePhotosArray(locationName: String) {
+        if !photos.isEmpty {
+            return
+        }
+        //DispatchQueue.main.async(execute: { () -> Void in
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         FlickrProvider.fetchPhotosForLocationName(locationName: locationName, onCompletion: { (error: NSError?, flickrPhotos: [FlickrPhoto]?) -> Void in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -76,7 +100,7 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
                     //})
                 }
             }
-            DispatchQueue.main.async(execute: { () -> Void in
+            //DispatchQueue.main.async(execute: { () -> Void in
                 // This thread was initially used to change some basic data contained within the enclosing table. Ultimately this thread is probably completely unnecessary (obviously I've just used it in order to print out the results of our query)
                 
                 print("\n")
@@ -84,9 +108,48 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
                 print("\n")
                 print(self.photos)
                 print("\n")
+                //self.collectionView.reloadData()
+            
+            
+            print("about to load images")
+            DispatchQueue.global().async {
+                var bTask : UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+                bTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+                    UIApplication.shared.endBackgroundTask(bTask)
+                    bTask = UIBackgroundTaskInvalid
+                })
+                
+                print(UIApplication.shared.backgroundTimeRemaining)
+                
+                
+                for var i in (0..<self.photos.count) {
+                    let imageData : Data = try! Data(contentsOf: self.photos[i].photoUrl as URL)
+                    let image = UIImage(data: imageData)
+                    self.images.append(image!)
+                    //to the main queue
+                    if i > 5 {
+                        break;
+                    }
+                    DispatchQueue.main.async {
+                        //                    var indexpath : IndexPath
+                        //                    if i <= 5 {
+                        let indexpath = IndexPath(row: i, section: 0)
+                        //                    } else {
+                        //                        indexpath = IndexPath(row: i-5, section: 1)
+                        //                    }
+                        self.collectionView.insertItems(at: [indexpath])
+                    }
+                }
                 self.collectionView.reloadData()
-            })
+                UIApplication.shared.endBackgroundTask(bTask)
+                bTask = UIBackgroundTaskInvalid
+            }
+
+            //})
         })
+        //})
+        
+        
     }
     
     /*

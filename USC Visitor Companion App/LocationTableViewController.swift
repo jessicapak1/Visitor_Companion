@@ -52,7 +52,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        imageView.image = UIImage(named: "tommy_trojan_2")
+        //imageView.image = UIImage(named: "tommy_trojan_2")
         
     }
 
@@ -115,6 +115,9 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "photosCellView") as! PhotosCell
             //set up collection view
+            print("called form deque in table view")
+            cell.photos.removeAll()
+            cell.images.removeAll()
             cell.populatePhotosArray(locationName: name)
             return cell
         }
