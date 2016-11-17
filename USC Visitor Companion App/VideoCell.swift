@@ -16,7 +16,7 @@ class VideoCell: UITableViewCell {
 
     @IBOutlet weak var webView: UIWebView!
     
-    var youtubeUrl = ""
+    var youtubeUrl = "https://www.youtube.com/embed/ZHLPtUN9ooA"
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +28,7 @@ class VideoCell: UITableViewCell {
         myBackgroundView.layer.cornerRadius = 15
         myBackgroundView.layer.masksToBounds = true
 
-       
+       selectVideo(withUrl: youtubeUrl)
     }
     
     func selectVideo(withUrl ytURL: String)

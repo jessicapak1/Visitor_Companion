@@ -75,7 +75,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         }
         
         //set image
-        imageView.image = UIImage(named: "tommy_trojan_2")
+        //imageView.image = UIImage(named: "tommy_trojan_2")
     }
     
     override func didReceiveMemoryWarning() {
@@ -87,16 +87,14 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //this will change acording to the data available for current location
-        return self.cellCount
+        //return self.cellCount
+        return 7
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        //description
-        if indexPath.row == 4 { // interests
-            return 100
-        } else if indexPath.row == 5 { // video
+        if indexPath.row == 5 { // video
             return 200
         } else if indexPath.row == 6 { // photos
             return 215
@@ -124,14 +122,14 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         } else if indexPath.row == 4 { // interests, this will change to checkin, share, and camera
             let cell = tableView.dequeueReusableCell(withIdentifier: "interestsCellView", for: indexPath) as! InterestsCell
             return cell
-        } else if indexPath.row < pictureIndex { // video
+        } else if indexPath.row == 5 {// < pictureIndex { // video
             let cell = tableView.dequeueReusableCell(withIdentifier: "videoCellView", for: indexPath) as! VideoCell
             
-            var num = indexPath.row
-            num -= 5
+            //var num = indexPath.row
+            //num -= 5
             // set the appropriate video for
-            let str = (self.current?.video?[num])!
-            cell.selectVideo(withUrl: str)
+            //let str = (self.current?.video?[0])!
+            //cell.selectVideo(withUrl: str)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "photosCellView") as! PhotosCell

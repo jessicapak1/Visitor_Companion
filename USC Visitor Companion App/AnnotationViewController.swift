@@ -40,12 +40,18 @@ class AnnotationViewController: SpotlightViewController {
             //current location button
             spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width - 47, y: screenSize.height - 47), diameter: 76), moveType: .disappear)
         case 4:
-            //welcome label
-            spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width / 2, y: screenSize.height / 2), diameter: 220), moveType: .disappear)
+            //show usc button
+            spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width - 47, y: screenSize.height - 117), diameter: 76), moveType: .disappear)
         case 5:
+            //toggle 3d map button
+            spotlightView.move(Spotlight.Oval(center: CGPoint(x: 47, y: screenSize.height - 47), diameter: 76), moveType: .disappear)
+        case 6:
+            //all locations label
+            spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width / 2, y: screenSize.height / 2), diameter: 220), moveType: .disappear)
+        case 7:
             //welcome label
             spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width / 2, y: screenSize.height / 2), diameter: 220), moveType: .disappear)
-        case 6:
+        case 8:
             dismiss(animated: true, completion: nil)
         default:
             break
