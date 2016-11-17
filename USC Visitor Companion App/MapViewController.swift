@@ -85,15 +85,19 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         }
     }
     
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    
     @IBOutlet weak var filterTableView: UITableView! {
         didSet {
+            let blurEffect = UIBlurEffect(style: .light)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            self.filterTableView.backgroundView = blurEffectView
+            
             self.filterTableView.delegate = self
             self.filterTableView.dataSource = self
             self.filterTableView.tableFooterView = UIView(frame: .zero)
         }
     }
-    
-    @IBOutlet weak var shadowButton: UIButton!
     
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
@@ -103,6 +107,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     @IBOutlet weak var searchTableView: UITableView! {
         didSet {
+            let blurEffect = UIBlurEffect(style: .light)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            self.searchTableView.backgroundView = blurEffectView
+            
             self.searchTableView.delegate = self
             self.searchTableView.dataSource = self
             let resultFoundID = "ResultFoundTableViewCell"
@@ -125,7 +133,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         }
     }
     
+    @IBOutlet weak var dimensionButton: ShadowButton! {
+        didSet {
+            self.dimensionButton.addShadow()
+        }
+    }
+    
     @IBOutlet weak var settingsButtonItem: UIBarButtonItem!
+    
     
     // MARK: View Controller Methods
     override func viewDidLoad() {
@@ -271,9 +286,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         
         for location in LocationData.shared.locations {
             if let userLocation = locations.last, let currentLocation = location.location {
-                print("Calculating distance at \(userLocation.distance(from: currentLocation)) from location \(location.name!)")
                 if userLocation.distance(from: currentLocation) < 30 {
-                    print("INSIDE IF ---------------------------------------------------------------------------------")
                     let newImage = UIImage(named: location.locType!)!.withRenderingMode(.alwaysTemplate)
                     let newView = UIImageView(image: newImage)
                     newView.tintColor = UIColor.blue
@@ -358,11 +371,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     // MARK: Filter Methods
     func addFilters() {
-        // configure the background shadow
-        self.shadowButton.alpha = 0.0
-        self.shadowButton.isHidden = true
-        self.view.bringSubview(toFront: self.shadowButton)
-        
         // configure the filter table view
         self.filterTableView.isHidden = true
         self.view.bringSubview(toFront: self.filterTableView)
@@ -378,25 +386,23 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.hideSearchResults()
         
         self.filterTableView.isHidden = false
-        self.shadowButton.isHidden = false
         self.filterTableView.frame.origin.x = -(self.view.frame.size.width / 2)
 
-        UIView.animate(withDuration: 0.18, delay: 0.0, options: .curveEaseIn, animations: {
-            // animate the filter table view to fill up half of the screen and to slowly darken the background shadow
-            self.filterTableView.frame.origin.x += self.view.frame.size.width / 2
-            self.shadowButton.alpha = 1.0
+        UIView.animate(withDuration: 0.20, delay: 0.0, options: .curveEaseIn, animations: {
+            // animate the filter table view to fill up half of the screen
+            self.filterTableView.frame.origin.x += (self.view.frame.size.width / 2)
         }, completion: nil)
     }
     
     func hideFilters() {
-        UIView.animate(withDuration: 0.18, delay: 0.0, options: .curveEaseOut, animations: {
-            // animate the filter table view to hide and the background shadow to clear up
-            self.filterTableView.frame.origin.x -= self.view.frame.size.width / 2
-            self.shadowButton.alpha = 0.0
+        self.filterTableView.frame.origin.x = 0.0
+        
+        UIView.animate(withDuration: 0.20, delay: 0.0, options: .curveEaseOut, animations: {
+            // animate the filter table view to hide
+            self.filterTableView.frame.origin.x -= (self.view.frame.size.width / 2)
         }, completion: {
             (succeeded) in
             self.filterTableView.isHidden = true
-            self.shadowButton.isHidden = true
         })
     }
     
@@ -556,6 +562,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         let infoWindow = Bundle.main.loadNibNamed("InfoWindow", owner: self, options: nil)?.first! as! InfoWindow
         infoWindow.locationNameLabel.text = marker.title
         infoWindow.seeMoreButton.setTitle("See More", for: UIControlState.normal)
+        infoWindow.layer.shadowColor = UIColor.lightGray.cgColor
+        infoWindow.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        infoWindow.layer.shadowOpacity = 1.0
+        infoWindow.layer.shadowRadius = 2.0
         return infoWindow
     }
     
@@ -601,6 +611,16 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     @IBAction func shadowButtonPressed() {
         self.hideFilters()
+    }
+    
+    @IBAction func dimensionButtonPressed() {
+        if self.dimensionButton.currentTitle == "3D" {
+            self.mapView.animate(toViewingAngle: 90.0)
+            self.dimensionButton.setTitle("2D", for: .normal)
+        } else if self.dimensionButton.currentTitle == "2D" {
+            self.mapView.animate(toViewingAngle: 0.0)
+            self.dimensionButton.setTitle("3D", for: .normal)
+        }
     }
 
 }
