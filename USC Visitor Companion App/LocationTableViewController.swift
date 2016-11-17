@@ -76,7 +76,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         } else if indexPath.row == 5 { // video
             return 200
         } else if indexPath.row == 6 { // photos
-            return 200
+            return 215
         }
         
         return 150
@@ -115,9 +115,9 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "photosCellView") as! PhotosCell
             //set up collection view
-            print("called form deque in table view")
-            cell.photos.removeAll()
-            cell.images.removeAll()
+            print("\n called form deque in table view")
+            //cell.photos.removeAll()
+            //cell.images.removeAll()
             cell.populatePhotosArray(locationName: name)
             return cell
         }

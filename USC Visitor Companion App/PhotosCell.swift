@@ -33,8 +33,6 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -66,6 +64,16 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
 //        }
         return self.images.count
     }
+    /*
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,                         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let size = CGSize(width: self.collectionView.bounds.size.width/4, height: self.collectionView.bounds.size.width/2)
+        //let size = CGSize(width: 90, height: 82)
+        return size
+    }
+    */
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photosColectionViewCell", for: indexPath) as! PhotosCollectionCell
@@ -83,7 +91,7 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
     }
     
     func populatePhotosArray(locationName: String) {
-        if !photos.isEmpty {
+        if self.images.count > 0 {
             return
         }
         //DispatchQueue.main.async(execute: { () -> Void in
@@ -104,11 +112,8 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
                 // This thread was initially used to change some basic data contained within the enclosing table. Ultimately this thread is probably completely unnecessary (obviously I've just used it in order to print out the results of our query)
                 
                 print("\n")
-                print("Raw photo data acquired through the FlickrProvider: ")
+                print("Loaded \(self.photos.count) photos ")
                 print("\n")
-                print(self.photos)
-                print("\n")
-                //self.collectionView.reloadData()
             
             
             print("about to load images")
@@ -127,9 +132,10 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
                     let image = UIImage(data: imageData)
                     self.images.append(image!)
                     //to the main queue
-                    if i > 5 {
+                    if i > 7 {
                         break;
                     }
+                    
                     DispatchQueue.main.async {
                         //                    var indexpath : IndexPath
                         //                    if i <= 5 {
@@ -139,6 +145,7 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
                         //                    }
                         self.collectionView.insertItems(at: [indexpath])
                     }
+ 
                 }
                 self.collectionView.reloadData()
                 UIApplication.shared.endBackgroundTask(bTask)
