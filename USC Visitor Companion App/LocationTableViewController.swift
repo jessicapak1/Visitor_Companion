@@ -8,6 +8,7 @@
 
 import UIKit
 import FacebookShare
+import MapKit
 
 class LocationTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -29,6 +30,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     //let mainImage = UIImageViewModeScaleAspect(frame: CGRect(x: 0, y: 0, width: 375, height: 170))
     var name : String = ""
     var current : Location? = nil
+    var closeProximity : Bool = false
     
     //make navbar transparent
     override func viewWillAppear(_ animated: Bool) {
@@ -51,11 +53,22 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //imageView.image = UIImage(named: "tommy_trojan_2")
         
+        // determine which button
+        switch closeProximity {
+        case true:
+            directionsButton.title = "Check in"
+            break
+            
+        case false:
+            directionsButton.title = "Directions"
+            break
+        }
+        
+        //set image
+        imageView.image = UIImage(named: "tommy_trojan_2")
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -120,6 +133,33 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             //cell.images.removeAll()
             cell.populatePhotosArray(locationName: name)
             return cell
+        }
+    }
+    
+    func openMapWithDirections(location: CLLocation, name: String){
+        let regionDistance:CLLocationDistance = 100
+        let coordinates = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = name
+        mapItem.openInMaps(launchOptions: options)
+    }
+    
+    func openDirections(){
+        switch closeProximity {
+            
+        case true:
+            break
+            
+        case false:
+            openMapWithDirections(location: (current?.location)!, name: (current?.name!)!)
+            break
+            
         }
     }
     

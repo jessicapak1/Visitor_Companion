@@ -11,7 +11,7 @@ import UIKit
 class ResultFoundTableViewCell: UITableViewCell {
     
     // MARK: Properties
-    static let defaultHeight: CGFloat = 60.0
+    static let defaultHeight: CGFloat = 62.0
     
     
     // MARK: IBOutlets

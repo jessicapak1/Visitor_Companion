@@ -26,6 +26,7 @@ enum UserKey: String {
     case email = "email"
     case interest = "interest"
     case type = "type"
+    case points = "points"
 }
 
 
@@ -48,6 +49,9 @@ class User: NSObject {
     
     var type: UserType = .none { willSet { User.current.update(value: newValue.rawValue, forKey: UserKey.type.rawValue) } }
     
+    var points: Int? { willSet { User.current.update(value: newValue, forKey: UserKey.points.rawValue) } }
+    
+    
     
     // MARK: Class Methods
     class func signup(username: String, password: String, callback: @escaping () -> Void) {
@@ -58,6 +62,7 @@ class User: NSObject {
         user[UserKey.email.rawValue] = username
         user[UserKey.interest.rawValue] = ""
         user[UserKey.type.rawValue] = UserType.none.rawValue
+        user[UserKey.points.rawValue] = 0
         user.signUpInBackground(block: {
             (succeeded, error) in
             User.current.update()
@@ -136,6 +141,7 @@ class User: NSObject {
         User.current.username = PFUser.current()?[UserKey.username.rawValue] as! String?
         User.current.email = PFUser.current()?[UserKey.email.rawValue] as! String?
         User.current.interest = PFUser.current()?[UserKey.interest.rawValue] as! String?
+        User.current.points = PFUser.current()?[UserKey.points.rawValue] as! Int?
         if let type = PFUser.current()?[UserKey.type.rawValue] as! String? {
             if type == UserType.prospective.rawValue {
                 User.current.type = .prospective
@@ -172,6 +178,7 @@ class User: NSObject {
                         User.current.name = name
                         User.current.interest = "General"
                         User.current.type = UserType.prospective
+                        User.current.points = 0
                     }
                     callback()
                 })
