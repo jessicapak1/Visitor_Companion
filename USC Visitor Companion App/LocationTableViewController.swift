@@ -11,7 +11,6 @@ import FacebookShare
 
 class LocationTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    //Register all of the nib files used for our custom cells
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             self.tableView.register(UINib(nibName: "BlankCellView", bundle: nil), forCellReuseIdentifier: "blankCellView")
@@ -38,13 +37,21 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
 
         //get current location from the database acording to the name provided in the prepareforsegue
         current = LocationData.shared.getLocation(withName: name)
-
+        
+        DispatchQueue.main.async {
+            self.imageView.image = self.current?.image
+            if (self.imageView.image == nil) {
+                self.imageView.image = UIImage(named: "tommy_trojan_2")
+                print("Error: did not find image in database, loading default (LocationTableViewController)")
+            }
+            self.tableView.setNeedsDisplay()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //load image
-        imageView.image = UIImage(named: "tommy_trojan_2")
+        
+        //imageView.image = UIImage(named: "tommy_trojan_2")
     }
     
     /////////////  TABLE VIEW CODE  \\\\\\\\\\\\\\

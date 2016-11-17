@@ -78,7 +78,7 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
             let code = codeTextField.text            
             let description = descriptionTextView.text
             
-            LocationData.shared.create(name: name!, code: code!, details: description!, location: addLocationValue!, interests:mInterestsForDatabase, locType: selectedLocationType, callback: {
+            LocationData.shared.create(name: name!, code: code!, details: description!, location: addLocationValue!, interests:mInterestsForDatabase, locType: selectedLocationType, video: [], callback: {
                 (succeeded) in
                 if(succeeded) {
                     self.dismiss(animated: true, completion: nil)

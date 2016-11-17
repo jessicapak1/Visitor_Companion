@@ -29,6 +29,27 @@ class Location: NSObject {
     
     var locType: String? { willSet {self.update(value: newValue, forKey: "locType") } }
     
+    var video: [String]? { willSet { self.update(value: newValue, forKey: "video") } }
+    
+    var image: UIImage? {
+        
+        var mainImage = UIImage()
+        do {
+            let imageFile = self.object?["image"] as! PFFile?
+            if (imageFile != nil) {
+                let data = try imageFile?.getData()
+                mainImage = UIImage(data: data!)!
+            } else {
+                return nil
+            }
+        } catch {
+            
+            print ("Error: Problem acquiring location image from database (Location)")
+            return nil
+        }
+        return mainImage
+    }
+    
     
     // MARK: Constructor
     init(object: PFObject) {
@@ -41,6 +62,7 @@ class Location: NSObject {
         self.location = CLLocation(latitude: (coordinate?.latitude)!, longitude: (coordinate?.longitude)!)
         self.interests = object["interests"] as! [String]?
         self.locType = object["locType"] as! String?
+        self.video = object["video"] as! [String]?
     }
     
     
@@ -70,6 +92,8 @@ class Location: NSObject {
         
     }
     
+
+    
     // DO NOT CALL THIS FUNCTION. Only for use by LocationData
     func addInterestTags(interestNames: [String]) {
         
@@ -81,8 +105,6 @@ class Location: NSObject {
         
         self.object?["interests"] = self.interests
         self.object?.saveInBackground()
-        
-        
     }
     
     // DO NOT CALL THIS FUNCTION. Only for use by LocationData
@@ -106,7 +128,7 @@ class Location: NSObject {
     }
     
     // DO NOT CALL THIS FUNCTION. Only for use by LocationData
-    func changeLocType(newLocType: String) {
+    func changeLocType(newLocType: String) -> () {
         if (self.locType != newLocType) {
             self.locType = newLocType
             
@@ -117,7 +139,7 @@ class Location: NSObject {
     
     
     // DO NOT CALL THIS FUNCTION. Only for use by LocationData
-    func changeGeoLocation(withCLLocation loc: CLLocation) {
+    func changeGeoLocation(withCLLocation loc: CLLocation) -> () {
         // save locally
         self.location = loc
         
@@ -126,10 +148,44 @@ class Location: NSObject {
         self.object?.saveInBackground()
     }
     
-    func changeName(newName: String) {
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
+    func changeName(newName: String) -> () {
         self.name = newName
         
         self.object?["name"] = newName
+        self.object?.saveInBackground()
+    }
+    
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
+    func changeImage(newImage: UIImage) -> () {
+        self.object?["image"] = PFFile(data: UIImagePNGRepresentation(newImage)!)
+        
+        self.object?.saveInBackground()
+    }
+    
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
+    func addVideoLinks(newLinks: [String]) -> () {
+        for link in newLinks {
+            if self.video?.index(of: link) == nil {
+                self.video?.append(link)
+            }
+        }
+        
+        self.object?["video"] = self.video
+        self.object?.saveInBackground()
+    }
+    
+    // DO NOT CALL THIS FUNCTION. Only for use by LocationData
+    func deleteVideoLinks(links: [String]) {
+        var updatedVideo = [String]()
+        for link in self.video! {
+            if (links.index(of: link) == nil) {
+                updatedVideo.append(link)
+            }
+        }
+        
+        self.video = updatedVideo
+        self.object?["video"] = self.video
         self.object?.saveInBackground()
     }
     
