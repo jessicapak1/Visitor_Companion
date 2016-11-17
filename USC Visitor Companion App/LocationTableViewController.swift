@@ -29,6 +29,11 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     var name : String = "" //this value will be provided in the prepareforsegue in the MapView.
     var current : Location? = nil
     
+    // will change according to number of videos
+    var cellCount = 5
+    
+    var pictureIndex = 4
+    
     override func viewWillAppear(_ animated: Bool) {
         //make navbar transparent
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -46,6 +51,12 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             }
             self.tableView.setNeedsDisplay()
         }
+        
+        self.cellCount += (self.current?.video?.count)!
+        
+        self.pictureIndex = cellCount
+        self.cellCount += 1;
+        
     }
     
     override func viewDidLoad() {
@@ -58,7 +69,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //this will change acording to the data available for current location
-        return 7
+        return self.cellCount
     }
     
     
@@ -92,8 +103,14 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         } else if indexPath.row == 4 { // interests, this will change to checkin, share, and camera
             let cell = tableView.dequeueReusableCell(withIdentifier: "interestsCellView", for: indexPath) as! InterestsCell
             return cell
-        } else if indexPath.row == 5 { // video
+        } else if indexPath.row < pictureIndex { // video
             let cell = tableView.dequeueReusableCell(withIdentifier: "videoCellView", for: indexPath) as! VideoCell
+            
+            var num = indexPath.row
+            num -= 5
+            // set the appropriate video for
+            let str = (self.current?.video?[num])!
+            cell.selectVideo(withUrl: str)
             return cell
         } else { // photos
             let cell = tableView.dequeueReusableCell(withIdentifier: "photosCellView")!
