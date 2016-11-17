@@ -59,7 +59,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     var added_marker = GMSMarker()
     var fromAdmin : Bool?
     var newLocation: CLLocation?
-    
+
     
     // MARK: IBOutlets
     @IBOutlet weak var filterButton: UIButton! {
@@ -91,6 +91,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         didSet {
             self.searchBar.delegate = self
         }
+    }
+    @IBAction func adminButtonPressed(_ sender: Any) {
     }
     
     @IBOutlet weak var searchTableView: UITableView! {
@@ -142,7 +144,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
          */
     
     }
-    
     
     // MARK: Map View Methods
     func showMap() {
@@ -351,7 +352,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             self.shadowButton.isHidden = true
         })
     }
-    
     
     // MARK: UISearchBarDelegate Methods
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

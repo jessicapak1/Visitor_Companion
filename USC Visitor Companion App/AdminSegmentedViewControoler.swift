@@ -125,7 +125,6 @@ class AdminSegmentedViewControoler: UIViewController, UITableViewDataSource, UIT
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if (segue.identifier == "admin_to_adminsignle") {
-            
                 //get a reference to the destination view controller
             let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
             destinationVC.locationName = locationName
