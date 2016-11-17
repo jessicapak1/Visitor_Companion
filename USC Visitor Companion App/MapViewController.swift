@@ -249,8 +249,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         if CLLocationManager.locationServicesEnabled() {
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation // higher accuracy = more battery usage
+            self.locationManager.distanceFilter = 5
             self.locationManager.startUpdatingLocation()
         }
+        
     }
     
     func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -267,18 +269,23 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             firstOpen = false
         }
         
-        let userLocation = locations.last
-        let maxDistance = CLLocationDistance(30)
         for location in LocationData.shared.locations {
-            let distance = userLocation?.distance(from: location.location!)
-           /* if distance <= maxDistance {
-                self.markers[location.name!]?.iconView?.tintColor = UIColor.blue
-            } else {
-                self.markers[location.name!]?.iconView?.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
+            if let userLocation = locations.last, let currentLocation = location.location {
+                print("Calculating distance at \(userLocation.distance(from: currentLocation)) from location \(location.name!)")
+                if userLocation.distance(from: currentLocation) < 30 {
+                    print("INSIDE IF ---------------------------------------------------------------------------------")
+                    let newImage = UIImage(named: location.locType!)!.withRenderingMode(.alwaysTemplate)
+                    let newView = UIImageView(image: newImage)
+                    newView.tintColor = UIColor.blue
+                    self.markers[location.name!]?.iconView = newView
+                } else {
+                    let oldImage = UIImage(named: location.locType!)!.withRenderingMode(.alwaysTemplate)
+                    let oldView = UIImageView(image: oldImage)
+                    oldView.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
+                    self.markers[location.name!]?.iconView = oldView
+                }
             }
-             */
         }
-        
     }
     
     func showUSC(userLocation: CLLocationCoordinate2D){

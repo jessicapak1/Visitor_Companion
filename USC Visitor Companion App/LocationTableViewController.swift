@@ -145,6 +145,19 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         mapItem.openInMaps(launchOptions: options)
     }
     
+    func openDirections(){
+        switch closeProximity {
+            
+        case true:
+            break
+            
+        case false:
+            openMapWithDirections(location: (current?.location)!, name: (current?.name!)!)
+            break
+            
+        }
+    }
+    
     //NAVIGATION BAR ITEMS CODE
     
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
