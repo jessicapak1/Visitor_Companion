@@ -85,8 +85,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         }
     }
     
-    @IBOutlet weak var blurView: UIVisualEffectView!
-    
     @IBOutlet weak var filterTableView: UITableView! {
         didSet {
             let blurEffect = UIBlurEffect(style: .light)
@@ -98,6 +96,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             self.filterTableView.tableFooterView = UIView(frame: .zero)
         }
     }
+    
+    @IBOutlet weak var sideFilterButton: UIButton!
     
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
@@ -150,7 +150,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.addFilters()
         self.addSearch()
         self.showMap()
-        self.showMarkers(forLocations: LocationData.shared.locations)
         
         /*
         // MARK: tutorial code goes here
@@ -182,8 +181,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     }
     
     func showMarkers(forLocations locations: [Location]) {
-        self.mapView.clear()
-        
         //create custom marker icons
         let foodImage = UIImage(named: "food")!.withRenderingMode(.alwaysTemplate)
         let foodView = UIImageView(image: foodImage)
@@ -417,6 +414,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.filterTableView.isHidden = true
         self.view.bringSubview(toFront: self.filterTableView)
         
+        self.sideFilterButton.isHidden = true
+        self.view.bringSubview(toFront: self.sideFilterButton)
+        
         // reload the interests from the database in case they were not loaded correctly at start-up
         if self.filters.count == 0 {
             InterestsData.shared.fetchInterests()
@@ -429,6 +429,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         
         self.filterTableView.isHidden = false
         self.filterTableView.frame.origin.x = -(self.view.frame.size.width / 2)
+        
+        self.sideFilterButton.isHidden = false
 
         UIView.animate(withDuration: 0.20, delay: 0.0, options: .curveEaseIn, animations: {
             // animate the filter table view to fill up half of the screen
@@ -438,6 +440,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     func hideFilters() {
         self.filterTableView.frame.origin.x = 0.0
+        
+        self.sideFilterButton.isHidden = true
         
         UIView.animate(withDuration: 0.20, delay: 0.0, options: .curveEaseOut, animations: {
             // animate the filter table view to hide
@@ -476,6 +480,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             
             // fetch the selected location and show only that location on the map
             let location = self.searchResults[indexPath.row]
+            self.mapView.clear()
             self.showMarkers(forLocations: [location])
             
             // animate to the selected location and show its info window
@@ -483,24 +488,40 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             self.showInformation(forLocation: location)
             
             // reset the interest of the current user so that locations from the filter table view aren't shown
-            User.current.interest = ""
+            User.current.filters.removeAll()
             self.filterTableView.reloadData()
         } else if tableView == self.filterTableView {
-            // fetch the locations tagged with the selected filter
-            let locations = InterestsData.shared.interest(withName: self.filters[indexPath.row])?.locations
-            
-            // animate to show the whole campus then show the locations tagged with the selected filter
-            if let locations = locations {
-                self.campusLocationButtonPressed()
-                self.showMarkers(forLocations: locations)
+            let filter = self.filters[indexPath.row]
+            if User.current.filters.contains(filter) {
+                User.current.filters.remove(at: User.current.filters.index(of: filter)!) // could be more optimized
+                
+                self.mapView.clear()
+                
+                for filter in User.current.filters {
+                    // fetch the locations tagged with the selected filter
+                    let locations = InterestsData.shared.interest(withName: filter)?.locations
+                    
+                    // animate to show the whole campus then show the locations tagged with the selected filter
+                    if let locations = locations {
+                        self.showMarkers(forLocations: locations)
+                    }
+                }
+            } else {
+                // set the filters of the current user to the selected filter
+                User.current.filters.append(self.filters[indexPath.row])
+                
+                // fetch the locations tagged with the selected filter
+                let locations = InterestsData.shared.interest(withName: filter)?.locations
+                
+                // animate to show the whole campus then show the locations tagged with the selected filter
+                if let locations = locations {
+                    self.showMarkers(forLocations: locations)
+                }
             }
             
-            // set the interest of the current user to the selected filter
-            User.current.interest = self.filters[indexPath.row]
-            
-            // reload the filter table view to highlight the selected filter then hide the filter table view
+            // reload the filter table view to highlight the selected filters
             self.filterTableView.reloadData()
-            self.hideFilters()
+            self.campusLocationButtonPressed()
         }
     }
     
@@ -574,17 +595,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         let filterID = "Filter Cell"
         let filterCell = self.filterTableView.dequeueReusableCell(withIdentifier: filterID)
         filterCell?.textLabel?.text = filter
-        if filter == User.current.interest {
-            self.filterTableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
-        }
+        filterCell?.accessoryType = User.current.filters.contains(filter) ? .checkmark : .none
         return filterCell!
     }
 
     
     // MARK: GMSMapViewDelegate Methods
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        self.hideFilters()
-        
         if newMarker == true {
             added_marker = marker;
             newLocation = CLLocation(latitude: marker.position.latitude, longitude: marker.position.longitude)
@@ -651,7 +668,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.showSearchResults(forKeyword: self.searchBar.text!)
     }
     
-    @IBAction func shadowButtonPressed() {
+    @IBAction func sideFilterButtonPressed() {
         self.hideFilters()
     }
     
