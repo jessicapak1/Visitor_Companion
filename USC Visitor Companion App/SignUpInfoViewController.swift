@@ -132,7 +132,6 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
             } else {
                 self.showSpinnerForSignUpButton()
                 User.current.name = firstName + " " + lastName
-                User.current.interest = self.interests[self.interestIndex]
                 User.current.type = self.types[self.typeIndex]
                 if let delegate = self.delegate {
                     delegate.userDidSaveInfo()
