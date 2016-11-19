@@ -99,7 +99,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9y-xd-oi6" customClass="ShadowButton" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
-                                <rect key="frame" x="188" y="0.0" width="188" height="44"/>
+                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="44"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="hl4-0y-cnX"/>
@@ -127,7 +127,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btO-Xg-bPH">
-                                <rect key="frame" x="0.0" y="0.0" width="188" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="44"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ReT-i7-tt3"/>
@@ -1139,7 +1139,7 @@ Christian Villa – Computer Science Major    </string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-8G-QNj">
-                                                    <rect key="frame" x="-10" y="0.0" width="377" height="149"/>
+                                                    <rect key="frame" x="-10.5" y="0.0" width="377" height="149"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 </pickerView>
                                             </subviews>
@@ -1624,6 +1624,14 @@ Christian Villa – Computer Science Major    </string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xge-QH-Sbc" userLabel="tutorialWelcomeLabel">
+                                <rect key="frame" x="70" y="149" width="235" height="368"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Welcome to Viterbi Traveler. For this tutorial, please tap on the right of the screen to go to the next action, or tap on the left to go to the previous one. To skip, tap on the button bellow.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap here to access app settings." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1L-gJ-KZp" userLabel="SettingsLabel">
                                 <rect key="frame" x="27" y="131" width="332" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1652,25 +1660,18 @@ Christian Villa – Computer Science Major    </string>
                                 <color key="textColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap here to toggle 3D map on/off. Or swipe up/down with two fingers." lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goG-WO-y52" userLabel="Toggle3DLabel">
-                                <rect key="frame" x="27" y="477" width="254" height="91"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
-                                <color key="textColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Viterbi Traveller" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eie-rk-bSQ" userLabel="WelcomeLabel">
-                                <rect key="frame" x="77" y="270" width="221" height="126"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="44"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap here to zoom out and view the campus." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjl-xl-Y2i" userLabel="ShowUSCLabel">
                                 <rect key="frame" x="27" y="443" width="332" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap here to toggle 3D map on/off. Or swipe up/down with two fingers." lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goG-WO-y52" userLabel="Toggle3DLabel">
+                                <rect key="frame" x="27" y="477" width="254" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                <color key="textColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap on any location for more information." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuC-Lo-X9d" userLabel="LocationLabel">
@@ -1680,18 +1681,37 @@ Christian Villa – Computer Science Major    </string>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Viterbi Traveller" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eie-rk-bSQ" userLabel="WelcomeLabel">
+                                <rect key="frame" x="77" y="270" width="221" height="126"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="44"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThK-vs-bu6" userLabel="skipButton">
+                                <rect key="frame" x="164" y="595" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="skipButtonPressed:" destination="Jqe-Jf-ell" eventType="touchUpInside" id="9RO-gT-x4U"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outletCollection property="tutorialAnnotationViews" destination="m1L-gJ-KZp" collectionClass="NSMutableArray" id="WKP-xJ-yJh"/>
-                        <outletCollection property="tutorialAnnotationViews" destination="Il3-4k-hts" collectionClass="NSMutableArray" id="NwC-iB-ciP"/>
-                        <outletCollection property="tutorialAnnotationViews" destination="dBA-EX-g6e" collectionClass="NSMutableArray" id="z0q-sJ-Enk"/>
-                        <outletCollection property="tutorialAnnotationViews" destination="FMq-aJ-jgg" collectionClass="NSMutableArray" id="1zh-rF-R8c"/>
-                        <outletCollection property="tutorialAnnotationViews" destination="xjl-xl-Y2i" collectionClass="NSMutableArray" id="ZFQ-We-mXY"/>
-                        <outletCollection property="tutorialAnnotationViews" destination="goG-WO-y52" collectionClass="NSMutableArray" id="Jar-cr-yCf"/>
-                        <outletCollection property="tutorialAnnotationViews" destination="KuC-Lo-X9d" collectionClass="NSMutableArray" id="lmt-R0-KwR"/>
-                        <outletCollection property="tutorialAnnotationViews" destination="Eie-rk-bSQ" collectionClass="NSMutableArray" id="n9D-w3-CTY"/>
+                        <outletCollection property="tutorialAnnotationViews" destination="xge-QH-Sbc" collectionClass="NSMutableArray" id="yv0-6Z-S95"/>
+                        <outletCollection property="tutorialAnnotationViews" destination="m1L-gJ-KZp" collectionClass="NSMutableArray" id="Mo1-6g-Gn5"/>
+                        <outletCollection property="tutorialAnnotationViews" destination="Il3-4k-hts" collectionClass="NSMutableArray" id="oQV-uq-q93"/>
+                        <outletCollection property="tutorialAnnotationViews" destination="dBA-EX-g6e" collectionClass="NSMutableArray" id="gME-wU-LQA"/>
+                        <outletCollection property="tutorialAnnotationViews" destination="FMq-aJ-jgg" collectionClass="NSMutableArray" id="WGy-3U-uYJ"/>
+                        <outletCollection property="tutorialAnnotationViews" destination="xjl-xl-Y2i" collectionClass="NSMutableArray" id="eaT-Gn-9xY"/>
+                        <outletCollection property="tutorialAnnotationViews" destination="goG-WO-y52" collectionClass="NSMutableArray" id="bqY-7N-Xwx"/>
+                        <outletCollection property="tutorialAnnotationViews" destination="KuC-Lo-X9d" collectionClass="NSMutableArray" id="BKz-Vh-MPJ"/>
+                        <outletCollection property="tutorialAnnotationViews" destination="Eie-rk-bSQ" collectionClass="NSMutableArray" id="yFw-rB-OHB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ab-Hl-d5g" userLabel="First Responder" sceneMemberID="firstResponder"/>
