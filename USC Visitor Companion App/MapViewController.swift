@@ -123,18 +123,21 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     @IBOutlet weak var campusLocationButton: ShadowButton! {
         didSet {
+            self.campusLocationButton.layer.cornerRadius = 6.0
             self.campusLocationButton.addShadow()
         }
     }
     
     @IBOutlet weak var currentLocationButton: ShadowButton! {
         didSet {
+            self.currentLocationButton.layer.cornerRadius = 6.0
             self.currentLocationButton.addShadow()
         }
     }
     
     @IBOutlet weak var dimensionButton: ShadowButton! {
         didSet {
+            self.dimensionButton.layer.cornerRadius = 6.0
             self.dimensionButton.addShadow()
         }
     }
@@ -431,7 +434,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         
         self.sideFilterButton.isHidden = false
 
-        UIView.animate(withDuration: 0.20, delay: 0.0, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseIn, animations: {
             // animate the filter table view to fill up half of the screen
             self.filterTableView.frame.origin.x += (self.view.frame.size.width / 2)
         }, completion: nil)
@@ -442,7 +445,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         
         self.sideFilterButton.isHidden = true
         
-        UIView.animate(withDuration: 0.20, delay: 0.0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.15, delay: 0.0, options: .curveEaseOut, animations: {
             // animate the filter table view to hide
             self.filterTableView.frame.origin.x -= (self.view.frame.size.width / 2)
         }, completion: {

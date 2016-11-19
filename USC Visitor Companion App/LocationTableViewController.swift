@@ -27,7 +27,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var directionsButton: UIBarButtonItem!
     @IBOutlet weak var shadowImage: UIImageView!
     
-    var name : String = "" //this value will be provided in the prepareforsegue in the MapView.
+    var name : String = "" // this value will be provided in the prepareforsegue in the MapView.
     var current : Location? = nil
     var closeProximity : Bool = false
     
@@ -66,7 +66,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         // determine which button
         switch closeProximity {
         case true:
-            directionsButton.title = "Check in"
+            directionsButton.title = "Check-in"
             break
             
         case false:
@@ -76,11 +76,6 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         
         //set image
         //imageView.image = UIImage(named: "tommy_trojan_2")
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     /////////////  TABLE VIEW CODE  \\\\\\\\\\\\\\
@@ -98,6 +93,8 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             return 200
         } else if indexPath.row == 6 { // photos
             return 215
+        } else if indexPath.row == 0 { // title
+            return 250
         }
         
         return 150

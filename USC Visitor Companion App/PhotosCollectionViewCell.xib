@@ -18,12 +18,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="88" height="88"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="REV-ft-fK8">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="REV-ft-fK8">
                         <rect key="frame" x="0.0" y="0.0" width="88" height="88"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
             </view>
+            <constraints>
+                <constraint firstItem="REV-ft-fK8" firstAttribute="top" secondItem="Qdg-Ig-VuX" secondAttribute="top" id="PA4-G2-f0w"/>
+                <constraint firstAttribute="bottom" secondItem="REV-ft-fK8" secondAttribute="bottom" id="T0m-Br-e8C"/>
+                <constraint firstAttribute="trailing" secondItem="REV-ft-fK8" secondAttribute="trailing" id="uWi-sx-5E2"/>
+                <constraint firstItem="REV-ft-fK8" firstAttribute="leading" secondItem="Qdg-Ig-VuX" secondAttribute="leading" id="yf3-FY-Fkn"/>
+            </constraints>
             <connections>
                 <outlet property="imageView" destination="REV-ft-fK8" id="ozK-iZ-Fms"/>
             </connections>
