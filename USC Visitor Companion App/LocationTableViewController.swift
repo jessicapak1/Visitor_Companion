@@ -83,15 +83,17 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //this will change acording to the data available for current location
         //return self.cellCount
-        return 7
+        return 5
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.row == 5 { // video
+        if indexPath.row == 0 {
+            return 450
+        } else if indexPath.row == 3 { // video
             return 200
-        } else if indexPath.row == 6 { // photos
+        } else if indexPath.row == 4 { // photos
             return 215
         } else if indexPath.row == 0 { // title
             return 250
@@ -106,20 +108,14 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCellView") as! TitleCell
             cell.title.text = self.name
             return cell
-        } else if indexPath.row == 1 { // blank
-            let cell = tableView.dequeueReusableCell(withIdentifier: "blankCellView")!
-            return cell
-        } else if indexPath.row == 2 { // blank
-            let cell = tableView.dequeueReusableCell(withIdentifier: "blankCellView")!
-            return cell
-        } else if indexPath.row == 3 { // description
+        } else if indexPath.row == 1 { // description
             let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCellView") as! DescriptionCell
             cell.descriptionLabel.text = current?.details!
             return cell
-        } else if indexPath.row == 4 { // interests, this will change to checkin, share, and camera
+        } else if indexPath.row == 2 { // interests, this will change to checkin, share, and camera
             let cell = tableView.dequeueReusableCell(withIdentifier: "interestsCellView", for: indexPath) as! InterestsCell
             return cell
-        } else if indexPath.row == 5 {// < pictureIndex { // video
+        } else if indexPath.row == 3 {// < pictureIndex { // video
             let cell = tableView.dequeueReusableCell(withIdentifier: "videoCellView", for: indexPath) as! VideoCell
             
             //var num = indexPath.row

@@ -28,36 +28,37 @@ class AnnotationViewController: SpotlightViewController {
         let screenSize = UIScreen.main.bounds.size
         switch stepIndex {
         case 0:
+            //just the dark background for our text!
+            spotlightView.appear(Spotlight.RoundedRect(center: CGPoint(x: 187 , y: 610), size: CGSize(width: 46, height: 30), cornerRadius: 6))
+        case 1:
             //settings
             spotlightView.appear(Spotlight.Oval(center: CGPoint(x: screenSize.width - 27, y: 42), diameter: 50))
-        case 1:
+        case 2:
             //filter
             spotlightView.move(Spotlight.RoundedRect(center: CGPoint(x: screenSize.width / 4, y: 86), size: CGSize(width: screenSize.width/2, height: 48), cornerRadius: 6), moveType: .disappear)
-        case 2:
+        case 3:
             //search bar
             spotlightView.move(Spotlight.RoundedRect(center: CGPoint(x: (screenSize.width/2)+(screenSize.width/4), y: 86), size: CGSize(width: screenSize.width/2, height: 48), cornerRadius: 6), moveType: .disappear)
-        case 3:
+        case 4:
             //current location button
             spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width - 47, y: screenSize.height - 47), diameter: 76), moveType: .disappear)
-        case 4:
+        case 5:
             //show usc button
             spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width - 47, y: screenSize.height - 117), diameter: 76), moveType: .disappear)
-        case 5:
+        case 6:
             //toggle 3d map button
             spotlightView.move(Spotlight.Oval(center: CGPoint(x: 47, y: screenSize.height - 47), diameter: 76), moveType: .disappear)
-        case 6:
+        case 7:
             //all locations label
             spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width / 2, y: screenSize.height / 2), diameter: 220), moveType: .disappear)
-        case 7:
+        case 8:
             //welcome label
             spotlightView.move(Spotlight.Oval(center: CGPoint(x: screenSize.width / 2, y: screenSize.height / 2), diameter: 220), moveType: .disappear)
-        case 8:
+        case 9:
             dismiss(animated: true, completion: nil)
         default:
             break
         }
-        
-        stepIndex += 1
     }
     
     func updateAnnotationView(_ animated: Bool) {
@@ -74,10 +75,25 @@ extension AnnotationViewController: SpotlightViewControllerDelegate {
         next(false)
     }
     
-    func spotlightViewControllerTapped(_ viewController: SpotlightViewController, isInsideSpotlight: Bool) {
-        next(true)
+    func spotlightViewControllerTapped(_ viewController: SpotlightViewController, isInsideSpotlight: Bool, touchPoint: CGPoint) {
+        
+        if (touchPoint.x < 210 && touchPoint.x > 164) && (touchPoint.y < 625 && touchPoint.y > 595) {
+            stepIndex = 9
+            next(true)
+            return
+        }
+        if touchPoint.x >= UIScreen.main.bounds.midX {
+            stepIndex += 1
+            next(true)
+        } else {
+            stepIndex -= 1
+            if stepIndex < 0 {
+                stepIndex = 0
+            }
+            next(true)
+        }
     }
-    
+
     func spotlightViewControllerWillDismiss(_ viewController: SpotlightViewController, animated: Bool) {
         spotlightView.disappear()
     }
