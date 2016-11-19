@@ -31,6 +31,8 @@ class VideoCell: UITableViewCell {
        selectVideo(withUrl: youtubeUrl)
     }
     
+    
+    // ONLY FOR YOUTUBE LINKS please
     func selectVideo(withUrl ytURL: String)
     {
         self.youtubeUrl = ytURL
