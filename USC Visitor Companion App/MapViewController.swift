@@ -196,7 +196,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
        
         let fountainImage = UIImage(named: "fountain")!.withRenderingMode(.alwaysTemplate)
         let fountainView = UIImageView(image: fountainImage)
-        fountainView.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
         
         let fieldImage = UIImage(named: "field")!.withRenderingMode(.alwaysTemplate)
         let fieldView = UIImageView(image: fieldImage)
@@ -216,12 +215,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         let residentialImage = UIImage(named: "residential")!.withRenderingMode(.alwaysTemplate)
         let residentialView = UIImageView(image: residentialImage)
         
-        // let computerlabImage = UIImage(named: "computerlab")!.withRenderingMode(.alwaysTemplate)
-        // let computerlabView = UIImageView(image: computerlabImage)
-        /*case "computerlab"?:
-         marker.iconView = computerlabView
-         break*/
-     
+        let computerlabImage = UIImage(named: "computerLab")!.withRenderingMode(.alwaysTemplate)
+        let computerlabView = UIImageView(image: computerlabImage)
         
         // create each marker
         for location in locations {
@@ -272,6 +267,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             case "residential"?:
                 marker.iconView = residentialView
                 break
+                
+            case "computerLab"?:
+                 marker.iconView = computerlabView
+                 break
 
             default:
                 marker.icon = GMSMarker.markerImage(with: UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0))

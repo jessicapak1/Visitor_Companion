@@ -2,16 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "athletics-11.png",
+      "filename" : "athletics.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "athletics-15.png",
+      "filename" : "athleticsx2.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "athleticsx3.png",
       "scale" : "3x"
     }
   ],
