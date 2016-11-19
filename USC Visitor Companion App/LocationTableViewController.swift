@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FacebookShare
 import MapKit
 
 // ONLY ACCEPTS YOUTUBE LINKS, REFERENCE VideoCell.swift please
@@ -31,11 +30,6 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     var name : String = "" // this value will be provided in the prepareforsegue in the MapView.
     var current : Location? = nil
     var closeProximity : Bool = false
-    
-    // will change according to number of videos
-    var cellCount = 5
-    
-    var pictureIndex = 4
     
     var identifiers: [String] = ["titleCellView", "descriptionCellView", "interestsCellView"]
     
@@ -64,12 +58,6 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             }
             self.tableView.setNeedsDisplay()
         }
-        
-        self.cellCount += (self.current?.video?.count)!
-        
-        self.pictureIndex = cellCount
-        self.cellCount += 1;
-        
     }
     
     override func viewDidLoad() {
@@ -109,6 +97,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             return cell
         } else if self.identifiers[indexPath.row] == "interestsCellView" { // interests, this will change to checkin, share, and camera
             let cell = tableView.dequeueReusableCell(withIdentifier: "interestsCellView", for: indexPath) as! InterestsCell
+            cell.setCurrentLocation(currentLocation: current!, isClose: closeProximity)
             return cell
         } else if self.identifiers[indexPath.row].lowercased().contains("youtube") {// < pictureIndex { // video HACKY! SHOULD BE FIXED
             let cell = tableView.dequeueReusableCell(withIdentifier: "videoCellView", for: indexPath) as! VideoCell
@@ -124,49 +113,10 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         return UITableViewCell()
     }
     
-    func openMapWithDirections(location: CLLocation, name: String){
-        let regionDistance:CLLocationDistance = 100
-        let coordinates = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-        ]
-        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = name
-        mapItem.openInMaps(launchOptions: options)
-    }
-    
-    func openDirections(){
-        switch closeProximity {
-            
-        case true:
-            break
-            
-        case false:
-            openMapWithDirections(location: (current?.location)!, name: (current?.name!)!)
-            break
-            
-        }
-    }
-    
     //NAVIGATION BAR ITEMS CODE
     
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func directionsButtonPressed(_ sender: AnyObject) {
-        let content = LinkShareContent(url: URL(string: "http://viterbi.usc.edu")!)
-        let shareDialog = ShareDialog(content: content)
-        shareDialog.mode = .web
-        shareDialog.failsOnInvalidData = true
-        shareDialog.completion =  {
-            result in
-            print("Shared to Facebook")
-        }
-        try? shareDialog.show()
     }
 
 }

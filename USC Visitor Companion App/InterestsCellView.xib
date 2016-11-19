@@ -67,11 +67,15 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxL-zP-Sss" userLabel="Check in">
                                         <rect key="frame" x="0.0" y="0.0" width="61" height="61"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" red="1" green="0.77681993130000004" blue="0.001346542883" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" image="check">
                                             <color key="titleColor" red="1" green="0.77681993130000004" blue="0.001346542883" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="1" green="0.77681993130000004" blue="0.001346542883" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="checkinButtonPressed:" destination="TGQ-c8-6aq" eventType="touchUpInside" id="E0C-O9-JhC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YpT-8B-ohx" userLabel="Directions">
                                         <rect key="frame" x="109" y="0.0" width="61" height="61"/>
@@ -79,6 +83,9 @@
                                         <state key="normal" image="map">
                                             <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="directionsButtonPressed:" destination="TGQ-c8-6aq" eventType="touchUpInside" id="Pz4-N3-rge"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EwD-6u-28F" userLabel="Share">
                                         <rect key="frame" x="218" y="0.0" width="61" height="61"/>
@@ -86,10 +93,13 @@
                                         <state key="normal" image="share">
                                             <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="shareButtonPressed:" destination="TGQ-c8-6aq" eventType="touchUpInside" id="IuC-9L-HTE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check-in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6M-q4-sDW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check-in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6M-q4-sDW" userLabel="Checkin">
                                 <rect key="frame" x="45" y="113" width="51" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -140,8 +150,10 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="backgroundBlurView" destination="9aC-fW-8zr" id="ePv-wB-wIa"/>
-                <outlet property="interestsLabel" destination="h6M-q4-sDW" id="7Pb-DL-cZM"/>
+                <outlet property="checkinButton" destination="SxL-zP-Sss" id="B4i-Ro-qh1"/>
+                <outlet property="directionsButton" destination="YpT-8B-ohx" id="19g-01-aV0"/>
                 <outlet property="myBackgroundView" destination="0S2-xZ-esp" id="0nU-bf-Zgi"/>
+                <outlet property="shareButton" destination="EwD-6u-28F" id="n1N-ur-yXK"/>
             </connections>
             <point key="canvasLocation" x="-222.5" y="-14"/>
         </tableViewCell>
