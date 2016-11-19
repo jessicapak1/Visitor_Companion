@@ -24,7 +24,6 @@ enum UserKey: String {
     case username = "username"
     case password = "password"
     case email = "email"
-    case interest = "interest"
     case type = "type"
     case points = "points"
 }
@@ -45,7 +44,7 @@ class User: NSObject {
     
     var email: String? { willSet { User.current.update(value: newValue, forKey: UserKey.email.rawValue) } }
     
-    var interest: String?
+    var filters: [String] = [String]()
     
     var type: UserType = .none { willSet { User.current.update(value: newValue.rawValue, forKey: UserKey.type.rawValue) } }
     
@@ -60,7 +59,6 @@ class User: NSObject {
         user[UserKey.username.rawValue] = username
         user[UserKey.password.rawValue] = password
         user[UserKey.email.rawValue] = username
-        user[UserKey.interest.rawValue] = ""
         user[UserKey.type.rawValue] = UserType.none.rawValue
         user[UserKey.points.rawValue] = 0
         user.signUpInBackground(block: {
@@ -140,7 +138,6 @@ class User: NSObject {
         User.current.name = PFUser.current()?[UserKey.name.rawValue] as! String?
         User.current.username = PFUser.current()?[UserKey.username.rawValue] as! String?
         User.current.email = PFUser.current()?[UserKey.email.rawValue] as! String?
-        User.current.interest = PFUser.current()?[UserKey.interest.rawValue] as! String?
         User.current.points = PFUser.current()?[UserKey.points.rawValue] as! Int?
         if let type = PFUser.current()?[UserKey.type.rawValue] as! String? {
             if type == UserType.prospective.rawValue {
@@ -176,7 +173,6 @@ class User: NSObject {
                 User.signup(username: email, password: id, callback: {
                     if User.current.exists {
                         User.current.name = name
-                        User.current.interest = "General"
                         User.current.type = UserType.prospective
                         User.current.points = 0
                     }

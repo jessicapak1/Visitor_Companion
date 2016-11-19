@@ -124,7 +124,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func configureInterestCell(withIdentifier identifier: String) -> MenuInterestTableViewCell {
         let interestCell = self.menuTableView.dequeueReusableCell(withIdentifier: identifier) as! MenuInterestTableViewCell
         interestCell.delegate = self
-        interestCell.interestButton.setTitle(User.current.interest, for: .normal)
+        //interestCell.interestButton.setTitle(User.current.interest, for: .normal)
         return interestCell
     }
     

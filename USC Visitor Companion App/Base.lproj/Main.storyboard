@@ -42,12 +42,6 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUn-Jv-W2F">
-                                <rect key="frame" x="187.5" y="44" width="187.5" height="559"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dcw-gV-0jA">
                                 <rect key="frame" x="0.0" y="44" width="187.5" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -56,11 +50,11 @@
                                         <rect key="frame" x="0.0" y="28" width="187.5" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4hc-79-xIy" id="jDC-dS-hyI">
-                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z32-zS-Fnb">
-                                                    <rect key="frame" x="15" y="0.0" width="157.5" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="157.5" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -73,6 +67,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXd-A3-U9J">
+                                <rect key="frame" x="187.5" y="44" width="187.5" height="559"/>
+                                <connections>
+                                    <action selector="sideFilterButtonPressed" destination="poS-Zl-lNF" eventType="touchUpInside" id="KMf-ep-ff3"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goZ-18-kmO" userLabel="Current Location Button" customClass="ShadowButton" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
                                 <rect key="frame" x="306" y="534" width="45" height="45"/>
                                 <constraints>
@@ -129,9 +129,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btO-Xg-bPH">
                                 <rect key="frame" x="0.0" y="0.0" width="187.5" height="44"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="ReT-i7-tt3"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Filter">
                                     <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -143,34 +140,34 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="MY9-Id-f3I" firstAttribute="top" secondItem="btO-Xg-bPH" secondAttribute="bottom" id="0UZ-09-26o"/>
-                            <constraint firstItem="KUn-Jv-W2F" firstAttribute="top" secondItem="A9y-xd-oi6" secondAttribute="bottom" id="2XA-0s-v7F"/>
-                            <constraint firstItem="A9y-xd-oi6" firstAttribute="width" secondItem="btO-Xg-bPH" secondAttribute="width" id="4WI-nt-aBr"/>
-                            <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="KUn-Jv-W2F" secondAttribute="bottom" id="6je-Q7-veX"/>
+                            <constraint firstItem="A9y-xd-oi6" firstAttribute="width" secondItem="btO-Xg-bPH" secondAttribute="width" id="3GG-uR-HC1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="A9y-xd-oi6" secondAttribute="trailing" constant="-16" id="7HL-U2-aUV"/>
-                            <constraint firstItem="btO-Xg-bPH" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" id="AIt-Mb-jJm"/>
-                            <constraint firstItem="KUn-Jv-W2F" firstAttribute="width" secondItem="dcw-gV-0jA" secondAttribute="width" id="BVZ-Vf-K2a"/>
-                            <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="dcw-gV-0jA" secondAttribute="bottom" id="Cth-uS-aO4"/>
+                            <constraint firstItem="A9y-xd-oi6" firstAttribute="leading" secondItem="btO-Xg-bPH" secondAttribute="trailing" id="9Jh-Je-zst"/>
+                            <constraint firstItem="AXd-A3-U9J" firstAttribute="leading" secondItem="dcw-gV-0jA" secondAttribute="trailing" id="Aex-wL-jf7"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="wga-Gd-dDh" secondAttribute="bottom" constant="24" id="DTZ-oV-ttk"/>
                             <constraint firstItem="8iY-tG-yWv" firstAttribute="trailing" secondItem="5EB-oA-TVt" secondAttribute="trailingMargin" constant="-8" id="Ffz-WT-zr5"/>
-                            <constraint firstItem="dcw-gV-0jA" firstAttribute="top" secondItem="dGk-MM-YB2" secondAttribute="bottom" id="FqY-jw-6Hf"/>
                             <constraint firstItem="MY9-Id-f3I" firstAttribute="top" secondItem="dGk-MM-YB2" secondAttribute="bottom" id="HyC-Ev-o58"/>
+                            <constraint firstItem="A9y-xd-oi6" firstAttribute="height" secondItem="btO-Xg-bPH" secondAttribute="height" id="Ifz-DH-Lrb"/>
                             <constraint firstItem="MY9-Id-f3I" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="KCw-MF-aKB"/>
-                            <constraint firstItem="A9y-xd-oi6" firstAttribute="leading" secondItem="btO-Xg-bPH" secondAttribute="trailing" id="Mng-9B-7SW"/>
+                            <constraint firstItem="AXd-A3-U9J" firstAttribute="top" secondItem="A9y-xd-oi6" secondAttribute="bottom" id="LZq-sf-Cce"/>
                             <constraint firstAttribute="trailing" secondItem="dGk-MM-YB2" secondAttribute="trailing" id="NOY-lk-wyS"/>
                             <constraint firstItem="goZ-18-kmO" firstAttribute="top" secondItem="8iY-tG-yWv" secondAttribute="bottom" constant="24" id="OD4-Fy-ure"/>
+                            <constraint firstItem="dcw-gV-0jA" firstAttribute="width" secondItem="btO-Xg-bPH" secondAttribute="width" id="Rke-O8-Zbr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AXd-A3-U9J" secondAttribute="trailing" constant="-16" id="SqX-Gu-Rtd"/>
+                            <constraint firstItem="dcw-gV-0jA" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="U3Q-yq-Bmm"/>
+                            <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="AXd-A3-U9J" secondAttribute="bottom" id="Xd5-C2-o3n"/>
                             <constraint firstItem="dGk-MM-YB2" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="Zun-Xi-NOA"/>
+                            <constraint firstItem="dcw-gV-0jA" firstAttribute="top" secondItem="btO-Xg-bPH" secondAttribute="bottom" id="aHy-tq-DkP"/>
                             <constraint firstItem="dGk-MM-YB2" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" id="aJ2-vG-OIk"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="MY9-Id-f3I" secondAttribute="bottom" id="dOI-sI-dlV"/>
                             <constraint firstItem="A9y-xd-oi6" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" id="dmH-HK-oGD"/>
-                            <constraint firstItem="btO-Xg-bPH" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leadingMargin" constant="-16" id="dyT-4F-nC2"/>
-                            <constraint firstItem="dcw-gV-0jA" firstAttribute="width" secondItem="btO-Xg-bPH" secondAttribute="width" id="e52-HR-9v8"/>
-                            <constraint firstItem="KUn-Jv-W2F" firstAttribute="leading" secondItem="dcw-gV-0jA" secondAttribute="trailing" id="eX4-7a-M1w"/>
-                            <constraint firstAttribute="trailing" secondItem="KUn-Jv-W2F" secondAttribute="trailing" id="imU-ij-DLB"/>
-                            <constraint firstItem="dcw-gV-0jA" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leading" id="sAs-Ro-Fg4"/>
+                            <constraint firstItem="btO-Xg-bPH" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leadingMargin" constant="-16" id="esF-2g-zjM"/>
+                            <constraint firstItem="AXd-A3-U9J" firstAttribute="width" secondItem="dcw-gV-0jA" secondAttribute="width" id="i6s-zi-lgR"/>
+                            <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="dcw-gV-0jA" secondAttribute="bottom" id="oCt-I7-dXI"/>
                             <constraint firstAttribute="trailing" secondItem="MY9-Id-f3I" secondAttribute="trailing" id="seG-oE-cSm"/>
                             <constraint firstItem="kPn-bi-yhC" firstAttribute="top" secondItem="goZ-18-kmO" secondAttribute="bottom" constant="24" id="xT6-JA-UkP"/>
                             <constraint firstItem="wga-Gd-dDh" firstAttribute="leading" secondItem="5EB-oA-TVt" secondAttribute="leadingMargin" constant="8" id="xly-nP-3iN"/>
+                            <constraint firstItem="btO-Xg-bPH" firstAttribute="top" secondItem="mmr-tW-Pmv" secondAttribute="bottom" id="xvz-xv-GFU"/>
                             <constraint firstItem="goZ-18-kmO" firstAttribute="trailing" secondItem="5EB-oA-TVt" secondAttribute="trailingMargin" constant="-8" id="yY9-rd-Jzn"/>
                             <constraint firstItem="MY9-Id-f3I" firstAttribute="top" secondItem="A9y-xd-oi6" secondAttribute="bottom" id="yat-fN-Sds"/>
                         </constraints>
@@ -191,6 +188,7 @@
                         <outlet property="searchBar" destination="dGk-MM-YB2" id="P7P-vV-Waa"/>
                         <outlet property="searchButton" destination="A9y-xd-oi6" id="aCw-V6-15C"/>
                         <outlet property="searchTableView" destination="MY9-Id-f3I" id="0Vm-ht-vK1"/>
+                        <outlet property="sideFilterButton" destination="AXd-A3-U9J" id="f16-c2-1cd"/>
                         <segue destination="nEF-nh-8vb" kind="presentation" identifier="Show Location" id="HBg-eV-00v"/>
                     </connections>
                 </viewController>
@@ -754,14 +752,14 @@
                             <tableViewSection headerTitle="Account" footerTitle="Connect with your Facebook account to easily share the locations you visit while on campus" id="5XO-t9-Nfr">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Uko-cC-Leo" imageView="m5S-Iw-rb7" style="IBUITableViewCellStyleDefault" id="cBa-Fw-4Xt">
-                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cBa-Fw-4Xt" id="hF6-Sc-JyK">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Connect with Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Uko-cC-Leo">
-                                                    <rect key="frame" x="45" y="0.0" width="295" height="43"/>
+                                                    <rect key="frame" x="45" y="0.0" width="295" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -779,10 +777,10 @@
                             <tableViewSection headerTitle="Map" id="6Gq-h7-uQc">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="QuZ-bH-2Lh">
-                                        <rect key="frame" x="0.0" y="185" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="183.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QuZ-bH-2Lh" id="Rnb-bu-BkS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable 3D Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOI-F1-bIE">
@@ -809,14 +807,14 @@
                             <tableViewSection headerTitle="About" id="8SY-kp-4ZY">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="vTX-4T-M7e" style="IBUITableViewCellStyleDefault" id="upd-ek-hDr">
-                                        <rect key="frame" x="0.0" y="286" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="283.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="upd-ek-hDr" id="4lh-r9-3lC">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vTX-4T-M7e">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -826,14 +824,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="di3-El-iQ7" style="IBUITableViewCellStyleDefault" id="zfB-Zf-Ugy">
-                                        <rect key="frame" x="0.0" y="330" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="327.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zfB-Zf-Ugy" id="w3b-05-ckG">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Open Source Libraries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="di3-El-iQ7">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1002,7 +1000,7 @@ Christian Villa – Computer Science Major    </string>
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5XM-sg-Ovs" id="F8g-0o-qeG">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1038,7 +1036,7 @@ Christian Villa – Computer Science Major    </string>
         <scene sceneID="seM-1t-oHs">
             <objects>
                 <navigationController storyboardIdentifier="interests" id="EQN-An-L1s" userLabel="Interests Navigation Controller" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jbP-BK-rHc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jbP-BK-rHc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1065,7 +1063,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jn6-lc-2bt" id="0MX-Qy-aex">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="czd-0b-yX0">
@@ -1086,7 +1084,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="50" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Si-Vy-JoI" id="TU2-uc-RbH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAT-ac-Bf4">
@@ -1107,7 +1105,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="100" width="375" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DR5-E5-cd8" id="Bu3-Qf-eml">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flf-iW-kac">
@@ -1135,11 +1133,11 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="199" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1eu-g6-ald" id="W4Q-eA-KWG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-8G-QNj">
-                                                    <rect key="frame" x="-10.5" y="0.0" width="377" height="149"/>
+                                                    <rect key="frame" x="-11" y="0.0" width="378" height="149"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 </pickerView>
                                             </subviews>
@@ -1149,7 +1147,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="349" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bsV-dh-ddc" id="hwU-Rl-hOH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter a description about the location" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dfy-B0-obq">
@@ -1179,7 +1177,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="499" width="375" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HKq-Kx-ff8" id="mIe-mE-9yb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZz-jz-UKT">
@@ -1269,7 +1267,7 @@ Christian Villa – Computer Science Major    </string>
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="44c-jO-FxW" id="65v-CS-xSA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1318,7 +1316,7 @@ Christian Villa – Computer Science Major    </string>
         <scene sceneID="iUw-MA-aq8">
             <objects>
                 <navigationController storyboardIdentifier="admin_one" id="RYa-VT-6M0" userLabel="Admin Add Loc Navigation Controller" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Dq1-DT-6Qm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dq1-DT-6Qm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1335,7 +1333,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController storyboardIdentifier="settings" automaticallyAdjustsScrollViewInsets="NO" id="dDA-Be-9Lo" userLabel="App Preferences Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Lvw-hL-Jzu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Lvw-hL-Jzu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1358,7 +1356,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController storyboardIdentifier="admin" automaticallyAdjustsScrollViewInsets="NO" id="Ked-3e-tgT" userLabel="Admin Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="E9I-I5-QiM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E9I-I5-QiM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1376,7 +1374,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nft-j1-Vc1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="3Z1-Di-7Ym">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3Z1-Di-7Ym">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1396,7 +1394,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nEF-nh-8vb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="W93-Lh-BAu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W93-Lh-BAu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1418,7 +1416,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rNq-dJ-y7J" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="mZE-I5-maL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="mZE-I5-maL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1441,7 +1439,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2yC-WM-zcX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="2oB-Wg-CgT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2oB-Wg-CgT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1594,7 +1592,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hMr-LJ-jJA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Hp8-PO-2rw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Hp8-PO-2rw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
