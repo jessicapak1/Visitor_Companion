@@ -153,7 +153,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.addFilters()
         self.addSearch()
         self.showMap()
-        
+
         /*
         // MARK: tutorial code goes here
         let defaults = UserDefaults.standard
@@ -185,38 +185,27 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     func showMarkers(forLocations locations: [Location]) {
         //create custom marker icons
-        let foodImage = UIImage(named: "food")!.withRenderingMode(.alwaysTemplate)
-        let foodView = UIImageView(image: foodImage)
+        let foodView = UIImageView(image: UIImage(named: "food"))
         
-        let libraryImage = UIImage(named: "library")!.withRenderingMode(.alwaysTemplate)
-        let libraryView = UIImageView(image: libraryImage)
+        let libraryView = UIImageView(image: UIImage(named: "library"))
         
-        let buildingImage = UIImage(named: "building")!.withRenderingMode(.alwaysTemplate)
-        let buildingView = UIImageView(image: buildingImage)
+        let buildingView = UIImageView(image: UIImage(named: "building"))
        
-        let fountainImage = UIImage(named: "fountain")!.withRenderingMode(.alwaysTemplate)
-        let fountainView = UIImageView(image: fountainImage)
+        let fountainView = UIImageView(image: UIImage(named: "fountain"))
         
-        let fieldImage = UIImage(named: "field")!.withRenderingMode(.alwaysTemplate)
-        let fieldView = UIImageView(image: fieldImage)
+        let fieldView = UIImageView(image: UIImage(named: "field"))
        
-        let athleticsImage = UIImage(named: "athletics")!.withRenderingMode(.alwaysTemplate)
-        let athleticsView = UIImageView(image: athleticsImage)
+        let athleticsView = UIImageView(image: UIImage(named: "athletics"))
         
-        let commercialImage = UIImage(named: "commercial")!.withRenderingMode(.alwaysTemplate)
-        let commercialView = UIImageView(image: commercialImage)
+        let commercialView = UIImageView(image: UIImage(named: "commercial"))
         
-        let otherImage = UIImage(named: "other")!.withRenderingMode(.alwaysTemplate)
-        let otherView = UIImageView(image: otherImage)
+        let otherView = UIImageView(image: UIImage(named: "other"))
         
-        let parkingImage = UIImage(named: "parking")!.withRenderingMode(.alwaysTemplate)
-        let parkingView = UIImageView(image: parkingImage)
+        let parkingView = UIImageView(image: UIImage(named: "parking"))
         
-        let residentialImage = UIImage(named: "residential")!.withRenderingMode(.alwaysTemplate)
-        let residentialView = UIImageView(image: residentialImage)
+        let residentialView = UIImageView(image: UIImage(named: "residential"))
         
-        let computerlabImage = UIImage(named: "computerLab")!.withRenderingMode(.alwaysTemplate)
-        let computerlabView = UIImageView(image: computerlabImage)
+        let computerlabView = UIImageView(image: UIImage(named: "computerLab"))
         
         // create each marker
         for location in locations {
@@ -273,7 +262,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
                  break
 
             default:
-                marker.icon = GMSMarker.markerImage(with: UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0))
+                break
             }
             
             self.markers[location.name!] = marker
@@ -328,14 +317,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         for location in LocationData.shared.locations {
             if let userLocation = locations.last, let currentLocation = location.location {
                 if userLocation.distance(from: currentLocation) < 30 {
-                    let newImage = UIImage(named: location.locType!)!.withRenderingMode(.alwaysTemplate)
-                    let newView = UIImageView(image: newImage)
-                    newView.tintColor = UIColor.blue
+                    let newView = UIImageView(image: UIImage(named: location.locType!))
+                    //newView.tintColor = UIColor.blue
                     self.markers[location.name!]?.iconView = newView
                 } else {
-                    let oldImage = UIImage(named: location.locType!)!.withRenderingMode(.alwaysTemplate)
-                    let oldView = UIImageView(image: oldImage)
-                    oldView.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
+                    let oldView = UIImageView(image: UIImage(named: location.locType!))
+                    //oldView.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
                     self.markers[location.name!]?.iconView = oldView
                 }
             }
