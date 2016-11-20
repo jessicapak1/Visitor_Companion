@@ -31,24 +31,24 @@ class Location: NSObject {
     
     var video: [String]? { willSet { self.update(value: newValue, forKey: "video") } }
     
-    var image: UIImage? {
-        
-        var mainImage = UIImage()
-        do {
-            let imageFile = self.object?["image"] as! PFFile?
-            if (imageFile != nil) {
-                let data = try imageFile?.getData()
-                mainImage = UIImage(data: data!)!
-            } else {
-                return nil
-            }
-        } catch {
-            
-            print ("Error: Problem acquiring location image from database (Location)")
-            return nil
-        }
-        return mainImage
-    }
+//    var image: UIImage? {
+//        
+//        var mainImage = UIImage()
+//        do {
+//            let imageFile = self.object?["image"] as! PFFile?
+//            if (imageFile != nil) {
+//                let data = try imageFile?.getData()
+//                mainImage = UIImage(data: data!)!
+//            } else {
+//                return nil
+//            }
+//        } catch {
+//            
+//            print ("Error: Problem acquiring location image from database (Location)")
+//            return nil
+//        }
+//        return mainImage
+//    }
     
     
     // MARK: Constructor
@@ -206,4 +206,25 @@ class Location: NSObject {
 //        return object!;
 //    }
     
+    func getImage(callback: @escaping (UIImage) -> Void) {
+        if let imageFile = self.object?["image"] as! PFFile? {
+            imageFile.getDataInBackground(block: {
+                (imageData, error) in
+                if error == nil {
+                    if let imageData = imageData {
+                        callback(UIImage(data: imageData)!)
+                    } else {
+                        callback(UIImage(named: "tommy_trojan_2")!)
+                    }
+                } else {
+                    callback(UIImage(named: "tommy_trojan_2")!)
+                }
+            })
+        } else {
+            callback(UIImage(named: "tommy_trojan_2")!)
+        }
+    }
+    
 }
+
+

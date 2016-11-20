@@ -46,6 +46,25 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         self.navigationController?.navigationBar.isTranslucent = true
 
         current = LocationData.shared.getLocation(withName: name)
+        
+//        DispatchQueue.global().async {
+        
+//        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async {
+//            self.imageView.image = self.current?.image
+//            if (self.imageView.image == nil) {
+//                self.imageView.image = UIImage(named: "tommy_trojan_2")
+//                print("Error: did not find image in database, loading default (LocationTableViewController)")
+//            }
+//            DispatchQueue.main.sync {
+//                self.tableView.setNeedsDisplay()
+//            }
+//        }
+        
+        current?.getImage(callback: {
+            (image) in
+            self.imageView.image = image
+        })
+    
         if let videos = current?.video {
             for video in videos {
                 if video.lowercased().contains("youtube") {
@@ -56,14 +75,8 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         
         self.identifiers.append("photosCellView")
         
-        DispatchQueue.main.async {
-            self.imageView.image = self.current?.image
-            if (self.imageView.image == nil) {
-                self.imageView.image = UIImage(named: "tommy_trojan_2")
-                print("Error: did not find image in database, loading default (LocationTableViewController)")
-            }
-            self.tableView.setNeedsDisplay()
-        }
+        
+        
         
         self.cellCount += (self.current?.video?.count)!
         
@@ -74,6 +87,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.imageView.image = UIImage(named: "tommy_trojan_2")
     }
     
     /////////////  TABLE VIEW CODE  \\\\\\\\\\\\\\

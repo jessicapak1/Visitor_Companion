@@ -22,7 +22,10 @@ class FlickrProvider {
     
     class func fetchPhotosForLocationName(locationName: String, onCompletion: @escaping FlickrResponse) -> Void {
         let escapedSearchText: String = locationName.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
-        let urlString: String = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(Keys.flickrKey)&text=\(escapedSearchText)&sort=relevance&per_page=25&format=json&nojsoncallback=1"
+        
+        // this is where we set the parameters of our query to flickr. To change how this query responds, see https://www.flickr.com/services/api/flickr.photos.search.html for different parameter options
+        // to adjust the user_id parameter (currently set to University of Southern California's account), find the name of the account, go to http://idgettr.com/ and use that service to get the user_id
+        let urlString: String = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(Keys.flickrKey)&text=\(escapedSearchText)&sort=relevance&user_id=51421101@N02&per_page=25&format=json&nojsoncallback=1"
         let url: NSURL = NSURL(string: urlString)!
         let searchTask = URLSession.shared.dataTask(with: url as URL, completionHandler: {data, response, error -> Void in
             
