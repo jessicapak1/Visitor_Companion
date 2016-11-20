@@ -77,9 +77,9 @@ class AdminSegmentedViewControoler: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tableView.
+        let row = indexPath.row
+        self.tableView.deselectRow(at: row, animated: true)
         if interetsLocationsSegementedControl.selectedSegmentIndex == 1 {
-            let row = indexPath.row
             location = locations[row]
             locationName = (location?.name!)!
             
