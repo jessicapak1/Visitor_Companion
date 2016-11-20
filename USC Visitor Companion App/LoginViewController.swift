@@ -41,6 +41,13 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.whiteSpinner.startAnimating()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if User.current.exists {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
 
     
     // MARK: IBAction Methods
