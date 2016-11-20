@@ -117,7 +117,7 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
             
             
             print("about to load images")
-            DispatchQueue.global().async {
+            DispatchQueue.global().sync {
                 var bTask : UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
                 bTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
                     UIApplication.shared.endBackgroundTask(bTask)
@@ -136,7 +136,7 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
                         break;
                     }
                     
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.sync {
                         let indexpath = IndexPath(row: i, section: 0)
                         self.collectionView.insertItems(at: [indexpath])
                     }
