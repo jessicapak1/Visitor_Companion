@@ -178,7 +178,7 @@
                     <navigationItem key="navigationItem" id="hHR-zk-ele">
                         <barButtonItem key="rightBarButtonItem" image="Gear" id="WkI-2Q-sDW">
                             <connections>
-                                <segue destination="dDA-Be-9Lo" kind="presentation" identifier="Show Settings" id="4XP-yo-FOi"/>
+                                <action selector="settingsButtonPressed" destination="poS-Zl-lNF" id="ms2-0x-jXu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -193,6 +193,7 @@
                         <outlet property="searchTableView" destination="MY9-Id-f3I" id="0Vm-ht-vK1"/>
                         <outlet property="sideFilterButton" destination="AXd-A3-U9J" id="f16-c2-1cd"/>
                         <segue destination="nEF-nh-8vb" kind="presentation" identifier="Show Location" id="HBg-eV-00v"/>
+                        <segue destination="dDA-Be-9Lo" kind="presentation" identifier="Show Settings" id="YWu-1Z-pMY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OVm-tf-BUo" sceneMemberID="firstResponder"/>

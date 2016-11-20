@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol SettingsTableViewControllerDelegate {
+    func userDidStartTutorial()
+}
+
 class SettingsTableViewController: UITableViewController {
+    
+    var delegate: SettingsTableViewControllerDelegate?
     
     
     // MARK: UITableViewDelegate Methods
@@ -20,7 +26,7 @@ class SettingsTableViewController: UITableViewController {
         } else if selectedCell?.textLabel?.text == "Logout" {
             self.showLogout()
         } else if selectedCell?.textLabel?.text == "Start Tutorial" {
-
+            self.showTutorial()
         }
         
         self.tableView.deselectRow(at: indexPath, animated: true)
@@ -49,6 +55,14 @@ class SettingsTableViewController: UITableViewController {
         } else {
             self.showAlert(withTitle: "Error", message: "You're not logged in")
         }
+    }
+    
+    func showTutorial() {
+        self.dismiss(animated: true, completion: {
+            if let delegate = self.delegate {
+                delegate.userDidStartTutorial()
+            }
+        })
     }
     
     func showAlert(withTitle title: String, message: String) {
