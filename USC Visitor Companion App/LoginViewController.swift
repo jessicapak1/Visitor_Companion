@@ -10,8 +10,13 @@ import UIKit
 import Parse
 import FacebookLogin
 
+protocol LoginViewDelegate {
+    func userDidLoggedIn()
+}
+
 class LoginViewController: UIViewController {
     
+    var loginDelegate: LoginViewDelegate?
     // MARK: IBOutlets
     @IBOutlet weak var usernameTextField: UITextField!
     
@@ -60,6 +65,9 @@ class LoginViewController: UIViewController {
                 User.login(username: self.usernameTextField.text!, password: self.passwordTextField.text!, callback: {
                     self.checkLoginDetails()
                 })
+                if let delegate = self.loginDelegate {
+                    delegate.userDidLoggedIn()
+                }
             }
         }
     }

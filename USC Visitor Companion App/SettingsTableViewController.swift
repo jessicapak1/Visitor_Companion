@@ -8,9 +8,10 @@
 
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
+
+class SettingsTableViewController: UITableViewController, LoginViewDelegate {
     
-    
+    @IBOutlet weak var adminButton: UIBarButtonItem!
     // MARK: UITableViewDelegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = self.tableView.cellForRow(at: indexPath)
@@ -21,6 +22,14 @@ class SettingsTableViewController: UITableViewController {
             self.showLogout()
         } else if selectedCell?.textLabel?.text == "Start Tutorial" {
 
+        }
+        
+        if User.current.type == .admin {
+            self.adminButton.title = "Admin"
+            self.adminButton.isEnabled = true
+        } else {
+            self.adminButton.title = ""
+            self.adminButton.isEnabled = false
         }
         
         self.tableView.deselectRow(at: indexPath, animated: true)
@@ -45,6 +54,8 @@ class SettingsTableViewController: UITableViewController {
     func showLogout() {
         if User.current.exists {
             User.logout()
+            self.adminButton.title = ""
+            self.adminButton.isEnabled = false
             self.showAlert(withTitle: "Logout", message: "You have successfully logged out")
         } else {
             self.showAlert(withTitle: "Error", message: "You're not logged in")
@@ -56,5 +67,22 @@ class SettingsTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-
+    
+    func userDidLoggedIn() {
+        print("inside logged in")
+        if User.current.type == .admin {
+            self.adminButton.title = "Admin"
+            self.adminButton.isEnabled = true
+        } else {
+            self.adminButton.title = ""
+            self.adminButton.isEnabled = false
+        }
+    }
+  /*  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if (segue.identifier == "settings_to_login") {
+            let destinationVC:SettingsTableViewController = segue.destination as! SettingsTableViewController
+        }
+    }*/
 }

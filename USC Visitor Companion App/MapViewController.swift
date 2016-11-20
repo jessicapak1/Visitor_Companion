@@ -13,14 +13,10 @@ import BubbleTransition
 import CoreLocation
 import BetterSegmentedControl
 
-protocol MapViewDelegates {
-    func userDidSaveMap(newLocation: CLLocation)
-}
 
 class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     // MARK: Properties
-    var mapDelegate: MapViewDelegates?
     var mapView: GMSMapView! {
         didSet {
             self.mapView.delegate = self
@@ -60,7 +56,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     var added_marker = GMSMarker()
     var fromAdmin : Bool?
     var newLocation: CLLocation?
-    
+
     
     // MARK: IBOutlets
     @IBOutlet weak var filterButton: UIButton! {
@@ -103,6 +99,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         didSet {
             self.searchBar.delegate = self
         }
+    }
+    @IBAction func adminButtonPressed(_ sender: Any) {
     }
     
     @IBOutlet weak var searchTableView: UITableView! {
@@ -167,7 +165,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
          */
     
     }
-    
     
     // MARK: Map View Methods
     func showMap() {
@@ -387,13 +384,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
                 locationVC.closeProximity = true
             }
         }
-        
-        if fromAdmin! {
-            if segue.identifier == "map_to_admin" {
-                let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
-                destinationVC.addLocationValue = newLocation;
-            }
-        }
     }
     
     
@@ -440,7 +430,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             self.filterTableView.isHidden = true
         })
     }
-    
     
     // MARK: UISearchBarDelegate Methods
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -591,19 +580,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     // MARK: GMSMapViewDelegate Methods
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        if newMarker == true {
-            added_marker = marker;
-            newLocation = CLLocation(latitude: marker.position.latitude, longitude: marker.position.longitude)
-            if let delegate = self.mapDelegate {
-                delegate.userDidSaveMap(newLocation: newLocation!)
-            }
-            self.dismiss(animated: true, completion: nil)
-            newMarker = false
-        }
-        else{
-            currentMarker = marker
-            self.performSegue(withIdentifier: "Show Location", sender: self)
-        }
+        self.hideFilters()
+        currentMarker = marker
+        self.performSegue(withIdentifier: "Show Location", sender: self)
     }
     
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
