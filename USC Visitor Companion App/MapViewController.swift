@@ -154,7 +154,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.addSearch()
         self.showMap()
 
-        /*
         // MARK: tutorial code goes here
         let defaults = UserDefaults.standard
         if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
@@ -163,8 +162,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         }else{
             defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
             print("App launched first time")
+            self.userDidStartTutorial()
         }
-         */
     
     }
     

@@ -13,7 +13,8 @@ import UIKit
     @objc optional func spotlightViewControllerWillPresent(_ viewController: SpotlightViewController, animated: Bool)
     @objc optional func spotlightViewControllerWillDismiss(_ viewController: SpotlightViewController, animated: Bool)
     @objc optional func spotlightViewControllerTapped(_ viewController: SpotlightViewController, isInsideSpotlight: Bool, touchPoint: CGPoint)
-    @objc optional func spotLightViewControllerSwiped(_ viewController: SpotlightViewController, direction: UISwipeGestureRecognizerDirection)
+    @objc optional func spotLightViewControllerSwipedRight(_ viewController: SpotlightViewController)
+    @objc optional func spotLightViewControllerSwipedLeft(_ viewController: SpotlightViewController)
 }
 
 open class SpotlightViewController: UIViewController {
@@ -86,8 +87,13 @@ open class SpotlightViewController: UIViewController {
     }
     
     fileprivate func setUpSwipeGesture() {
-        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(SpotlightViewController.viewSwiped(_:)))
-        view.addGestureRecognizer(swipeGesture)
+        let rightSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(SpotlightViewController.viewSwipedRight(_:)))
+        rightSwipeGesture.direction = UISwipeGestureRecognizerDirection.right
+        view.addGestureRecognizer(rightSwipeGesture)
+        
+        let leftSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(SpotlightViewController.viewSwipedLeft(_:)))
+        leftSwipeGesture.direction = UISwipeGestureRecognizerDirection.left
+        view.addGestureRecognizer(leftSwipeGesture)
     }
 }
 
@@ -98,9 +104,12 @@ extension SpotlightViewController {
         delegate?.spotlightViewControllerTapped?(self, isInsideSpotlight: isInside, touchPoint: touchPoint)
     }
     
-    func viewSwiped(_ gesture: UISwipeGestureRecognizer) {
-        let direction = gesture.direction
-        delegate?.spotLightViewControllerSwiped?(self, direction: direction)
+    func viewSwipedRight(_ gesture: UISwipeGestureRecognizer) {
+        delegate?.spotLightViewControllerSwipedRight?(self)
+    }
+    
+    func viewSwipedLeft(_ gesture: UISwipeGestureRecognizer) {
+        delegate?.spotLightViewControllerSwipedLeft?(self)
     }
 }
 
