@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import FacebookShare
+import MapKit
 
 class InterestsCell: UITableViewCell {
 
     @IBOutlet weak var backgroundBlurView: UIVisualEffectView!
     @IBOutlet weak var myBackgroundView: UIView!
-    @IBOutlet weak var interestsLabel: UILabel!
+    @IBOutlet weak var checkinButton: UIButton!
     
+    @IBOutlet weak var directionsButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+    
+    var closeProximity : Bool!
+    var current : Location!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,12 +29,62 @@ class InterestsCell: UITableViewCell {
         myBackgroundView.layer.masksToBounds = true
         backgroundBlurView.layer.cornerRadius = 15
         backgroundBlurView.layer.masksToBounds = true
+
+    }
+    
+    func setCurrentLocation(currentLocation: Location, isClose: Bool) {
+        self.current = currentLocation
+        self.closeProximity = isClose
+        
+        if isClose {
+            directionsButton.isEnabled = false
+        } else {
+            directionsButton.isEnabled = true
+        }
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBAction func checkinButtonPressed(_ sender: Any) {
+        print("checkin button pressed")
     }
+    
+    @IBAction func directionsButtonPressed(_ sender: Any) {
+        switch closeProximity {
 
+        case true:
+            break
+            
+        case false:
+            openMapWithDirections(location: (current?.location)!, name: (current?.name!)!)
+            break
+            
+        default:
+            break
+        }
+    }
+    
+    @IBAction func shareButtonPressed(_ sender: Any) {
+        let content = LinkShareContent(url: URL(string: "http://viterbi.usc.edu")!)
+        let shareDialog = ShareDialog(content: content)
+        shareDialog.mode = .web
+        shareDialog.failsOnInvalidData = true
+        shareDialog.completion =  {
+            result in
+            print("Shared to Facebook")
+        }
+        try? shareDialog.show()
+    }
+    
+    func openMapWithDirections(location: CLLocation, name: String){
+        let regionDistance:CLLocationDistance = 100
+        let coordinates = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = name
+        mapItem.openInMaps(launchOptions: options)
+    }
 }

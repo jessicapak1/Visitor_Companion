@@ -137,15 +137,9 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
                     }
                     
                     DispatchQueue.main.async {
-                        //                    var indexpath : IndexPath
-                        //                    if i <= 5 {
                         let indexpath = IndexPath(row: i, section: 0)
-                        //                    } else {
-                        //                        indexpath = IndexPath(row: i-5, section: 1)
-                        //                    }
                         self.collectionView.insertItems(at: [indexpath])
                     }
- 
                 }
                 self.collectionView.reloadData()
                 UIApplication.shared.endBackgroundTask(bTask)

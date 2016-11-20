@@ -7,8 +7,9 @@
 //
 
 import UIKit
-import FacebookShare
 import MapKit
+
+// ONLY ACCEPTS YOUTUBE LINKS, REFERENCE VideoCell.swift please
 
 class LocationTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -24,17 +25,13 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var directionsButton: UIBarButtonItem!
     @IBOutlet weak var shadowImage: UIImageView!
     
-    var name : String = "" //this value will be provided in the prepareforsegue in the MapView.
+    var name : String = "" // this value will be provided in the prepareforsegue in the MapView.
     var current : Location? = nil
     var closeProximity : Bool = false
     
-    // will change according to number of videos
-    var cellCount = 5
-    
-    var pictureIndex = 4
+    var identifiers: [String] = ["titleCellView", "descriptionCellView", "interestsCellView"]
     
     override func viewWillAppear(_ animated: Bool) {
         //make navbar transparent
@@ -44,61 +41,55 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
 
         current = LocationData.shared.getLocation(withName: name)
         
-        DispatchQueue.main.async {
-            self.imageView.image = self.current?.image
-            if (self.imageView.image == nil) {
-                self.imageView.image = UIImage(named: "tommy_trojan_2")
-                print("Error: did not find image in database, loading default (LocationTableViewController)")
+//        DispatchQueue.global().async {
+        
+//        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async {
+//            self.imageView.image = self.current?.image
+//            if (self.imageView.image == nil) {
+//                self.imageView.image = UIImage(named: "tommy_trojan_2")
+//                print("Error: did not find image in database, loading default (LocationTableViewController)")
+//            }
+//            DispatchQueue.main.sync {
+//                self.tableView.setNeedsDisplay()
+//            }
+//        }
+        
+        current?.getImage(callback: {
+            (image) in
+            self.imageView.image = image
+        })
+    
+        if let videos = current?.video {
+            for video in videos {
+                if video.lowercased().contains("youtube") {
+                    self.identifiers.append(video)
+                }
             }
-            self.tableView.setNeedsDisplay()
         }
         
-        self.cellCount += (self.current?.video?.count)!
-        
-        self.pictureIndex = cellCount
-        self.cellCount += 1;
+        self.identifiers.append("photosCellView")
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // determine which button
-        switch closeProximity {
-        case true:
-            directionsButton.title = "Check in"
-            break
-            
-        case false:
-            directionsButton.title = "Directions"
-            break
-        }
-        
-        //set image
-        //imageView.image = UIImage(named: "tommy_trojan_2")
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     /////////////  TABLE VIEW CODE  \\\\\\\\\\\\\\
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //this will change acording to the data available for current location
-        //return self.cellCount
-        return 5
+        return self.identifiers.count
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.row == 0 {
+        if self.identifiers[indexPath.row] == "titleCellView" { // title
             return 450
-        } else if indexPath.row == 3 { // video
+        } else if self.identifiers[indexPath.row].lowercased().contains("youtube") { // video
             return 200
-        } else if indexPath.row == 4 { // photos
+        } else if self.identifiers[indexPath.row] == "photosCellView" { // photos
             return 215
         }
         
@@ -107,80 +98,36 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        if indexPath.row == 0 { //title
+        if self.identifiers[indexPath.row] == "titleCellView" { //title
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCellView") as! TitleCell
             cell.title.text = self.name
             return cell
-        } else if indexPath.row == 1 { // description
+        } else if self.identifiers[indexPath.row] == "descriptionCellView" { // description
             let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCellView") as! DescriptionCell
             cell.descriptionLabel.text = current?.details!
             return cell
-        } else if indexPath.row == 2 { // interests, this will change to checkin, share, and camera
+        } else if self.identifiers[indexPath.row] == "interestsCellView" { // interests, this will change to checkin, share, and camera
             let cell = tableView.dequeueReusableCell(withIdentifier: "interestsCellView", for: indexPath) as! InterestsCell
+            cell.setCurrentLocation(currentLocation: current!, isClose: closeProximity)
             return cell
-        } else if indexPath.row == 3 {// < pictureIndex { // video
+        } else if self.identifiers[indexPath.row].lowercased().contains("youtube") {// < pictureIndex { // video HACKY! SHOULD BE FIXED
             let cell = tableView.dequeueReusableCell(withIdentifier: "videoCellView", for: indexPath) as! VideoCell
-            
-            //var num = indexPath.row
-            //num -= 5
-            // set the appropriate video for
-            //let str = (self.current?.video?[0])!
-            //cell.selectVideo(withUrl: str)
+            cell.selectVideo(withUrl: self.identifiers[indexPath.row])
             return cell
-        } else {
+        } else if self.identifiers[indexPath.row] == "photosCellView" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "photosCellView") as! PhotosCell
-            //set up collection view
             print("\n called form deque in table view")
-            //cell.photos.removeAll()
-            //cell.images.removeAll()
             cell.populatePhotosArray(locationName: name)
             return cell
         }
-    }
-    
-    func openMapWithDirections(location: CLLocation, name: String){
-        let regionDistance:CLLocationDistance = 100
-        let coordinates = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-        ]
-        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-        let mapItem = MKMapItem(placemark: placemark)
-        mapItem.name = name
-        mapItem.openInMaps(launchOptions: options)
-    }
-    
-    func openDirections(){
-        switch closeProximity {
-            
-        case true:
-            break
-            
-        case false:
-            openMapWithDirections(location: (current?.location)!, name: (current?.name!)!)
-            break
-            
-        }
+        
+        return UITableViewCell()
     }
     
     //NAVIGATION BAR ITEMS CODE
     
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func directionsButtonPressed(_ sender: AnyObject) {
-        let content = LinkShareContent(url: URL(string: "http://viterbi.usc.edu")!)
-        let shareDialog = ShareDialog(content: content)
-        shareDialog.mode = .web
-        shareDialog.failsOnInvalidData = true
-        shareDialog.completion =  {
-            result in
-            print("Shared to Facebook")
-        }
-        try? shareDialog.show()
     }
 
 }
