@@ -17,7 +17,7 @@ protocol MapViewDelegates {
     func userDidSaveMap(newLocation: CLLocation)
 }
 
-class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
+class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, SettingsTableViewControllerDelegate {
     
     // MARK: Properties
     var mapDelegate: MapViewDelegates?
@@ -154,7 +154,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.addSearch()
         self.showMap()
 
-        /*
         // MARK: tutorial code goes here
         let defaults = UserDefaults.standard
         if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
@@ -163,8 +162,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         }else{
             defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
             print("App launched first time")
+            self.userDidStartTutorial()
         }
-         */
     
     }
     
@@ -284,6 +283,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     }
     
     
+    // MARK: SettingsTableViewControllerDelegate Methods
+    func userDidStartTutorial() {
+        let tutorialViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Annotation") as! AnnotationViewController
+        tutorialViewController.alpha = 0.5
+        self.present(tutorialViewController, animated: true, completion: nil)
+    }
+    
+    
     // MARK: CLLocationManagerDelegate Methods
     func configureLocationManager() {
         // request authorization from the user to access their location
@@ -386,6 +393,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             if (self.mapView.myLocation?.distance(from: CLLocation(latitude: currentMarker.position.latitude, longitude: currentMarker.position.longitude)))! < maxDistance {
                 locationVC.closeProximity = true
             }
+        } else if segue.identifier == "Show Settings" {
+            let NVC = segue.destination as! UINavigationController
+            let SVC = NVC.viewControllers.first as! SettingsTableViewController
+            SVC.delegate = self
         }
         
         if fromAdmin! {
@@ -630,6 +641,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     
     // MARK: IBAction Methods
+    @IBAction func settingsButtonPressed() {
+        self.performSegue(withIdentifier: "Show Settings", sender: nil)
+    }
+    
     @IBAction func campusLocationButtonPressed() {
         let location = CLLocation(latitude: 34.021044, longitude: -118.285798)
         self.mapView.animate(toLocation: location.coordinate)
@@ -640,9 +655,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         if let currentLocation = self.mapView.myLocation {
             self.mapView.animate(toLocation: currentLocation.coordinate)
         }
-        let tutorialViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Annotation") as! AnnotationViewController
-        tutorialViewController.alpha = 0.5
-        present(tutorialViewController, animated: true, completion: nil)
     }
     
     @IBAction func filterButtonPressed() {

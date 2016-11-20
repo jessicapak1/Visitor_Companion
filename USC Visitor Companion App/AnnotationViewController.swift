@@ -13,6 +13,7 @@ import UIKit
 class AnnotationViewController: SpotlightViewController {
     
     @IBOutlet var tutorialAnnotationViews: [UIView]!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     var stepIndex: Int = 0
     
@@ -24,7 +25,7 @@ class AnnotationViewController: SpotlightViewController {
     
     func next(_ labelAnimated: Bool) {
         updateAnnotationView(labelAnimated)
-        
+        pageControl.currentPage = stepIndex
         let screenSize = UIScreen.main.bounds.size
         switch stepIndex {
         case 0:
@@ -94,18 +95,17 @@ extension AnnotationViewController: SpotlightViewControllerDelegate {
         }
     }
     
-    func spotLightViewControllerSwiped(_ viewController: SpotlightViewController, direction: UISwipeGestureRecognizerDirection) {
-        
-        if direction == UISwipeGestureRecognizerDirection.left {
-            stepIndex += 1
-            next(true)
-        } else if direction == UISwipeGestureRecognizerDirection.right {
-            stepIndex -= 1
-            if stepIndex < 0 {
-                stepIndex = 0
-            }
-            next(true)
+    func spotLightViewControllerSwipedRight(_ viewController: SpotlightViewController) {
+        stepIndex -= 1
+        if stepIndex < 0 {
+            stepIndex = 0
         }
+        next(true)
+    }
+    
+    func spotLightViewControllerSwipedLeft(_ viewController: SpotlightViewController) {
+        stepIndex += 1
+        next(true)
     }
 
     func spotlightViewControllerWillDismiss(_ viewController: SpotlightViewController, animated: Bool) {
