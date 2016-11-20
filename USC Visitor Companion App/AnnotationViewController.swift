@@ -8,7 +8,7 @@
 //
 
 import UIKit
-import Gecco
+//import Gecco
 
 class AnnotationViewController: SpotlightViewController {
     
@@ -86,6 +86,20 @@ extension AnnotationViewController: SpotlightViewControllerDelegate {
             stepIndex += 1
             next(true)
         } else {
+            stepIndex -= 1
+            if stepIndex < 0 {
+                stepIndex = 0
+            }
+            next(true)
+        }
+    }
+    
+    func spotLightViewControllerSwiped(_ viewController: SpotlightViewController, direction: UISwipeGestureRecognizerDirection) {
+        
+        if direction == UISwipeGestureRecognizerDirection.left {
+            stepIndex += 1
+            next(true)
+        } else if direction == UISwipeGestureRecognizerDirection.right {
             stepIndex -= 1
             if stepIndex < 0 {
                 stepIndex = 0
