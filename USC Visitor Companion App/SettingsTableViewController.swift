@@ -15,12 +15,12 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = self.tableView.cellForRow(at: indexPath)
         
-        if selectedCell?.textLabel?.text == "Edit Profile" {
-            self.showEditProfile()
-        } else if selectedCell?.textLabel?.text == "Connect with Facebook" {
-            self.showConnectWithFacebook()
+        if selectedCell?.textLabel?.text == "Login or Register" {
+            self.showLoginRegister()
         } else if selectedCell?.textLabel?.text == "Logout" {
             self.showLogout()
+        } else if selectedCell?.textLabel?.text == "Start Tutorial" {
+
         }
         
         self.tableView.deselectRow(at: indexPath, animated: true)
@@ -34,11 +34,11 @@ class SettingsTableViewController: UITableViewController {
     
     
     // MARK: General Methods
-    func showEditProfile() {
+    func showLoginRegister() {
         if User.current.exists {
-            self.performSegue(withIdentifier: "Show Edit Profile", sender: nil)
+            self.showAlert(withTitle: "Error", message: "You're already logged in")
         } else {
-            self.showAlert(withTitle: "Error", message: "You are not logged in with an account")
+            self.performSegue(withIdentifier: "Show Login", sender: nil)
         }
     }
     
@@ -47,15 +47,7 @@ class SettingsTableViewController: UITableViewController {
             User.logout()
             self.showAlert(withTitle: "Logout", message: "You have successfully logged out")
         } else {
-            self.showAlert(withTitle: "Error", message: "You are not logged in with an account")
-        }
-    }
-    
-    func showConnectWithFacebook() {
-        if User.current.exists {
-            // connect account with Facebook ----------------------------------------------------------------------------
-        } else {
-            self.showAlert(withTitle: "Error", message: "You are not logged in with an account")
+            self.showAlert(withTitle: "Error", message: "You're not logged in")
         }
     }
     
