@@ -124,6 +124,16 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = self.tableView.cellForRow(at: indexPath)
+        
+        if cell?.reuseIdentifier == "photosCellView" {
+            
+            
+            
+            
+        }
+    }
     //NAVIGATION BAR ITEMS CODE
     
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
