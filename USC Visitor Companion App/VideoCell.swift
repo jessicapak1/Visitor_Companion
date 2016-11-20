@@ -16,16 +16,26 @@ class VideoCell: UITableViewCell {
 
     @IBOutlet weak var webView: UIWebView!
     
+    var youtubeUrl = "https://www.youtube.com/embed/ZHLPtUN9ooA"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let youtubeUrl = "https://www.youtube.com/embed/dEWEwpJCHc0"
+        
         
         myBlurView.layer.cornerRadius = 15
         myBlurView.layer.masksToBounds = true
         myBackgroundView.layer.cornerRadius = 15
         myBackgroundView.layer.masksToBounds = true
 
+       selectVideo(withUrl: youtubeUrl)
+    }
+    
+    
+    // ONLY FOR YOUTUBE LINKS please
+    func selectVideo(withUrl ytURL: String)
+    {
+        self.youtubeUrl = ytURL
         let webString = "<iframe id=\"player\" type=\"text/html\" width=\"\(self.webView.frame.width-15)\" height=\"\(self.webView.frame.height-15)\" src=\"\(youtubeUrl)?wmode=opaque&amp;rel=0&amp;autohide=1&amp;showinfo=0&amp;wmode=transparent\" frameborder=\"0\" scrolling=\"no\"></iframe>"
         self.webView.loadHTMLString(webString, baseURL: nil)
         self.webView.scrollView.isScrollEnabled = false
