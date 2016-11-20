@@ -92,7 +92,7 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
                 print(UIApplication.shared.backgroundTimeRemaining)
                 
                 
-                for var i in (0..<self.photos.count) {
+                for i in (0..<self.photos.count) {
                     let imageData : Data = try! Data(contentsOf: self.photos[i].photoUrl as URL)
                     let image = UIImage(data: imageData)
                     self.images.append(image!)
@@ -101,7 +101,7 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
                         break;
                     }
                     
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.sync {
                         let indexpath = IndexPath(row: i, section: 0)
                         self.collectionView.insertItems(at: [indexpath])
                     }

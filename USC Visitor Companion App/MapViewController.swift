@@ -123,21 +123,21 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     
     @IBOutlet weak var campusLocationButton: ShadowButton! {
         didSet {
-            self.campusLocationButton.layer.cornerRadius = 6.0
+            self.campusLocationButton.layer.cornerRadius = 5.0
             self.campusLocationButton.addShadow()
         }
     }
     
     @IBOutlet weak var currentLocationButton: ShadowButton! {
         didSet {
-            self.currentLocationButton.layer.cornerRadius = 6.0
+            self.currentLocationButton.layer.cornerRadius = 5.0
             self.currentLocationButton.addShadow()
         }
     }
     
     @IBOutlet weak var dimensionButton: ShadowButton! {
         didSet {
-            self.dimensionButton.layer.cornerRadius = 6.0
+            self.dimensionButton.layer.cornerRadius = 5.0
             self.dimensionButton.addShadow()
         }
     }

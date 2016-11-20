@@ -326,9 +326,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PfO-mK-FHn">
-                                <rect key="frame" x="0.0" y="553" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="538" width="375" height="65"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="fck-sE-7Vg"/>
+                                    <constraint firstAttribute="height" constant="65" id="fck-sE-7Vg"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
@@ -742,7 +742,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="Account" footerTitle="Create an account to receive announcements and news from USC" id="5XO-t9-Nfr">
+                            <tableViewSection headerTitle="Account" footerTitle="Login or Sign Up to receive special announcements and news from USC Viterbi School of Engineering" id="5XO-t9-Nfr">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Uko-cC-Leo" style="IBUITableViewCellStyleDefault" id="cBa-Fw-4Xt">
                                         <rect key="frame" x="0.0" y="56" width="375" height="44"/>
@@ -751,7 +751,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Login or Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Uko-cC-Leo">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Login or Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Uko-cC-Leo">
                                                     <rect key="frame" x="15" y="0.0" width="325" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -858,48 +858,155 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="737" misplaced="YES" image="shieldmono-white" translatesAutoresizingMaskIntoConstraints="NO" id="cOY-go-Gq6">
-                                <rect key="frame" x="67" y="80" width="230" height="15"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kc2-b4-Xrb">
-                                <rect key="frame" x="29" y="268" width="316" height="155"/>
-                                <string key="text">Sarah Dervartanian – Computer Science/ Electrical Engineering Major    
-Edgar Lugo – Computer Science Major                  
-Jessica Pak – Computer Science Major            
-Jeffrey Vaudrin-McLean – Computer Science Major     
-Christian Villa – Computer Science Major    </string>
-                                <fontDescription key="fontDescription" name="National-Regular" family="National" pointSize="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Christian Villa," lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kc2-b4-Xrb">
+                                <rect key="frame" x="40" y="239.5" width="107" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="About information about the visitor companion applicaion. This will give a brief description on how to use the application. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCR-dn-Al3">
-                                <rect key="frame" x="29" y="148" width="316" height="89"/>
-                                <fontDescription key="fontDescription" name="National-Regular" family="National" pointSize="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCR-dn-Al3">
+                                <rect key="frame" x="40" y="32" width="295" height="119.5"/>
+                                <string key="text">Viterbi Traveler was built to help students and their families explore the USC campus and learn more about the USC Viterbi School of Engineering.</string>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed By:" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwu-jH-Hgi">
+                                <rect key="frame" x="40" y="199.5" width="295" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class of 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1U-TO-fAx">
+                                <rect key="frame" x="151" y="244.5" width="78" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B.S. Computer Science" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dyj-MH-soY">
+                                <rect key="frame" x="40" y="264" width="129" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edgar Lugo," lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tft-qL-G78">
+                                <rect key="frame" x="40" y="302.5" width="91.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class of 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRi-Ts-Bjr">
+                                <rect key="frame" x="135.5" y="307.5" width="78" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B.S. Computer Science" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdS-nh-j2C">
+                                <rect key="frame" x="40" y="327" width="129" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jeffrey Vaudrin-McLean," lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y48-wk-7xu">
+                                <rect key="frame" x="40" y="365.5" width="187" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class of 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tos-oT-3WK">
+                                <rect key="frame" x="231" y="370.5" width="78" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B.S. Computer Science" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RE7-uU-nz0">
+                                <rect key="frame" x="40" y="390" width="129" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jessica Pak," lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsf-wR-bb1">
+                                <rect key="frame" x="40" y="428.5" width="92.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class of 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8p-YK-jMN">
+                                <rect key="frame" x="136.5" y="433.5" width="78" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B.S. Computer Science" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMI-Su-v1x">
+                                <rect key="frame" x="40" y="453" width="129" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sarah Dervartanian," lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueu-J4-LNq">
+                                <rect key="frame" x="40" y="491.5" width="149.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class of 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXh-bM-7Fh">
+                                <rect key="frame" x="193.5" y="496.5" width="78" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B.S. Computer Science / Electrical Engineering" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SX4-S6-1Aa">
+                                <rect key="frame" x="40" y="516" width="261" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="kc2-b4-Xrb" secondAttribute="trailing" constant="14" id="3YI-0Y-66l"/>
-                            <constraint firstItem="kc2-b4-Xrb" firstAttribute="leading" secondItem="50n-tv-P5c" secondAttribute="leadingMargin" constant="13" id="5iD-mM-eab"/>
-                            <constraint firstItem="cOY-go-Gq6" firstAttribute="top" secondItem="q9w-ph-Cpb" secondAttribute="bottom" constant="80" id="6Y8-bv-Djh"/>
-                            <constraint firstItem="XCR-dn-Al3" firstAttribute="top" secondItem="cOY-go-Gq6" secondAttribute="bottom" constant="53" id="72s-JA-X78"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cOY-go-Gq6" secondAttribute="trailing" constant="62" id="TVO-EO-dvP"/>
-                            <constraint firstItem="XCR-dn-Al3" firstAttribute="leading" secondItem="50n-tv-P5c" secondAttribute="leadingMargin" constant="13" id="WBv-9w-F9z"/>
-                            <constraint firstItem="h0U-Ed-e7L" firstAttribute="top" secondItem="kc2-b4-Xrb" secondAttribute="bottom" constant="136" id="Xsc-Iy-Alo"/>
-                            <constraint firstItem="XCR-dn-Al3" firstAttribute="top" secondItem="cOY-go-Gq6" secondAttribute="bottom" constant="53" id="bai-wN-K84"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XCR-dn-Al3" secondAttribute="trailing" constant="14" id="cgn-Ac-KAR"/>
-                            <constraint firstItem="kc2-b4-Xrb" firstAttribute="top" secondItem="XCR-dn-Al3" secondAttribute="bottom" constant="31" id="mBv-FA-bK6"/>
-                            <constraint firstItem="kc2-b4-Xrb" firstAttribute="top" secondItem="XCR-dn-Al3" secondAttribute="bottom" constant="31" id="p7r-gu-XDO"/>
-                            <constraint firstItem="cOY-go-Gq6" firstAttribute="leading" secondItem="50n-tv-P5c" secondAttribute="leadingMargin" constant="51" id="vhz-hd-5Oq"/>
+                            <constraint firstItem="mdS-nh-j2C" firstAttribute="top" secondItem="tft-qL-G78" secondAttribute="bottom" constant="4" id="5Hb-05-o8N"/>
+                            <constraint firstItem="XCR-dn-Al3" firstAttribute="top" secondItem="q9w-ph-Cpb" secondAttribute="bottom" constant="32" id="5He-6t-Cdj"/>
+                            <constraint firstItem="ueu-J4-LNq" firstAttribute="leading" secondItem="50n-tv-P5c" secondAttribute="leadingMargin" constant="24" id="5P0-eY-rZ6"/>
+                            <constraint firstItem="hXh-bM-7Fh" firstAttribute="leading" secondItem="ueu-J4-LNq" secondAttribute="trailing" constant="4" id="6Bs-pT-oAK"/>
+                            <constraint firstItem="Rsf-wR-bb1" firstAttribute="leading" secondItem="50n-tv-P5c" secondAttribute="leadingMargin" constant="24" id="9nW-TD-hkB"/>
+                            <constraint firstItem="tft-qL-G78" firstAttribute="top" secondItem="Dyj-MH-soY" secondAttribute="bottom" constant="24" id="A6n-Ls-FS6"/>
+                            <constraint firstItem="XCR-dn-Al3" firstAttribute="leading" secondItem="50n-tv-P5c" secondAttribute="leadingMargin" constant="24" id="A7S-ms-RGi"/>
+                            <constraint firstItem="RE7-uU-nz0" firstAttribute="top" secondItem="Y48-wk-7xu" secondAttribute="bottom" constant="4" id="AJ2-2U-Xqg"/>
+                            <constraint firstItem="Dyj-MH-soY" firstAttribute="leading" secondItem="kc2-b4-Xrb" secondAttribute="leading" id="CIl-zW-H6N"/>
+                            <constraint firstItem="RE7-uU-nz0" firstAttribute="leading" secondItem="Y48-wk-7xu" secondAttribute="leading" id="KA0-j0-8AT"/>
+                            <constraint firstItem="tos-oT-3WK" firstAttribute="leading" secondItem="Y48-wk-7xu" secondAttribute="trailing" constant="4" id="MwT-qI-IUe"/>
+                            <constraint firstItem="kc2-b4-Xrb" firstAttribute="leading" secondItem="50n-tv-P5c" secondAttribute="leadingMargin" constant="24" id="PSe-H1-AfA"/>
+                            <constraint firstItem="Dyj-MH-soY" firstAttribute="top" secondItem="kc2-b4-Xrb" secondAttribute="bottom" constant="4" id="TI1-U2-tWS"/>
+                            <constraint firstItem="tft-qL-G78" firstAttribute="leading" secondItem="50n-tv-P5c" secondAttribute="leadingMargin" constant="24" id="Tsh-Fz-Dd1"/>
+                            <constraint firstItem="kc2-b4-Xrb" firstAttribute="top" secondItem="Gwu-jH-Hgi" secondAttribute="bottom" constant="24" id="Tuz-Xh-5IU"/>
+                            <constraint firstItem="tos-oT-3WK" firstAttribute="baseline" secondItem="Y48-wk-7xu" secondAttribute="baseline" id="UWG-qf-1a4"/>
+                            <constraint firstItem="Rsf-wR-bb1" firstAttribute="top" secondItem="RE7-uU-nz0" secondAttribute="bottom" constant="24" id="VZC-gz-pTQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XCR-dn-Al3" secondAttribute="trailing" constant="24" id="WJz-lJ-Oxh"/>
+                            <constraint firstItem="A1U-TO-fAx" firstAttribute="baseline" secondItem="kc2-b4-Xrb" secondAttribute="baseline" id="bbL-S8-RaE"/>
+                            <constraint firstItem="Y48-wk-7xu" firstAttribute="top" secondItem="mdS-nh-j2C" secondAttribute="bottom" constant="24" id="bmr-tz-ZaA"/>
+                            <constraint firstItem="Gwu-jH-Hgi" firstAttribute="top" secondItem="XCR-dn-Al3" secondAttribute="bottom" constant="48" id="czg-Te-J0s"/>
+                            <constraint firstItem="qRi-Ts-Bjr" firstAttribute="leading" secondItem="tft-qL-G78" secondAttribute="trailing" constant="4" id="dzZ-GI-IDm"/>
+                            <constraint firstItem="Gwu-jH-Hgi" firstAttribute="leading" secondItem="50n-tv-P5c" secondAttribute="leadingMargin" constant="24" id="fov-2e-pvX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gwu-jH-Hgi" secondAttribute="trailing" constant="24" id="gc4-eB-ilJ"/>
+                            <constraint firstItem="mdS-nh-j2C" firstAttribute="leading" secondItem="tft-qL-G78" secondAttribute="leading" id="hp8-aC-dGL"/>
+                            <constraint firstItem="SX4-S6-1Aa" firstAttribute="top" secondItem="ueu-J4-LNq" secondAttribute="bottom" constant="4" id="ifq-Or-8wX"/>
+                            <constraint firstItem="TMI-Su-v1x" firstAttribute="leading" secondItem="Rsf-wR-bb1" secondAttribute="leading" id="lAA-8e-z3d"/>
+                            <constraint firstItem="SX4-S6-1Aa" firstAttribute="leading" secondItem="ueu-J4-LNq" secondAttribute="leading" id="ltD-vP-065"/>
+                            <constraint firstItem="I8p-YK-jMN" firstAttribute="leading" secondItem="Rsf-wR-bb1" secondAttribute="trailing" constant="4" id="mc7-Ae-vUq"/>
+                            <constraint firstItem="ueu-J4-LNq" firstAttribute="top" secondItem="TMI-Su-v1x" secondAttribute="bottom" constant="24" id="pBd-yM-ihq"/>
+                            <constraint firstItem="hXh-bM-7Fh" firstAttribute="baseline" secondItem="ueu-J4-LNq" secondAttribute="baseline" id="pf3-5G-r6A"/>
+                            <constraint firstItem="TMI-Su-v1x" firstAttribute="top" secondItem="Rsf-wR-bb1" secondAttribute="bottom" constant="4" id="prm-Re-XoI"/>
+                            <constraint firstItem="I8p-YK-jMN" firstAttribute="baseline" secondItem="Rsf-wR-bb1" secondAttribute="baseline" id="wV2-YB-ubn"/>
+                            <constraint firstItem="qRi-Ts-Bjr" firstAttribute="baseline" secondItem="tft-qL-G78" secondAttribute="baseline" id="xj2-pP-Hv1"/>
+                            <constraint firstItem="Y48-wk-7xu" firstAttribute="leading" secondItem="50n-tv-P5c" secondAttribute="leadingMargin" constant="24" id="ylo-6S-yg3"/>
+                            <constraint firstItem="A1U-TO-fAx" firstAttribute="leading" secondItem="kc2-b4-Xrb" secondAttribute="trailing" constant="4" id="z12-sc-fLH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About" id="vTb-pL-P5l"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndo-79-sQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3170" y="1142"/>
+            <point key="canvasLocation" x="-3167" y="342"/>
         </scene>
         <!--Location Table View Controller-->
         <scene sceneID="re0-ll-70h">
@@ -1143,7 +1250,7 @@ Christian Villa – Computer Science Major    </string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-8G-QNj">
-                                                    <rect key="frame" x="-12.5" y="0.0" width="378" height="149"/>
+                                                    <rect key="frame" x="-13" y="0.0" width="378" height="149"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 </pickerView>
                                             </subviews>
@@ -1790,6 +1897,5 @@ Christian Villa – Computer Science Major    </string>
         <image name="CurrentLocationInactive" width="21" height="21"/>
         <image name="Gear" width="22" height="22"/>
         <image name="fadeBlackBar" width="375" height="30"/>
-        <image name="shieldmono-white" width="300" height="100"/>
     </resources>
 </document>
