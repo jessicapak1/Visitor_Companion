@@ -11,4 +11,5 @@ import UIKit
 class PhotosCollectionCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var scalableImageView: UIImageViewModeScaleAspect!
 }

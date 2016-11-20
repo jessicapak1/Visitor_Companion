@@ -18,6 +18,7 @@
 		4E7B7B711DE119F3004C9FFE /* SpotlightTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B7B6D1DE119F3004C9FFE /* SpotlightTransitionController.swift */; };
 		4E7B7B721DE119F3004C9FFE /* SpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B7B6E1DE119F3004C9FFE /* SpotlightView.swift */; };
 		4E7B7B731DE119F3004C9FFE /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B7B6F1DE119F3004C9FFE /* SpotlightViewController.swift */; };
+		4EA02EDC1DE198ED00592E5B /* UIImageViewModeScaleAspect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA02EDB1DE198ED00592E5B /* UIImageViewModeScaleAspect.swift */; };
 		4EA0B4211DD65D9F008EBD7F /* TitleCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0B4201DD65D9F008EBD7F /* TitleCellView.xib */; };
 		4EA0B4231DD65DF6008EBD7F /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA0B4221DD65DF6008EBD7F /* TitleCell.swift */; };
 		4EA0B4251DD66469008EBD7F /* VideoCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0B4241DD66469008EBD7F /* VideoCellView.xib */; };
@@ -106,6 +107,7 @@
 		4E7B7B6D1DE119F3004C9FFE /* SpotlightTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightTransitionController.swift; sourceTree = "<group>"; };
 		4E7B7B6E1DE119F3004C9FFE /* SpotlightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightView.swift; sourceTree = "<group>"; };
 		4E7B7B6F1DE119F3004C9FFE /* SpotlightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightViewController.swift; sourceTree = "<group>"; };
+		4EA02EDB1DE198ED00592E5B /* UIImageViewModeScaleAspect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewModeScaleAspect.swift; sourceTree = "<group>"; };
 		4EA0B4201DD65D9F008EBD7F /* TitleCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCellView.xib; sourceTree = "<group>"; };
 		4EA0B4221DD65DF6008EBD7F /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 		4EA0B4241DD66469008EBD7F /* VideoCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCellView.xib; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 				4EE470D31DD9806F00AFA6B1 /* PhotosCell.swift */,
 				AAD38B8E1D971648004DD648 /* Assets.xcassets */,
 				4EC09F841DDB9AE800993584 /* PhotosCollectionCell.swift */,
+				4EA02EDB1DE198ED00592E5B /* UIImageViewModeScaleAspect.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -784,6 +787,7 @@
 				AA3B8A041DBF29BF0013580E /* MenuInterestTableViewCell.swift in Sources */,
 				AA7249DE1DA488B8009AED20 /* ResultFoundTableViewCell.swift in Sources */,
 				304290C51DA2074A00354AF9 /* InterestsData.swift in Sources */,
+				4EA02EDC1DE198ED00592E5B /* UIImageViewModeScaleAspect.swift in Sources */,
 				75EABC4E1D98BA1E0075E75E /* SignUpViewController.swift in Sources */,
 				75EABC491D98BA1E0075E75E /* AboutViewController.swift in Sources */,
 				AA15CE361DA635B80025CBAA /* NoResultsFoundTableViewCell.swift in Sources */,
