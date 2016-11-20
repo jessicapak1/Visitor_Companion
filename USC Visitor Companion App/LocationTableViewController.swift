@@ -47,17 +47,24 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
 
         current = LocationData.shared.getLocation(withName: name)
         
-        DispatchQueue.global().async {
-            self.imageView.image = self.current?.image
-            if (self.imageView.image == nil) {
-                self.imageView.image = UIImage(named: "tommy_trojan_2")
-                print("Error: did not find image in database, loading default (LocationTableViewController)")
-            }
-            DispatchQueue.main.async {
-                self.tableView.setNeedsDisplay()
-            }
-        }
+//        DispatchQueue.global().async {
         
+//        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async {
+//            self.imageView.image = self.current?.image
+//            if (self.imageView.image == nil) {
+//                self.imageView.image = UIImage(named: "tommy_trojan_2")
+//                print("Error: did not find image in database, loading default (LocationTableViewController)")
+//            }
+//            DispatchQueue.main.sync {
+//                self.tableView.setNeedsDisplay()
+//            }
+//        }
+        
+        current?.getImage(callback: {
+            (image) in
+            self.imageView.image = image
+        })
+    
         if let videos = current?.video {
             for video in videos {
                 if video.lowercased().contains("youtube") {
@@ -80,7 +87,7 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.imageView.image = UIImage(named: "tommy_trojan_2")
+//        self.imageView.image = UIImage(named: "tommy_trojan_2")
     }
     
     /////////////  TABLE VIEW CODE  \\\\\\\\\\\\\\
