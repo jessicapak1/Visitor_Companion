@@ -203,5 +203,27 @@ class LocationData: NSObject {
         }
         return nil
     }
+    
+    // change geo location of Location with name
+    func changeLocationImage(forLocationName name: String, withImage image: UIImage) -> () {
+        if let locationOb = self.namesToLocations[name] {
+            locationOb.changeImage(newImage: image)
+        }
+    }
+    
+    // add these video links to Location wtih name
+    func addVideoLinks(forLocationName name: String, withLinks links: [String]) -> () {
+        if let locationOb = self.namesToLocations[name] {
+            locationOb.addVideoLinks(newLinks: links)
+        }
+    }
+    
+    func deleteVideoLinks(forLocationName name: String, withLinks links: [String]) -> () {
+        if let locationOb = self.namesToLocations[name] {
+            locationOb.deleteVideoLinks(links: links)
+        }
+    }
+
+    
 
 }
