@@ -44,18 +44,18 @@
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dcw-gV-0jA">
-                                <rect key="frame" x="0.0" y="44" width="187.5" height="559"/>
+                                <rect key="frame" x="0.0" y="44" width="188" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Filter Cell" textLabel="z32-zS-Fnb" style="IBUITableViewCellStyleDefault" id="4hc-79-xIy">
-                                        <rect key="frame" x="0.0" y="28" width="187.5" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="188" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4hc-79-xIy" id="jDC-dS-hyI">
-                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="188" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z32-zS-Fnb">
-                                                    <rect key="frame" x="15" y="0.0" width="157.5" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="158" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -69,7 +69,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXd-A3-U9J">
-                                <rect key="frame" x="187.5" y="44" width="187.5" height="559"/>
+                                <rect key="frame" x="188" y="44" width="187" height="559"/>
                                 <connections>
                                     <action selector="sideFilterButtonPressed" destination="poS-Zl-lNF" eventType="touchUpInside" id="KMf-ep-ff3"/>
                                 </connections>
@@ -102,7 +102,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9y-xd-oi6" customClass="ShadowButton" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
-                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="44"/>
+                                <rect key="frame" x="188" y="0.0" width="187" height="44"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="hl4-0y-cnX"/>
@@ -131,7 +131,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btO-Xg-bPH">
-                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="188" height="44"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Filter">
@@ -1042,7 +1042,7 @@ Christian Villa – Computer Science Major    </string>
         <scene sceneID="seM-1t-oHs">
             <objects>
                 <navigationController storyboardIdentifier="interests" id="EQN-An-L1s" userLabel="Interests Navigation Controller" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jbP-BK-rHc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jbP-BK-rHc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1322,7 +1322,7 @@ Christian Villa – Computer Science Major    </string>
         <scene sceneID="iUw-MA-aq8">
             <objects>
                 <navigationController storyboardIdentifier="admin_one" id="RYa-VT-6M0" userLabel="Admin Add Loc Navigation Controller" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Dq1-DT-6Qm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dq1-DT-6Qm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1339,7 +1339,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController storyboardIdentifier="settings" automaticallyAdjustsScrollViewInsets="NO" id="dDA-Be-9Lo" userLabel="App Preferences Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Lvw-hL-Jzu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Lvw-hL-Jzu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1362,7 +1362,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController storyboardIdentifier="admin" automaticallyAdjustsScrollViewInsets="NO" id="Ked-3e-tgT" userLabel="Admin Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="E9I-I5-QiM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E9I-I5-QiM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1380,7 +1380,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nft-j1-Vc1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="3Z1-Di-7Ym">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3Z1-Di-7Ym">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1400,7 +1400,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nEF-nh-8vb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="W93-Lh-BAu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W93-Lh-BAu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1422,7 +1422,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rNq-dJ-y7J" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="mZE-I5-maL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="mZE-I5-maL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1445,7 +1445,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2yC-WM-zcX" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="2oB-Wg-CgT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2oB-Wg-CgT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1598,7 +1598,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hMr-LJ-jJA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Hp8-PO-2rw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Hp8-PO-2rw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1629,7 +1629,7 @@ Christian Villa – Computer Science Major    </string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Viterbi Traveler. Swipe left to begin this tutorial." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xge-QH-Sbc" userLabel="tutorialWelcomeLabel">
-                                <rect key="frame" x="70" y="149" width="236" height="369"/>
+                                <rect key="frame" x="70" y="149" width="235" height="369"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <color key="textColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1686,13 +1686,16 @@ Christian Villa – Computer Science Major    </string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Viterbi Traveller" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eie-rk-bSQ" userLabel="WelcomeLabel">
-                                <rect key="frame" x="77" y="270" width="222" height="127"/>
+                                <rect key="frame" x="77" y="270" width="221" height="127"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="44"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="9" translatesAutoresizingMaskIntoConstraints="NO" id="0mQ-fo-04U">
+                                <rect key="frame" x="70" y="630" width="235" height="37"/>
+                            </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThK-vs-bu6" userLabel="skipButton">
-                                <rect key="frame" x="165" y="596" width="46" height="30"/>
+                                <rect key="frame" x="164" y="600" width="46" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Z9z-xY-wBE"/>
                                     <constraint firstAttribute="width" constant="46" id="t0h-Dj-RHj"/>
@@ -1705,15 +1708,12 @@ Christian Villa – Computer Science Major    </string>
                                     <action selector="skipButtonPressed:" destination="Jqe-Jf-ell" eventType="touchUpInside" id="9RO-gT-x4U"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="9" translatesAutoresizingMaskIntoConstraints="NO" id="0mQ-fo-04U">
-                                <rect key="frame" x="70" y="630" width="236" height="37"/>
-                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dBA-EX-g6e" firstAttribute="top" secondItem="uQ7-3b-mTR" secondAttribute="bottom" constant="111" id="09G-2r-JkY"/>
                             <constraint firstItem="dBA-EX-g6e" firstAttribute="leading" secondItem="xjl-xl-Y2i" secondAttribute="leading" id="0g5-dm-D2I"/>
-                            <constraint firstItem="ThK-vs-bu6" firstAttribute="top" secondItem="FMq-aJ-jgg" secondAttribute="bottom" constant="27" id="3U9-d1-rGW"/>
+                            <constraint firstItem="ThK-vs-bu6" firstAttribute="top" secondItem="FMq-aJ-jgg" secondAttribute="bottom" constant="31" id="3U9-d1-rGW"/>
                             <constraint firstItem="KuC-Lo-X9d" firstAttribute="trailing" secondItem="FMq-aJ-jgg" secondAttribute="trailing" id="4N9-Ps-QpV"/>
                             <constraint firstItem="KuC-Lo-X9d" firstAttribute="leading" secondItem="xjl-xl-Y2i" secondAttribute="leading" id="4iF-BG-Phd"/>
                             <constraint firstItem="Il3-4k-hts" firstAttribute="trailing" secondItem="kxQ-Hv-BJl" secondAttribute="trailingMargin" id="8Ef-xp-uFU"/>
@@ -1726,7 +1726,7 @@ Christian Villa – Computer Science Major    </string>
                             <constraint firstItem="m1L-gJ-KZp" firstAttribute="trailing" secondItem="xjl-xl-Y2i" secondAttribute="trailing" id="LoA-Qh-6Z6"/>
                             <constraint firstItem="Il3-4k-hts" firstAttribute="trailing" secondItem="m1L-gJ-KZp" secondAttribute="trailing" id="MI1-iK-cSe"/>
                             <constraint firstItem="xjl-xl-Y2i" firstAttribute="leading" secondItem="goG-WO-y52" secondAttribute="leading" id="RXZ-Rj-vMc"/>
-                            <constraint firstItem="ThK-vs-bu6" firstAttribute="top" secondItem="xge-QH-Sbc" secondAttribute="bottom" constant="78" id="Tr8-WC-dcW"/>
+                            <constraint firstItem="ThK-vs-bu6" firstAttribute="top" secondItem="xge-QH-Sbc" secondAttribute="bottom" constant="82" id="Tr8-WC-dcW"/>
                             <constraint firstItem="m1L-gJ-KZp" firstAttribute="leading" secondItem="dBA-EX-g6e" secondAttribute="leading" id="UDl-2u-wSl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="goG-WO-y52" secondAttribute="trailing" constant="78" id="VjQ-fW-IaB"/>
                             <constraint firstItem="goG-WO-y52" firstAttribute="baseline" secondItem="FMq-aJ-jgg" secondAttribute="baseline" id="XDZ-mn-FRr"/>
@@ -1772,7 +1772,7 @@ Christian Villa – Computer Science Major    </string>
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qBp-wI-L9i" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ty4-no-WQ5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ty4-no-WQ5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -21,11 +21,6 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="REV-ft-fK8">
                         <rect key="frame" x="0.0" y="0.0" width="88" height="88"/>
                     </imageView>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g7G-Xe-R0e" customClass="UIImageViewModeScaleAspect" customModule="USC_Visitor_Companion_App" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="88" height="88"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
                 </subviews>
             </view>
             <constraints>
@@ -36,7 +31,6 @@
             </constraints>
             <connections>
                 <outlet property="imageView" destination="REV-ft-fK8" id="ozK-iZ-Fms"/>
-                <outlet property="scalableImageView" destination="g7G-Xe-R0e" id="iR8-Bh-EiE"/>
             </connections>
             <point key="canvasLocation" x="-14" y="36"/>
         </collectionViewCell>

@@ -62,15 +62,8 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
             return cell
         }
 
-        cell.scalableImageView = UIImageViewModeScaleAspect(frame: CGRect(x: 0, y: 0, width: cell.frame.size.width, height: cell.frame.size.height))
-        cell.scalableImageView.contentMode = .scaleAspectFill // Add the first contentMode
-        cell.scalableImageView.image = images[indexPath.row]
+        cell.imageView.image = self.images[indexPath.row]
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //let cell = collectionView.cellForItem(at: indexPath) as! PhotosCollectionCell
-        
     }
     
     func populatePhotosArray(locationName: String) {
