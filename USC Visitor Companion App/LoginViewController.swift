@@ -10,8 +10,8 @@ import UIKit
 import Parse
 import FacebookLogin
 
+
 class LoginViewController: UIViewController {
-    
     // MARK: IBOutlets
     @IBOutlet weak var usernameTextField: UITextField!
     
