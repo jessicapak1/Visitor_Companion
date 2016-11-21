@@ -45,12 +45,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>This app needs location services to work. </string>
 	<key>NSLocationUsageDescription</key>
-	<string>This app needs location services to work. </string>
+	<string>Viterbi Traveler needs access to your location to help you use the map.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app needs location serviecs to work. </string>
+	<string>Viterbi Traveler needs access to your location to help you use the map.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need access to your photos to let you upload them.</string>
 	<key>UIAppFonts</key>
