@@ -14,10 +14,6 @@
 		30D289A51DC00925003D578C /* InfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30D289A41DC00925003D578C /* InfoWindow.xib */; };
 		30D289A71DC00974003D578C /* InfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D289A61DC00974003D578C /* InfoWindow.swift */; };
 		4B1C25F0B5A8148675F75AA0 /* Pods_USC_Visitor_Companion_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */; };
-		4E7B7B701DE119F3004C9FFE /* Spotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B7B6C1DE119F3004C9FFE /* Spotlight.swift */; };
-		4E7B7B711DE119F3004C9FFE /* SpotlightTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B7B6D1DE119F3004C9FFE /* SpotlightTransitionController.swift */; };
-		4E7B7B721DE119F3004C9FFE /* SpotlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B7B6E1DE119F3004C9FFE /* SpotlightView.swift */; };
-		4E7B7B731DE119F3004C9FFE /* SpotlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7B7B6F1DE119F3004C9FFE /* SpotlightViewController.swift */; };
 		4EA0B4211DD65D9F008EBD7F /* TitleCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0B4201DD65D9F008EBD7F /* TitleCellView.xib */; };
 		4EA0B4231DD65DF6008EBD7F /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA0B4221DD65DF6008EBD7F /* TitleCell.swift */; };
 		4EA0B4251DD66469008EBD7F /* VideoCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EA0B4241DD66469008EBD7F /* VideoCellView.xib */; };
@@ -102,10 +98,6 @@
 		30D289A41DC00925003D578C /* InfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoWindow.xib; sourceTree = "<group>"; };
 		30D289A61DC00974003D578C /* InfoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoWindow.swift; sourceTree = "<group>"; };
 		44B248B9DF83E66AD7432890 /* Pods_USC_Visitor_Companion_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_USC_Visitor_Companion_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E7B7B6C1DE119F3004C9FFE /* Spotlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spotlight.swift; sourceTree = "<group>"; };
-		4E7B7B6D1DE119F3004C9FFE /* SpotlightTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightTransitionController.swift; sourceTree = "<group>"; };
-		4E7B7B6E1DE119F3004C9FFE /* SpotlightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightView.swift; sourceTree = "<group>"; };
-		4E7B7B6F1DE119F3004C9FFE /* SpotlightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotlightViewController.swift; sourceTree = "<group>"; };
 		4EA0B4201DD65D9F008EBD7F /* TitleCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCellView.xib; sourceTree = "<group>"; };
 		4EA0B4221DD65DF6008EBD7F /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 		4EA0B4241DD66469008EBD7F /* VideoCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCellView.xib; sourceTree = "<group>"; };
@@ -210,17 +202,6 @@
 				F76203F56CA56F4183C9D94C /* Pods_USC_Visitor_Companion_AppUITests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4E7B7B6B1DE119DE004C9FFE /* Gecco_Tutorial */ = {
-			isa = PBXGroup;
-			children = (
-				4E7B7B6C1DE119F3004C9FFE /* Spotlight.swift */,
-				4E7B7B6D1DE119F3004C9FFE /* SpotlightTransitionController.swift */,
-				4E7B7B6E1DE119F3004C9FFE /* SpotlightView.swift */,
-				4E7B7B6F1DE119F3004C9FFE /* SpotlightViewController.swift */,
-			);
-			name = Gecco_Tutorial;
 			sourceTree = "<group>";
 		};
 		4EE470D51DD993AC00AFA6B1 /* Tutorial */ = {
@@ -410,7 +391,6 @@
 		AAD38BBD1D972E26004DD648 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4E7B7B6B1DE119DE004C9FFE /* Gecco_Tutorial */,
 				AAEBF4881DBD96A2004EC6DD /* USC Visitor Companion App.entitlements */,
 				AAD38B841D971648004DD648 /* AppDelegate.swift */,
 				AAD38B931D971648004DD648 /* Info.plist */,
@@ -762,10 +742,8 @@
 				AA7E0F321D98D298005C9786 /* User.swift in Sources */,
 				4EE470D41DD9806F00AFA6B1 /* PhotosCell.swift in Sources */,
 				AAD38B851D971648004DD648 /* AppDelegate.swift in Sources */,
-				4E7B7B711DE119F3004C9FFE /* SpotlightTransitionController.swift in Sources */,
 				4ED64E711DAAC0460053F2D4 /* AdminSegmentedViewControoler.swift in Sources */,
 				AACDE29D1DCACCBE00C9C625 /* InterestsCell.swift in Sources */,
-				4E7B7B731DE119F3004C9FFE /* SpotlightViewController.swift in Sources */,
 				75EABC4C1D98BA1E0075E75E /* InterestsViewController.swift in Sources */,
 				AAE5237D1DD115E000EBC7F3 /* EditProfileViewController.swift in Sources */,
 				AACDE2991DCACBAD00C9C625 /* LocationTableViewController.swift in Sources */,
@@ -778,7 +756,6 @@
 				4EE470D71DD9941F00AFA6B1 /* AnnotationViewController.swift in Sources */,
 				AA06C9071DA18CCD00B753CF /* MenuViewController.swift in Sources */,
 				75CDBD0A1DA1B9B300AC0E1C /* AdminTableViewController.swift in Sources */,
-				4E7B7B701DE119F3004C9FFE /* Spotlight.swift in Sources */,
 				AA14ECCD1DCC41670086BC57 /* SignUpInfoViewController.swift in Sources */,
 				758F446C1DB2D3EC00138EB6 /* ChangePasswordTableViewController.swift in Sources */,
 				AA3B8A041DBF29BF0013580E /* MenuInterestTableViewCell.swift in Sources */,
@@ -795,7 +772,6 @@
 				755993EE1D98D5EC0090717C /* ForgotPasswordViewController.swift in Sources */,
 				75EABC471D98BA1E0075E75E /* SettingsTableViewController.swift in Sources */,
 				AA5854A41DC32CEC002D2D60 /* MenuAccountTableViewCell.swift in Sources */,
-				4E7B7B721DE119F3004C9FFE /* SpotlightView.swift in Sources */,
 				75EABC461D98BA1E0075E75E /* MapViewController.swift in Sources */,
 				30D289A71DC00974003D578C /* InfoWindow.swift in Sources */,
 				4EC09F851DDB9AE800993584 /* PhotosCollectionCell.swift in Sources */,

@@ -117,7 +117,7 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
             
             
             print("about to load images")
-            DispatchQueue.global().async {
+            DispatchQueue.global().sync {
                 var bTask : UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
                 bTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
                     UIApplication.shared.endBackgroundTask(bTask)
