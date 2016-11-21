@@ -17,6 +17,7 @@ class AdminSegmentedViewControoler: UIViewController, UITableViewDataSource, UIT
     var interests: [String] = [String]()
     var locations: [Location] = [Location]()
     var locationName : String = ""
+    var location: Location? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,8 +72,27 @@ class AdminSegmentedViewControoler: UIViewController, UITableViewDataSource, UIT
         default:
             break
         }
-        locationName = (cell.textLabel?.text!)!;
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = indexPath.row
+        //self.tableView.deselectRow(at: row, animated: true)
+        if interetsLocationsSegementedControl.selectedSegmentIndex == 1 {
+            location = locations[row]
+            locationName = (location?.name!)!
+            
+            self.performSegue(withIdentifier: "edit_location", sender: nil)
+            /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let navViewController = storyboard.instantiateViewController(withIdentifier: "admin_one") as! UINavigationController
+            
+            let adminVC = navViewController.viewControllers.first as! AdminTableViewController
+            adminVC.locationName = locationName;
+            self.present(adminVC, animated: true, completion: nil)*/
+        } else {
+            print("interest segment")
+        }
     }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -124,15 +144,12 @@ class AdminSegmentedViewControoler: UIViewController, UITableViewDataSource, UIT
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if (segue.identifier == "admin_to_adminsignle") {
-            
+        if (segue.identifier == "edit_location") {
                 //get a reference to the destination view controller
-            let destinationVC:AdminTableViewController = segue.destination as! AdminTableViewController
-            destinationVC.locationName = locationName
-       
+            let navViewController = segue.destination as! UINavigationController
+            let adminVC = navViewController.viewControllers.first as! AdminTableViewController
+            adminVC.locationName = locationName;
         }
-        
-
     }
  
 

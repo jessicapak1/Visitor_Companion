@@ -38,13 +38,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: View Controller Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        if User.current.type == .admin {
-            self.adminButton.title = "Admin"
-            self.adminButton.isEnabled = true
-        } else {
-            self.adminButton.title = ""
-            self.adminButton.isEnabled = false
-        }
+  
     }
     
     
@@ -143,6 +137,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func signUpButtonPressed() {
         self.performSegue(withIdentifier: "Show Sign Up", sender: nil)
+        
     }
     
     

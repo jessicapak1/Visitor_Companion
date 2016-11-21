@@ -11,7 +11,7 @@ import CoreData
 import CoreLocation
 
 
-class AdminTableViewController: UITableViewController,  InterestsViewDelegates, MapViewDelegates, UIPickerViewDelegate, UIPickerViewDataSource {
+class AdminTableViewController: UITableViewController,  InterestsViewDelegates, UIPickerViewDelegate, UIPickerViewDataSource {
     var mInterestsArray: [String] = [String]()
     var mInterestsForDatabase: [String] = [String]()
     var selectedLocationType: String = ""
@@ -34,6 +34,9 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
 
         locationTypePicker.dataSource = self;
         locationTypePicker.delegate = self;
+        
+        print("location name inside admin ")
+        print(locationName)
         if let locationObject = LocationData.shared.getLocation(withName: locationName)
         {
             self.nameTextField.text = locationObject.name
@@ -88,6 +91,7 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
         }
     }
     func userDidSaveMap(newLocation: CLLocation) {
+        print("new location")
         addLocationValue = newLocation
         var locationString = "Location: "
         locationString.append((addLocationValue?.coordinate.latitude.description)!)
@@ -133,14 +137,15 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
             destinationVC.interestDelegate = self
             destinationVC.fromAdmin = true
         }
-        if (segue.identifier == "admin_to_map") {
+        /*
+        if (segue.identifier == "map_to_admin") {
             print("inside segue interests")
             //get a reference to the destination view controller
             let navigationVC = segue.destination as! UINavigationController
-            let destinationVC = navigationVC.viewControllers.first as! MapViewController
+            let destinationVC = navigationVC.viewControllers.first as! AdminMapViewController
             destinationVC.mapDelegate = self
-            destinationVC.fromAdmin = true
         }
+         */
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
