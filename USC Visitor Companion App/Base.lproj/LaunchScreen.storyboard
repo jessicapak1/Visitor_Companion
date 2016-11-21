@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UNV-Xs-6ZQ">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UNV-Xs-6ZQ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -10,19 +15,25 @@
             <objects>
                 <viewController id="UNV-Xs-6ZQ" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hRx-E3-gpH"/>
-                        <viewControllerLayoutGuide type="bottom" id="wp4-1v-EA4"/>
+                        <viewControllerLayoutGuide type="top" id="ASZ-A8-Aos"/>
+                        <viewControllerLayoutGuide type="bottom" id="abk-Qr-Yst"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nV0-FK-7io">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shieldmono" translatesAutoresizingMaskIntoConstraints="NO" id="nIj-8M-RSC"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="nIj-8M-RSC">
+                                <rect key="frame" x="138" y="293.5" width="99" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nIj-8M-RSC" secondAttribute="height" multiplier="229:186" id="dr0-2G-lOB"/>
+                                    <constraint firstAttribute="height" constant="80" id="snf-B7-hz2"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="nIj-8M-RSC" firstAttribute="centerY" secondItem="nV0-FK-7io" secondAttribute="centerY" id="W8v-XG-1U0"/>
-                            <constraint firstItem="nIj-8M-RSC" firstAttribute="centerX" secondItem="nV0-FK-7io" secondAttribute="centerX" id="b7V-56-QEq"/>
+                            <constraint firstItem="nIj-8M-RSC" firstAttribute="centerX" secondItem="nV0-FK-7io" secondAttribute="centerX" id="UdT-nC-TjE"/>
+                            <constraint firstItem="nIj-8M-RSC" firstAttribute="centerY" secondItem="nV0-FK-7io" secondAttribute="centerY" id="tdl-65-9Oh"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -32,6 +43,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="shieldmono" width="300" height="100"/>
+        <image name="LaunchScreenIcon.png" width="227" height="187"/>
     </resources>
 </document>

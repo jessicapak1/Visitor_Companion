@@ -45,7 +45,7 @@ class User: NSObject {
     
     var email: String? { willSet { User.current.update(value: newValue, forKey: UserKey.email.rawValue) } }
     
-    var filters: [String] = [String]()
+    var filters: [String] = ["All Locations"]
     
     var type: UserType = .none { willSet { User.current.update(value: newValue.rawValue, forKey: UserKey.type.rawValue) } }
     
