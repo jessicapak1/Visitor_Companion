@@ -11,7 +11,7 @@ import CoreData
 import CoreLocation
 
 
-class AdminTableViewController: UITableViewController,  InterestsViewDelegates, UIPickerViewDelegate, UIPickerViewDataSource, MapViewDelegates {
+class AdminTableViewController: UITableViewController,  InterestsViewDelegates, UIPickerViewDelegate, UIPickerViewDataSource {
     var mInterestsArray: [String] = [String]()
     var mInterestsForDatabase: [String] = [String]()
     var selectedLocationType: String = ""
@@ -137,6 +137,7 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
             destinationVC.interestDelegate = self
             destinationVC.fromAdmin = true
         }
+        /*
         if (segue.identifier == "map_to_admin") {
             print("inside segue interests")
             //get a reference to the destination view controller
@@ -144,6 +145,7 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
             let destinationVC = navigationVC.viewControllers.first as! AdminMapViewController
             destinationVC.mapDelegate = self
         }
+         */
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

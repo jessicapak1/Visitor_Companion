@@ -10,13 +10,8 @@ import UIKit
 import Parse
 import FacebookLogin
 
-protocol LoginViewDelegate {
-    func userDidLoggedIn()
-}
 
 class LoginViewController: UIViewController {
-    
-    var loginDelegate: LoginViewDelegate?
     // MARK: IBOutlets
     @IBOutlet weak var usernameTextField: UITextField!
     
@@ -46,6 +41,13 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.whiteSpinner.startAnimating()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if User.current.exists {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
 
     
     // MARK: IBAction Methods
@@ -58,9 +60,6 @@ class LoginViewController: UIViewController {
                 User.login(username: self.usernameTextField.text!, password: self.passwordTextField.text!, callback: {
                     self.checkLoginDetails()
                 })
-                if let delegate = self.loginDelegate {
-                    delegate.userDidLoggedIn()
-                }
             }
         }
     }

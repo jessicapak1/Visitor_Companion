@@ -15,7 +15,7 @@ protocol SignUpInfoViewControllerDelegate {
 class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: Properties
-    let types: [UserType] = [.prospective, .current, .parent]
+    let types: [UserType] = [.prospective, .current, .parent, .other]
     
     var typeIndex: Int = 0
     
@@ -38,14 +38,6 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
             self.typeTableView.delegate = self
             self.typeTableView.dataSource = self
             self.typeTableView.tableFooterView = UIView(frame: .zero)
-        }
-    }
-    
-    @IBOutlet weak var interestTableView: UITableView! {
-        didSet {
-            self.interestTableView.delegate = self
-            self.interestTableView.dataSource = self
-            self.interestTableView.tableFooterView = UIView(frame: .zero)
         }
     }
     
@@ -75,9 +67,7 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if tableView == self.interestTableView {
-            self.interestIndex = indexPath.row
-        } else if tableView == self.typeTableView {
+       if tableView == self.typeTableView {
             self.typeIndex = indexPath.row
         }
         
@@ -87,9 +77,7 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // MARK: UITableViewDataSource Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == self.interestTableView {
-            return self.interests.count
-        } else if tableView == self.typeTableView {
+        if tableView == self.typeTableView {
             return self.types.count
         }
         
@@ -97,12 +85,7 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == self.interestTableView {
-            let interestCell = self.interestTableView.dequeueReusableCell(withIdentifier: "Interest Cell")
-            interestCell?.textLabel?.text = self.interests[indexPath.row]
-            interestCell?.accessoryType = (indexPath.row == self.interestIndex) ? .checkmark : .none
-            return interestCell!
-        } else if tableView == self.typeTableView {
+        if tableView == self.typeTableView {
             let typeCell = self.typeTableView.dequeueReusableCell(withIdentifier: "Type Cell")
             typeCell?.textLabel?.text = self.types[indexPath.row].rawValue
             typeCell?.accessoryType = (indexPath.row == self.typeIndex) ? .checkmark : .none
@@ -132,7 +115,6 @@ class SignUpInfoViewController: UIViewController, UITableViewDelegate, UITableVi
             } else {
                 self.showSpinnerForSignUpButton()
                 User.current.name = firstName + " " + lastName
-                User.current.interest = self.interests[self.interestIndex]
                 User.current.type = self.types[self.typeIndex]
                 if let delegate = self.delegate {
                     delegate.userDidSaveInfo()
