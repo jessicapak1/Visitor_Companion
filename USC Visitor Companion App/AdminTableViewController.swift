@@ -25,10 +25,11 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
     @IBOutlet weak var interestsLabel: UILabel!
     @IBOutlet weak var locationsTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var urlTextField: UITextField!
     
     var addLocationValue: CLLocation?
     var locationName: String = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,14 +50,20 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
                     interestString = interestString + array[i] + " "
                 }
                 self.interestsLabel.text = interestString
+            //self.urlTextField.text = locationObject.video
         }
-    }
-    @IBAction func locationsButtonAction(_ sender: AnyObject) {
-    
-    }
-
-    @IBAction func interestsButtonAction(_ sender: AnyObject) {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AdminTableViewController.dismissKeyboard))
         
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     @IBAction func addButtonAction(_ sender: AnyObject) {
