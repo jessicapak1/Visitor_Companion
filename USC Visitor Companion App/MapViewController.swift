@@ -313,11 +313,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         if firstOpen {
             if let location = locations.first {
                 mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 17, bearing: 0, viewingAngle: 0)
-                
                 showUSC(userLocation: location.coordinate)
-                
             }
-            
             firstOpen = false
         }
         
@@ -325,11 +322,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
             if let userLocation = locations.last, let currentLocation = location.location {
                 if userLocation.distance(from: currentLocation) < 30 {
                     let newView = UIImageView(image: UIImage(named: location.locType!))
-                    //newView.tintColor = UIColor.blue
+                    newView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
                     self.markers[location.name!]?.iconView = newView
                 } else {
                     let oldView = UIImageView(image: UIImage(named: location.locType!))
-                    //oldView.tintColor = UIColor(red: 153.0/255.0, green: 27.0/255.0, blue: 30.0/255.0, alpha: 1.0)
                     self.markers[location.name!]?.iconView = oldView
                 }
             }
