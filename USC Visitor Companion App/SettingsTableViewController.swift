@@ -21,8 +21,8 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = self.tableView.cellForRow(at: indexPath)
         
-        if selectedCell?.textLabel?.text == "Login or Register" {
-            self.showLoginRegister()
+        if selectedCell?.textLabel?.text == "Login or Sign Up" {
+            self.showLoginSignUp()
         } else if selectedCell?.textLabel?.text == "Logout" {
             self.showLogout()
         } else if selectedCell?.textLabel?.text == "Start Tutorial" {
@@ -40,7 +40,7 @@ class SettingsTableViewController: UITableViewController {
     
     
     // MARK: General Methods
-    func showLoginRegister() {
+    func showLoginSignUp() {
         if User.current.exists {
             self.showAlert(withTitle: "Error", message: "You're already logged in")
         } else {

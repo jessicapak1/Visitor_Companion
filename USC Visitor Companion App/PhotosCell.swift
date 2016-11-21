@@ -42,35 +42,14 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        if images.count > 5 {
-//            return 2
-//        }
+
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        if section == 0 {
-//            if images.count >= 5 {
-//                return 5
-//            } else {
-//                return images.count
-//            }
-//        } else {
-//            if images.count >= 10 {
-//                return 5
-//            } else {
-//                return images.count - 5
-//            }
-//        }
         return self.images.count
     }
-    /*
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,                         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let size = CGSize(width: self.collectionView.bounds.size.width/4, height: self.collectionView.bounds.size.width/2)
-        //let size = CGSize(width: 90, height: 82)
-        return size
-    }
-    */
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
@@ -78,15 +57,12 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photosColectionViewCell", for: indexPath) as! PhotosCollectionCell
         
-        /* Change it to asynchronus background */
-        
-        //let url = URL(photos[indexPath.row].photoUrl)
         print("called form deque in collection view")
         if self.images.isEmpty {
             return cell
         }
-        //let data = try? Data(contentsOf: photos[indexPath.item].photoUrl as URL)
-        cell.imageView.image = images[indexPath.row]
+
+        cell.imageView.image = self.images[indexPath.row]
         return cell
     }
     
@@ -94,7 +70,6 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
         if self.images.count > 0 {
             return
         }
-        //DispatchQueue.main.async(execute: { () -> Void in
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         FlickrProvider.fetchPhotosForLocationName(locationName: locationName, onCompletion: { (error: NSError?, flickrPhotos: [FlickrPhoto]?) -> Void in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -103,19 +78,9 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
             } else {
                 self.photos = []
                 if (error!.code == FlickrProvider.Errors.invalidAccessErrorCode) {
-                    ///DispatchQueue.main.async(execute: { () -> Void in
-                        //self.showErrorAlert()
-                    //})
                 }
             }
-            //DispatchQueue.main.async(execute: { () -> Void in
-                // This thread was initially used to change some basic data contained within the enclosing table. Ultimately this thread is probably completely unnecessary (obviously I've just used it in order to print out the results of our query)
-                
-                print("\n")
-                print("Loaded \(self.photos.count) photos ")
-                print("\n")
-            
-            
+
             print("about to load images")
             DispatchQueue.global().sync {
                 var bTask : UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
@@ -145,20 +110,6 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
                 UIApplication.shared.endBackgroundTask(bTask)
                 bTask = UIBackgroundTaskInvalid
             }
-
-            //})
         })
-        //})
-        
-        
     }
-    
-    /*
-    private func showErrorAlert() {
-        let alertController = UIAlertController(title: "Search Error", message: "Invalid API Key", preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-        alertController.addAction(dismissAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
-     */
 }
