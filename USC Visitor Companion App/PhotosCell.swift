@@ -32,7 +32,6 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -112,4 +111,5 @@ class PhotosCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewD
             }
         })
     }
+    
 }

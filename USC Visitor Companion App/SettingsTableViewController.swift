@@ -13,9 +13,24 @@ protocol SettingsTableViewControllerDelegate {
 }
 
 class SettingsTableViewController: UITableViewController {
+    @IBOutlet weak var adminButton: UIBarButtonItem!
     
     var delegate: SettingsTableViewControllerDelegate?
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.adminButton.title = ""
+        self.adminButton.isEnabled = false
+        if User.current.exists {
+            if User.current.type == .admin {
+                self.adminButton.title = "Admin"
+                self.adminButton.isEnabled = true
+            } else {
+                self.adminButton.title = ""
+                self.adminButton.isEnabled = false
+            }
+        }
+    }
     
     // MARK: UITableViewDelegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -32,6 +47,8 @@ class SettingsTableViewController: UITableViewController {
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    @IBAction func adminButtonPressed(_ sender: Any) {
+    }
     
     // MARK: IBAction Methods
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
@@ -52,6 +69,8 @@ class SettingsTableViewController: UITableViewController {
         if User.current.exists {
             User.logout()
             self.showAlert(withTitle: "Logout", message: "You have successfully logged out")
+            self.adminButton.title = ""
+            self.adminButton.isEnabled = false
         } else {
             self.showAlert(withTitle: "Error", message: "You're not logged in")
         }
