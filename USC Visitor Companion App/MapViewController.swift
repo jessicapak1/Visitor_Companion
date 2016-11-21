@@ -148,6 +148,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
         self.addFilters()
         self.addSearch()
         self.showMap()
+        for filter in User.current.filters {
+            let locations = InterestsData.shared.interest(withName: filter)?.locations
+            self.showMarkers(forLocations: locations!)
+        }
 
         // MARK: tutorial code goes here
         let defaults = UserDefaults.standard
