@@ -28,7 +28,7 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
     
     var addLocationValue: CLLocation?
     var locationName: String = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,13 +50,18 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
                 }
                 self.interestsLabel.text = interestString
         }
-    }
-    @IBAction func locationsButtonAction(_ sender: AnyObject) {
-    
-    }
-
-    @IBAction func interestsButtonAction(_ sender: AnyObject) {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AdminTableViewController.dismissKeyboard))
         
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     @IBAction func addButtonAction(_ sender: AnyObject) {
