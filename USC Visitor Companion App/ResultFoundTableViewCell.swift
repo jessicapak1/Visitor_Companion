@@ -15,6 +15,8 @@ class ResultFoundTableViewCell: UITableViewCell {
     
     
     // MARK: IBOutlets
+    @IBOutlet weak var iconImageView: UIImageView!
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var codeLabel: UILabel!

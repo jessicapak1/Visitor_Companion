@@ -26,7 +26,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Code" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="JDo-nN-0Y6">
-                        <rect key="frame" x="165" y="11.5" width="85" height="15"/>
+                        <rect key="frame" x="165" y="12" width="85" height="15"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -37,8 +37,8 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fast-food-icon-45970" translatesAutoresizingMaskIntoConstraints="NO" id="iOc-Na-Pun">
-                        <rect key="frame" x="8" y="18.5" width="25" height="25"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iOc-Na-Pun">
+                        <rect key="frame" x="8" y="19" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="TFS-QE-70P"/>
                             <constraint firstAttribute="width" constant="25" id="VYO-cK-51F"/>
@@ -59,13 +59,11 @@
             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="codeLabel" destination="JDo-nN-0Y6" id="nsk-0H-UKn"/>
+                <outlet property="iconImageView" destination="iOc-Na-Pun" id="jKY-lm-nnk"/>
                 <outlet property="interestsLabel" destination="JRB-7P-gf7" id="WIq-dh-H7N"/>
                 <outlet property="nameLabel" destination="ude-LB-cQh" id="mkg-kg-miZ"/>
             </connections>
             <point key="canvasLocation" x="75" y="64"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="fast-food-icon-45970" width="256" height="256"/>
-    </resources>
 </document>

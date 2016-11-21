@@ -571,6 +571,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     func configureResultFoundCell(withLocation location: Location) -> UITableViewCell {
         let resultFoundID = "ResultFoundTableViewCell"
         let resultFoundCell = self.searchTableView.dequeueReusableCell(withIdentifier: resultFoundID) as! ResultFoundTableViewCell
+        resultFoundCell.iconImageView.image = UIImage(named: location.locType!) // images should be loaded at start and reused here
         resultFoundCell.nameLabel.text = location.name
         resultFoundCell.codeLabel.text = location.code
         resultFoundCell.interestsLabel.text = location.interests?.joined(separator: ", ")
