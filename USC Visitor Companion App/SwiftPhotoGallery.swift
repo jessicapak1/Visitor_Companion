@@ -146,7 +146,7 @@ public class SwiftPhotoGallery: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.clear
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         
         pageControl.currentPageIndicatorTintColor = UIColor.white
         pageControl.pageIndicatorTintColor = UIColor(white: 0.75, alpha: 0.35) //Dim Grey
@@ -191,11 +191,17 @@ public class SwiftPhotoGallery: UIViewController {
     // MARK: Gesture Handlers
     
     private func setupGestureRecognizer() {
-        
+        /*
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(singleTapAction(recognizer:)))
         singleTap.numberOfTapsRequired = 1
         singleTap.delegate = self
         imageCollectionView.addGestureRecognizer(singleTap)
+         */
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(singleTapAction(recognizer:)))
+        swipeGesture.direction = UISwipeGestureRecognizerDirection.down
+        swipeGesture.delegate = self
+        imageCollectionView.addGestureRecognizer(swipeGesture)
     }
     
     public func singleTapAction(recognizer: UITapGestureRecognizer) {
