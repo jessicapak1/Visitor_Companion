@@ -118,9 +118,9 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         // Do any additional setup after loading the view.
         let gallery = SwiftPhotoGallery(delegate: self, dataSource: self)
         
-        gallery.view.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        gallery.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        gallery.imageCollectionView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        gallery.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        gallery.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        gallery.imageCollectionView.backgroundColor = UIColor.black
         gallery.hidePageControl = true
         //gallery.pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.7)
         //gallery.currentPageIndicatorTintColor = UIColor.white

@@ -25,8 +25,7 @@ public class SwiftPhotoGalleryCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         scrollView = UIScrollView(frame: frame)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = UIColor.clear
-        imageView.backgroundColor = UIColor.clear
+        imageView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         super.init(frame: frame)
         self.contentView.backgroundColor = UIColor.clear
         var scrollViewConstraints: [NSLayoutConstraint] = []
