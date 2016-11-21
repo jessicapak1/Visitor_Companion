@@ -25,6 +25,7 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
     @IBOutlet weak var interestsLabel: UILabel!
     @IBOutlet weak var locationsTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var urlTextField: UITextField!
     
     var addLocationValue: CLLocation?
     var locationName: String = ""
@@ -49,6 +50,7 @@ class AdminTableViewController: UITableViewController,  InterestsViewDelegates, 
                     interestString = interestString + array[i] + " "
                 }
                 self.interestsLabel.text = interestString
+            //self.urlTextField.text = locationObject.video
         }
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AdminTableViewController.dismissKeyboard))
         

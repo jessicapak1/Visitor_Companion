@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nft-j1-Vc1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hvq-Ux-5Za">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1368,11 +1368,63 @@
                         <outlet property="locationLabel" destination="Qxg-Ll-fqf" id="OT9-8K-JDd"/>
                         <outlet property="locationTypePicker" destination="Adq-8G-QNj" id="o1u-4w-Mh6"/>
                         <outlet property="nameTextField" destination="czd-0b-yX0" id="aGR-mI-GG2"/>
+                        <outlet property="urlTextField" destination="eEV-a7-pJg" id="KrF-6r-JaN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9nK-x6-eMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4183.1999999999998" y="-2077.5112443778112"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="X6F-uS-W1L">
+            <objects>
+                <viewController id="Hvq-Ux-5Za" userLabel="Camera View Controller" customClass="CameraViewController" customModule="USC_Visitor_Companion_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qRl-QV-wlR"/>
+                        <viewControllerLayoutGuide type="bottom" id="4KB-Ml-l4w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D6y-39-UlS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rp6-y9-1Xh">
+                                <rect key="frame" x="287" y="28" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="Hvq-Ux-5Za" eventType="touchUpInside" id="mNC-sE-Z02"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHk-b0-GWZ">
+                                <rect key="frame" x="107" y="521" width="160" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="OPEN PHOTO LIBRARY"/>
+                                <connections>
+                                    <action selector="openPhotoLibraryAction:" destination="Hvq-Ux-5Za" eventType="touchUpInside" id="LHD-Au-mnX"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Efz-cD-ee5">
+                                <rect key="frame" x="40" y="126" width="294" height="287"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0l0-cp-Xru">
+                                <rect key="frame" x="122" y="479" width="130" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="OPEN IN CAMERA"/>
+                                <connections>
+                                    <action selector="openCameraButtonPressed:" destination="Hvq-Ux-5Za" eventType="touchUpInside" id="uF0-Ay-xu6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Efz-cD-ee5" id="5nL-PH-cIj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cCN-iG-W5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4472.8000000000002" y="-1409.1454272863568"/>
         </scene>
         <!--Admin View Controller-->
         <scene sceneID="wSR-WG-udf">
