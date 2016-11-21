@@ -15,6 +15,7 @@ enum UserType: String {
     case prospective = "Prospective Student"
     case current = "Current Student"
     case admin = "Administrator"
+    case other = "Other"
     case none = "None" // should never be stored on database
 }
 

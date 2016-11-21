@@ -11,7 +11,7 @@ import MapKit
 
 // ONLY ACCEPTS YOUTUBE LINKS, REFERENCE VideoCell.swift please
 
-class LocationTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LocationTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SwiftPhotoGalleryDelegate, SwiftPhotoGalleryDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -32,33 +32,23 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
     var closeProximity : Bool = false
     
     var identifiers: [String] = ["titleCellView", "descriptionCellView", "interestsCellView"]
+    var images : [UIImage] = []
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         //make navbar transparent
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-
+        
         current = LocationData.shared.getLocation(withName: name)
-        
-//        DispatchQueue.global().async {
-        
-//        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async {
-//            self.imageView.image = self.current?.image
-//            if (self.imageView.image == nil) {
-//                self.imageView.image = UIImage(named: "tommy_trojan_2")
-//                print("Error: did not find image in database, loading default (LocationTableViewController)")
-//            }
-//            DispatchQueue.main.sync {
-//                self.tableView.setNeedsDisplay()
-//            }
-//        }
         
         current?.getImage(callback: {
             (image) in
             self.imageView.image = image
         })
-    
+        
         if let videos = current?.video {
             for video in videos {
                 if video.lowercased().contains("youtube") {
@@ -68,11 +58,6 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
         }
         
         self.identifiers.append("photosCellView")
-        
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
     
     /////////////  TABLE VIEW CODE  \\\\\\\\\\\\\\
@@ -118,12 +103,47 @@ class LocationTableViewController: UIViewController, UITableViewDelegate, UITabl
             let cell = tableView.dequeueReusableCell(withIdentifier: "photosCellView") as! PhotosCell
             print("\n called form deque in table view")
             cell.populatePhotosArray(locationName: name)
+            cell.collectionView.delegate = self
             return cell
         }
         
         return UITableViewCell()
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //let photosCell = cell as! PhotosCell
+        
+        let cell = self.tableView.cellForRow(at: IndexPath(row: self.identifiers.count-1, section: 0)) as! PhotosCell
+        self.images = cell.images
+        // Do any additional setup after loading the view.
+        let gallery = SwiftPhotoGallery(delegate: self, dataSource: self)
+        
+        gallery.view.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        gallery.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        gallery.imageCollectionView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        gallery.hidePageControl = true
+        //gallery.pageIndicatorTintColor = UIColor.gray.withAlphaComponent(0.7)
+        //gallery.currentPageIndicatorTintColor = UIColor.white
+        
+        self.present(gallery, animated: true, completion: nil)
+    }
     
+    
+    func numberOfImagesInGallery(gallery: SwiftPhotoGallery) -> Int {
+        return self.images.count
+    }
+    
+    func imageInGallery(gallery: SwiftPhotoGallery, forIndex: Int) -> UIImage? {
+        
+        return self.images[forIndex]
+    }
+    
+    // MARK: SwiftPhotoGalleryDelegate Methods
+    
+    func galleryDidTapToClose(gallery: SwiftPhotoGallery) {
+        dismiss(animated: true, completion: nil)
+    }
+
     //NAVIGATION BAR ITEMS CODE
     
     @IBAction func closeButtonPressed(_ sender: AnyObject) {

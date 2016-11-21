@@ -10,8 +10,8 @@ import UIKit
 import Parse
 import FacebookLogin
 
+
 class LoginViewController: UIViewController {
-    
     // MARK: IBOutlets
     @IBOutlet weak var usernameTextField: UITextField!
     
@@ -40,6 +40,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.whiteSpinner.startAnimating()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if User.current.exists {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 
     

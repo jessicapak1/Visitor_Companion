@@ -8,24 +8,47 @@
 
 import UIKit
 
+protocol SettingsTableViewControllerDelegate {
+    func userDidStartTutorial()
+}
+
 class SettingsTableViewController: UITableViewController {
+    @IBOutlet weak var adminButton: UIBarButtonItem!
     
+    var delegate: SettingsTableViewControllerDelegate?
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.adminButton.title = ""
+        self.adminButton.isEnabled = false
+        if User.current.exists {
+            if User.current.type == .admin {
+                self.adminButton.title = "Admin"
+                self.adminButton.isEnabled = true
+            } else {
+                self.adminButton.title = ""
+                self.adminButton.isEnabled = false
+            }
+        }
+    }
     
     // MARK: UITableViewDelegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = self.tableView.cellForRow(at: indexPath)
         
-        if selectedCell?.textLabel?.text == "Edit Profile" {
-            self.showEditProfile()
-        } else if selectedCell?.textLabel?.text == "Connect with Facebook" {
-            self.showConnectWithFacebook()
+        if selectedCell?.textLabel?.text == "Login or Sign Up" {
+            self.showLoginSignUp()
         } else if selectedCell?.textLabel?.text == "Logout" {
             self.showLogout()
+        } else if selectedCell?.textLabel?.text == "Start Tutorial" {
+            self.showTutorial()
         }
         
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    @IBAction func adminButtonPressed(_ sender: Any) {
+    }
     
     // MARK: IBAction Methods
     @IBAction func closeButtonPressed(_ sender: AnyObject) {
@@ -34,11 +57,11 @@ class SettingsTableViewController: UITableViewController {
     
     
     // MARK: General Methods
-    func showEditProfile() {
+    func showLoginSignUp() {
         if User.current.exists {
-            self.performSegue(withIdentifier: "Show Edit Profile", sender: nil)
+            self.showAlert(withTitle: "Error", message: "You're already logged in")
         } else {
-            self.showAlert(withTitle: "Error", message: "You are not logged in with an account")
+            self.performSegue(withIdentifier: "Show Login", sender: nil)
         }
     }
     
@@ -46,17 +69,19 @@ class SettingsTableViewController: UITableViewController {
         if User.current.exists {
             User.logout()
             self.showAlert(withTitle: "Logout", message: "You have successfully logged out")
+            self.adminButton.title = ""
+            self.adminButton.isEnabled = false
         } else {
-            self.showAlert(withTitle: "Error", message: "You are not logged in with an account")
+            self.showAlert(withTitle: "Error", message: "You're not logged in")
         }
     }
     
-    func showConnectWithFacebook() {
-        if User.current.exists {
-            // connect account with Facebook ----------------------------------------------------------------------------
-        } else {
-            self.showAlert(withTitle: "Error", message: "You are not logged in with an account")
-        }
+    func showTutorial() {
+        self.dismiss(animated: true, completion: {
+            if let delegate = self.delegate {
+                delegate.userDidStartTutorial()
+            }
+        })
     }
     
     func showAlert(withTitle title: String, message: String) {
