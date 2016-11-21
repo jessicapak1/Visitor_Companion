@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "viterbi.png",
+      "filename" : "viterbi-yellow.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "viterbi-yellow@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "viterbi-yellow@3x.png",
       "scale" : "3x"
     }
   ],

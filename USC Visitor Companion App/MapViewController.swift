@@ -149,7 +149,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fromAdmin = false
-        self.navigationItem.titleView = UIImageView(image: UIImage(named: "viterbi"))
+        self.navigationItem.titleView = UIImageView(image: UIImage(named: "viterbi-yellow"))
         self.addFilters()
         self.addSearch()
         self.showMap()
