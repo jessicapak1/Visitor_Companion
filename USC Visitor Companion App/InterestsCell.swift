@@ -35,12 +35,6 @@ class InterestsCell: UITableViewCell {
     func setCurrentLocation(currentLocation: Location, isClose: Bool) {
         self.current = currentLocation
         self.closeProximity = isClose
-        
-        if isClose {
-            directionsButton.isEnabled = false
-        } else {
-            directionsButton.isEnabled = true
-        }
     }
 
     @IBAction func checkinButtonPressed(_ sender: Any) {
@@ -48,18 +42,7 @@ class InterestsCell: UITableViewCell {
     }
     
     @IBAction func directionsButtonPressed(_ sender: Any) {
-        switch closeProximity {
-
-        case true:
-            break
-            
-        case false:
-            openMapWithDirections(location: (current?.location)!, name: (current?.name!)!)
-            break
-            
-        default:
-            break
-        }
+        openMapWithDirections(location: (current?.location)!, name: (current?.name!)!)
     }
     
     @IBAction func shareButtonPressed(_ sender: Any) {
