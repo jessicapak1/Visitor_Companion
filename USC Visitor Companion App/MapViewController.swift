@@ -288,7 +288,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, UISearchBarDelega
     // MARK: CLLocationManagerDelegate Methods
     func configureLocationManager() {
         // request authorization from the user to access their location
-        self.locationManager.requestAlwaysAuthorization()
+        //self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
         
         // configure the location manager to update whenever the user moves
